@@ -813,12 +813,16 @@
       let resultToShow = 'result-apply-now'; // Default
       
       // Logic for showing different results
-      if (userSelections.credit === 'poor' || userSelections.intent === 'improve-credit') {
+      if ((userSelections.credit === 'poor' || userSelections.intent === 'improve-credit') && 
+           userSelections.budget === 'pay-for-help') {
+        // Professional credit repair for people with poor credit who want to pay for help
         resultToShow = 'result-credit-repair';
       } else if (userSelections.budget === 'diy' || userSelections.intent === 'learn-more') {
+        // DIY option for people who prefer self-service or want to learn
         resultToShow = 'result-ebook';
-      } else if ((userSelections.credit === 'excellent' || userSelections.credit === 'good') && 
-                userSelections.budget === 'pay-for-help') {
+      } else if ((userSelections.credit === 'excellent' || userSelections.credit === 'good' || userSelections.credit === 'fair') && 
+                 userSelections.budget === 'pay-for-help') {
+        // Funding application for people with good credit who want to pay for help
         resultToShow = 'result-apply-now';
       }
       
