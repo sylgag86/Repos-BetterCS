@@ -1,0 +1,72 @@
+[
+  {
+    "id": "cap-prime-001",
+    "name": "CapitalPrime",
+    "category": "Business Loans",
+    "creditMin": 680,
+    "approvalTime": "3-5 days",
+    "maxFunding": 5000000,
+    "rating": 5.0,
+    "reviews": 1245,
+    "featured": true,
+    "betterList100": true,
+    "affiliateLink": "https://capitalprime.com/apply/?ref=bcs",
+    "slug": "capitalprime"
+  },
+  {
+    "id": "lending-circle-002",
+    "name": "LendingCircle",
+    "category": "Personal Loans",
+    "creditMin": 660,
+    "approvalTime": "1-2 days",
+    "maxFunding": 40000,
+    "rating": 5.0,
+    "reviews": 982,
+    "featured": true,
+    "betterList100": true,
+    "affiliateLink": "https://lendingcircle.com/apply/?ref=bcs",
+    "slug": "lendingcircle"
+  },
+  {
+    "id": "reward-one-003",
+    "name": "RewardOne",
+    "category": "Credit Cards",
+    "creditMin": 700,
+    "approvalTime": "Instant",
+    "maxFunding": 25000,
+    "rating": 4.0,
+    "reviews": 876,
+    "featured": true,
+    "betterList100": true,
+    "affiliateLink": "https://rewardone.com/apply/?ref=bcs",
+    "slug": "rewardone"
+  },
+  {
+    "id": "fund-grow-004",
+    "name": "FundGrow",
+    "category": "Business Credit Lines",
+    "creditMin": 640,
+    "approvalTime": "24-48 hours",
+    "maxFunding": 250000,
+    "rating": 4.5,
+    "reviews": 832,
+    "featured": false,
+    "betterList100": true,
+    "affiliateLink": "https://fundgrow.com/apply/?ref=bcs",
+    "slug": "fundgrow"
+  },
+  {
+    "id": "blue-vine-005",
+    "name": "BlueVine",
+    "category": "Business Line of Credit",
+    "creditMin": 650,
+    "approvalTime": "12-24 hours",
+    "maxFunding": 250000,
+    "rating": 4.5,
+    "reviews": 945,
+    "featured": false,
+    "betterList100": true,
+    "affiliateLink": "https://bluevine.com/apply/?ref=bcs",
+    "slug": "bluevine"
+  }
+]
