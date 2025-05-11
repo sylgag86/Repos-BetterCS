@@ -102,6 +102,20 @@ function Router() {
         }}
       </Route>
       
+      <Route path="/credit-repair/join">
+        {() => {
+          window.location.href = "/credit-repair/join.html";
+          return null;
+        }}
+      </Route>
+      
+      <Route path="/credit-repair/signup">
+        {() => {
+          window.location.href = "/credit-repair/signup.html";
+          return null;
+        }}
+      </Route>
+      
       <Route path="/ebook-offer">
         {() => {
           window.location.href = "/ebook-offer.html";
