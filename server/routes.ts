@@ -3,8 +3,9 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import path from "path";
 
-// Import the lender routes
+// Import the routes
 import lenderRoutes from "./routes/lenders";
+import aiRecommendationsRoutes from "./routes/ai-recommendations";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -12,6 +13,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Add lender routes from our lenders.ts file
   app.use('/api/lenders', lenderRoutes);
+
+  // Add AI recommendation routes
+  app.use('/api/ai', aiRecommendationsRoutes);
 
   // Add additional routes for utility functions if needed
   app.get('/api/seed-lenders', async (req, res) => {
