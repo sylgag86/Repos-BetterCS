@@ -12,16 +12,12 @@ export default function CTASection() {
             Join thousands of individuals and businesses who found their ideal financial match through Better Capital Solutions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/explore">
-              <a className="btn-primary px-8 py-4 rounded-lg text-primary font-medium bg-white hover:bg-neutral-100 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-block">
-                Explore Options Now
-              </a>
+            <Link href="/explore" className="btn-primary px-8 py-4 rounded-lg text-primary font-medium bg-white hover:bg-neutral-100 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-block">
+              Explore Options Now
             </Link>
-            <Link href="/contact">
-              <a className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center inline-block">
-                <i className="fas fa-headset mr-2"></i>
-                Speak to an Advisor
-              </a>
+            <Link href="/contact" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center inline-block">
+              <i className="fas fa-headset mr-2"></i>
+              Speak to an Advisor
             </Link>
           </div>
         </div>
