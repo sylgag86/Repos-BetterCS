@@ -44,6 +44,28 @@ function Router() {
           return null;
         }}
       </Route>
+      {/* Resource pages */}
+      <Route path="/resources">
+        {() => {
+          window.location.href = "/resources/index.html";
+          return null;
+        }}
+      </Route>
+
+      <Route path="/guides">
+        {() => {
+          window.location.href = "/resources/blog.html";
+          return null;
+        }}
+      </Route>
+
+      <Route path="/blog">
+        {() => {
+          window.location.href = "/resources/blog.html";
+          return null;
+        }}
+      </Route>
+
       <Route path="/lenders">
         {() => {
           window.location.href = "/betterlist-100.html"; // Using betterlist as our lenders directory for now
