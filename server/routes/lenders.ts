@@ -7,7 +7,8 @@ const router = Router();
 // GET /api/lenders - Returns all lenders in the database
 router.get('/', async (req, res) => {
   try {
-    const lendersPath = path.join(__dirname, '../data/lenders.json');
+    const lendersPath = path.resolve(process.cwd(), 'server/data/lenders.json');
+    console.log('Attempting to read lenders from path:', lendersPath);
     const lendersData = fs.readFileSync(lendersPath, 'utf8');
     const lenders = JSON.parse(lendersData);
     
@@ -22,7 +23,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const lendersPath = path.join(__dirname, '../data/lenders.json');
+    const lendersPath = path.resolve(process.cwd(), 'server/data/lenders.json');
     const lendersData = fs.readFileSync(lendersPath, 'utf8');
     const lenders = JSON.parse(lendersData);
     
