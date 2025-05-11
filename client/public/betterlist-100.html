@@ -265,6 +265,19 @@
         </div>
       </div>
     </section>
+    
+    <!-- Pagination -->
+    <section class="py-6 bg-white border-t border-neutral-200">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-center">
+          <nav aria-label="Page navigation">
+            <ul class="flex space-x-2" id="pagination-container">
+              <!-- Pagination buttons will be dynamically added here -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -351,10 +364,15 @@
       document.getElementById('desktop-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
       document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
       
+      // Global variables for pagination
+      let currentPage = 1;
+      const itemsPerPage = 10;
+      let allLenders = [];
+      
       try {
         console.log('Fetching lender data from API...');
-        // Use hard-coded lender data instead of API call for testing
-        const lendersData = [
+        // Use hard-coded lender data as a fallback
+        const fallbackLenders = [
           {
             "id": "chase",
             "name": "Chase Bank",
@@ -405,26 +423,28 @@
           }
         ];
         
-        console.log('Displaying lenders data:', lendersData);
-        // Create and populate lender elements
-        displayLenders(lendersData);
-        
-        // Try actual API call in parallel
+        // Try actual API call first
         try {
           const response = await fetch('/api/lenders');
           if (response.ok) {
-            const apiLenders = await response.json();
-            console.log('Successfully loaded API data:', apiLenders);
-            // If API call succeeded, update with full data
-            if (apiLenders && apiLenders.length > 0) {
-              displayLenders(apiLenders);
-              setupFilters(apiLenders);
-            }
+            allLenders = await response.json();
+            console.log('Successfully loaded API data:', allLenders);
+          } else {
+            throw new Error('API responded with an error');
           }
         } catch (apiError) {
           console.error('API fetch error:', apiError);
-          // Continue with hardcoded data
+          allLenders = fallbackLenders; // Use fallback data on error
         }
+        
+        // Display current page of lenders
+        displayLenders(allLenders, currentPage, itemsPerPage);
+        
+        // Setup pagination
+        setupPagination(allLenders, itemsPerPage);
+        
+        // Setup filters
+        setupFilters(allLenders);
         
       } catch (error) {
         console.error('Error in main lender loading:', error);
@@ -433,7 +453,7 @@
       }
     });
     
-    function displayLenders(lenders) {
+    function displayLenders(lenders, page, itemsPerPage) {
       const desktopContainer = document.getElementById('desktop-lender-list');
       const mobileContainer = document.getElementById('mobile-lender-list');
       
@@ -441,16 +461,106 @@
       desktopContainer.innerHTML = '';
       mobileContainer.innerHTML = '';
       
+      // Calculate start and end indices
+      const startIndex = (page - 1) * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, lenders.length);
+      
+      // Get current page lenders
+      const currentLenders = lenders.slice(startIndex, endIndex);
+      
       // Create and append lender elements
-      lenders.forEach((lender, index) => {
+      currentLenders.forEach((lender, index) => {
+        const rankNumber = startIndex + index + 1;
+        
         // Create desktop row (table format)
-        const desktopRow = createDesktopLenderRow(lender, index + 1);
+        const desktopRow = createDesktopLenderRow(lender, rankNumber);
         desktopContainer.appendChild(desktopRow);
         
         // Create mobile card
-        const mobileCard = createMobileLenderCard(lender, index + 1);
+        const mobileCard = createMobileLenderCard(lender, rankNumber);
         mobileContainer.appendChild(mobileCard);
       });
+    }
+    
+    function setupPagination(lenders, itemsPerPage) {
+      const paginationContainer = document.getElementById('pagination-container');
+      paginationContainer.innerHTML = '';
+      
+      // Calculate total pages
+      const totalPages = Math.ceil(lenders.length / itemsPerPage);
+      
+      // Don't show pagination if only one page
+      if (totalPages <= 1) {
+        return;
+      }
+      
+      // Previous button
+      const prevButton = document.createElement('li');
+      prevButton.className = 'mx-1';
+      prevButton.innerHTML = `
+        <a href="#" class="flex items-center justify-center w-10 h-10 border border-neutral-300 rounded-md hover:bg-primary hover:text-white transition-colors text-neutral-600" aria-label="Previous Page">
+          <i class="fas fa-chevron-left text-xs"></i>
+        </a>
+      `;
+      prevButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+          currentPage--;
+          displayLenders(lenders, currentPage, itemsPerPage);
+          updatePaginationActive();
+        }
+      });
+      paginationContainer.appendChild(prevButton);
+      
+      // Page buttons
+      for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('li');
+        pageButton.className = 'mx-1';
+        pageButton.innerHTML = `
+          <a href="#" class="flex items-center justify-center w-10 h-10 border border-neutral-300 rounded-md hover:bg-primary hover:text-white transition-colors ${i === 1 ? 'bg-primary text-white' : 'text-neutral-600'}" data-page="${i}">
+            ${i}
+          </a>
+        `;
+        pageButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentPage = i;
+          displayLenders(lenders, currentPage, itemsPerPage);
+          updatePaginationActive();
+        });
+        paginationContainer.appendChild(pageButton);
+      }
+      
+      // Next button
+      const nextButton = document.createElement('li');
+      nextButton.className = 'mx-1';
+      nextButton.innerHTML = `
+        <a href="#" class="flex items-center justify-center w-10 h-10 border border-neutral-300 rounded-md hover:bg-primary hover:text-white transition-colors text-neutral-600" aria-label="Next Page">
+          <i class="fas fa-chevron-right text-xs"></i>
+        </a>
+      `;
+      nextButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+          currentPage++;
+          displayLenders(lenders, currentPage, itemsPerPage);
+          updatePaginationActive();
+        }
+      });
+      paginationContainer.appendChild(nextButton);
+      
+      function updatePaginationActive() {
+        const pageLinks = paginationContainer.querySelectorAll('[data-page]');
+        pageLinks.forEach(link => {
+          const page = parseInt(link.getAttribute('data-page'));
+          if (page === currentPage) {
+            link.classList.add('bg-primary', 'text-white');
+            link.classList.remove('text-neutral-600');
+          } else {
+            link.classList.remove('bg-primary', 'text-white');
+            link.classList.add('text-neutral-600');
+          }
+        });
+      }
     }
     
     function createDesktopLenderRow(lender, rank) {
@@ -598,10 +708,26 @@
     function setupFilters(allLenders) {
       const categoryFilter = document.getElementById('category-filter');
       const sortOrder = document.getElementById('sort-order');
+      const searchInput = document.querySelector('input[placeholder="Search lenders..."]');
       
-      // Filter change handler
-      categoryFilter.addEventListener('change', () => filterAndSortLenders(allLenders));
-      sortOrder.addEventListener('change', () => filterAndSortLenders(allLenders));
+      // Global variable for current page - access variable from outer scope
+      
+      // Filter change handlers
+      categoryFilter.addEventListener('change', () => {
+        // Reset to page 1 when changing filters
+        currentPage = 1;
+        filterAndSortLenders(allLenders);
+      });
+      
+      sortOrder.addEventListener('change', () => {
+        filterAndSortLenders(allLenders);
+      });
+      
+      searchInput.addEventListener('input', () => {
+        // Reset to page 1 when searching
+        currentPage = 1;
+        filterAndSortLenders(allLenders);
+      });
       
       // Initial filtering and sorting
       filterAndSortLenders(allLenders);
@@ -610,17 +736,27 @@
     function filterAndSortLenders(allLenders) {
       const categoryFilter = document.getElementById('category-filter');
       const sortOrder = document.getElementById('sort-order');
+      const searchInput = document.querySelector('input[placeholder="Search lenders..."]');
       
       const selectedCategory = categoryFilter.value;
       const selectedSortOption = sortOrder.value;
+      const searchQuery = searchInput.value.toLowerCase();
       
-      // Filter lenders by category
+      // Step 1: Filter lenders by category
       let filteredLenders = [...allLenders];
       if (selectedCategory !== 'all') {
         filteredLenders = allLenders.filter(lender => lender.category === selectedCategory);
       }
       
-      // Sort lenders based on selected option
+      // Step 2: Filter by search query if present
+      if (searchQuery) {
+        filteredLenders = filteredLenders.filter(lender => 
+          lender.name.toLowerCase().includes(searchQuery) || 
+          lender.category.toLowerCase().includes(searchQuery)
+        );
+      }
+      
+      // Step 3: Sort lenders based on selected option
       switch (selectedSortOption) {
         case 'rating':
           filteredLenders.sort((a, b) => b.rating - a.rating);
@@ -637,8 +773,10 @@
           break;
       }
       
-      // Display the filtered and sorted lenders
-      displayLenders(filteredLenders);
+      // Step 4: Update pagination and display current page
+      const itemsPerPage = 10; // Same as in the main function
+      setupPagination(filteredLenders, itemsPerPage);
+      displayLenders(filteredLenders, currentPage, itemsPerPage);
     }
   </script>
 </body>
