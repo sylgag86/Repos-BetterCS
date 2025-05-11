@@ -37,7 +37,7 @@ export default function BetterList() {
                 <span>Specialized categories for business and personal funding</span>
               </li>
             </ul>
-            <Link href="/better-list-100" className="inline-flex items-center px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors">
+            <Link href="/betterlist-100" className="inline-flex items-center px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors">
               Explore the BetterList 100™
               <i className="fas fa-arrow-right ml-2"></i>
             </Link>
