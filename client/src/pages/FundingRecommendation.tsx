@@ -641,7 +641,7 @@ const FundingRecommendation = () => {
                     <Link href="/funding-funnel/index.html" className="flex-1 order-1 sm:order-2">
                       <Button variant="default" className="w-full text-sm h-10 sm:h-11">
                         <i className="fas fa-filter mr-2"></i>
-                        Try Our Funding Funnel
+                        Find More Options
                       </Button>
                     </Link>
                   </div>
