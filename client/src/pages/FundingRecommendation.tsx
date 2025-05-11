@@ -550,25 +550,25 @@ const FundingRecommendation = () => {
                               
                               <div className="bg-neutral-50 p-3 sm:p-4 rounded-lg">
                                 <h4 className="text-xs sm:text-sm font-medium text-neutral-500 mb-2">Lender Details</h4>
-                                <div className="grid grid-cols-2 gap-x-3 sm:gap-x-4 gap-y-2 text-xs sm:text-sm mb-3 sm:mb-4">
-                                  <div>
-                                    <span className="text-neutral-500">Category:</span>
-                                    <span className="ml-1 sm:ml-2 font-medium">{rec.lenderDetails.category}</span>
+                                <div className="grid grid-cols-1 xs:grid-cols-2 gap-x-3 sm:gap-x-4 gap-y-2 text-xs sm:text-sm mb-3 sm:mb-4">
+                                  <div className="flex flex-col mb-1">
+                                    <span className="text-neutral-500 mb-0.5">Category:</span>
+                                    <div className="font-medium text-wrap break-words max-w-full">{rec.lenderDetails.category}</div>
                                   </div>
-                                  <div>
-                                    <span className="text-neutral-500">Rating:</span>
-                                    <div className="inline-flex items-center ml-1 sm:ml-2">
+                                  <div className="flex flex-col mb-1">
+                                    <span className="text-neutral-500 mb-0.5">Rating:</span>
+                                    <div className="flex items-center">
                                       {renderStars(rec.lenderDetails.rating)}
                                       <span className="ml-1 font-medium">{rec.lenderDetails.rating}</span>
                                     </div>
                                   </div>
-                                  <div>
-                                    <span className="text-neutral-500">Reviews:</span>
-                                    <span className="ml-1 sm:ml-2 font-medium">{rec.lenderDetails.reviews}</span>
+                                  <div className="flex flex-col mb-1">
+                                    <span className="text-neutral-500 mb-0.5">Reviews:</span>
+                                    <div className="font-medium">{rec.lenderDetails.reviews}</div>
                                   </div>
-                                  <div>
-                                    <span className="text-neutral-500">Approval:</span>
-                                    <span className="ml-1 sm:ml-2 font-medium">{rec.lenderDetails.approvalTime}</span>
+                                  <div className="flex flex-col mb-1">
+                                    <span className="text-neutral-500 mb-0.5">Approval:</span>
+                                    <div className="font-medium">{rec.lenderDetails.approvalTime}</div>
                                   </div>
                                 </div>
                                 
