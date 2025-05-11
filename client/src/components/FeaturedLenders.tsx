@@ -122,11 +122,9 @@ export default function FeaturedLenders() {
         </div>
         
         <div className="text-center mt-10">
-          <Link href="/lenders">
-            <a className="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
-              View all lenders
-              <i className="fas fa-chevron-right ml-1 text-sm"></i>
-            </a>
+          <Link href="/lenders" className="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
+            View all lenders
+            <i className="fas fa-chevron-right ml-1 text-sm"></i>
           </Link>
         </div>
       </div>
