@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Perfect Funding Match | Better Capital Solutions</title>
+  <meta name="description" content="Answer a few quick questions and we'll match you with the perfect funding solution for your needs.">
+  
+  <!-- Open Graph tags for better social media sharing -->
+  <meta property="og:title" content="Find Your Perfect Funding Match | Better Capital Solutions">
+  <meta property="og:description" content="Answer a few quick questions and we'll match you with the perfect funding solution for your needs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bettercapitalsolutions.com/funding-funnel/index.html">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: 'hsl(215, 80%, 40%)',
+              50: 'hsl(215, 80%, 95%)',
+              100: 'hsl(215, 80%, 90%)',
+              200: 'hsl(215, 80%, 80%)',
+              300: 'hsl(215, 80%, 70%)',
+              400: 'hsl(215, 80%, 60%)',
+              500: 'hsl(215, 80%, 50%)',
+              600: 'hsl(215, 80%, 40%)',
+              700: 'hsl(215, 80%, 30%)',
+              800: 'hsl(215, 80%, 20%)',
+              900: 'hsl(215, 80%, 10%)',
+            },
+            accent: {
+              DEFAULT: 'hsl(180, 80%, 40%)',
+              50: 'hsl(180, 80%, 95%)',
+              100: 'hsl(180, 80%, 90%)',
+              200: 'hsl(180, 80%, 80%)',
+              300: 'hsl(180, 80%, 70%)',
+              400: 'hsl(180, 80%, 60%)',
+              500: 'hsl(180, 80%, 50%)',
+              600: 'hsl(180, 80%, 40%)',
+              700: 'hsl(180, 80%, 30%)',
+              800: 'hsl(180, 80%, 20%)',
+              900: 'hsl(180, 80%, 10%)',
+            },
+            success: 'hsl(130, 50%, 50%)',
+            warning: 'hsl(40, 90%, 50%)',
+            error: 'hsl(350, 70%, 50%)',
+            neutral: {
+              50: 'hsl(220, 20%, 98%)',
+              100: 'hsl(220, 20%, 95%)',
+              200: 'hsl(220, 20%, 90%)',
+              300: 'hsl(220, 20%, 80%)',
+              400: 'hsl(220, 20%, 70%)',
+              500: 'hsl(220, 20%, 60%)',
+              600: 'hsl(220, 20%, 50%)',
+              700: 'hsl(220, 20%, 40%)',
+              800: 'hsl(220, 20%, 30%)',
+              900: 'hsl(220, 20%, 20%)',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/css">
+    /* Additional custom styles */
+    .funnel-card {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .funnel-card.hidden-step {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    
+    .funnel-card.active-step {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+    }
+    
+    .option-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .option-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .option-card.selected {
+      border-color: hsl(215, 80%, 40%);
+      background-color: hsl(215, 80%, 95%);
+    }
+    
+    /* Progress bar styles */
+    .progress-step {
+      transition: all 0.3s ease;
+    }
+    
+    .progress-step.completed {
+      background-color: hsl(215, 80%, 40%);
+    }
+    
+    .progress-step.active {
+      background-color: hsl(215, 80%, 60%);
+    }
+    
+    /* Animation for results */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .result-card {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-neutral-100 text-neutral-800">
+  <!-- Header/Navbar -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-6">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center">
+            <img src="/assets/logo.png" alt="Better Capital Solutions" class="h-20 mr-3" />
+          </a>
+        </div>
+        
+        <!-- Desktop navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
+          <a href="/personal-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+          <a href="/business-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+          <a href="/betterlist-100.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">BCS Top 100™</a>
+          <a href="/resources" class="text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
+          <a href="/guides" class="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
+          <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button 
+            type="button" 
+            class="text-neutral-500 hover:text-primary focus:outline-none"
+            onclick="toggleMobileMenu()"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-4 space-y-1 bg-white border-t border-neutral-200">
+        <a href="/" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
+        <a href="/personal-funding" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+        <a href="/business-funding" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+        <a href="/betterlist-100.html" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">BCS Top 100™</a>
+        <a href="/resources" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
+        <a href="/guides" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
+        <a href="/contact" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-primary-700 to-primary-800 text-white py-12 md:py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">Find Your Perfect Funding Match</h1>
+        <p class="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
+          Answer a few quick questions and we'll match you with the best funding options for your unique situation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Funnel Section -->
+    <section class="py-12 md:py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+          <!-- Progress Tracker -->
+          <div class="flex items-center justify-between mb-8 px-2">
+            <div class="w-full flex items-center">
+              <div id="step1-indicator" class="progress-step w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center text-white font-medium active">1</div>
+              <div class="flex-1 h-1 bg-neutral-200 mx-1">
+                <div id="progress-bar-1" class="h-full bg-primary-600 w-0 transition-all duration-300"></div>
+              </div>
+              
+              <div id="step2-indicator" class="progress-step w-8 h-8 rounded-full bg-neutral-300 flex items-center justify-center text-white font-medium">2</div>
+              <div class="flex-1 h-1 bg-neutral-200 mx-1">
+                <div id="progress-bar-2" class="h-full bg-primary-600 w-0 transition-all duration-300"></div>
+              </div>
+              
+              <div id="step3-indicator" class="progress-step w-8 h-8 rounded-full bg-neutral-300 flex items-center justify-center text-white font-medium">3</div>
+              <div class="flex-1 h-1 bg-neutral-200 mx-1">
+                <div id="progress-bar-3" class="h-full bg-primary-600 w-0 transition-all duration-300"></div>
+              </div>
+              
+              <div id="step4-indicator" class="progress-step w-8 h-8 rounded-full bg-neutral-300 flex items-center justify-center text-white font-medium">4</div>
+            </div>
+          </div>
+          
+          <!-- Step Cards Container -->
+          <div class="relative min-h-[420px]">
+            <!-- Step 1: Credit Score -->
+            <div id="step1" class="funnel-card active-step bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-2">What's your credit score range?</h2>
+              <p class="text-neutral-600 mb-6">This helps us find funding options that match your credit profile.</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="option-card border border-neutral-200 rounded-lg p-5 text-center" data-value="excellent" onclick="selectOption('credit', 'excellent', this)">
+                  <i class="fas fa-star text-2xl text-yellow-500 mb-2"></i>
+                  <h3 class="text-lg font-medium">Excellent (720+)</h3>
+                  <p class="text-sm text-neutral-500 mt-2">Prime rates, highest approval odds</p>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-5 text-center" data-value="good" onclick="selectOption('credit', 'good', this)">
+                  <i class="fas fa-thumbs-up text-2xl text-green-500 mb-2"></i>
+                  <h3 class="text-lg font-medium">Good (660–719)</h3>
+                  <p class="text-sm text-neutral-500 mt-2">Competitive rates, strong approval odds</p>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-5 text-center" data-value="fair" onclick="selectOption('credit', 'fair', this)">
+                  <i class="fas fa-check text-2xl text-blue-500 mb-2"></i>
+                  <h3 class="text-lg font-medium">Fair (600–659)</h3>
+                  <p class="text-sm text-neutral-500 mt-2">More limited options, may need security</p>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-5 text-center" data-value="poor" onclick="selectOption('credit', 'poor', this)">
+                  <i class="fas fa-exclamation-circle text-2xl text-orange-500 mb-2"></i>
+                  <h3 class="text-lg font-medium">Poor (<600)</h3>
+                  <p class="text-sm text-neutral-500 mt-2">Specialized options, improvement strategies</p>
+                </div>
+              </div>
+              
+              <div class="mt-8 flex justify-end">
+                <button id="step1-next" disabled onclick="goToStep(2)" class="px-6 py-3 bg-neutral-300 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                  Continue <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Step 2: Funding Intent -->
+            <div id="step2" class="funnel-card hidden-step bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-2">What's your funding goal?</h2>
+              <p class="text-neutral-600 mb-6">Help us understand what you're trying to accomplish.</p>
+              
+              <div class="grid grid-cols-1 gap-4">
+                <div class="option-card border border-neutral-200 rounded-lg p-5" data-value="funding-now" onclick="selectOption('intent', 'funding-now', this)">
+                  <div class="flex items-start">
+                    <div class="bg-primary-100 rounded-full p-3 mr-4">
+                      <i class="fas fa-dollar-sign text-primary-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-medium mb-1">I need business funding now</h3>
+                      <p class="text-sm text-neutral-500">I'm ready to apply for financing for my business needs</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-5" data-value="improve-credit" onclick="selectOption('intent', 'improve-credit', this)">
+                  <div class="flex items-start">
+                    <div class="bg-accent-100 rounded-full p-3 mr-4">
+                      <i class="fas fa-chart-line text-accent-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-medium mb-1">I want to improve my credit first</h3>
+                      <p class="text-sm text-neutral-500">I need help boosting my credit before applying for funding</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-5" data-value="learn-more" onclick="selectOption('intent', 'learn-more', this)">
+                  <div class="flex items-start">
+                    <div class="bg-neutral-100 rounded-full p-3 mr-4">
+                      <i class="fas fa-book text-neutral-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-medium mb-1">I want to learn about funding before applying</h3>
+                      <p class="text-sm text-neutral-500">I'm researching options and need more information</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-8 flex justify-between">
+                <button onclick="goToStep(1)" class="px-6 py-3 bg-neutral-200 text-neutral-700 rounded-lg font-medium transition-colors hover:bg-neutral-300">
+                  <i class="fas fa-arrow-left mr-2"></i> Back
+                </button>
+                <button id="step2-next" disabled onclick="goToStep(3)" class="px-6 py-3 bg-neutral-300 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                  Continue <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Step 3: Timeline -->
+            <div id="step3" class="funnel-card hidden-step bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-2">What's your timeline?</h2>
+              <p class="text-neutral-600 mb-6">When do you need to secure funding?</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="option-card border border-neutral-200 rounded-lg p-5 text-center" data-value="urgent" onclick="selectOption('timeline', 'urgent', this)">
+                  <i class="fas fa-bolt text-2xl text-red-500 mb-3"></i>
+                  <h3 class="text-lg font-medium">Urgent</h3>
+                  <p class="text-sm text-neutral-500 mt-2">Within this week</p>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-5 text-center" data-value="soon" onclick="selectOption('timeline', 'soon', this)">
+                  <i class="fas fa-calendar text-2xl text-primary-500 mb-3"></i>
+                  <h3 class="text-lg font-medium">Soon</h3>
+                  <p class="text-sm text-neutral-500 mt-2">Within 30 days</p>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-5 text-center" data-value="later" onclick="selectOption('timeline', 'later', this)">
+                  <i class="fas fa-hourglass-half text-2xl text-neutral-500 mb-3"></i>
+                  <h3 class="text-lg font-medium">Future Planning</h3>
+                  <p class="text-sm text-neutral-500 mt-2">Next few months</p>
+                </div>
+              </div>
+              
+              <div class="mt-8 flex justify-between">
+                <button onclick="goToStep(2)" class="px-6 py-3 bg-neutral-200 text-neutral-700 rounded-lg font-medium transition-colors hover:bg-neutral-300">
+                  <i class="fas fa-arrow-left mr-2"></i> Back
+                </button>
+                <button id="step3-next" disabled onclick="goToStep(4)" class="px-6 py-3 bg-neutral-300 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                  Continue <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Step 4: Budget Willingness -->
+            <div id="step4" class="funnel-card hidden-step bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-2">What's your budget preference?</h2>
+              <p class="text-neutral-600 mb-6">Tell us about your investment approach for securing funding.</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="option-card border border-neutral-200 rounded-lg p-6" data-value="pay-for-help" onclick="selectOption('budget', 'pay-for-help', this)">
+                  <div class="flex flex-col items-center text-center">
+                    <div class="bg-primary-50 rounded-full p-4 mb-4">
+                      <i class="fas fa-handshake text-2xl text-primary-600"></i>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">I'm ready to pay for help</h3>
+                    <p class="text-sm text-neutral-500">I value expert guidance and want a personalized solution</p>
+                    <ul class="mt-4 text-left text-sm space-y-2">
+                      <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Expert application assistance</span>
+                      </li>
+                      <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Personalized lender matching</span>
+                      </li>
+                      <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Higher approval chances</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="option-card border border-neutral-200 rounded-lg p-6" data-value="diy" onclick="selectOption('budget', 'diy', this)">
+                  <div class="flex flex-col items-center text-center">
+                    <div class="bg-neutral-100 rounded-full p-4 mb-4">
+                      <i class="fas fa-tools text-2xl text-neutral-600"></i>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">I need a DIY or low-cost option</h3>
+                    <p class="text-sm text-neutral-500">I prefer to do the legwork myself with some guidance</p>
+                    <ul class="mt-4 text-left text-sm space-y-2">
+                      <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Educational resources</span>
+                      </li>
+                      <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Self-service application tools</span>
+                      </li>
+                      <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Cost-effective approach</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Email Capture -->
+              <div class="mt-8 bg-neutral-50 p-5 rounded-lg border border-neutral-200">
+                <h3 class="text-lg font-medium mb-2">Get your personalized recommendation</h3>
+                <p class="text-sm text-neutral-600 mb-4">Enter your email to receive your tailored funding solution.</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <input type="email" id="user-email" placeholder="Your email address" class="flex-1 px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                  <button id="step4-next" onclick="showResults()" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">
+                    See My Results <i class="fas fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
+                <p class="text-xs text-neutral-500 mt-3">Your information is secure and will never be shared with third parties.</p>
+              </div>
+              
+              <div class="mt-4 flex justify-start">
+                <button onclick="goToStep(3)" class="px-6 py-3 bg-neutral-200 text-neutral-700 rounded-lg font-medium transition-colors hover:bg-neutral-300">
+                  <i class="fas fa-arrow-left mr-2"></i> Back
+                </button>
+              </div>
+            </div>
+            
+            <!-- Results Section (Hidden Initially) -->
+            <div id="results" class="hidden">
+              <!-- High Score + Ready to Pay -->
+              <div id="result-apply-now" class="result-card bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 hidden">
+                <div class="text-center mb-6">
+                  <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-600 rounded-full mb-4">
+                    <i class="fas fa-check-circle text-3xl"></i>
+                  </div>
+                  <h2 class="text-2xl md:text-3xl font-heading font-bold text-neutral-900 mb-2">You're Pre-Qualified!</h2>
+                  <p class="text-neutral-600">Based on your profile, you're likely eligible for premium funding options.</p>
+                </div>
+                
+                <div class="bg-primary-50 p-6 rounded-xl mb-6">
+                  <h3 class="font-heading font-bold text-xl mb-3">Our Recommendation</h3>
+                  <p class="mb-4">Let our experts handle your funding application to maximize your approval odds and secure the best terms.</p>
+                  
+                  <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                    <div class="flex items-start">
+                      <div class="bg-primary-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-percentage text-primary-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Premium Rates</h4>
+                        <p class="text-sm text-neutral-600">Your credit profile qualifies you for competitive terms</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                    <div class="flex items-start">
+                      <div class="bg-primary-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-tachometer-alt text-primary-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Fast Approval</h4>
+                        <p class="text-sm text-neutral-600">Our concierge service expedites your application</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="flex items-start">
+                      <div class="bg-primary-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-user-tie text-primary-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Expert Guidance</h4>
+                        <p class="text-sm text-neutral-600">Dedicated advisor throughout the entire process</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="text-center">
+                  <a href="/apply-now.html" class="inline-block px-8 py-4 bg-primary text-white rounded-lg font-medium text-lg hover:bg-primary-700 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg">
+                    Start Your Application <i class="fas fa-arrow-right ml-2"></i>
+                  </a>
+                  <p class="text-sm text-neutral-500 mt-4">Our funding experts will contact you within 1 business day</p>
+                </div>
+              </div>
+              
+              <!-- Poor Credit Score -->
+              <div id="result-credit-repair" class="result-card bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 hidden">
+                <div class="text-center mb-6">
+                  <div class="inline-flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-600 rounded-full mb-4">
+                    <i class="fas fa-chart-line text-3xl"></i>
+                  </div>
+                  <h2 class="text-2xl md:text-3xl font-heading font-bold text-neutral-900 mb-2">Let's Fix Your Credit First</h2>
+                  <p class="text-neutral-600">Improving your credit score will unlock better funding options with lower rates.</p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-xl mb-6">
+                  <h3 class="font-heading font-bold text-xl mb-3">Our Recommendation</h3>
+                  <p class="mb-4">Our credit improvement program can help boost your score by 50-150 points in as little as 90 days.</p>
+                  
+                  <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                    <div class="flex items-start">
+                      <div class="bg-orange-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-search text-orange-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Credit Analysis</h4>
+                        <p class="text-sm text-neutral-600">Professional review of your credit history and issues</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                    <div class="flex items-start">
+                      <div class="bg-orange-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-tasks text-orange-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Action Plan</h4>
+                        <p class="text-sm text-neutral-600">Customized strategy to address negative items and boost your score</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="flex items-start">
+                      <div class="bg-orange-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-sync-alt text-orange-600"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-medium">Ongoing Support</h4>
+                        <p class="text-sm text-neutral-600">Regular updates and adjustments to your improvement plan</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="text-center">
+                  <a href="/credit-repair/index.html" class="inline-block px-8 py-4 bg-orange-500 text-white rounded-lg font-medium text-lg hover:bg-orange-600 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg">
+                    Improve My Credit <i class="fas fa-arrow-right ml-2"></i>
+                  </a>
+                  <p class="text-sm text-neutral-500 mt-4">Get a free credit assessment and improvement plan</p>
+                </div>
+              </div>
+              
+              <!-- DIY Option Selected -->
+              <div id="result-ebook" class="result-card bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 hidden">
+                <div class="text-center mb-6">
+                  <div class="inline-flex items-center justify-center w-16 h-16 bg-neutral-100 text-neutral-600 rounded-full mb-4">
+                    <i class="fas fa-book text-3xl"></i>
+                  </div>
+                  <h2 class="text-2xl md:text-3xl font-heading font-bold text-neutral-900 mb-2">Self-Guided Funding Resources</h2>
+                  <p class="text-neutral-600">Everything you need to navigate the funding process on your own.</p>
+                </div>
+                
+                <div class="bg-neutral-50 p-6 rounded-xl mb-6">
+                  <h3 class="font-heading font-bold text-xl mb-3">Our Recommendation</h3>
+                  <p class="mb-4">Our DIY Funding Guide + Training Pack gives you all the tools to secure funding on your own.</p>
+                  
+                  <div class="flex flex-col md:flex-row gap-4 md:gap-6 mt-6">
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex-1">
+                      <div class="text-center mb-4">
+                        <i class="fas fa-file-pdf text-3xl text-neutral-700 mb-2"></i>
+                        <h4 class="font-medium">The Ultimate Funding Playbook</h4>
+                        <p class="text-sm text-neutral-500 mt-1">175-page comprehensive guide</p>
+                      </div>
+                      <ul class="text-sm space-y-2">
+                        <li class="flex items-start">
+                          <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                          <span>Lender application templates</span>
+                        </li>
+                        <li class="flex items-start">
+                          <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                          <span>Financial document checklists</span>
+                        </li>
+                        <li class="flex items-start">
+                          <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                          <span>Step-by-step approval strategies</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex-1">
+                      <div class="text-center mb-4">
+                        <i class="fas fa-video text-3xl text-neutral-700 mb-2"></i>
+                        <h4 class="font-medium">Video Masterclass Series</h4>
+                        <p class="text-sm text-neutral-500 mt-1">8 training modules</p>
+                      </div>
+                      <ul class="text-sm space-y-2">
+                        <li class="flex items-start">
+                          <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                          <span>Application walkthrough videos</span>
+                        </li>
+                        <li class="flex items-start">
+                          <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                          <span>Interview preparation training</span>
+                        </li>
+                        <li class="flex items-start">
+                          <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                          <span>Negotiation tactics explained</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="text-center">
+                  <a href="/ebook-offer.html" class="inline-block px-8 py-4 bg-neutral-800 text-white rounded-lg font-medium text-lg hover:bg-neutral-700 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg">
+                    Get The DIY Funding Kit <i class="fas fa-arrow-right ml-2"></i>
+                  </a>
+                  <p class="text-sm text-neutral-500 mt-4">Special offer: $97 (Regular price: $247)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Better Capital Solutions</h3>
+          <p class="text-neutral-400 mb-4">Connecting you to the perfect funding solutions for your personal and business needs.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-neutral-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="/personal-funding" class="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></li>
+            <li><a href="/business-funding" class="text-neutral-400 hover:text-white transition-colors">Business Funding</a></li>
+            <li><a href="/betterlist-100.html" class="text-neutral-400 hover:text-white transition-colors">BCS Top 100™</a></li>
+            <li><a href="/resources" class="text-neutral-400 hover:text-white transition-colors">Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-medium mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="/resources/blog.html" class="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/resources/financial-calculator.html" class="text-neutral-400 hover:text-white transition-colors">Financial Calculators</a></li>
+            <li><a href="/resources/loan-comparison-tool.html" class="text-neutral-400 hover:text-white transition-colors">Loan Comparison Tool</a></li>
+            <li><a href="/resources/credit-score-guide.html" class="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a></li>
+            <li><a href="/resources/faq.html" class="text-neutral-400 hover:text-white transition-colors">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-medium mb-4">Contact Us</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-neutral-400"></i>
+              <span class="text-neutral-400">123 Financial District<br>New York, NY 10001</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-neutral-400"></i>
+              <span class="text-neutral-400">(555) 123-4567</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-neutral-400"></i>
+              <span class="text-neutral-400">info@bettercapitalsolutions.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-neutral-800 my-8" />
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-neutral-500 text-sm">&copy; 2025 Better Capital Solutions. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="/privacy-policy" class="text-neutral-500 hover:text-neutral-300 text-sm">Privacy Policy</a>
+          <a href="/terms-of-service" class="text-neutral-500 hover:text-neutral-300 text-sm">Terms of Service</a>
+          <a href="/sitemap" class="text-neutral-500 hover:text-neutral-300 text-sm">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Store user selections
+    const userSelections = {
+      credit: null,
+      intent: null,
+      timeline: null,
+      budget: null,
+      email: null
+    };
+    
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    }
+    
+    // Select an option
+    function selectOption(category, value, element) {
+      // Update user selections
+      userSelections[category] = value;
+      
+      // Get all options in this category
+      const options = document.querySelectorAll(`[data-value^="${value}"]`).forEach(el => {
+        el.classList.remove('selected');
+      });
+      
+      // Find all option cards in the current step
+      const currentStepOptions = element.parentElement.querySelectorAll('.option-card');
+      currentStepOptions.forEach(option => {
+        option.classList.remove('selected');
+      });
+      
+      // Add selected class to the clicked option
+      element.classList.add('selected');
+      
+      // Enable the next button for the current step
+      enableNextButton(getCurrentStep());
+    }
+    
+    // Get current step
+    function getCurrentStep() {
+      for (let i = 1; i <= 4; i++) {
+        if (!document.getElementById(`step${i}`).classList.contains('hidden-step')) {
+          return i;
+        }
+      }
+      return 1; // Default to step 1
+    }
+    
+    // Enable next button
+    function enableNextButton(step) {
+      const nextButton = document.getElementById(`step${step}-next`);
+      if (nextButton) {
+        nextButton.disabled = false;
+        nextButton.classList.remove('bg-neutral-300');
+        nextButton.classList.add('bg-primary');
+      }
+    }
+    
+    // Navigate to a specific step
+    function goToStep(step) {
+      // Hide all steps
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`step${i}`).classList.add('hidden-step');
+        document.getElementById(`step${i}`).classList.remove('active-step');
+        
+        // Update step indicators
+        document.getElementById(`step${i}-indicator`).classList.remove('active', 'completed');
+        document.getElementById(`step${i}-indicator`).classList.add('bg-neutral-300');
+        
+        // Reset progress bars
+        if (i < 4) {
+          document.getElementById(`progress-bar-${i}`).style.width = '0%';
+        }
+      }
+      
+      // Show the target step
+      document.getElementById(`step${step}`).classList.remove('hidden-step');
+      document.getElementById(`step${step}`).classList.add('active-step');
+      
+      // Update progress indicators
+      for (let i = 1; i < step; i++) {
+        document.getElementById(`step${i}-indicator`).classList.add('completed');
+        document.getElementById(`step${i}-indicator`).classList.add('bg-primary-600');
+        document.getElementById(`progress-bar-${i}`).style.width = '100%';
+      }
+      
+      // Update current step indicator
+      document.getElementById(`step${step}-indicator`).classList.add('active');
+      document.getElementById(`step${step}-indicator`).classList.add('bg-primary-600');
+    }
+    
+    // Show appropriate results based on user's selections
+    function showResults() {
+      // Capture email if provided
+      const emailInput = document.getElementById('user-email');
+      if (emailInput.value) {
+        userSelections.email = emailInput.value;
+      }
+      
+      // Hide all steps
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`step${i}`).classList.add('hidden-step');
+        document.getElementById(`step${i}`).classList.remove('active-step');
+      }
+      
+      // Show results section
+      document.getElementById('results').classList.remove('hidden');
+      
+      // Determine which result to show based on selections
+      let resultToShow = 'result-apply-now'; // Default
+      
+      // Logic for showing different results
+      if (userSelections.credit === 'poor' || userSelections.intent === 'improve-credit') {
+        resultToShow = 'result-credit-repair';
+      } else if (userSelections.budget === 'diy' || userSelections.intent === 'learn-more') {
+        resultToShow = 'result-ebook';
+      } else if ((userSelections.credit === 'excellent' || userSelections.credit === 'good') && 
+                userSelections.budget === 'pay-for-help') {
+        resultToShow = 'result-apply-now';
+      }
+      
+      // Show appropriate result
+      document.getElementById(resultToShow).classList.remove('hidden');
+      
+      // Scroll to results
+      document.getElementById('results').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Log the user's selections (in a real app, this would be sent to a server)
+      console.log('User selections:', userSelections);
+    }
+    
+    // Save user data to local storage (simulating data persistence)
+    function saveUserData() {
+      localStorage.setItem('fundingFunnelData', JSON.stringify(userSelections));
+    }
+  </script>
+</body>
+</html>
