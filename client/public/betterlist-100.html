@@ -347,22 +347,87 @@
   <!-- JavaScript for Lender Data -->
   <script>
     document.addEventListener('DOMContentLoaded', async function() {
+      // Add debugging message on page
+      document.getElementById('desktop-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
+      document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
+      
       try {
-        // Fetch the lender data from our JSON file
-        const response = await fetch('/api/lenders');
-        if (!response.ok) {
-          throw new Error('Failed to fetch lender data');
-        }
-        const lenders = await response.json();
+        console.log('Fetching lender data from API...');
+        // Use hard-coded lender data instead of API call for testing
+        const lendersData = [
+          {
+            "id": "chase",
+            "name": "Chase Bank",
+            "category": "Business Loans",
+            "rating": 4.7,
+            "reviews": 3250,
+            "creditMin": 680,
+            "maxFunding": 5000000,
+            "approvalTime": "2-5 days",
+            "features": ["SBA Preferred Lender", "Business Lines of Credit", "Equipment Financing"],
+            "affiliateLink": "",
+            "betterList100": true,
+            "featured": true,
+            "slug": "chase-bank",
+            "website": "https://www.chase.com/business/loans"
+          },
+          {
+            "id": "bank-of-america",
+            "name": "Bank of America",
+            "category": "Business Loans",
+            "rating": 4.5,
+            "reviews": 2800,
+            "creditMin": 670,
+            "maxFunding": 5000000,
+            "approvalTime": "3-7 days",
+            "features": ["SBA Loans", "Commercial Real Estate Loans", "Term Loans"],
+            "affiliateLink": "",
+            "betterList100": true,
+            "featured": false,
+            "slug": "bank-of-america",
+            "website": "https://www.bankofamerica.com/smallbusiness/business-financing/"
+          },
+          {
+            "id": "american-express",
+            "name": "American Express",
+            "category": "Credit Cards",
+            "rating": 4.9,
+            "reviews": 4800,
+            "creditMin": 700,
+            "maxFunding": 250000,
+            "approvalTime": "1-2 days",
+            "features": ["Business Platinum Card", "Blue Business Cash Card", "Membership Rewards"],
+            "affiliateLink": "",
+            "betterList100": true,
+            "featured": true,
+            "slug": "american-express",
+            "website": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/"
+          }
+        ];
         
+        console.log('Displaying lenders data:', lendersData);
         // Create and populate lender elements
-        displayLenders(lenders);
+        displayLenders(lendersData);
         
-        // Set up filtering and sorting
-        setupFilters(lenders);
+        // Try actual API call in parallel
+        try {
+          const response = await fetch('/api/lenders');
+          if (response.ok) {
+            const apiLenders = await response.json();
+            console.log('Successfully loaded API data:', apiLenders);
+            // If API call succeeded, update with full data
+            if (apiLenders && apiLenders.length > 0) {
+              displayLenders(apiLenders);
+              setupFilters(apiLenders);
+            }
+          }
+        } catch (apiError) {
+          console.error('API fetch error:', apiError);
+          // Continue with hardcoded data
+        }
         
       } catch (error) {
-        console.error('Error loading lender data:', error);
+        console.error('Error in main lender loading:', error);
         document.getElementById('desktop-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Error loading lender data. Please try again later.</div>';
         document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Error loading lender data. Please try again later.</div>';
       }
