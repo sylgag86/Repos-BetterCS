@@ -123,6 +123,13 @@ function Router() {
         }}
       </Route>
       
+      <Route path="/apply-now">
+        {() => {
+          window.location.href = "/apply-now.html";
+          return null;
+        }}
+      </Route>
+      
       {/* DIY Credit Repair Pages */}
       <Route path="/diy-credit/start">
         {() => {
