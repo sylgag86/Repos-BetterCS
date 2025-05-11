@@ -246,7 +246,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">A comprehensive guide to the documents, information, and preparations needed before applying for any type of loan, with printable checklists.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> April 30, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
+                  <a href="/resources/articles/loan-application-checklist.html" class="text-primary hover:text-primary/80 font-medium">Read More</a>
                 </div>
               </div>
             </article>
@@ -262,7 +262,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">Learn how to establish and build strong business credit while protecting your personal credit score, with strategies for new and established business owners.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> April 28, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
+                  <a href="/resources/articles/building-business-credit.html" class="text-primary hover:text-primary/80 font-medium">Read More</a>
                 </div>
               </div>
             </article>
@@ -278,7 +278,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">A comparison of two popular debt management strategies, including pros, cons, and a decision framework to help you choose the best option for your situation.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> April 25, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
+                  <a href="/resources/articles/debt-consolidation-vs-balance-transfer.html" class="text-primary hover:text-primary/80 font-medium">Read More</a>
                 </div>
               </div>
             </article>
@@ -529,19 +529,15 @@
       
       // Handle all "Read More" links
       const allReadMoreLinks = document.querySelectorAll('a.text-primary');
-      const readMoreSpecificLinks = document.querySelectorAll('a.read-more-link');
       
-      // First handle links that already have dedicated article pages
-      allReadMoreLinks.forEach(link => {
-        if (link.textContent.trim() === 'Read More') {
-          // Check if this link already has a direct URL to an article page
-          if (link.getAttribute('href').includes('/articles/')) {
-            // Direct link already exists, leave it as is
-          }
-        }
-      });
+      // All links now point directly to their respective article pages, 
+      // so we don't need to handle any special cases
       
-      // Now handle the links that use the popup
+      // For reference only - we're not using this anymore
+      // const readMoreSpecificLinks = document.querySelectorAll('a.read-more-link');
+      
+      /*
+      // We've updated all links to direct article links, so this is no longer needed
       readMoreSpecificLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
@@ -553,6 +549,7 @@
           newsletterModal.classList.remove('hidden');
         });
       });
+      */
       
       // Close modal when clicking close button
       if (closeModalBtn) {
