@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Rate Trends | Better Capital Solutions</title>
+  <meta name="description" content="Stay informed about current interest rate trends for personal and business loans. Track historical rates and future predictions to make better financial decisions.">
+  
+  <!-- Open Graph tags for better social media sharing -->
+  <meta property="og:title" content="Interest Rate Trends | Better Capital Solutions">
+  <meta property="og:description" content="Stay informed about current interest rate trends for personal and business loans. Track historical rates and future predictions to make better financial decisions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bettercapitalsolutions.com/resources/interest-rate-trends.html">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: 'hsl(207, 90%, 54%)',
+              light: 'hsl(207, 90%, 94%)',
+            },
+            accent: {
+              DEFAULT: 'hsl(24, 100%, 50%)',
+              light: 'hsl(24, 100%, 96%)',
+            },
+            success: 'hsl(142, 71%, 45%)',
+            neutral: {
+              100: 'hsl(220, 14%, 96%)',
+              200: 'hsl(220, 13%, 91%)',
+              300: 'hsl(216, 12%, 84%)',
+              400: 'hsl(218, 11%, 65%)',
+              500: 'hsl(220, 9%, 46%)',
+              600: 'hsl(215, 14%, 34%)',
+              700: 'hsl(217, 19%, 27%)',
+              800: 'hsl(215, 28%, 17%)',
+              900: 'hsl(221, 39%, 11%)',
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/css">
+    /* Chart styles */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      width: 100%;
+    }
+    
+    .chart-grid-lines {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      stroke: #E5E7EB;
+      stroke-width: 1;
+    }
+    
+    .chart-point {
+      transition: transform 0.2s ease;
+    }
+    
+    .chart-point:hover {
+      transform: scale(1.5);
+    }
+    
+    .hover-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body class="font-sans antialiased bg-neutral-100 text-neutral-800">
+  <!-- Header/Navbar -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-6">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center">
+            <img src="/assets/logo.png" alt="Better Capital Solutions" class="h-20 mr-3" />
+          </a>
+        </div>
+        
+        <!-- Mobile menu button (simplified for template) -->
+        <div class="md:hidden">
+          <button type="button" class="text-neutral-500 hover:text-primary focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        
+        <!-- Desktop navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
+          <a href="/personal-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+          <a href="/business-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+          <a href="/betterlist-100.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">BetterList 100™</a>
+          <a href="/resources/blog.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
+          <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="bg-primary py-16 md:py-24">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Interest Rate Trends</h1>
+        <p class="text-lg md:text-xl font-medium text-white/90 max-w-2xl mx-auto">
+          Stay informed about current and historical interest rates
+        </p>
+      </div>
+    </section>
+
+    <!-- Current Rates Snapshot -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-6 text-center">Current Interest Rates Snapshot</h2>
+          <p class="text-lg text-neutral-600 mb-10 text-center max-w-3xl mx-auto">
+            A quick overview of current average interest rates across different lending categories
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl shadow-md p-6 border border-neutral-200 hover-card">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                  <i class="fas fa-home text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold">Mortgage</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">30-Year Fixed</span>
+                  <span class="font-medium">6.95%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">15-Year Fixed</span>
+                  <span class="font-medium">6.20%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">5/1 ARM</span>
+                  <span class="font-medium">5.75%</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-neutral-100 text-sm text-neutral-500">
+                Last updated: May 10, 2025
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 border border-neutral-200 hover-card">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                  <i class="fas fa-user text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold">Personal Loans</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Excellent Credit</span>
+                  <span class="font-medium">7.99%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Good Credit</span>
+                  <span class="font-medium">10.59%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Fair Credit</span>
+                  <span class="font-medium">17.80%</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-neutral-100 text-sm text-neutral-500">
+                Last updated: May 10, 2025
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 border border-neutral-200 hover-card">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                  <i class="fas fa-building text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold">Business Loans</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">SBA 7(a)</span>
+                  <span class="font-medium">8.25% - 10.75%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Term Loans</span>
+                  <span class="font-medium">7.99% - 29.99%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Line of Credit</span>
+                  <span class="font-medium">8.00% - 24.00%</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-neutral-100 text-sm text-neutral-500">
+                Last updated: May 10, 2025
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 border border-neutral-200 hover-card">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                  <i class="fas fa-credit-card text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold">Credit Cards</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Low Interest</span>
+                  <span class="font-medium">16.24%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Cash Back</span>
+                  <span class="font-medium">20.49%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-neutral-600">Balance Transfer</span>
+                  <span class="font-medium">18.74%</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-neutral-100 text-sm text-neutral-500">
+                Last updated: May 10, 2025
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interest Rate Trends Charts -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-6 text-center">Historical Interest Rate Trends</h2>
+          <p class="text-lg text-neutral-600 mb-10 text-center max-w-3xl mx-auto">
+            Track how interest rates have changed over time to make more informed borrowing decisions
+          </p>
+          
+          <!-- Tabs for different trend charts -->
+          <div class="mb-6 border-b border-neutral-200">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
+              <li class="mr-2">
+                <button id="tabFed" class="inline-block p-4 border-b-2 border-primary text-primary active" aria-current="page">Federal Funds Rate</button>
+              </li>
+              <li class="mr-2">
+                <button id="tabMortgage" class="inline-block p-4 border-b-2 border-transparent hover:text-neutral-600 hover:border-neutral-300">Mortgage Rates</button>
+              </li>
+              <li class="mr-2">
+                <button id="tabPersonal" class="inline-block p-4 border-b-2 border-transparent hover:text-neutral-600 hover:border-neutral-300">Personal Loan Rates</button>
+              </li>
+              <li class="mr-2">
+                <button id="tabBusiness" class="inline-block p-4 border-b-2 border-transparent hover:text-neutral-600 hover:border-neutral-300">Business Loan Rates</button>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Charts Container -->
+          <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+            <!-- Federal Funds Rate Chart -->
+            <div id="fedRateChart" class="chart-container">
+              <canvas id="fedRateCanvas"></canvas>
+            </div>
+            
+            <!-- Mortgage Rate Chart (Hidden by default) -->
+            <div id="mortgageRateChart" class="chart-container hidden">
+              <canvas id="mortgageRateCanvas"></canvas>
+            </div>
+            
+            <!-- Personal Loan Rate Chart (Hidden by default) -->
+            <div id="personalRateChart" class="chart-container hidden">
+              <canvas id="personalRateCanvas"></canvas>
+            </div>
+            
+            <!-- Business Loan Rate Chart (Hidden by default) -->
+            <div id="businessRateChart" class="chart-container hidden">
+              <canvas id="businessRateCanvas"></canvas>
+            </div>
+          </div>
+          
+          <!-- Chart Context and Explanation -->
+          <div class="mt-8 bg-neutral-50 rounded-xl p-6 border border-neutral-200">
+            <h3 class="text-xl font-semibold text-neutral-900 mb-4">Understanding Interest Rate Trends</h3>
+            <div class="prose prose-lg text-neutral-700 max-w-none" id="chartContext">
+              <p>The Federal Funds Rate is the interest rate at which banks lend reserve balances to other banks overnight. It's set by the Federal Reserve's Federal Open Market Committee (FOMC) and serves as a benchmark for many other interest rates throughout the economy.</p>
+              
+              <p>When the Federal Reserve increases the Federal Funds Rate, it generally leads to higher interest rates across various lending products, including mortgages, personal loans, business loans, and credit cards. Conversely, when the Fed lowers rates, borrowing costs tend to decrease.</p>
+              
+              <p>The chart above shows how the Federal Funds Rate has changed over the past several years. Notable periods include:</p>
+              
+              <ul>
+                <li>The near-zero rates following the 2008 financial crisis</li>
+                <li>The gradual increase from 2015 to 2019 as the economy strengthened</li>
+                <li>The rapid decrease in early 2020 in response to the COVID-19 pandemic</li>
+                <li>The subsequent increases starting in 2022 to combat inflation</li>
+              </ul>
+              
+              <p>Understanding these trends can help you time your borrowing decisions and anticipate potential changes in your variable-rate loans.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interest Rate Factors & Predictions -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-6 text-center">Factors Influencing Interest Rates</h2>
+          <p class="text-lg text-neutral-600 mb-10 text-center max-w-3xl mx-auto">
+            Understanding what drives interest rate changes can help you make better financial decisions
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover-card">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                    <i class="fas fa-chart-line text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold">Economic Growth</h3>
+                </div>
+                <p class="text-neutral-600">When the economy is growing rapidly, the Federal Reserve may raise interest rates to prevent overheating and inflation. During slower economic growth, the Fed may lower rates to stimulate borrowing and spending.</p>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover-card">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                    <i class="fas fa-dollar-sign text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold">Inflation</h3>
+                </div>
+                <p class="text-neutral-600">Higher inflation typically leads to higher interest rates, as lenders demand greater returns to compensate for the decreasing purchasing power of money over time. The Fed also raises rates to combat high inflation.</p>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover-card">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                    <i class="fas fa-globe-americas text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold">Global Economic Conditions</h3>
+                </div>
+                <p class="text-neutral-600">International economic events and monetary policies can influence U.S. interest rates. Global economic uncertainty often leads investors to seek safe-haven assets like U.S. Treasury bonds, affecting interest rates.</p>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover-card">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
+                    <i class="fas fa-balance-scale text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold">Supply and Demand for Credit</h3>
+                </div>
+                <p class="text-neutral-600">When demand for loans increases relative to the available supply of funds, interest rates tend to rise. Conversely, when there is excess lending capacity but lower demand, rates may fall.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Future Predictions -->
+          <div class="mt-16">
+            <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-6 text-center">Interest Rate Outlook</h2>
+            <p class="text-lg text-neutral-600 mb-10 text-center max-w-3xl mx-auto">
+              Current expectations for interest rate movements in the coming months
+            </p>
+            
+            <div class="bg-white rounded-xl shadow-md p-8 border border-neutral-200">
+              <h3 class="text-xl font-semibold text-neutral-900 mb-4">Expert Predictions for 2025-2026</h3>
+              <div class="prose prose-lg text-neutral-700 max-w-none">
+                <p>While no one can predict interest rates with complete certainty, economic analysts and financial institutions regularly provide forecasts based on current economic conditions and Federal Reserve communications. Here's a summary of current expert opinions:</p>
+                
+                <div class="bg-neutral-50 p-5 rounded-lg my-6">
+                  <h4 class="font-semibold text-neutral-800 mb-3">Short-Term Outlook (Next 6 Months)</h4>
+                  <p>Most economists expect the Federal Reserve to maintain current interest rate levels for the next two quarters, with a possible 0.25-0.50 percentage point reduction toward the end of the year if inflation continues to moderate. This would likely result in modest decreases in various consumer and business lending rates.</p>
+                </div>
+                
+                <div class="bg-neutral-50 p-5 rounded-lg my-6">
+                  <h4 class="font-semibold text-neutral-800 mb-3">Medium-Term Outlook (1-2 Years)</h4>
+                  <p>The consensus among analysts suggests a gradual reduction in the Federal Funds Rate over the next 1-2 years, potentially leading to moderately lower rates for mortgages, personal loans, and business financing. However, rates are expected to remain above the historical lows seen in the 2010s.</p>
+                </div>
+                
+                <div class="bg-primary/5 p-5 rounded-lg border border-primary/20 my-6">
+                  <h4 class="font-semibold text-neutral-800 mb-3">What This Means for Borrowers</h4>
+                  <ul>
+                    <li>If you're considering a variable-rate loan, be prepared for potential rate fluctuations, though dramatic increases are not widely anticipated in the near term.</li>
+                    <li>For long-term fixed-rate loans like mortgages, current rates may present a reasonable opportunity, especially if you plan to hold the loan for many years.</li>
+                    <li>Business borrowers might benefit from exploring fixed-rate options now, especially for longer-term capital investments.</li>
+                  </ul>
+                </div>
+                
+                <p class="text-sm italic">Disclaimer: These predictions are based on current economic conditions and expert opinions as of May 2025. Economic circumstances can change rapidly, and interest rate forecasts should be considered as general guidance rather than guaranteed outcomes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools and Resources CTA -->
+    <section class="py-12 bg-primary/5">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-3">Want to Calculate Your Loan Costs?</h2>
+        <p class="text-lg text-neutral-600 mb-8 max-w-3xl mx-auto">
+          Use our financial calculators to see how different interest rates affect your monthly payments and total costs.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/resources/financial-calculator.html" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors">
+            Loan Calculator
+          </a>
+          <a href="/resources/loan-comparison-tool.html" class="px-6 py-3 bg-white border border-primary text-primary hover:bg-primary/5 font-medium rounded-lg text-center transition-colors">
+            Compare Loan Options
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <img src="/assets/logo-light.png" alt="Better Capital Solutions" class="h-12" />
+          <p class="text-neutral-400 text-sm">
+            Helping businesses and individuals find the right funding solutions since 2021.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-neutral-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="/personal-funding" class="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></li>
+            <li><a href="/business-funding" class="text-neutral-400 hover:text-white transition-colors">Business Funding</a></li>
+            <li><a href="/betterlist-100.html" class="text-neutral-400 hover:text-white transition-colors">BetterList 100™</a></li>
+            <li><a href="/resources/blog.html" class="text-neutral-400 hover:text-white transition-colors">Resources</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="/resources/financial-calculator.html" class="text-neutral-400 hover:text-white transition-colors">Loan Calculator</a></li>
+            <li><a href="/resources/credit-score-guide.html" class="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a></li>
+            <li><a href="/resources/loan-comparison-tool.html" class="text-neutral-400 hover:text-white transition-colors">Loan Comparison</a></li>
+            <li><a href="/resources/interest-rate-trends.html" class="text-neutral-400 hover:text-white transition-colors">Interest Rate Trends</a></li>
+            <li><a href="/resources/faq.html" class="text-neutral-400 hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Contact</h4>
+          <ul class="space-y-2 text-neutral-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+              <span>123 Business Ave, Suite 100<br>New York, NY 10001</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-primary"></i>
+              <span>(555) 123-4567</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-primary"></i>
+              <span>info@bettercapitalsolutions.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-6 border-t border-neutral-800 text-center text-neutral-500 text-sm">
+        <p>&copy; 2025 Better Capital Solutions. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Terms of Service</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chart JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab Elements
+      const tabFed = document.getElementById('tabFed');
+      const tabMortgage = document.getElementById('tabMortgage');
+      const tabPersonal = document.getElementById('tabPersonal');
+      const tabBusiness = document.getElementById('tabBusiness');
+      
+      // Chart Containers
+      const fedRateChart = document.getElementById('fedRateChart');
+      const mortgageRateChart = document.getElementById('mortgageRateChart');
+      const personalRateChart = document.getElementById('personalRateChart');
+      const businessRateChart = document.getElementById('businessRateChart');
+      
+      // Chart Context Element
+      const chartContext = document.getElementById('chartContext');
+      
+      // Chart Data
+      const fedRateData = {
+        labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Federal Funds Rate (%)',
+          data: [0.63, 1.30, 2.40, 1.75, 0.25, 0.25, 4.33, 5.33, 4.83, 4.58],
+          borderColor: '#3B82F6',
+          backgroundColor: 'rgba(59, 130, 246, 0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 5,
+          pointBackgroundColor: '#3B82F6'
+        }]
+      };
+      
+      const mortgageRateData = {
+        labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [
+          {
+            label: '30-Year Fixed (%)',
+            data: [3.65, 3.99, 4.54, 3.94, 3.11, 2.96, 5.34, 6.61, 6.92, 6.95],
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#3B82F6'
+          },
+          {
+            label: '15-Year Fixed (%)',
+            data: [2.91, 3.27, 3.98, 3.39, 2.61, 2.27, 4.60, 5.91, 6.25, 6.20],
+            borderColor: '#8B5CF6',
+            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#8B5CF6'
+          }
+        ]
+      };
+      
+      const personalRateData = {
+        labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [
+          {
+            label: 'Excellent Credit (740+)',
+            data: [10.94, 10.31, 10.12, 9.92, 9.50, 8.95, 10.73, 11.48, 8.99, 7.99],
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#3B82F6'
+          },
+          {
+            label: 'Good Credit (670-739)',
+            data: [13.56, 13.24, 13.50, 13.13, 12.45, 11.87, 13.54, 14.60, 11.53, 10.59],
+            borderColor: '#8B5CF6',
+            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#8B5CF6'
+          },
+          {
+            label: 'Fair Credit (580-669)',
+            data: [21.28, 20.89, 21.36, 20.68, 19.97, 19.33, 21.47, 23.55, 19.21, 17.80],
+            borderColor: '#EC4899',
+            backgroundColor: 'rgba(236, 72, 153, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#EC4899'
+          }
+        ]
+      };
+      
+      const businessRateData = {
+        labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [
+          {
+            label: 'SBA 7(a) Loans',
+            data: [6.25, 6.75, 7.75, 7.00, 5.75, 5.50, 9.00, 10.25, 9.50, 9.50],
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#3B82F6'
+          },
+          {
+            label: 'Term Loans (Average)',
+            data: [5.94, 6.54, 7.79, 6.98, 6.11, 5.96, 9.50, 12.48, 10.48, 9.52],
+            borderColor: '#8B5CF6',
+            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#8B5CF6'
+          },
+          {
+            label: 'Business Line of Credit',
+            data: [6.80, 7.10, 8.30, 7.50, 6.80, 6.50, 9.75, 13.10, 11.30, 10.25],
+            borderColor: '#EC4899',
+            backgroundColor: 'rgba(236, 72, 153, 0.1)',
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#EC4899'
+          }
+        ]
+      };
+      
+      // Chart Context Text
+      const contextTexts = {
+        fed: `<p>The Federal Funds Rate is the interest rate at which banks lend reserve balances to other banks overnight. It's set by the Federal Reserve's Federal Open Market Committee (FOMC) and serves as a benchmark for many other interest rates throughout the economy.</p>
+              
+              <p>When the Federal Reserve increases the Federal Funds Rate, it generally leads to higher interest rates across various lending products, including mortgages, personal loans, business loans, and credit cards. Conversely, when the Fed lowers rates, borrowing costs tend to decrease.</p>
+              
+              <p>The chart above shows how the Federal Funds Rate has changed over the past several years. Notable periods include:</p>
+              
+              <ul>
+                <li>The near-zero rates following the 2008 financial crisis</li>
+                <li>The gradual increase from 2015 to 2019 as the economy strengthened</li>
+                <li>The rapid decrease in early 2020 in response to the COVID-19 pandemic</li>
+                <li>The subsequent increases starting in 2022 to combat inflation</li>
+              </ul>
+              
+              <p>Understanding these trends can help you time your borrowing decisions and anticipate potential changes in your variable-rate loans.</p>`,
+        
+        mortgage: `<p>Mortgage rates are influenced by a variety of factors, including the Federal Funds Rate, inflation expectations, the 10-year Treasury yield, and housing market conditions. While they don't move in perfect sync with the Federal Funds Rate, there is often a correlation between the two.</p>
+              
+              <p>The chart shows historical trends for both 30-year and 15-year fixed-rate mortgages. As you can see, 15-year mortgages typically offer lower interest rates than 30-year mortgages, but they come with higher monthly payments due to the shorter repayment period.</p>
+              
+              <p>Notable observations from the chart:</p>
+              
+              <ul>
+                <li>Mortgage rates hit historic lows in 2020-2021 during the COVID-19 pandemic</li>
+                <li>Rates increased dramatically in 2022-2023 as the Federal Reserve raised rates to combat inflation</li>
+                <li>While rates have stabilized, they remain significantly higher than the 2020-2021 lows</li>
+              </ul>
+              
+              <p>For homebuyers and those considering refinancing, understanding these trends is crucial for timing your mortgage decisions.</p>`,
+        
+        personal: `<p>Personal loan interest rates vary significantly based on the borrower's creditworthiness. As shown in the chart, individuals with excellent credit typically receive interest rates that are substantially lower than those with fair credit.</p>
+              
+              <p>Personal loan rates are influenced by the Federal Funds Rate, but lender-specific factors, competition, and risk assessment practices also play significant roles in determining the rates offered to consumers.</p>
+              
+              <p>Notable trends in personal loan rates:</p>
+              
+              <ul>
+                <li>Rates generally decreased from 2016 to 2021 as competition among lenders increased</li>
+                <li>The spread between excellent and fair credit rates has remained consistently wide, highlighting the importance of good credit</li>
+                <li>Rates increased significantly in 2022-2023 as the Federal Reserve raised interest rates</li>
+                <li>Recent decreases reflect both market competition and improved economic conditions</li>
+              </ul>
+              
+              <p>If you're considering a personal loan, improving your credit score before applying can result in substantial interest savings over the life of the loan.</p>`,
+        
+        business: `<p>Business loan interest rates vary based on the type of financing, loan term, and the creditworthiness of the business. SBA loans typically offer some of the most competitive rates for small businesses, while lines of credit often have higher rates due to their flexibility.</p>
+              
+              <p>The chart displays trends for three common types of business financing: SBA 7(a) loans, conventional term loans, and business lines of credit.</p>
+              
+              <p>Key observations from the business loan rate trends:</p>
+              
+              <ul>
+                <li>SBA loan rates are generally lower than other business financing options, reflecting their government backing</li>
+                <li>All business lending rates increased dramatically in 2022-2023 following Federal Reserve rate hikes</li>
+                <li>The spread between different financing types widens during periods of economic uncertainty</li>
+                <li>Recent moderation in rates reflects stabilizing monetary policy and economic conditions</li>
+              </ul>
+              
+              <p>For business owners, understanding these trends can help determine the optimal timing and type of financing for your specific needs. Additionally, maintaining strong business credit can significantly impact the rates you're offered.</p>`
+      };
+      
+      // Initialize Charts
+      const fedChart = new Chart(
+        document.getElementById('fedRateCanvas'),
+        {
+          type: 'line',
+          data: fedRateData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Federal Funds Rate (2016-2025)',
+                font: {
+                  size: 16,
+                  weight: 'bold'
+                }
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Interest Rate (%)'
+                },
+                ticks: {
+                  callback: function(value) {
+                    return value + '%';
+                  }
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Year'
+                }
+              }
+            }
+          }
+        }
+      );
+      
+      const mortgageChart = new Chart(
+        document.getElementById('mortgageRateCanvas'),
+        {
+          type: 'line',
+          data: mortgageRateData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Mortgage Interest Rates (2016-2025)',
+                font: {
+                  size: 16,
+                  weight: 'bold'
+                }
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Interest Rate (%)'
+                },
+                ticks: {
+                  callback: function(value) {
+                    return value + '%';
+                  }
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Year'
+                }
+              }
+            }
+          }
+        }
+      );
+      
+      const personalChart = new Chart(
+        document.getElementById('personalRateCanvas'),
+        {
+          type: 'line',
+          data: personalRateData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Personal Loan Interest Rates by Credit Score (2016-2025)',
+                font: {
+                  size: 16,
+                  weight: 'bold'
+                }
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Interest Rate (%)'
+                },
+                ticks: {
+                  callback: function(value) {
+                    return value + '%';
+                  }
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Year'
+                }
+              }
+            }
+          }
+        }
+      );
+      
+      const businessChart = new Chart(
+        document.getElementById('businessRateCanvas'),
+        {
+          type: 'line',
+          data: businessRateData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Business Loan Interest Rates (2016-2025)',
+                font: {
+                  size: 16,
+                  weight: 'bold'
+                }
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Interest Rate (%)'
+                },
+                ticks: {
+                  callback: function(value) {
+                    return value + '%';
+                  }
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Year'
+                }
+              }
+            }
+          }
+        }
+      );
+      
+      // Tab Switching Logic
+      function setupTabs() {
+        tabFed.addEventListener('click', () => {
+          // Update active tab
+          tabFed.classList.add('border-primary', 'text-primary');
+          tabMortgage.classList.remove('border-primary', 'text-primary');
+          tabPersonal.classList.remove('border-primary', 'text-primary');
+          tabBusiness.classList.remove('border-primary', 'text-primary');
+          
+          // Show/hide content
+          fedRateChart.classList.remove('hidden');
+          mortgageRateChart.classList.add('hidden');
+          personalRateChart.classList.add('hidden');
+          businessRateChart.classList.add('hidden');
+          
+          // Update context
+          chartContext.innerHTML = contextTexts.fed;
+        });
+        
+        tabMortgage.addEventListener('click', () => {
+          // Update active tab
+          tabFed.classList.remove('border-primary', 'text-primary');
+          tabMortgage.classList.add('border-primary', 'text-primary');
+          tabPersonal.classList.remove('border-primary', 'text-primary');
+          tabBusiness.classList.remove('border-primary', 'text-primary');
+          
+          // Show/hide content
+          fedRateChart.classList.add('hidden');
+          mortgageRateChart.classList.remove('hidden');
+          personalRateChart.classList.add('hidden');
+          businessRateChart.classList.add('hidden');
+          
+          // Update context
+          chartContext.innerHTML = contextTexts.mortgage;
+        });
+        
+        tabPersonal.addEventListener('click', () => {
+          // Update active tab
+          tabFed.classList.remove('border-primary', 'text-primary');
+          tabMortgage.classList.remove('border-primary', 'text-primary');
+          tabPersonal.classList.add('border-primary', 'text-primary');
+          tabBusiness.classList.remove('border-primary', 'text-primary');
+          
+          // Show/hide content
+          fedRateChart.classList.add('hidden');
+          mortgageRateChart.classList.add('hidden');
+          personalRateChart.classList.remove('hidden');
+          businessRateChart.classList.add('hidden');
+          
+          // Update context
+          chartContext.innerHTML = contextTexts.personal;
+        });
+        
+        tabBusiness.addEventListener('click', () => {
+          // Update active tab
+          tabFed.classList.remove('border-primary', 'text-primary');
+          tabMortgage.classList.remove('border-primary', 'text-primary');
+          tabPersonal.classList.remove('border-primary', 'text-primary');
+          tabBusiness.classList.add('border-primary', 'text-primary');
+          
+          // Show/hide content
+          fedRateChart.classList.add('hidden');
+          mortgageRateChart.classList.add('hidden');
+          personalRateChart.classList.add('hidden');
+          businessRateChart.classList.remove('hidden');
+          
+          // Update context
+          chartContext.innerHTML = contextTexts.business;
+        });
+      }
+      
+      // Initialize tabs
+      setupTabs();
+    });
+  </script>
+</body>
+</html>

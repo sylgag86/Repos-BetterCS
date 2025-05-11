@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | Better Capital Solutions</title>
+  <meta name="description" content="Find answers to common questions about business loans, personal loans, credit requirements, application processes, and more from Better Capital Solutions.">
+  
+  <!-- Open Graph tags for better social media sharing -->
+  <meta property="og:title" content="Frequently Asked Questions | Better Capital Solutions">
+  <meta property="og:description" content="Find answers to common questions about business loans, personal loans, credit requirements, application processes, and more from Better Capital Solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bettercapitalsolutions.com/resources/faq.html">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: 'hsl(207, 90%, 54%)',
+              light: 'hsl(207, 90%, 94%)',
+            },
+            accent: {
+              DEFAULT: 'hsl(24, 100%, 50%)',
+              light: 'hsl(24, 100%, 96%)',
+            },
+            success: 'hsl(142, 71%, 45%)',
+            neutral: {
+              100: 'hsl(220, 14%, 96%)',
+              200: 'hsl(220, 13%, 91%)',
+              300: 'hsl(216, 12%, 84%)',
+              400: 'hsl(218, 11%, 65%)',
+              500: 'hsl(220, 9%, 46%)',
+              600: 'hsl(215, 14%, 34%)',
+              700: 'hsl(217, 19%, 27%)',
+              800: 'hsl(215, 28%, 17%)',
+              900: 'hsl(221, 39%, 11%)',
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/css">
+    details {
+      transition: all 0.3s ease;
+    }
+    
+    details summary {
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    details summary::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.75rem;
+      height: 1.75rem;
+      background-color: #93c5fd;
+      color: #1e40af;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: all 0.3s ease;
+    }
+    
+    details[open] summary::before {
+      content: '−';
+      background-color: #3b82f6;
+      color: white;
+    }
+    
+    .faq-categories button.active {
+      background-color: #3b82f6;
+      color: white;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-neutral-100 text-neutral-800">
+  <!-- Header/Navbar -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-6">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center">
+            <img src="/assets/logo.png" alt="Better Capital Solutions" class="h-20 mr-3" />
+          </a>
+        </div>
+        
+        <!-- Mobile menu button (simplified for template) -->
+        <div class="md:hidden">
+          <button type="button" class="text-neutral-500 hover:text-primary focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        
+        <!-- Desktop navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
+          <a href="/personal-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+          <a href="/business-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+          <a href="/betterlist-100.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">BetterList 100™</a>
+          <a href="/resources/blog.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
+          <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="bg-primary py-16 md:py-24">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Frequently Asked Questions</h1>
+        <p class="text-lg md:text-xl font-medium text-white/90 max-w-2xl mx-auto">
+          Find answers to common questions about funding solutions and financial decisions
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ Search and Categories -->
+    <section class="py-8 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <!-- Search -->
+          <div class="relative max-w-2xl mx-auto mb-8">
+            <input
+              type="text"
+              id="faqSearch"
+              placeholder="Search for questions..."
+              class="w-full px-4 py-3 pl-12 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+            >
+            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+          </div>
+          
+          <!-- Categories -->
+          <div class="flex flex-wrap justify-center gap-3 faq-categories mb-6">
+            <button class="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors active" data-category="all">All Questions</button>
+            <button class="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors" data-category="business">Business Funding</button>
+            <button class="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors" data-category="personal">Personal Funding</button>
+            <button class="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors" data-category="application">Application Process</button>
+            <button class="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors" data-category="credit">Credit Requirements</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="py-12">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+            <!-- FAQ Items -->
+            <div class="space-y-6" id="faqContainer">
+              <!-- Business Funding Questions -->
+              <details class="faq-item" data-category="business">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  What types of business funding options are available?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>There are numerous business funding options available, each designed for different needs and situations:</p>
+                  <ul class="list-disc mt-2 pl-5 space-y-1">
+                    <li><strong>Term Loans:</strong> Traditional loans with fixed or variable interest rates and set repayment schedules.</li>
+                    <li><strong>SBA Loans:</strong> Government-backed loans with favorable terms for small businesses.</li>
+                    <li><strong>Business Lines of Credit:</strong> Flexible funding that allows you to draw funds as needed up to a set limit.</li>
+                    <li><strong>Equipment Financing:</strong> Loans specifically for purchasing business equipment, with the equipment serving as collateral.</li>
+                    <li><strong>Invoice Financing/Factoring:</strong> Advances based on your unpaid invoices to improve cash flow.</li>
+                    <li><strong>Merchant Cash Advances:</strong> Upfront funding repaid through a percentage of daily credit card sales.</li>
+                    <li><strong>Commercial Real Estate Loans:</strong> Specifically for purchasing or refinancing business properties.</li>
+                  </ul>
+                  <p class="mt-3">The best option depends on factors such as your business's age, revenue, credit profile, and specific funding needs. Our platform helps you compare options from multiple lenders to find the right fit.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="business">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  How much can I borrow for my business?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>The amount you can borrow for your business varies widely depending on several factors:</p>
+                  <ul class="list-disc mt-2 pl-5 space-y-1">
+                    <li><strong>Business Revenue:</strong> Lenders typically want to see that your business generates enough income to repay the loan.</li>
+                    <li><strong>Time in Business:</strong> Established businesses generally qualify for larger loan amounts than startups.</li>
+                    <li><strong>Credit Profile:</strong> Both personal and business credit scores impact your borrowing capacity.</li>
+                    <li><strong>Funding Purpose:</strong> Some loan types (like equipment financing or real estate loans) may allow for higher borrowing amounts.</li>
+                    <li><strong>Lender Policies:</strong> Different lenders have different maximum loan amounts.</li>
+                  </ul>
+                  <p class="mt-3">Business loan amounts can range from as little as $5,000 to $5 million or more. SBA loans can go up to $5 million, term loans typically range from $25,000 to $500,000, and lines of credit often range from $10,000 to $250,000.</p>
+                  <p class="mt-3">For a personalized assessment of how much your business might qualify for, we recommend comparing options from multiple lenders through our BetterList 100™ directory.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="business">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  Do I need collateral for a business loan?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>Whether you need collateral depends on the type of business financing you're seeking:</p>
+                  <ul class="list-disc mt-2 pl-5 space-y-2">
+                    <li><strong>Secured Loans:</strong> These require specific assets as collateral, which the lender can claim if you default. Examples include equipment financing (secured by the equipment) and commercial real estate loans (secured by the property).</li>
+                    <li><strong>Unsecured Loans:</strong> These don't require specific collateral but typically have stricter qualification requirements, higher interest rates, and lower maximum amounts. Many online lenders offer unsecured business loans based on business performance and credit history.</li>
+                    <li><strong>Partially Secured Loans:</strong> Some loans, like SBA loans, may require collateral to the extent that it's available, but won't necessarily be declined if you don't have sufficient collateral to fully secure the loan.</li>
+                  </ul>
+                  <p class="mt-3">Even with "unsecured" business loans, many lenders require a personal guarantee, meaning you're personally responsible for repayment if your business can't pay. Some lenders may also place a general lien on your business assets, giving them the right to claim those assets in case of default.</p>
+                  <p class="mt-3">If you're concerned about collateral requirements, our platform can help you identify lenders offering options that match your preferences and situation.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="business">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  What's the difference between an SBA loan and a conventional business loan?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>SBA (Small Business Administration) loans and conventional business loans differ in several key ways:</p>
+                  
+                  <p class="mt-3"><strong>SBA Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Partially guaranteed by the federal government (up to 85%)</li>
+                    <li>Typically offer lower interest rates (usually 7-9%)</li>
+                    <li>Longer repayment terms (up to 25 years for real estate, 10 years for equipment)</li>
+                    <li>Lower down payment requirements (often as low as 10%)</li>
+                    <li>More extensive paperwork and longer approval process (1-3 months)</li>
+                    <li>Stricter usage requirements and more oversight</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Conventional Business Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>No government guarantee</li>
+                    <li>Generally higher interest rates than SBA loans</li>
+                    <li>Shorter repayment terms in most cases</li>
+                    <li>Potentially higher down payment requirements (20% or more)</li>
+                    <li>Faster application and approval process</li>
+                    <li>More flexibility in how funds can be used</li>
+                  </ul>
+                  
+                  <p class="mt-3">SBA loans are often ideal for small businesses that might not qualify for conventional financing on favorable terms. The government guarantee reduces risk for lenders, allowing them to offer better terms to borrowers. However, if you need funding quickly or prefer less paperwork, a conventional loan might be a better option.</p>
+                  <p class="mt-3">Popular SBA loan programs include SBA 7(a) loans (general business purposes), CDC/504 loans (major fixed assets like equipment and real estate), and SBA Microloans (smaller amounts for new businesses).</p>
+                </div>
+              </details>
+              
+              <!-- Personal Funding Questions -->
+              <details class="faq-item" data-category="personal">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  What can I use a personal loan for?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>Personal loans are versatile financial tools that can be used for a wide variety of purposes. Common uses include:</p>
+                  
+                  <ul class="list-disc mt-2 pl-5 space-y-1">
+                    <li><strong>Debt Consolidation:</strong> Combining multiple high-interest debts (like credit cards) into a single loan with a lower interest rate.</li>
+                    <li><strong>Home Improvements:</strong> Funding renovations, repairs, or additions to your home.</li>
+                    <li><strong>Major Purchases:</strong> Financing large expenses like appliances, furniture, or electronics.</li>
+                    <li><strong>Medical Expenses:</strong> Covering healthcare costs not covered by insurance.</li>
+                    <li><strong>Wedding Expenses:</strong> Paying for wedding venues, catering, attire, and other related costs.</li>
+                    <li><strong>Vacation Funding:</strong> Financing travel experiences and vacations.</li>
+                    <li><strong>Moving Costs:</strong> Covering expenses related to relocating to a new home.</li>
+                    <li><strong>Emergency Expenses:</strong> Handling unexpected financial needs.</li>
+                  </ul>
+                  
+                  <p class="mt-3">Most personal loans are unsecured, meaning they don't require collateral. This makes them flexible in terms of how you can use the funds. However, some lenders may have restrictions on certain uses, such as post-secondary education expenses (where student loans would be more appropriate) or business purposes.</p>
+                  
+                  <p class="mt-3">It's important to borrow responsibly and ensure that the loan purpose offers sufficient value to justify the cost of borrowing. Personal loans should generally not be used for everyday expenses or non-essential purchases that could be saved for instead.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="personal">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  How do personal loan interest rates compare to credit cards?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>Personal loans typically offer significantly lower interest rates compared to credit cards for most borrowers:</p>
+                  
+                  <ul class="list-disc mt-2 pl-5 space-y-1">
+                    <li><strong>Personal Loan Rates:</strong> Generally range from about 6% to 36% APR, with the average for borrowers with good credit falling between 10-15%.</li>
+                    <li><strong>Credit Card Rates:</strong> Average around 18-24% APR, with some high-interest cards exceeding 30% APR.</li>
+                  </ul>
+                  
+                  <p class="mt-3">This interest rate differential is why debt consolidation (paying off credit card debt with a personal loan) is one of the most common uses of personal loans. For example, if you have $10,000 in credit card debt at 22% APR and qualify for a personal loan at 12% APR, you could save thousands in interest over the repayment period.</p>
+                  
+                  <p class="mt-3">Other key differences between personal loans and credit cards include:</p>
+                  
+                  <ul class="list-disc mt-2 pl-5 space-y-1">
+                    <li><strong>Fixed vs. Variable Rates:</strong> Personal loans typically have fixed interest rates and consistent monthly payments, while credit card rates are usually variable.</li>
+                    <li><strong>Repayment Structure:</strong> Personal loans have a set repayment schedule with a defined end date, while credit cards are revolving debt with minimum payments that can extend repayment indefinitely.</li>
+                    <li><strong>Borrowing Limits:</strong> Personal loans provide a lump sum upfront, while credit cards allow for continuous borrowing up to your credit limit.</li>
+                  </ul>
+                  
+                  <p class="mt-3">The rate you'll qualify for on a personal loan depends heavily on your credit score, income, debt-to-income ratio, and the lender's specific criteria. Borrowers with excellent credit can often secure rates significantly below the average.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="personal">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  What's the difference between secured and unsecured personal loans?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>The primary difference between secured and unsecured personal loans lies in whether collateral is required:</p>
+                  
+                  <p class="mt-3"><strong>Secured Personal Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Require collateral (assets that the lender can claim if you default)</li>
+                    <li>Common collateral includes savings accounts, certificates of deposit, vehicles, or other valuable assets</li>
+                    <li>Typically offer lower interest rates due to reduced lender risk</li>
+                    <li>May allow for higher borrowing amounts</li>
+                    <li>Often easier to qualify for with lower credit scores</li>
+                    <li>Risk losing your collateral if you fail to repay the loan</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Unsecured Personal Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Do not require specific collateral</li>
+                    <li>Approval based primarily on creditworthiness, income, and debt-to-income ratio</li>
+                    <li>Generally have higher interest rates than secured loans</li>
+                    <li>May have lower maximum loan amounts</li>
+                    <li>Typically require good to excellent credit for approval</li>
+                    <li>No direct risk to specific assets, but default can severely damage credit and may lead to legal action</li>
+                  </ul>
+                  
+                  <p class="mt-3">Most personal loans offered by online lenders and banks are unsecured. Secured personal loans are less common but might be an option if you're having trouble qualifying for an unsecured loan or want to secure a lower interest rate.</p>
+                  
+                  <p class="mt-3">When considering between secured and unsecured personal loans, evaluate your comfort with risking assets, your credit profile, and the loan terms offered. Our BetterList 100™ directory can help you compare both secured and unsecured options from top lenders.</p>
+                </div>
+              </details>
+              
+              <!-- Application Process Questions -->
+              <details class="faq-item" data-category="application">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  What documents do I need to apply for a loan?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>The documents required for a loan application vary depending on the type of loan and the lender, but commonly include:</p>
+                  
+                  <p class="mt-3"><strong>For Personal Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Government-issued photo ID (driver's license, passport, etc.)</li>
+                    <li>Proof of income (pay stubs, W-2 forms, tax returns)</li>
+                    <li>Proof of address (utility bills, lease agreement, etc.)</li>
+                    <li>Employment verification (employer contact information)</li>
+                    <li>Bank statements (typically last 2-3 months)</li>
+                    <li>Social Security number for credit check</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>For Business Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Business financial statements (balance sheet, income statement, cash flow statement)</li>
+                    <li>Business tax returns (typically last 2-3 years)</li>
+                    <li>Personal tax returns of business owners (typically last 2-3 years)</li>
+                    <li>Business bank statements (typically last 3-6 months)</li>
+                    <li>Business licenses and registrations</li>
+                    <li>Employer Identification Number (EIN)</li>
+                    <li>Business plan (especially for newer businesses or large loan amounts)</li>
+                    <li>Detailed list of business assets (for secured loans)</li>
+                    <li>Legal contracts, commercial leases, or franchise agreements (if applicable)</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>For SBA Loans (Additional Documents):</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>SBA-specific forms (SBA Form 1919, 413, etc.)</li>
+                    <li>Business debt schedule</li>
+                    <li>Detailed business history and overview</li>
+                    <li>Resumes of all business owners</li>
+                    <li>Collateral documentation (if applicable)</li>
+                  </ul>
+                  
+                  <p class="mt-3">Online lenders often have streamlined application processes requiring fewer documents than traditional banks. Many use digital verification systems that can access some of this information electronically with your permission.</p>
+                  
+                  <p class="mt-3">We recommend gathering these documents before starting your application to expedite the process. When you select a lender through our platform, you'll receive specific guidance on their documentation requirements.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="application">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  How long does the loan application process take?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>The loan application process timeline varies significantly depending on the loan type, lender, and your preparedness:</p>
+                  
+                  <p class="mt-3"><strong>Personal Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Online Lenders:</strong> Application in minutes, approval decision often within hours, funding in 1-3 business days</li>
+                    <li><strong>Traditional Banks:</strong> Application process may take longer (1-2 hours), approval in 1-7 business days, funding in 3-10 business days</li>
+                    <li><strong>Credit Unions:</strong> Similar to traditional banks, though sometimes faster for members</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Business Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Online/Alternative Lenders:</strong> Application in under an hour, approval decision often within 24 hours, funding in 1-5 business days</li>
+                    <li><strong>Traditional Bank Business Loans:</strong> Application may take several hours to complete, approval in 1-3 weeks, funding in 2-4 weeks</li>
+                    <li><strong>SBA Loans:</strong> Most time-intensive, with approval taking 2-3 months and funding 30-90 days after approval</li>
+                  </ul>
+                  
+                  <p class="mt-3">Factors that can affect the timeline include:</p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Completeness of your application (missing information causes delays)</li>
+                    <li>Verification processes required by the lender</li>
+                    <li>Complexity of your financial situation</li>
+                    <li>Loan amount (larger loans often require more thorough review)</li>
+                    <li>Need for additional documentation or explanation</li>
+                  </ul>
+                  
+                  <p class="mt-3">To expedite the process, have all required documents ready before applying, respond promptly to any requests for additional information, and consider lenders known for quick processing when timing is critical.</p>
+                  
+                  <p class="mt-3">Most lenders in our BetterList 100™ directory provide estimated approval and funding timelines, helping you choose options that match your timing needs.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="application">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  Will checking my rate affect my credit score?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>Many lenders now offer "pre-qualification" or "rate check" features that allow you to see estimated rates without affecting your credit score. Here's how it works:</p>
+                  
+                  <p class="mt-3"><strong>Soft Credit Inquiries:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Used during pre-qualification or rate check processes</li>
+                    <li>Allow lenders to view limited credit information</li>
+                    <li>Do NOT impact your credit score</li>
+                    <li>Only visible to you on your credit report, not to other lenders</li>
+                    <li>Result in estimated rates based on limited information</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Hard Credit Inquiries:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Occur when you formally apply for a loan</li>
+                    <li>Give lenders complete access to your credit report</li>
+                    <li>DO impact your credit score (typically a small, temporary drop of 5-10 points)</li>
+                    <li>Remain on your credit report for 2 years</li>
+                    <li>Multiple inquiries for the same loan type within a short period (usually 14-45 days) are often counted as a single inquiry by credit scoring models</li>
+                  </ul>
+                  
+                  <p class="mt-3">When using our platform to compare lenders, we clearly indicate which lenders offer pre-qualification with soft credit checks. This allows you to compare multiple loan offers without accumulating hard inquiries.</p>
+                  
+                  <p class="mt-3">Once you select a specific loan offer and proceed with a formal application, that lender will perform a hard credit inquiry. We recommend only formally applying for a loan when you're ready to proceed and have already compared your options through pre-qualification processes.</p>
+                  
+                  <p class="mt-3">It's worth noting that the final rate offered after a hard inquiry may differ from the pre-qualified rate if the lender discovers additional information during the complete credit check and verification process.</p>
+                </div>
+              </details>
+              
+              <!-- Credit Requirements Questions -->
+              <details class="faq-item" data-category="credit">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  What credit score do I need to qualify for a loan?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>Credit score requirements vary widely based on the loan type and lender. Here's a general overview:</p>
+                  
+                  <p class="mt-3"><strong>Personal Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Excellent Credit (720+):</strong> Qualify for the best rates and terms from virtually all lenders</li>
+                    <li><strong>Good Credit (680-719):</strong> Good approval odds with competitive rates from most lenders</li>
+                    <li><strong>Fair Credit (640-679):</strong> May qualify with many lenders but at higher rates</li>
+                    <li><strong>Poor Credit (580-639):</strong> Limited options, often with specialized lenders and higher rates</li>
+                    <li><strong>Bad Credit (below 580):</strong> Very few options, may require secured loans or cosigners</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Business Loans:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Bank Business Loans:</strong> Typically require 680+ credit for business owners</li>
+                    <li><strong>SBA Loans:</strong> Generally require 650+ score (though SBA Microloans may accept lower)</li>
+                    <li><strong>Online Business Lenders:</strong> Some will work with scores as low as 500-550, but with higher costs</li>
+                    <li><strong>Equipment Financing:</strong> Often available with scores of 600+</li>
+                    <li><strong>Invoice Factoring:</strong> More dependent on your customers' creditworthiness than your own</li>
+                  </ul>
+                  
+                  <p class="mt-3">It's important to note that credit score is just one factor in loan approval. Lenders also consider:</p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Income and debt-to-income ratio</li>
+                    <li>Employment stability</li>
+                    <li>Business revenue and cash flow (for business loans)</li>
+                    <li>Time in business (for business loans)</li>
+                    <li>Collateral (for secured loans)</li>
+                    <li>Relationship with the lender (particularly for bank loans)</li>
+                  </ul>
+                  
+                  <p class="mt-3">Our BetterList 100™ directory includes lenders catering to various credit profiles, and we can help match you with options suited to your specific credit situation.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="credit">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  Can I get a loan with bad credit?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>Yes, it is possible to get a loan with bad credit, though your options will be more limited and typically more expensive. Here are several approaches to consider:</p>
+                  
+                  <p class="mt-3"><strong>Options for Personal Loans with Bad Credit:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Secured Loans:</strong> Using collateral like a vehicle, savings account, or certificate of deposit can help you qualify despite poor credit</li>
+                    <li><strong>Co-signer Loans:</strong> Having someone with better credit co-sign your loan can improve approval odds and rates</li>
+                    <li><strong>Credit Union Loans:</strong> Some credit unions have more flexible credit requirements for members</li>
+                    <li><strong>Specialized Bad Credit Lenders:</strong> Some online lenders focus specifically on borrowers with credit challenges</li>
+                    <li><strong>Peer-to-Peer Lending:</strong> These platforms sometimes approve borrowers with lower credit scores</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Options for Business Loans with Bad Credit:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Invoice Factoring/Financing:</strong> Based more on your customers' creditworthiness than yours</li>
+                    <li><strong>Merchant Cash Advances:</strong> Approval based primarily on business revenue rather than credit</li>
+                    <li><strong>Equipment Financing:</strong> The equipment serves as collateral, reducing credit requirements</li>
+                    <li><strong>Microloans:</strong> Smaller loan amounts from community organizations or specialized lenders</li>
+                    <li><strong>Alternative Online Lenders:</strong> Some focus on business performance metrics over personal credit</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Important Considerations:</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li>Expect higher interest rates, potentially 25% to 36% APR or higher</li>
+                    <li>Loan amounts will likely be lower than what's available to those with good credit</li>
+                    <li>Watch for additional fees that can significantly increase the cost of borrowing</li>
+                    <li>Verify that the lender reports to credit bureaus if you're hoping to build credit through timely payments</li>
+                    <li>Be wary of predatory lenders, particularly those advertising "guaranteed approval" or not checking credit at all</li>
+                  </ul>
+                  
+                  <p class="mt-3">If time permits, taking steps to improve your credit before applying for a loan can significantly expand your options and reduce costs. Even a modest improvement in your score can make a difference in the terms you're offered.</p>
+                  
+                  <p class="mt-3">Our platform includes lenders that work with various credit profiles, and we can help identify the most reputable options for your situation.</p>
+                </div>
+              </details>
+              
+              <details class="faq-item" data-category="credit">
+                <summary class="text-lg font-medium text-neutral-900 py-3">
+                  How can I improve my credit score before applying?
+                </summary>
+                <div class="p-4 pt-2 pl-12 text-neutral-600">
+                  <p>Improving your credit score before applying for a loan can significantly enhance your approval odds and help you secure better rates. Here are effective strategies, organized by timeframe:</p>
+                  
+                  <p class="mt-3"><strong>Quick Improvements (1-3 months):</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Pay down credit card balances:</strong> Reducing your credit utilization ratio (ideally below 30%) can have an immediate positive impact</li>
+                    <li><strong>Become an authorized user:</strong> If a family member with good credit adds you as an authorized user on their well-managed credit card, their positive history can boost your score</li>
+                    <li><strong>Check for errors on your credit report:</strong> Dispute any inaccuracies with the credit bureaus</li>
+                    <li><strong>Ask for goodwill deletions:</strong> If you have a generally good payment history with a creditor but one or two late payments, they might agree to remove these negative marks</li>
+                    <li><strong>Request higher credit limits:</strong> If approved, this immediately reduces your utilization ratio (as long as you don't increase spending)</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Medium-Term Strategies (3-12 months):</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Establish perfect payment history:</strong> Make all payments on time, as payment history is the single most influential factor in your credit score</li>
+                    <li><strong>Pay down installment loans:</strong> Reducing your overall debt can improve your debt-to-income ratio</li>
+                    <li><strong>Don't close old credit cards:</strong> Keeping them open maintains your credit history length and total available credit</li>
+                    <li><strong>Use a secured credit card:</strong> If you have limited credit history, a secured card can help you build credit</li>
+                    <li><strong>Try credit-builder loans:</strong> These specially designed products help establish payment history</li>
+                    <li><strong>Limit new credit applications:</strong> Avoid multiple hard inquiries in a short period</li>
+                  </ul>
+                  
+                  <p class="mt-3"><strong>Longer-Term Habits (12+ months):</strong></p>
+                  <ul class="list-disc mt-1 pl-5 space-y-1">
+                    <li><strong>Maintain a diverse credit mix:</strong> Having different types of credit (revolving and installment) can positively impact your score</li>
+                    <li><strong>Keep credit utilization consistently low:</strong> Even if you pay off cards monthly, high utilization reported at statement closing can hurt your score</li>
+                    <li><strong>Monitor your credit reports regularly:</strong> Early detection of issues prevents them from causing long-term damage</li>
+                    <li><strong>Practice patience:</strong> Negative items like late payments and collections have less impact as they age</li>
+                  </ul>
+                  
+                  <p class="mt-3">For more detailed information on improving your credit score, check out our <a href="/resources/credit-score-guide.html" class="text-primary hover:underline">Credit Score Guide</a>, which provides in-depth explanations of credit scoring factors and improvement strategies.</p>
+                  
+                  <p class="mt-3">If you need funding before you can significantly improve your score, our platform can help identify lenders most likely to work with your current credit profile.</p>
+                </div>
+              </details>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="noResultsMessage" class="py-12 text-center hidden">
+              <i class="fas fa-search text-4xl text-neutral-300 mb-4"></i>
+              <p class="text-lg text-neutral-600">No questions match your search. Try different keywords or <a href="#" id="resetSearch" class="text-primary hover:underline">reset your search</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-12 bg-primary">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-heading font-bold text-white mb-3">Still Have Questions?</h2>
+        <p class="text-lg text-white/90 mb-8 max-w-3xl mx-auto">
+          Our team is here to help you navigate your funding options and find the best solution for your needs.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact" class="px-6 py-3 bg-white text-primary hover:bg-neutral-100 font-medium rounded-lg text-center transition-colors">
+            Contact Us
+          </a>
+          <a href="/betterlist-100.html" class="px-6 py-3 bg-transparent border border-white text-white hover:bg-white/10 font-medium rounded-lg text-center transition-colors">
+            Explore Lenders
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <img src="/assets/logo-light.png" alt="Better Capital Solutions" class="h-12" />
+          <p class="text-neutral-400 text-sm">
+            Helping businesses and individuals find the right funding solutions since 2021.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-neutral-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="/personal-funding" class="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></li>
+            <li><a href="/business-funding" class="text-neutral-400 hover:text-white transition-colors">Business Funding</a></li>
+            <li><a href="/betterlist-100.html" class="text-neutral-400 hover:text-white transition-colors">BetterList 100™</a></li>
+            <li><a href="/resources/blog.html" class="text-neutral-400 hover:text-white transition-colors">Resources</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="/resources/financial-calculator.html" class="text-neutral-400 hover:text-white transition-colors">Loan Calculator</a></li>
+            <li><a href="/resources/credit-score-guide.html" class="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a></li>
+            <li><a href="/resources/loan-comparison-tool.html" class="text-neutral-400 hover:text-white transition-colors">Loan Comparison</a></li>
+            <li><a href="/resources/interest-rate-trends.html" class="text-neutral-400 hover:text-white transition-colors">Interest Rate Trends</a></li>
+            <li><a href="/resources/faq.html" class="text-neutral-400 hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Contact</h4>
+          <ul class="space-y-2 text-neutral-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+              <span>123 Business Ave, Suite 100<br>New York, NY 10001</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-primary"></i>
+              <span>(555) 123-4567</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-primary"></i>
+              <span>info@bettercapitalsolutions.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-6 border-t border-neutral-800 text-center text-neutral-500 text-sm">
+        <p>&copy; 2025 Better Capital Solutions. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Terms of Service</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAQ JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const faqSearch = document.getElementById('faqSearch');
+      const faqContainer = document.getElementById('faqContainer');
+      const faqItems = faqContainer.querySelectorAll('.faq-item');
+      const categoryButtons = document.querySelectorAll('.faq-categories button');
+      const noResultsMessage = document.getElementById('noResultsMessage');
+      const resetSearch = document.getElementById('resetSearch');
+      
+      // Filter FAQs by category
+      function filterByCategory(category) {
+        // Update active category button
+        categoryButtons.forEach(button => {
+          button.classList.remove('active');
+          if (button.getAttribute('data-category') === category) {
+            button.classList.add('active');
+          }
+        });
+        
+        // Show/hide FAQ items based on category
+        faqItems.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+        
+        // Check if there are visible items
+        checkForResults();
+      }
+      
+      // Search FAQs by keyword
+      function searchFAQs(query) {
+        const searchTerms = query.toLowerCase().trim();
+        
+        if (!searchTerms) {
+          faqItems.forEach(item => {
+            item.classList.remove('hidden');
+          });
+          noResultsMessage.classList.add('hidden');
+          return;
+        }
+        
+        let hasResults = false;
+        
+        faqItems.forEach(item => {
+          const summary = item.querySelector('summary').textContent.toLowerCase();
+          const content = item.querySelector('div').textContent.toLowerCase();
+          
+          if (summary.includes(searchTerms) || content.includes(searchTerms)) {
+            item.classList.remove('hidden');
+            hasResults = true;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+        
+        // Show/hide no results message
+        if (hasResults) {
+          noResultsMessage.classList.add('hidden');
+        } else {
+          noResultsMessage.classList.remove('hidden');
+        }
+      }
+      
+      // Check if there are any visible results
+      function checkForResults() {
+        const visibleItems = faqContainer.querySelectorAll('.faq-item:not(.hidden)');
+        
+        if (visibleItems.length === 0) {
+          noResultsMessage.classList.remove('hidden');
+        } else {
+          noResultsMessage.classList.add('hidden');
+        }
+      }
+      
+      // Event Listeners
+      
+      // Category filtering
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+          filterByCategory(category);
+          
+          // Reset search when changing categories
+          faqSearch.value = '';
+        });
+      });
+      
+      // Search functionality
+      faqSearch.addEventListener('input', function() {
+        const query = this.value;
+        searchFAQs(query);
+        
+        // Reset category to "All" when searching
+        categoryButtons.forEach(button => {
+          button.classList.remove('active');
+          if (button.getAttribute('data-category') === 'all') {
+            button.classList.add('active');
+          }
+        });
+      });
+      
+      // Reset search
+      resetSearch.addEventListener('click', function(e) {
+        e.preventDefault();
+        faqSearch.value = '';
+        filterByCategory('all');
+      });
+      
+      // Initialize with all FAQs visible
+      filterByCategory('all');
+    });
+  </script>
+</body>
+</html>

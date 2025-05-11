@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Calculator | Better Capital Solutions</title>
+  <meta name="description" content="Use our free loan calculator to estimate your monthly payments, interest costs, and total repayment for any loan type.">
+  
+  <!-- Open Graph tags for better social media sharing -->
+  <meta property="og:title" content="Loan Calculator | Better Capital Solutions">
+  <meta property="og:description" content="Use our free loan calculator to estimate your monthly payments, interest costs, and total repayment for any loan type.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bettercapitalsolutions.com/resources/financial-calculator.html">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: 'hsl(207, 90%, 54%)',
+              light: 'hsl(207, 90%, 94%)',
+            },
+            accent: {
+              DEFAULT: 'hsl(24, 100%, 50%)',
+              light: 'hsl(24, 100%, 96%)',
+            },
+            success: 'hsl(142, 71%, 45%)',
+            neutral: {
+              100: 'hsl(220, 14%, 96%)',
+              200: 'hsl(220, 13%, 91%)',
+              300: 'hsl(216, 12%, 84%)',
+              400: 'hsl(218, 11%, 65%)',
+              500: 'hsl(220, 9%, 46%)',
+              600: 'hsl(215, 14%, 34%)',
+              700: 'hsl(217, 19%, 27%)',
+              800: 'hsl(215, 28%, 17%)',
+              900: 'hsl(221, 39%, 11%)',
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/css">
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: hsl(207, 90%, 54%);
+      cursor: pointer;
+    }
+    
+    input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: hsl(207, 90%, 54%);
+      cursor: pointer;
+    }
+
+    .chart-bar {
+      transition: height 0.5s ease-in-out;
+    }
+
+    .result-card {
+      transition: all 0.3s ease;
+    }
+
+    .result-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-neutral-100 text-neutral-800">
+  <!-- Header/Navbar -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-6">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center">
+            <img src="/assets/logo.png" alt="Better Capital Solutions" class="h-20 mr-3" />
+          </a>
+        </div>
+        
+        <!-- Mobile menu button (simplified for template) -->
+        <div class="md:hidden">
+          <button type="button" class="text-neutral-500 hover:text-primary focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        
+        <!-- Desktop navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
+          <a href="/personal-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+          <a href="/business-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+          <a href="/betterlist-100.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">BetterList 100™</a>
+          <a href="/resources/blog.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
+          <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="bg-primary py-16 md:py-24">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Loan Calculator</h1>
+        <p class="text-lg md:text-xl font-medium text-white/90 max-w-2xl mx-auto">
+          Estimate your monthly payments, total interest, and full loan cost
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <!-- Input Column -->
+              <div class="lg:col-span-5 space-y-6">
+                <h2 class="text-2xl font-heading font-semibold text-neutral-900 mb-6">Loan Details</h2>
+                
+                <!-- Loan Amount -->
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <label for="loanAmount" class="block text-sm font-medium text-neutral-700">Loan Amount</label>
+                    <span class="text-sm font-medium text-primary" id="loanAmountValue">$50,000</span>
+                  </div>
+                  <input
+                    type="range"
+                    id="loanAmount"
+                    min="1000"
+                    max="1000000"
+                    step="1000"
+                    value="50000"
+                    class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                  >
+                  <div class="flex justify-between text-xs text-neutral-500">
+                    <span>$1,000</span>
+                    <span>$1,000,000</span>
+                  </div>
+                </div>
+                
+                <!-- Interest Rate -->
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <label for="interestRate" class="block text-sm font-medium text-neutral-700">Interest Rate (%)</label>
+                    <span class="text-sm font-medium text-primary" id="interestRateValue">7.5%</span>
+                  </div>
+                  <input
+                    type="range"
+                    id="interestRate"
+                    min="0.1"
+                    max="30"
+                    step="0.1"
+                    value="7.5"
+                    class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                  >
+                  <div class="flex justify-between text-xs text-neutral-500">
+                    <span>0.1%</span>
+                    <span>30%</span>
+                  </div>
+                </div>
+                
+                <!-- Loan Term -->
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <label for="loanTerm" class="block text-sm font-medium text-neutral-700">Loan Term (Years)</label>
+                    <span class="text-sm font-medium text-primary" id="loanTermValue">5 years</span>
+                  </div>
+                  <input
+                    type="range"
+                    id="loanTerm"
+                    min="1"
+                    max="30"
+                    step="1"
+                    value="5"
+                    class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                  >
+                  <div class="flex justify-between text-xs text-neutral-500">
+                    <span>1 year</span>
+                    <span>30 years</span>
+                  </div>
+                </div>
+                
+                <!-- Manual Input -->
+                <div class="pt-4">
+                  <h3 class="text-sm font-medium text-neutral-700 mb-3">Or enter values manually:</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label for="manualAmount" class="block text-xs text-neutral-500 mb-1">Loan Amount ($)</label>
+                      <input
+                        type="number"
+                        id="manualAmount"
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                        value="50000"
+                        min="1000"
+                        max="1000000"
+                      >
+                    </div>
+                    <div>
+                      <label for="manualRate" class="block text-xs text-neutral-500 mb-1">Interest Rate (%)</label>
+                      <input
+                        type="number"
+                        id="manualRate"
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                        value="7.5"
+                        min="0.1"
+                        max="30"
+                        step="0.1"
+                      >
+                    </div>
+                    <div>
+                      <label for="manualTerm" class="block text-xs text-neutral-500 mb-1">Term (Years)</label>
+                      <input
+                        type="number"
+                        id="manualTerm"
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                        value="5"
+                        min="1"
+                        max="30"
+                      >
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Calculate Button -->
+                <div class="pt-6">
+                  <button
+                    id="calculateBtn"
+                    class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
+                  >
+                    Calculate Loan
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Results Column -->
+              <div class="lg:col-span-7">
+                <h2 class="text-2xl font-heading font-semibold text-neutral-900 mb-6">Loan Summary</h2>
+                
+                <!-- Results Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                  <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
+                    <p class="text-sm text-neutral-600 mb-1">Monthly Payment</p>
+                    <p class="text-2xl font-bold text-primary" id="monthlyPayment">$993.64</p>
+                  </div>
+                  <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
+                    <p class="text-sm text-neutral-600 mb-1">Total Interest</p>
+                    <p class="text-2xl font-bold text-primary" id="totalInterest">$9,618.54</p>
+                  </div>
+                  <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
+                    <p class="text-sm text-neutral-600 mb-1">Total Paid</p>
+                    <p class="text-2xl font-bold text-primary" id="totalPaid">$59,618.54</p>
+                  </div>
+                </div>
+                
+                <!-- Visualization -->
+                <div class="bg-white border border-neutral-200 rounded-lg p-6">
+                  <h3 class="text-lg font-medium text-neutral-800 mb-4">Loan Breakdown</h3>
+                  
+                  <!-- Chart -->
+                  <div class="flex items-end h-56 mb-4 mt-6 space-x-2">
+                    <div class="h-full flex flex-col justify-between items-center">
+                      <span class="text-xs text-neutral-500">100%</span>
+                      <span class="text-xs text-neutral-500">75%</span>
+                      <span class="text-xs text-neutral-500">50%</span>
+                      <span class="text-xs text-neutral-500">25%</span>
+                      <span class="text-xs text-neutral-500">0%</span>
+                    </div>
+                    <div class="flex-1 flex items-end space-x-6">
+                      <div class="flex-1 flex flex-col items-center">
+                        <div class="w-full bg-primary chart-bar" id="principalBar" style="height: 60%;"></div>
+                        <span class="mt-2 text-sm font-medium">Principal</span>
+                        <span class="text-sm text-neutral-600" id="principalAmount">$50,000</span>
+                        <span class="text-xs text-neutral-500" id="principalPercent">83.9%</span>
+                      </div>
+                      <div class="flex-1 flex flex-col items-center">
+                        <div class="w-full bg-accent chart-bar" id="interestBar" style="height: 12%;"></div>
+                        <span class="mt-2 text-sm font-medium">Interest</span>
+                        <span class="text-sm text-neutral-600" id="interestAmount">$9,618.54</span>
+                        <span class="text-xs text-neutral-500" id="interestPercent">16.1%</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Amortization Toggle -->
+                  <details class="mt-8 border-t pt-4">
+                    <summary class="cursor-pointer font-medium text-primary">View Amortization Schedule</summary>
+                    <div class="mt-4 overflow-auto max-h-96">
+                      <table class="min-w-full divide-y divide-neutral-200">
+                        <thead class="bg-neutral-50">
+                          <tr>
+                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Year</th>
+                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Principal Paid</th>
+                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Interest Paid</th>
+                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Remaining Balance</th>
+                          </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-neutral-200" id="amortizationTable">
+                          <!-- JS will populate this -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Looking for Funding -->
+    <section class="bg-primary/5 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-3">Looking for Funding?</h2>
+        <p class="text-lg text-neutral-600 mb-8 max-w-3xl mx-auto">
+          Compare top lenders and find the best rates for your business or personal funding needs.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/business-funding" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors">
+            Explore Business Loans
+          </a>
+          <a href="/personal-funding" class="px-6 py-3 bg-white border border-primary text-primary hover:bg-primary/5 font-medium rounded-lg text-center transition-colors">
+            Explore Personal Loans
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <img src="/assets/logo-light.png" alt="Better Capital Solutions" class="h-12" />
+          <p class="text-neutral-400 text-sm">
+            Helping businesses and individuals find the right funding solutions since 2021.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-neutral-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="/personal-funding" class="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></li>
+            <li><a href="/business-funding" class="text-neutral-400 hover:text-white transition-colors">Business Funding</a></li>
+            <li><a href="/betterlist-100.html" class="text-neutral-400 hover:text-white transition-colors">BetterList 100™</a></li>
+            <li><a href="/resources/blog.html" class="text-neutral-400 hover:text-white transition-colors">Resources</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="/resources/financial-calculator.html" class="text-neutral-400 hover:text-white transition-colors">Loan Calculator</a></li>
+            <li><a href="/resources/credit-score-guide.html" class="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a></li>
+            <li><a href="/resources/loan-comparison-tool.html" class="text-neutral-400 hover:text-white transition-colors">Loan Comparison</a></li>
+            <li><a href="/resources/interest-rate-trends.html" class="text-neutral-400 hover:text-white transition-colors">Interest Rate Trends</a></li>
+            <li><a href="/resources/faq.html" class="text-neutral-400 hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Contact</h4>
+          <ul class="space-y-2 text-neutral-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+              <span>123 Business Ave, Suite 100<br>New York, NY 10001</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-primary"></i>
+              <span>(555) 123-4567</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-primary"></i>
+              <span>info@bettercapitalsolutions.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-6 border-t border-neutral-800 text-center text-neutral-500 text-sm">
+        <p>&copy; 2025 Better Capital Solutions. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Terms of Service</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calculator JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const loanAmountSlider = document.getElementById('loanAmount');
+      const interestRateSlider = document.getElementById('interestRate');
+      const loanTermSlider = document.getElementById('loanTerm');
+      
+      const loanAmountValue = document.getElementById('loanAmountValue');
+      const interestRateValue = document.getElementById('interestRateValue');
+      const loanTermValue = document.getElementById('loanTermValue');
+      
+      const manualAmount = document.getElementById('manualAmount');
+      const manualRate = document.getElementById('manualRate');
+      const manualTerm = document.getElementById('manualTerm');
+      
+      const calculateBtn = document.getElementById('calculateBtn');
+      
+      const monthlyPaymentElement = document.getElementById('monthlyPayment');
+      const totalInterestElement = document.getElementById('totalInterest');
+      const totalPaidElement = document.getElementById('totalPaid');
+      
+      const principalBar = document.getElementById('principalBar');
+      const interestBar = document.getElementById('interestBar');
+      const principalAmount = document.getElementById('principalAmount');
+      const interestAmount = document.getElementById('interestAmount');
+      const principalPercent = document.getElementById('principalPercent');
+      const interestPercent = document.getElementById('interestPercent');
+      
+      const amortizationTable = document.getElementById('amortizationTable');
+      
+      // Format currency
+      function formatCurrency(value) {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }).format(value);
+      }
+      
+      // Format percentage
+      function formatPercent(value) {
+        return (value * 100).toFixed(1) + '%';
+      }
+      
+      // Update sliders
+      loanAmountSlider.addEventListener('input', function() {
+        loanAmountValue.textContent = formatCurrency(this.value);
+        manualAmount.value = this.value;
+        calculateLoan();
+      });
+      
+      interestRateSlider.addEventListener('input', function() {
+        interestRateValue.textContent = this.value + '%';
+        manualRate.value = this.value;
+        calculateLoan();
+      });
+      
+      loanTermSlider.addEventListener('input', function() {
+        const years = this.value;
+        loanTermValue.textContent = years + (years == 1 ? ' year' : ' years');
+        manualTerm.value = years;
+        calculateLoan();
+      });
+      
+      // Update from manual inputs
+      manualAmount.addEventListener('change', function() {
+        const value = Math.min(Math.max(this.value, 1000), 1000000);
+        this.value = value;
+        loanAmountSlider.value = value;
+        loanAmountValue.textContent = formatCurrency(value);
+        calculateLoan();
+      });
+      
+      manualRate.addEventListener('change', function() {
+        const value = Math.min(Math.max(this.value, 0.1), 30);
+        this.value = value;
+        interestRateSlider.value = value;
+        interestRateValue.textContent = value + '%';
+        calculateLoan();
+      });
+      
+      manualTerm.addEventListener('change', function() {
+        const value = Math.min(Math.max(this.value, 1), 30);
+        this.value = value;
+        loanTermSlider.value = value;
+        loanTermValue.textContent = value + (value == 1 ? ' year' : ' years');
+        calculateLoan();
+      });
+      
+      // Calculate loan on button click
+      calculateBtn.addEventListener('click', calculateLoan);
+      
+      // Calculate loan function
+      function calculateLoan() {
+        // Get values
+        const principal = parseFloat(loanAmountSlider.value);
+        const interestRate = parseFloat(interestRateSlider.value) / 100;
+        const termYears = parseInt(loanTermSlider.value);
+        const termMonths = termYears * 12;
+        
+        // Calculate monthly payment
+        const monthlyRate = interestRate / 12;
+        const monthlyPayment = principal * monthlyRate * Math.pow(1 + monthlyRate, termMonths) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+        
+        // Calculate totals
+        const totalPaid = monthlyPayment * termMonths;
+        const totalInterest = totalPaid - principal;
+        
+        // Update result elements
+        monthlyPaymentElement.textContent = formatCurrency(monthlyPayment);
+        totalInterestElement.textContent = formatCurrency(totalInterest);
+        totalPaidElement.textContent = formatCurrency(totalPaid);
+        
+        // Update chart
+        const principalPercentValue = principal / totalPaid;
+        const interestPercentValue = totalInterest / totalPaid;
+        
+        principalBar.style.height = (principalPercentValue * 100) + '%';
+        interestBar.style.height = (interestPercentValue * 100) + '%';
+        
+        principalAmount.textContent = formatCurrency(principal);
+        interestAmount.textContent = formatCurrency(totalInterest);
+        principalPercent.textContent = (principalPercentValue * 100).toFixed(1) + '%';
+        interestPercent.textContent = (interestPercentValue * 100).toFixed(1) + '%';
+        
+        // Generate amortization table
+        generateAmortizationTable(principal, interestRate, termYears);
+      }
+      
+      // Generate amortization table
+      function generateAmortizationTable(principal, annualRate, termYears) {
+        amortizationTable.innerHTML = '';
+        
+        const monthlyRate = annualRate / 12;
+        const totalMonths = termYears * 12;
+        const monthlyPayment = principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        
+        let balance = principal;
+        let yearlyPrincipalPaid = 0;
+        let yearlyInterestPaid = 0;
+        
+        for (let year = 1; year <= termYears; year++) {
+          yearlyPrincipalPaid = 0;
+          yearlyInterestPaid = 0;
+          
+          for (let month = 1; month <= 12; month++) {
+            if ((year - 1) * 12 + month <= totalMonths) {
+              const interestPayment = balance * monthlyRate;
+              const principalPayment = monthlyPayment - interestPayment;
+              
+              yearlyPrincipalPaid += principalPayment;
+              yearlyInterestPaid += interestPayment;
+              
+              balance -= principalPayment;
+            }
+          }
+          
+          // Create table row
+          const row = document.createElement('tr');
+          row.className = year % 2 === 0 ? 'bg-neutral-50' : 'bg-white';
+          
+          row.innerHTML = `
+            <td class="px-3 py-4 whitespace-nowrap text-sm text-neutral-700">${year}</td>
+            <td class="px-3 py-4 whitespace-nowrap text-sm text-neutral-700">${formatCurrency(yearlyPrincipalPaid)}</td>
+            <td class="px-3 py-4 whitespace-nowrap text-sm text-neutral-700">${formatCurrency(yearlyInterestPaid)}</td>
+            <td class="px-3 py-4 whitespace-nowrap text-sm text-neutral-700">${formatCurrency(Math.max(0, balance))}</td>
+          `;
+          
+          amortizationTable.appendChild(row);
+        }
+      }
+      
+      // Initial calculation
+      calculateLoan();
+    });
+  </script>
+</body>
+</html>
