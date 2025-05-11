@@ -51,6 +51,12 @@ function Router() {
         }}
       </Route>
       
+      {/* Funding category pages */}
+      <Route path="/sba-loans" component={NotFound} />
+      <Route path="/credit-cards" component={NotFound} />
+      <Route path="/bad-credit" component={NotFound} />
+      <Route path="/fast-approval" component={NotFound} />
+      
       {/* These routes will show the NotFound page until we implement them */}
       <Route path="/personal-funding" component={NotFound} />
       <Route path="/business-funding" component={NotFound} />
