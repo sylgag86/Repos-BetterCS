@@ -10,8 +10,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
   // prefix all routes with /api
 
-  // Add lender routes from our lenders.js file
-  app.use(lenderRoutes);
+  // Add lender routes from our lenders.ts file
+  app.use('/api/lenders', lenderRoutes);
 
   // Add additional routes for utility functions if needed
   app.get('/api/seed-lenders', async (req, res) => {

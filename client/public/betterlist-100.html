@@ -119,80 +119,51 @@
   </header>
 
   <main>
-    <!-- Hero Header -->
-    <section class="hero-gradient py-16 md:py-20 relative">
-      <div class="absolute inset-0 overflow-hidden opacity-20">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1642790551116-18eda75d96b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1000')] bg-no-repeat bg-cover bg-center filter blur-sm"></div>
-      </div>
-      
-      <div class="container mx-auto px-4 relative z-10 text-center">
-        <div class="inline-flex items-center px-4 py-2 mb-6 rounded-full text-sm font-medium bg-white/10 text-white/90 backdrop-blur-sm">
-          <span class="mr-2 text-success">
-            <i class="fas fa-award"></i>
-          </span>
-          Exclusive Research
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-12 md:py-20">
+      <div class="container mx-auto px-4 text-center">
+        <div class="inline-flex items-center px-4 py-2 trusted-badge rounded-full mb-6 text-white text-sm font-medium">
+          <i class="fas fa-search mr-2"></i>
+          Updated May 2025
         </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-          The BetterList 100™
-        </h1>
-        <p class="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-          Our exclusive index of the most trusted, high-performing funding sources in the United States.
+        <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">The BetterList 100™</h1>
+        <p class="text-xl opacity-90 max-w-3xl mx-auto mb-8">
+          Our comprehensive ranking of the top 100 funding providers in the United States, helping you find the perfect match for your financial needs.
         </p>
-        <div class="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
-          <div class="trusted-badge rounded-lg px-4 py-2 text-white flex items-center bg-white/10 backdrop-blur-sm">
-            <i class="fas fa-calendar-alt mr-2"></i>
-            <span>Updated Quarterly</span>
-          </div>
-          <div class="trusted-badge rounded-lg px-4 py-2 text-white flex items-center bg-white/10 backdrop-blur-sm">
-            <i class="fas fa-chart-line mr-2"></i>
-            <span>Data-Driven Analysis</span>
-          </div>
-          <div class="trusted-badge rounded-lg px-4 py-2 text-white flex items-center bg-white/10 backdrop-blur-sm">
-            <i class="fas fa-users mr-2"></i>
-            <span>Expert Review Panel</span>
-          </div>
-          <div class="trusted-badge rounded-lg px-4 py-2 text-white flex items-center bg-white/10 backdrop-blur-sm">
-            <i class="fas fa-star mr-2"></i>
-            <span>Customer Satisfaction</span>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Filter Bar Section -->
-    <section class="py-8 bg-white border-b border-neutral-200 sticky top-16 z-40">
+    <!-- Filter Bar -->
+    <section class="py-8 bg-white shadow-md">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h2 class="text-2xl font-heading font-bold text-neutral-900">
-              Top 100 Funding Providers
-            </h2>
-            <p class="text-neutral-600">
-              Compare and find the best option for your needs
-            </p>
+          <div class="text-lg font-heading font-semibold text-neutral-900">
+            <i class="fas fa-filter mr-2 text-primary"></i> Filter Results
           </div>
-          <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-            <div class="relative flex-grow">
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div class="flex flex-col md:flex-row gap-3">
+            <div class="relative">
+              <input type="text" placeholder="Search lenders..." class="pl-10 pr-4 py-2 w-full md:w-60 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <i class="fas fa-search text-neutral-400"></i>
               </div>
-              <input type="text" placeholder="Search by name..." class="pl-10 pr-4 py-2 w-full border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
             </div>
             <div class="relative">
-              <select class="appearance-none pl-4 pr-10 py-2 w-full sm:w-40 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
-                <option value="">All Categories</option>
-                <option value="business">Business Loans</option>
-                <option value="personal">Personal Loans</option>
-                <option value="credit-card">Credit Cards</option>
-                <option value="sba">SBA Loans</option>
-                <option value="loc">Credit Lines</option>
+              <select id="category-filter" class="appearance-none pl-4 pr-10 py-2 w-full sm:w-40 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+                <option value="all">All Categories</option>
+                <option value="Business Loans">Business Loans</option>
+                <option value="Personal Loans">Personal Loans</option>
+                <option value="Credit Cards">Credit Cards</option>
+                <option value="SBA Loans">SBA Loans</option>
+                <option value="Line of Credit">Credit Lines</option>
+                <option value="Equipment Financing">Equipment Financing</option>
+                <option value="Invoice Financing">Invoice Financing</option>
               </select>
               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
                 <i class="fas fa-chevron-down text-neutral-400 text-xs"></i>
               </div>
             </div>
             <div class="relative">
-              <select class="appearance-none pl-4 pr-10 py-2 w-full sm:w-32 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+              <select id="sort-order" class="appearance-none pl-4 pr-10 py-2 w-full sm:w-32 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
                 <option value="rank">By Rank</option>
                 <option value="rating">By Rating</option>
                 <option value="az">A to Z</option>
@@ -278,884 +249,32 @@
             <div class="col-span-2 font-medium text-right">Action</div>
           </div>
           
+          <!-- Table Rows will be dynamically generated by JavaScript -->
           <div id="desktop-lender-list">
-            <!-- Lenders will be dynamically added here by JavaScript -->
-          </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <span class="text-sm">5.0</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>Loans up to $40K</div>
-              <div>Rates from 5.99%</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/lendingcircle.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 3 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">RewardOne</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                Credit Cards
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                </div>
-                <span class="text-sm">4.0</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>5% cash back</div>
-              <div>$200 welcome bonus</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/rewardone.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 4 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">4</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">EquipFlex</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-accent/10 text-accent text-xs font-medium px-2.5 py-1 rounded-full">
-                Equipment Financing
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                </div>
-                <span class="text-sm">4.0</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>100% equipment financing</div>
-              <div>Rates from 5.99%</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/equipflex.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 5 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">5</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">InvoiceNow</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                Invoice Factoring
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                  <i class="far fa-star"></i>
-                </div>
-                <span class="text-sm">3.5</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>Up to 95% of invoice value</div>
-              <div>Fees from 1% per 30 days</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/invoicenow.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 6 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">6</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">BlueVine</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                Business Line of Credit
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span class="text-sm">4.5</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>Lines up to $250K</div>
-              <div>Simple online application</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/bluevine.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 7 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">7</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">FundGrow</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                Business Credit Lines
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span class="text-sm">4.5</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>$10K to $250K</div>
-              <div>Rates from 6.99%</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/fundgrow.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 8 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">8</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">Upstart</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-accent/10 text-accent text-xs font-medium px-2.5 py-1 rounded-full">
-                Personal Loans
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <span class="text-sm">4.8</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>AI-powered approvals</div>
-              <div>Fast funding</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/upstart.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 9 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">9</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">LiveOak Bank</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                SBA Loans
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span class="text-sm">4.5</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>SBA 7(a) and 504 loans</div>
-              <div>Industry expertise</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/liveoak.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Row 10 -->
-          <div class="p-4 grid grid-cols-12 gap-4 items-center lender-row">
-            <div class="col-span-1">
-              <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">10</div>
-            </div>
-            <div class="col-span-3">
-              <div class="flex items-center">
-                <div class="font-heading font-bold text-lg">ChasePremier</div>
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                Credit Cards
-              </span>
-            </div>
-            <div class="col-span-2">
-              <div class="flex items-center">
-                <div class="rating-stars flex mr-2">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <span class="text-sm">4.9</span>
-              </div>
-            </div>
-            <div class="col-span-2 text-sm text-neutral-700">
-              <div>Premium travel rewards</div>
-              <div>Concierge service</div>
-            </div>
-            <div class="col-span-2 text-right">
-              <a href="/lenders/chasepremier.html" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- More rows would be added here for all 100 lenders -->
-          
-          <!-- Placeholder for rows 11-100 -->
-          <div class="p-4 flex justify-center items-center text-neutral-500 py-12 border-t border-neutral-200">
-            <p class="text-center">For demonstration purposes, rows 11-100 would continue with similar structure and data for the remaining lenders.</p>
+            <!-- Lenders will be added here -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Lender Cards - Mobile View -->
+    <!-- Lender List - Mobile View (card format) -->
     <section class="py-8 bg-white md:hidden">
       <div class="container mx-auto px-4">
-        <div class="space-y-4">
-          <!-- Card 1 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">1</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">CapitalPrime</div>
-                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                      Business Loans
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <span class="text-sm">5.0</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Loans up to $5M</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Rates from 3.75%</span>
-                </div>
-              </div>
-              <a href="/lenders/capitalprime.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 2 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">2</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">LendingCircle</div>
-                    <span class="bg-accent/10 text-accent text-xs font-medium px-2.5 py-1 rounded-full">
-                      Personal Loans
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <span class="text-sm">5.0</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Loans up to $40K</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Rates from 5.99%</span>
-                </div>
-              </div>
-              <a href="/lenders/lendingcircle.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 3 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">3</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">RewardOne</div>
-                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                      Credit Cards
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <span class="text-sm">4.0</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>5% cash back</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>$200 welcome bonus</span>
-                </div>
-              </div>
-              <a href="/lenders/rewardone.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 4 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">4</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">EquipFlex</div>
-                    <span class="bg-accent/10 text-accent text-xs font-medium px-2.5 py-1 rounded-full">
-                      Equipment Financing
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <span class="text-sm">4.0</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>100% equipment financing</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Rates from 5.99%</span>
-                </div>
-              </div>
-              <a href="/lenders/equipflex.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 5 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">5</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">InvoiceNow</div>
-                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                      Invoice Factoring
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <span class="text-sm">3.5</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Up to 95% of invoice value</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Fees from 1% per 30 days</span>
-                </div>
-              </div>
-              <a href="/lenders/invoicenow.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 6 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">6</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">BlueVine</div>
-                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                      Business Line of Credit
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                  </div>
-                  <span class="text-sm">4.5</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Lines up to $250K</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Simple online application</span>
-                </div>
-              </div>
-              <a href="/lenders/bluevine.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 7 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">7</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">FundGrow</div>
-                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                      Business Credit Lines
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                  </div>
-                  <span class="text-sm">4.5</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>$10K to $250K</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Rates from 6.99%</span>
-                </div>
-              </div>
-              <a href="/lenders/fundgrow.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 8 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">8</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">Upstart</div>
-                    <span class="bg-accent/10 text-accent text-xs font-medium px-2.5 py-1 rounded-full">
-                      Personal Loans
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <span class="text-sm">4.8</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>AI-powered approvals</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Fast funding</span>
-                </div>
-              </div>
-              <a href="/lenders/upstart.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 9 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">9</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">LiveOak Bank</div>
-                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                      SBA Loans
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                  </div>
-                  <span class="text-sm">4.5</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>SBA 7(a) and 504 loans</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Industry expertise</span>
-                </div>
-              </div>
-              <a href="/lenders/liveoak.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Card 10 -->
-          <div class="border border-neutral-200 rounded-lg overflow-hidden lender-card">
-            <div class="p-4">
-              <div class="flex justify-between items-start mb-3">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-3">10</div>
-                  <div>
-                    <div class="font-heading font-bold text-lg">ChasePremier</div>
-                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
-                      Credit Cards
-                    </span>
-                  </div>
-                </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
-                  <i class="fas fa-award text-xs mr-1"></i>
-                  BetterList
-                </span>
-              </div>
-              <div class="flex justify-between items-center mb-3">
-                <div class="flex items-center">
-                  <div class="rating-stars flex mr-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <span class="text-sm">4.9</span>
-                </div>
-              </div>
-              <div class="text-sm text-neutral-700 mb-4">
-                <div class="flex items-start mb-1">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Premium travel rewards</span>
-                </div>
-                <div class="flex items-start">
-                  <i class="fas fa-check-circle text-success mr-2 mt-1"></i>
-                  <span>Concierge service</span>
-                </div>
-              </div>
-              <a href="/lenders/chasepremier.html" class="block w-full py-2 text-center rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
-                View Profile
-              </a>
-            </div>
-          </div>
-          
-          <!-- Placeholder for rest of mobile cards -->
-          <div class="p-6 border border-neutral-200 rounded-lg text-neutral-500 text-center">
-            For demonstration purposes, cards 11-100 would continue with similar structure and data for the remaining lenders.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Newsletter and CTA -->
-    <section class="py-16 bg-primary">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
-            Stay Updated with Our Quarterly Rankings
-          </h2>
-          <p class="text-xl text-white/80 mb-8">
-            Subscribe to receive updates when our BetterList 100™ rankings change, plus exclusive offers from top lenders.
-          </p>
-          <div class="max-w-md mx-auto">
-            <form class="flex flex-col sm:flex-row gap-3">
-              <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg focus:outline-none">
-              <button type="submit" class="px-6 py-3 rounded-lg text-primary font-medium bg-white hover:bg-neutral-100 transition-colors">
-                Subscribe
-              </button>
-            </form>
-            <p class="text-white/60 text-sm mt-3">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
-          </div>
+        <div id="mobile-lender-list" class="space-y-6">
+          <!-- Mobile lender cards will be added here -->
         </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-neutral-900 text-white pt-16 pb-8">
+  <footer class="bg-neutral-900 text-white py-12">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
-        <div>
-          <h3 class="text-xl font-heading font-bold mb-6">About Us</h3>
-          <p class="text-neutral-400 mb-6">
-            Better Capital Solutions provides the most comprehensive comparison service for financial products, helping you make informed decisions about your funding needs.
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <img src="/assets/logo-light.png" alt="Better Capital Solutions" class="h-12" />
+          <p class="text-neutral-400 text-sm">
+            Helping businesses and individuals find the right funding solutions since 2021.
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-neutral-400 hover:text-white transition-colors">
@@ -1174,144 +293,282 @@
         </div>
         
         <div>
-          <h3 class="text-xl font-heading font-bold mb-6">Quick Links</h3>
-          <ul class="space-y-3">
+          <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+          <ul class="space-y-2">
             <li><a href="/" class="text-neutral-400 hover:text-white transition-colors">Home</a></li>
             <li><a href="/personal-funding" class="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></li>
             <li><a href="/business-funding" class="text-neutral-400 hover:text-white transition-colors">Business Funding</a></li>
-            <li><a href="/credit-cards" class="text-neutral-400 hover:text-white transition-colors">Credit Cards</a></li>
             <li><a href="/reviews" class="text-neutral-400 hover:text-white transition-colors">Reviews</a></li>
             <li><a href="/guides" class="text-neutral-400 hover:text-white transition-colors">Guides</a></li>
           </ul>
         </div>
         
         <div>
-          <h3 class="text-xl font-heading font-bold mb-6">Resources</h3>
-          <ul class="space-y-3">
-            <li><a href="/calculator" class="text-neutral-400 hover:text-white transition-colors">Financial Calculator</a></li>
-            <li><a href="/credit-score" class="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a></li>
-            <li><a href="/comparison-tool" class="text-neutral-400 hover:text-white transition-colors">Loan Comparison Tool</a></li>
-            <li><a href="/rate-trends" class="text-neutral-400 hover:text-white transition-colors">Interest Rate Trends</a></li>
-            <li><a href="/faq" class="text-neutral-400 hover:text-white transition-colors">FAQ</a></li>
-            <li><a href="/blog" class="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
+          <h4 class="text-lg font-medium mb-4">Categories</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">SBA Loans</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Business Loans</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Personal Loans</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Credit Cards</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Equipment Financing</a></li>
           </ul>
         </div>
         
         <div>
-          <h3 class="text-xl font-heading font-bold mb-6">Contact Us</h3>
-          <ul class="space-y-3">
+          <h4 class="text-lg font-medium mb-4">Contact</h4>
+          <ul class="space-y-2 text-neutral-400">
             <li class="flex items-start">
-              <i class="fas fa-map-marker-alt mt-1 mr-3 text-neutral-400"></i>
-              <span class="text-neutral-400">1234 Financial District, Suite 500<br>New York, NY 10004</span>
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+              <span>123 Business Ave, Suite 100<br>New York, NY 10001</span>
             </li>
             <li class="flex items-center">
-              <i class="fas fa-phone-alt mr-3 text-neutral-400"></i>
-              <a href="tel:+18005551212" class="text-neutral-400 hover:text-white transition-colors">1-800-555-1212</a>
+              <i class="fas fa-phone-alt mr-3 text-primary"></i>
+              <span>(555) 123-4567</span>
             </li>
             <li class="flex items-center">
-              <i class="fas fa-envelope mr-3 text-neutral-400"></i>
-              <a href="mailto:info@bettercapitalsolutions.com" class="text-neutral-400 hover:text-white transition-colors">info@bettercapitalsolutions.com</a>
+              <i class="fas fa-envelope mr-3 text-primary"></i>
+              <span>info@bettercapitalsolutions.com</span>
             </li>
           </ul>
         </div>
       </div>
       
-      <div class="border-t border-neutral-800 pt-8 pb-4">
-        <div class="text-neutral-500 text-sm mb-6">
-          <p class="mb-3">
-            <strong>DISCLAIMER:</strong> Better Capital Solutions is not a lender or financial advisor. We are an independent comparison service that helps users find financial products that may suit their needs. We may receive compensation from the companies we feature. This may influence which products we write about and where they appear on the site, but it does not affect our recommendations, which are based on research, user feedback, and market trends.
-          </p>
-          <p>
-            APRs, loan terms, and conditions are subject to change without notice. All loans and credit products are subject to credit approval and verification. Actual rates may vary based on your creditworthiness and other factors. Please review all terms and conditions from the lender before committing to any financial product.
-          </p>
-        </div>
-        
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="text-neutral-500 text-sm mb-4 md:mb-0">
-            &copy; 2025 Better Capital Solutions. All rights reserved.
-          </div>
-          <div class="flex space-x-6">
-            <a href="/privacy" class="text-neutral-500 hover:text-white transition-colors text-sm">Privacy Policy</a>
-            <a href="/terms" class="text-neutral-500 hover:text-white transition-colors text-sm">Terms of Service</a>
-            <a href="/accessibility" class="text-neutral-500 hover:text-white transition-colors text-sm">Accessibility</a>
-          </div>
+      <div class="mt-12 pt-6 border-t border-neutral-800 text-center text-neutral-500 text-sm">
+        <p>&copy; 2025 Better Capital Solutions. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Terms of Service</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Disclosure</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "The BetterList 100™ - Top Funding Providers",
-    "description": "Our exclusive index of the most trusted, high-performing funding sources in the United States.",
-    "itemListOrder": "Descending",
-    "numberOfItems": 100,
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "FinancialProduct",
-          "name": "CapitalPrime Business Loans",
-          "url": "https://bettercapitalsolutions.com/lenders/capitalprime",
-          "category": "BusinessLoan",
-          "provider": {
-            "@type": "Organization",
-            "name": "CapitalPrime"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "bestRating": "5",
-            "ratingCount": "1245"
-          }
+  <!-- JavaScript for Lender Data -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      try {
+        // Fetch the lender data from our JSON file
+        const response = await fetch('/api/lenders');
+        if (!response.ok) {
+          throw new Error('Failed to fetch lender data');
         }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "FinancialProduct",
-          "name": "LendingCircle Personal Loans",
-          "url": "https://bettercapitalsolutions.com/lenders/lendingcircle",
-          "category": "LoanOrCredit",
-          "provider": {
-            "@type": "Organization",
-            "name": "LendingCircle"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "bestRating": "5",
-            "ratingCount": "982"
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "FinancialProduct",
-          "name": "RewardOne Credit Card",
-          "url": "https://bettercapitalsolutions.com/lenders/rewardone",
-          "category": "CreditCard",
-          "provider": {
-            "@type": "Organization",
-            "name": "RewardOne"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.0",
-            "bestRating": "5",
-            "ratingCount": "876"
-          }
-        }
+        const lenders = await response.json();
+        
+        // Create and populate lender elements
+        displayLenders(lenders);
+        
+        // Set up filtering and sorting
+        setupFilters(lenders);
+        
+      } catch (error) {
+        console.error('Error loading lender data:', error);
+        document.getElementById('desktop-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Error loading lender data. Please try again later.</div>';
+        document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Error loading lender data. Please try again later.</div>';
       }
-    ]
-  }
+    });
+    
+    function displayLenders(lenders) {
+      const desktopContainer = document.getElementById('desktop-lender-list');
+      const mobileContainer = document.getElementById('mobile-lender-list');
+      
+      // Clear the containers
+      desktopContainer.innerHTML = '';
+      mobileContainer.innerHTML = '';
+      
+      // Create and append lender elements
+      lenders.forEach((lender, index) => {
+        // Create desktop row (table format)
+        const desktopRow = createDesktopLenderRow(lender, index + 1);
+        desktopContainer.appendChild(desktopRow);
+        
+        // Create mobile card
+        const mobileCard = createMobileLenderCard(lender, index + 1);
+        mobileContainer.appendChild(mobileCard);
+      });
+    }
+    
+    function createDesktopLenderRow(lender, rank) {
+      const row = document.createElement('div');
+      row.className = 'p-4 grid grid-cols-12 gap-4 items-center lender-row';
+      row.setAttribute('data-category', lender.category);
+      
+      // Get two feature items to display
+      const featuresDisplay = lender.features.slice(0, 2).map(feature => 
+        `<div>${feature}</div>`
+      ).join('');
+      
+      // Generate stars based on rating
+      const stars = generateStarRating(lender.rating);
+      
+      row.innerHTML = `
+        <div class="col-span-1">
+          <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">${rank}</div>
+        </div>
+        <div class="col-span-3">
+          <div class="flex items-center">
+            <div class="font-heading font-bold text-lg">${lender.name}</div>
+            <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
+              <i class="fas fa-award text-xs mr-1"></i>
+              BetterList
+            </span>
+          </div>
+        </div>
+        <div class="col-span-2">
+          <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full">
+            ${lender.category}
+          </span>
+        </div>
+        <div class="col-span-2">
+          <div class="flex items-center">
+            <div class="rating-stars flex mr-2">
+              ${stars}
+            </div>
+            <span class="text-sm">${lender.rating.toFixed(1)}</span>
+          </div>
+        </div>
+        <div class="col-span-2 text-sm text-neutral-700">
+          ${featuresDisplay}
+        </div>
+        <div class="col-span-2 text-right">
+          <a href="${lender.website}" target="_blank" class="inline-flex items-center px-4 py-2 rounded bg-primary hover:bg-primary/90 text-white font-medium text-sm transition-colors">
+            View Website
+          </a>
+        </div>
+      `;
+      
+      return row;
+    }
+    
+    function createMobileLenderCard(lender, rank) {
+      const card = document.createElement('div');
+      card.className = 'p-4 border border-neutral-200 rounded-lg lender-card';
+      card.setAttribute('data-category', lender.category);
+      
+      // Generate stars based on rating
+      const stars = generateStarRating(lender.rating);
+      
+      // Format features as list items
+      const featuresList = lender.features.slice(0, 3).map(feature => 
+        `<div class="flex items-start mb-1">
+          <i class="fas fa-check-circle text-success text-sm mt-1 mr-2"></i>
+          <span>${feature}</span>
+        </div>`
+      ).join('');
+      
+      card.innerHTML = `
+        <div class="flex items-start justify-between mb-4">
+          <div class="flex">
+            <div class="bg-primary text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm mr-3">${rank}</div>
+            <div>
+              <div class="font-heading font-bold text-lg">${lender.name}</div>
+              <div class="flex items-center mt-1">
+                <span class="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                  ${lender.category}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="rating-stars flex">
+            ${stars}
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          ${featuresList}
+        </div>
+        
+        <div class="text-sm text-neutral-600 mb-4">
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flex items-center">
+              <i class="fas fa-user-check text-primary mr-2"></i>
+              <span>Min: ${lender.creditMin}+ credit</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clock text-primary mr-2"></i>
+              <span>${lender.approvalTime}</span>
+            </div>
+          </div>
+        </div>
+        
+        <a href="${lender.website}" target="_blank" class="block w-full text-center py-2.5 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors">
+          Visit Website
+        </a>
+      `;
+      
+      return card;
+    }
+    
+    function generateStarRating(rating) {
+      const fullStars = Math.floor(rating);
+      const hasHalfStar = rating % 1 >= 0.5;
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+      
+      let starsHtml = '';
+      
+      // Add full stars
+      for (let i = 0; i < fullStars; i++) {
+        starsHtml += '<i class="fas fa-star"></i>';
+      }
+      
+      // Add half star if needed
+      if (hasHalfStar) {
+        starsHtml += '<i class="fas fa-star-half-alt"></i>';
+      }
+      
+      // Add empty stars
+      for (let i = 0; i < emptyStars; i++) {
+        starsHtml += '<i class="far fa-star"></i>';
+      }
+      
+      return starsHtml;
+    }
+    
+    function setupFilters(allLenders) {
+      const categoryFilter = document.getElementById('category-filter');
+      const sortOrder = document.getElementById('sort-order');
+      
+      // Filter change handler
+      categoryFilter.addEventListener('change', () => filterAndSortLenders(allLenders));
+      sortOrder.addEventListener('change', () => filterAndSortLenders(allLenders));
+      
+      // Initial filtering and sorting
+      filterAndSortLenders(allLenders);
+    }
+    
+    function filterAndSortLenders(allLenders) {
+      const categoryFilter = document.getElementById('category-filter');
+      const sortOrder = document.getElementById('sort-order');
+      
+      const selectedCategory = categoryFilter.value;
+      const selectedSortOption = sortOrder.value;
+      
+      // Filter lenders by category
+      let filteredLenders = [...allLenders];
+      if (selectedCategory !== 'all') {
+        filteredLenders = allLenders.filter(lender => lender.category === selectedCategory);
+      }
+      
+      // Sort lenders based on selected option
+      switch (selectedSortOption) {
+        case 'rating':
+          filteredLenders.sort((a, b) => b.rating - a.rating);
+          break;
+        case 'az':
+          filteredLenders.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 'za':
+          filteredLenders.sort((a, b) => b.name.localeCompare(a.name));
+          break;
+        case 'rank':
+        default:
+          // Already in rank order from the API (we assume)
+          break;
+      }
+      
+      // Display the filtered and sorted lenders
+      displayLenders(filteredLenders);
+    }
   </script>
 </body>
 </html>

@@ -1,57 +1,40 @@
-import express from 'express';
-import Database from '@replit/database';
+import { Router } from 'express';
+import fs from 'fs';
+import path from 'path';
 
-const router = express.Router();
-const db = new Database();
+const router = Router();
 
-/**
- * GET /api/lenders
- * Returns all lenders in the database
- */
-router.get('/api/lenders', async (req, res) => {
+// GET /api/lenders - Returns all lenders in the database
+router.get('/', async (req, res) => {
   try {
-    // Get the lender index which contains all lender IDs
-    const lenderIds = await db.get('lender_index');
+    const lendersPath = path.join(__dirname, '../data/lenders.json');
+    const lendersData = fs.readFileSync(lendersPath, 'utf8');
+    const lenders = JSON.parse(lendersData);
     
-    if (!lenderIds || !Array.isArray(lenderIds)) {
-      return res.status(404).json({ 
-        error: 'No lenders found. Run the seeding script to populate the database.' 
-      });
-    }
-    
-    // Fetch all lenders from the database
-    const lenders = await Promise.all(
-      lenderIds.map(id => db.get(`lender_${id}`))
-    );
-    
-    // Filter out any null values (in case some lenders were deleted)
-    const validLenders = lenders.filter(lender => lender !== null);
-    
-    res.json(validLenders);
+    res.json(lenders);
   } catch (error) {
     console.error('Error fetching lenders:', error);
     res.status(500).json({ error: 'Failed to fetch lenders' });
   }
 });
 
-/**
- * GET /api/lender/:id
- * Returns a single lender by ID
- */
-router.get('/api/lender/:id', async (req, res) => {
+// GET /api/lender/:id - Returns a single lender by ID
+router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
+    const lendersPath = path.join(__dirname, '../data/lenders.json');
+    const lendersData = fs.readFileSync(lendersPath, 'utf8');
+    const lenders = JSON.parse(lendersData);
     
-    // Fetch the lender from the database
-    const lender = await db.get(`lender_${id}`);
+    const lender = lenders.find((l: any) => l.id === id);
     
     if (!lender) {
-      return res.status(404).json({ error: `Lender with ID ${id} not found` });
+      return res.status(404).json({ error: 'Lender not found' });
     }
     
     res.json(lender);
   } catch (error) {
-    console.error(`Error fetching lender with ID ${req.params.id}:`, error);
+    console.error('Error fetching lender:', error);
     res.status(500).json({ error: 'Failed to fetch lender' });
   }
 });
