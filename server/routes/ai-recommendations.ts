@@ -287,7 +287,10 @@ router.post('/recommendations', async (req: Request, res: Response) => {
     });
 
     // Extract and parse the response
-    const content = response.choices[0].message.content || '';
+    if (!response.choices[0].message.content) {
+      throw new Error('Empty response from OpenAI');
+    }
+    const content = response.choices[0].message.content;
     let recommendations = JSON.parse(content);
     
     // Validate that all recommendations reference lenders from our database
