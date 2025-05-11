@@ -26,7 +26,7 @@ export default function HeroSection() {
                 <i className="fas fa-magic mr-2"></i>
                 Get AI Recommendations
             </Link>
-            <Link href="/funding-funnel" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center transform hover:-translate-y-1 duration-200">
+            <Link href="/betterlist-100.html" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center transform hover:-translate-y-1 duration-200">
                 <i className="fas fa-arrow-right mr-2"></i>
                 Explore All Options
             </Link>
