@@ -170,7 +170,7 @@
                     <i class="far fa-clock mr-1"></i> 8 min read
                   </span>
                 </div>
-                <a href="#" class="inline-block px-5 py-2.5 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors">
+                <a href="/resources/articles/business-loan-options-for-startups.html" class="inline-block px-5 py-2.5 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors">
                   Read Article
                 </a>
               </div>
@@ -230,7 +230,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">A step-by-step account of one person's journey from poor credit to good credit, with actionable strategies and real results.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> May 3, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium">Read More</a>
+                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
                 </div>
               </div>
             </article>
@@ -246,7 +246,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">A comprehensive guide to the documents, information, and preparations needed before applying for any type of loan, with printable checklists.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> April 30, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium">Read More</a>
+                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
                 </div>
               </div>
             </article>
@@ -262,7 +262,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">Learn how to establish and build strong business credit while protecting your personal credit score, with strategies for new and established business owners.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> April 28, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium">Read More</a>
+                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
                 </div>
               </div>
             </article>
@@ -278,7 +278,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">A comparison of two popular debt management strategies, including pros, cons, and a decision framework to help you choose the best option for your situation.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> April 25, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium">Read More</a>
+                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
                 </div>
               </div>
             </article>
@@ -527,26 +527,31 @@
       const closeModalBtn = document.getElementById('close-modal');
       const newsletterForm = document.getElementById('newsletter-popup-form');
       
-      // Special handling for the first "Read More" link with existing article
+      // Handle all "Read More" links
       const allReadMoreLinks = document.querySelectorAll('a.text-primary');
+      const readMoreSpecificLinks = document.querySelectorAll('a.read-more-link');
+      
+      // First handle links that already have dedicated article pages
       allReadMoreLinks.forEach(link => {
         if (link.textContent.trim() === 'Read More') {
           // Check if this link already has a direct URL to an article page
           if (link.getAttribute('href').includes('/articles/')) {
             // Direct link already exists, leave it as is
-          } else {
-            // Add event listener to show popup for articles without dedicated pages
-            link.addEventListener('click', function(e) {
-              e.preventDefault();
-              
-              // Store default article link
-              localStorage.setItem('currentArticleLink', '/resources/articles/business-loan-options-for-startups.html');
-              
-              // Show newsletter popup
-              newsletterModal.classList.remove('hidden');
-            });
           }
         }
+      });
+      
+      // Now handle the links that use the popup
+      readMoreSpecificLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Store default article link
+          localStorage.setItem('currentArticleLink', '/resources/articles/business-loan-options-for-startups.html');
+          
+          // Show newsletter popup
+          newsletterModal.classList.remove('hidden');
+        });
       });
       
       // Close modal when clicking close button
