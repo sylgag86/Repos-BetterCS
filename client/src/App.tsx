@@ -123,6 +123,28 @@ function Router() {
         }}
       </Route>
       
+      {/* DIY Credit Repair Pages */}
+      <Route path="/diy-credit/start">
+        {() => {
+          window.location.href = "/diy-credit/start.html";
+          return null;
+        }}
+      </Route>
+      
+      <Route path="/diy-credit/checkout">
+        {() => {
+          window.location.href = "/diy-credit/checkout.html";
+          return null;
+        }}
+      </Route>
+      
+      <Route path="/diy-credit/confirmation">
+        {() => {
+          window.location.href = "/diy-credit/confirmation.html";
+          return null;
+        }}
+      </Route>
+      
       {/* These routes will show the NotFound page until we implement them */}
       <Route path="/personal-funding" component={NotFound} />
       <Route path="/business-funding" component={NotFound} />
