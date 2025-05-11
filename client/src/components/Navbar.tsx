@@ -11,11 +11,11 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 bg-white shadow-md z-50">
       <div className="container mx-auto px-4">
-        <nav className="flex justify-between items-center py-4">
+        <nav className="flex justify-between items-center py-6">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img src="/assets/logo.png" alt="Better Capital Solutions" className="h-16 mr-3" />
+              <img src="/assets/logo.png" alt="Better Capital Solutions" className="h-20 mr-3" />
             </Link>
           </div>
           
