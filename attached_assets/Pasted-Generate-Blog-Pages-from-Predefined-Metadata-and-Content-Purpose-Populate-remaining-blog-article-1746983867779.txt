@@ -1,0 +1,190 @@
+Generate Blog Pages from Predefined Metadata and Content
+# Purpose: Populate remaining blog articles for the blog section of your website
+
+# STEP 1: Define your blog post metadata and content
+articles = [
+    {
+        "title": "5 Common Personal Loan Mistakes and How to Avoid Them",
+        "slug": "personal-loan-mistakes",
+        "date": "May 5, 2025",
+        "category": "Credit Score Improvement",
+        "tag": "Credit Improvement",
+        "excerpt": "Navigating personal loans can be tricky. Learn about the most common pitfalls borrowers face and expert strategies to avoid costly mistakes.",
+        "content": """<h2>1. Borrowing More Than You Need</h2>
+<p>Many borrowers overestimate their needs and borrow more than necessary, leading to higher interest payments. Only borrow what you absolutely need.</p>
+
+<h2>2. Ignoring the APR</h2>
+<p>Always look beyond the interest rate—APR includes fees and gives a clearer picture of the total loan cost.</p>
+
+<h2>3. Not Checking Your Credit First</h2>
+<p>Your credit score directly affects your loan offers. Review your credit report and address issues before applying.</p>
+
+<h2>4. Skipping the Fine Print</h2>
+<p>Hidden fees, prepayment penalties, and balloon payments can be costly. Read all terms thoroughly.</p>
+
+<h2>5. Missing Payments</h2>
+<p>Set up automatic payments or reminders to avoid late fees and damage to your credit score.</p>
+
+<h3>Pro Tip:</h3>
+<p>Use a personal loan calculator to simulate repayment plans and budget accordingly.</p>
+"""
+    },
+    {
+        "title": "How I Improved My Credit Score by 150 Points in 12 Months",
+        "slug": "improve-credit-score-150-points",
+        "date": "May 3, 2025",
+        "category": "Loan Application Tips",
+        "tag": "How-To Guides",
+        "excerpt": "A step-by-step account of one person's journey from poor credit to good credit, with actionable strategies and real results.",
+        "content": """<p>One year ago, my credit score was 520. Today, it’s 670. Here's how I did it:</p>
+
+<h2>1. Checked My Reports and Disputed Errors</h2>
+<p>I found and disputed three major reporting errors that were dragging my score down.</p>
+
+<h2>2. Paid Down Credit Card Balances</h2>
+<p>I focused on reducing utilization below 30%. This alone boosted my score by 50+ points.</p>
+
+<h2>3. Added a Secured Credit Card</h2>
+<p>This added positive payment history each month and helped rebuild trust with lenders.</p>
+
+<h2>4. Set Up Automatic Payments</h2>
+<p>Never missed a payment thanks to auto-draft setup. Payment history is 35% of your score.</p>
+
+<h3>Real Result:</h3>
+<p>+150 points in one year. Small steps, big gains.</p>
+"""
+    },
+    {
+        "title": "The Complete Checklist for Loan Applications: What to Prepare",
+        "slug": "loan-application-checklist",
+        "date": "April 30, 2025",
+        "category": "Loan Application Tips",
+        "tag": "How-To Guides",
+        "excerpt": "A comprehensive guide to the documents, information, and preparations needed before applying for any type of loan, with printable checklists.",
+        "content": """<h2>✅ Personal Loan Application Checklist</h2>
+<ul>
+<li>Valid ID (Driver’s License or Passport)</li>
+<li>Proof of income (Pay stubs, W-2s)</li>
+<li>Employer contact information</li>
+<li>Proof of address (Utility bill, lease)</li>
+<li>Credit history details (optional but helpful)</li>
+</ul>
+
+<h2>✅ Business Loan Application Checklist</h2>
+<ul>
+<li>Business license or formation docs</li>
+<li>Bank statements (3-6 months)</li>
+<li>Business tax returns</li>
+<li>Profit and loss statement</li>
+<li>Business plan (for startups)</li>
+</ul>
+
+<h3>Tip:</h3>
+<p>Use our downloadable PDF checklist before applying. Preparation = faster approvals.</p>
+"""
+    },
+    {
+        "title": "Building Business Credit: Separating Personal and Business Finances",
+        "slug": "build-business-credit",
+        "date": "April 28, 2025",
+        "category": "Business Credit",
+        "tag": "Business Funding",
+        "excerpt": "Learn how to establish and build strong business credit while protecting your personal credit score, with strategies for new and established business owners.",
+        "content": """<p>Mixing personal and business finances is one of the biggest early mistakes entrepreneurs make. Here's how to avoid it:</p>
+
+<h2>1. Form a Legal Entity</h2>
+<p>Register your business as an LLC or corporation to create separation.</p>
+
+<h2>2. Get an EIN from the IRS</h2>
+<p>This acts like a Social Security Number for your business and is needed for most credit-building steps.</p>
+
+<h2>3. Open a Business Bank Account</h2>
+<p>Run all business income and expenses through this account for cleaner books.</p>
+
+<h2>4. Establish Trade Lines</h2>
+<p>Work with vendors who report to Dun & Bradstreet, Experian Business, or Equifax Business.</p>
+
+<h3>Bonus:</h3>
+<p>Apply for a business credit card that doesn’t report to your personal credit.</p>
+"""
+    },
+    {
+        "title": "Debt Consolidation vs. Balance Transfer: Which Is Right for You?",
+        "slug": "debt-consolidation-vs-balance-transfer",
+        "date": "April 25, 2025",
+        "category": "Debt Consolidation",
+        "tag": "Personal Finance",
+        "excerpt": "A comparison of two popular debt management strategies, including pros, cons, and a decision framework to help you choose the best option for your situation.",
+        "content": """<h2>Debt Consolidation</h2>
+<p>This is typically a personal loan that combines multiple debts into one monthly payment.</p>
+
+<h3>Pros:</h3>
+<ul>
+<li>Fixed interest rates</li>
+<li>Structured repayment terms</li>
+<li>Can improve credit mix</li>
+</ul>
+
+<h3>Cons:</h3>
+<ul>
+<li>Origination fees</li>
+<li>May require good credit</li>
+</ul>
+
+<h2>Balance Transfer</h2>
+<p>Move existing credit card balances to a new card with 0% intro APR.</p>
+
+<h3>Pros:</h3>
+<ul>
+<li>No interest during promo period</li>
+<li>Lower total cost if paid off quickly</li>
+</ul>
+
+<h3>Cons:</h3>
+<ul>
+<li>Transfer fees (usually 3-5%)</li>
+<li>High rates after promo period</li>
+</ul>
+
+<h3>Decision Framework:</h3>
+<p>If you can pay off the debt in under 12–18 months, go with a balance transfer. Otherwise, consider consolidation for long-term structure.</p>
+"""
+    }
+]
+
+# STEP 2: Generate HTML or Markdown files
+import os
+
+output_path = "blog_pages"
+
+os.makedirs(output_path, exist_ok=True)
+
+for article in articles:
+    filename = f"{output_path}/{article['slug']}.html"
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{article['title']} | Better Capital Solutions</title>
+    <meta name="description" content="{article['excerpt']}">
+    <meta name="date" content="{article['date']}">
+    <meta name="category" content="{article['category']}">
+    <meta name="tag" content="{article['tag']}">
+</head>
+<body>
+    <article>
+        <h1>{article['title']}</h1>
+        <p><em>{article['date']}</em></p>
+        <p><strong>Category:</strong> {article['category']} | <strong>Tag:</strong> {article['tag']}</p>
+        <div>{article['content']}</div>
+    </article>
+    <footer>
+        <a href="/blog.html">← Back to Blog</a>
+    </footer>
+</body>
+</html>
+""")
+
+print(f"✅ Blog pages created for {len(articles)} articles in '{output_path}' folder.")
