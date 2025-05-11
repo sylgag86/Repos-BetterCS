@@ -554,12 +554,29 @@
       
       // Handle form submission
       if (newsletterForm) {
+        // Handle Read Article button click
+        const readArticleBtn = document.getElementById('read-article-btn');
+        if (readArticleBtn) {
+          readArticleBtn.addEventListener('click', function() {
+            // Store in localStorage that user has accessed articles
+            localStorage.setItem('hasAccessedArticles', 'true');
+            
+            // Close the modal
+            newsletterModal.classList.add('hidden');
+          });
+        }
+        
         newsletterForm.addEventListener('submit', function(e) {
           e.preventDefault();
           
           // Get form values
           const email = document.getElementById('popup-email').value;
           const name = document.getElementById('popup-name').value;
+          
+          // Store in localStorage that user has subscribed
+          localStorage.setItem('hasSubscribed', 'true');
+          localStorage.setItem('subscriberEmail', email);
+          localStorage.setItem('hasAccessedArticles', 'true');
           
           // Show success message
           const formContent = newsletterForm.innerHTML;
@@ -621,12 +638,21 @@
               required
             >
           </div>
-          <button 
-            type="submit"
-            class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
-          >
-            Subscribe & Continue Reading
-          </button>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button 
+              type="submit"
+              class="flex-1 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
+            >
+              Subscribe & Continue Reading
+            </button>
+            <button 
+              type="button" 
+              id="read-article-btn"
+              class="flex-1 py-3 bg-[#0c91e6] hover:bg-[#0c91e6]/90 text-white font-medium rounded-lg text-center transition-colors"
+            >
+              Read Article
+            </button>
+          </div>
         </form>
         <div class="mt-4 text-center text-xs text-neutral-500">
           <p>We respect your privacy. Unsubscribe at any time.</p>
