@@ -14,7 +14,7 @@ export default function BetterList() {
               Exclusive Research
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-6">
-              Introducing the BetterList 100™
+              Introducing the BCS Top 100™
             </h2>
             <p className="text-lg text-neutral-700 mb-6">
               Our team of financial experts analyzes thousands of lending options to create a definitive ranking of the top 100 funding providers across multiple categories.
@@ -38,7 +38,7 @@ export default function BetterList() {
               </li>
             </ul>
             <Link href="/betterlist-100" className="inline-flex items-center px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors">
-              Explore the BetterList 100™
+              Explore the BCS Top 100™
               <i className="fas fa-arrow-right ml-2"></i>
             </Link>
           </div>
