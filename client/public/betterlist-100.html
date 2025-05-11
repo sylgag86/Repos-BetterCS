@@ -364,90 +364,91 @@
       document.getElementById('desktop-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
       document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
       
-      // Global variables for pagination
-      let currentPage = 1;
-      const itemsPerPage = 10;
+      // Global variables for pagination - declare with window to ensure global scope
+      window.currentPage = 1;
+      window.itemsPerPage = 10;
       let allLenders = [];
       
-      try {
-        console.log('Fetching lender data from API...');
-        // Use hard-coded lender data as a fallback
-        const fallbackLenders = [
-          {
-            "id": "chase",
-            "name": "Chase Bank",
-            "category": "Business Loans",
-            "rating": 4.7,
-            "reviews": 3250,
-            "creditMin": 680,
-            "maxFunding": 5000000,
-            "approvalTime": "2-5 days",
-            "features": ["SBA Preferred Lender", "Business Lines of Credit", "Equipment Financing"],
-            "affiliateLink": "",
-            "betterList100": true,
-            "featured": true,
-            "slug": "chase-bank",
-            "website": "https://www.chase.com/business/loans"
-          },
-          {
-            "id": "bank-of-america",
-            "name": "Bank of America",
-            "category": "Business Loans",
-            "rating": 4.5,
-            "reviews": 2800,
-            "creditMin": 670,
-            "maxFunding": 5000000,
-            "approvalTime": "3-7 days",
-            "features": ["SBA Loans", "Commercial Real Estate Loans", "Term Loans"],
-            "affiliateLink": "",
-            "betterList100": true,
-            "featured": false,
-            "slug": "bank-of-america",
-            "website": "https://www.bankofamerica.com/smallbusiness/business-financing/"
-          },
-          {
-            "id": "american-express",
-            "name": "American Express",
-            "category": "Credit Cards",
-            "rating": 4.9,
-            "reviews": 4800,
-            "creditMin": 700,
-            "maxFunding": 250000,
-            "approvalTime": "1-2 days",
-            "features": ["Business Platinum Card", "Blue Business Cash Card", "Membership Rewards"],
-            "affiliateLink": "",
-            "betterList100": true,
-            "featured": true,
-            "slug": "american-express",
-            "website": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/"
-          }
-        ];
-        
-        // Try actual API call first
-        try {
-          const response = await fetch('/api/lenders');
-          if (response.ok) {
-            allLenders = await response.json();
-            console.log('Successfully loaded API data:', allLenders);
-          } else {
-            throw new Error('API responded with an error');
-          }
-        } catch (apiError) {
-          console.error('API fetch error:', apiError);
-          allLenders = fallbackLenders; // Use fallback data on error
+      // Use hard-coded lender data as a fallback
+      const fallbackLenders = [
+        {
+          "id": "chase",
+          "name": "Chase Bank",
+          "category": "Business Loans",
+          "rating": 4.7,
+          "reviews": 3250,
+          "creditMin": 680,
+          "maxFunding": 5000000,
+          "approvalTime": "2-5 days",
+          "features": ["SBA Preferred Lender", "Business Lines of Credit", "Equipment Financing"],
+          "affiliateLink": "",
+          "betterList100": true,
+          "featured": true,
+          "slug": "chase-bank",
+          "website": "https://www.chase.com/business/loans"
+        },
+        {
+          "id": "bank-of-america",
+          "name": "Bank of America",
+          "category": "Business Loans",
+          "rating": 4.5,
+          "reviews": 2800,
+          "creditMin": 670,
+          "maxFunding": 5000000,
+          "approvalTime": "3-7 days",
+          "features": ["SBA Loans", "Commercial Real Estate Loans", "Term Loans"],
+          "affiliateLink": "",
+          "betterList100": true,
+          "featured": false,
+          "slug": "bank-of-america",
+          "website": "https://www.bankofamerica.com/smallbusiness/business-financing/"
+        },
+        {
+          "id": "american-express",
+          "name": "American Express",
+          "category": "Credit Cards",
+          "rating": 4.9,
+          "reviews": 4800,
+          "creditMin": 700,
+          "maxFunding": 250000,
+          "approvalTime": "1-2 days",
+          "features": ["Business Platinum Card", "Blue Business Cash Card", "Membership Rewards"],
+          "affiliateLink": "",
+          "betterList100": true,
+          "featured": true,
+          "slug": "american-express",
+          "website": "https://www.americanexpress.com/us/credit-cards/business/business-credit-cards/"
         }
-        
+      ];
+      
+      console.log('Fetching lender data from API...');
+      
+      try {
+        // Try actual API call first
+        const response = await fetch('/api/lenders');
+        if (response.ok) {
+          allLenders = await response.json();
+          console.log('Successfully loaded API data:', allLenders);
+        } else {
+          throw new Error('API responded with an error');
+        }
+      } catch (apiError) {
+        console.error('API fetch error:', apiError);
+        allLenders = fallbackLenders; // Use fallback data on error
+      }
+      
+      // Only proceed if we have lenders
+      if (allLenders && allLenders.length > 0) {
         // Display current page of lenders
-        displayLenders(allLenders, currentPage, itemsPerPage);
+        displayLenders(allLenders, window.currentPage, window.itemsPerPage);
         
         // Setup pagination
-        setupPagination(allLenders, itemsPerPage);
+        setupPagination(allLenders, window.itemsPerPage);
         
         // Setup filters
         setupFilters(allLenders);
-        
-      } catch (error) {
-        console.error('Error in main lender loading:', error);
+      } else {
+        // Handle the case where no data was loaded
         document.getElementById('desktop-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Error loading lender data. Please try again later.</div>';
         document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Error loading lender data. Please try again later.</div>';
       }
@@ -504,9 +505,9 @@
       `;
       prevButton.addEventListener('click', function(e) {
         e.preventDefault();
-        if (currentPage > 1) {
-          currentPage--;
-          displayLenders(lenders, currentPage, itemsPerPage);
+        if (window.currentPage > 1) {
+          window.currentPage--;
+          displayLenders(lenders, window.currentPage, itemsPerPage);
           updatePaginationActive();
         }
       });
@@ -517,14 +518,14 @@
         const pageButton = document.createElement('li');
         pageButton.className = 'mx-1';
         pageButton.innerHTML = `
-          <a href="#" class="flex items-center justify-center w-10 h-10 border border-neutral-300 rounded-md hover:bg-primary hover:text-white transition-colors ${i === 1 ? 'bg-primary text-white' : 'text-neutral-600'}" data-page="${i}">
+          <a href="#" class="flex items-center justify-center w-10 h-10 border border-neutral-300 rounded-md hover:bg-primary hover:text-white transition-colors ${i === window.currentPage ? 'bg-primary text-white' : 'text-neutral-600'}" data-page="${i}">
             ${i}
           </a>
         `;
         pageButton.addEventListener('click', function(e) {
           e.preventDefault();
-          currentPage = i;
-          displayLenders(lenders, currentPage, itemsPerPage);
+          window.currentPage = i;
+          displayLenders(lenders, window.currentPage, itemsPerPage);
           updatePaginationActive();
         });
         paginationContainer.appendChild(pageButton);
@@ -540,9 +541,9 @@
       `;
       nextButton.addEventListener('click', function(e) {
         e.preventDefault();
-        if (currentPage < totalPages) {
-          currentPage++;
-          displayLenders(lenders, currentPage, itemsPerPage);
+        if (window.currentPage < totalPages) {
+          window.currentPage++;
+          displayLenders(lenders, window.currentPage, itemsPerPage);
           updatePaginationActive();
         }
       });
@@ -552,7 +553,7 @@
         const pageLinks = paginationContainer.querySelectorAll('[data-page]');
         pageLinks.forEach(link => {
           const page = parseInt(link.getAttribute('data-page'));
-          if (page === currentPage) {
+          if (page === window.currentPage) {
             link.classList.add('bg-primary', 'text-white');
             link.classList.remove('text-neutral-600');
           } else {
@@ -710,12 +711,10 @@
       const sortOrder = document.getElementById('sort-order');
       const searchInput = document.querySelector('input[placeholder="Search lenders..."]');
       
-      // Global variable for current page - access variable from outer scope
-      
       // Filter change handlers
       categoryFilter.addEventListener('change', () => {
         // Reset to page 1 when changing filters
-        currentPage = 1;
+        window.currentPage = 1;
         filterAndSortLenders(allLenders);
       });
       
@@ -725,7 +724,7 @@
       
       searchInput.addEventListener('input', () => {
         // Reset to page 1 when searching
-        currentPage = 1;
+        window.currentPage = 1;
         filterAndSortLenders(allLenders);
       });
       
@@ -774,9 +773,8 @@
       }
       
       // Step 4: Update pagination and display current page
-      const itemsPerPage = 10; // Same as in the main function
-      setupPagination(filteredLenders, itemsPerPage);
-      displayLenders(filteredLenders, currentPage, itemsPerPage);
+      setupPagination(filteredLenders, window.itemsPerPage);
+      displayLenders(filteredLenders, window.currentPage, window.itemsPerPage);
     }
   </script>
 </body>
