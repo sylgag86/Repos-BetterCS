@@ -214,7 +214,7 @@
                 <p class="text-neutral-600 mb-4 line-clamp-3">Navigating personal loans can be tricky. Learn about the most common pitfalls borrowers face and expert strategies to avoid costly mistakes.</p>
                 <div class="flex items-center justify-between text-sm">
                   <span class="text-neutral-500"><i class="far fa-calendar mr-1"></i> May 5, 2025</span>
-                  <a href="#" class="text-primary hover:text-primary/80 font-medium">Read More</a>
+                  <a href="#" class="text-primary hover:text-primary/80 font-medium read-more-link">Read More</a>
                 </div>
               </div>
             </article>
@@ -527,13 +527,25 @@
       const closeModalBtn = document.getElementById('close-modal');
       const newsletterForm = document.getElementById('newsletter-popup-form');
       
-      // Show modal when any "Read More" link is clicked
-      readMoreLinks.forEach(link => {
+      // Special handling for the first "Read More" link with existing article
+      const allReadMoreLinks = document.querySelectorAll('a.text-primary');
+      allReadMoreLinks.forEach(link => {
         if (link.textContent.trim() === 'Read More') {
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            newsletterModal.classList.remove('hidden');
-          });
+          // Check if this link already has a direct URL to an article page
+          if (link.getAttribute('href').includes('/articles/')) {
+            // Direct link already exists, leave it as is
+          } else {
+            // Add event listener to show popup for articles without dedicated pages
+            link.addEventListener('click', function(e) {
+              e.preventDefault();
+              
+              // Store default article link
+              localStorage.setItem('currentArticleLink', '/resources/articles/business-loan-options-for-startups.html');
+              
+              // Show newsletter popup
+              newsletterModal.classList.remove('hidden');
+            });
+          }
         }
       });
       
@@ -564,6 +576,12 @@
             
             // Close the modal
             newsletterModal.classList.add('hidden');
+            
+            // Navigate to the article if we have one
+            const currentArticleLink = localStorage.getItem('currentArticleLink');
+            if (currentArticleLink) {
+              window.location.href = currentArticleLink;
+            }
           });
         }
         
