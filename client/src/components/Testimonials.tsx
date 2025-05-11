@@ -88,11 +88,9 @@ export default function Testimonials() {
         </div>
         
         <div className="text-center mt-10">
-          <Link href="/success-stories">
-            <a className="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
-              Read more success stories
-              <i className="fas fa-chevron-right ml-1 text-sm"></i>
-            </a>
+          <Link href="/success-stories" className="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
+            Read more success stories
+            <i className="fas fa-chevron-right ml-1 text-sm"></i>
           </Link>
         </div>
       </div>

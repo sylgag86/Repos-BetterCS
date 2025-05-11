@@ -76,10 +76,8 @@ export default function FundingCategories() {
                   <div className="mr-2 text-sm text-neutral-500">{category.rateLabel}</div>
                   <div className="text-lg font-semibold text-neutral-900">{category.rate}</div>
                 </div>
-                <Link href={category.link}>
-                  <a className="block w-full py-3 text-center rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors">
-                    {category.linkText}
-                  </a>
+                <Link href={category.link} className="block w-full py-3 text-center rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors">
+                  {category.linkText}
                 </Link>
               </div>
             </div>

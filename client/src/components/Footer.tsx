@@ -29,24 +29,24 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-heading font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link href="/"><a className="text-neutral-400 hover:text-white transition-colors">Home</a></Link></li>
-              <li><Link href="/personal-funding"><a className="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></Link></li>
-              <li><Link href="/business-funding"><a className="text-neutral-400 hover:text-white transition-colors">Business Funding</a></Link></li>
-              <li><Link href="/credit-cards"><a className="text-neutral-400 hover:text-white transition-colors">Credit Cards</a></Link></li>
-              <li><Link href="/reviews"><a className="text-neutral-400 hover:text-white transition-colors">Reviews</a></Link></li>
-              <li><Link href="/guides"><a className="text-neutral-400 hover:text-white transition-colors">Guides</a></Link></li>
+              <li><Link href="/" className="text-neutral-400 hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="/personal-funding" className="text-neutral-400 hover:text-white transition-colors">Personal Funding</Link></li>
+              <li><Link href="/business-funding" className="text-neutral-400 hover:text-white transition-colors">Business Funding</Link></li>
+              <li><Link href="/credit-cards" className="text-neutral-400 hover:text-white transition-colors">Credit Cards</Link></li>
+              <li><Link href="/reviews" className="text-neutral-400 hover:text-white transition-colors">Reviews</Link></li>
+              <li><Link href="/guides" className="text-neutral-400 hover:text-white transition-colors">Guides</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-xl font-heading font-bold mb-6">Resources</h3>
             <ul className="space-y-3">
-              <li><Link href="/calculator"><a className="text-neutral-400 hover:text-white transition-colors">Financial Calculator</a></Link></li>
-              <li><Link href="/credit-score"><a className="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a></Link></li>
-              <li><Link href="/comparison-tool"><a className="text-neutral-400 hover:text-white transition-colors">Loan Comparison Tool</a></Link></li>
-              <li><Link href="/rate-trends"><a className="text-neutral-400 hover:text-white transition-colors">Interest Rate Trends</a></Link></li>
-              <li><Link href="/faq"><a className="text-neutral-400 hover:text-white transition-colors">FAQ</a></Link></li>
-              <li><Link href="/blog"><a className="text-neutral-400 hover:text-white transition-colors">Blog</a></Link></li>
+              <li><Link href="/calculator" className="text-neutral-400 hover:text-white transition-colors">Financial Calculator</Link></li>
+              <li><Link href="/credit-score" className="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</Link></li>
+              <li><Link href="/comparison-tool" className="text-neutral-400 hover:text-white transition-colors">Loan Comparison Tool</Link></li>
+              <li><Link href="/rate-trends" className="text-neutral-400 hover:text-white transition-colors">Interest Rate Trends</Link></li>
+              <li><Link href="/faq" className="text-neutral-400 hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link href="/blog" className="text-neutral-400 hover:text-white transition-colors">Blog</Link></li>
             </ul>
           </div>
           
@@ -84,9 +84,9 @@ export default function Footer() {
               &copy; 2025 Better Capital Solutions. All rights reserved.
             </div>
             <div className="flex space-x-6">
-              <Link href="/privacy"><a className="text-neutral-500 hover:text-white transition-colors text-sm">Privacy Policy</a></Link>
-              <Link href="/terms"><a className="text-neutral-500 hover:text-white transition-colors text-sm">Terms of Service</a></Link>
-              <Link href="/accessibility"><a className="text-neutral-500 hover:text-white transition-colors text-sm">Accessibility</a></Link>
+              <Link href="/privacy" className="text-neutral-500 hover:text-white transition-colors text-sm">Privacy Policy</Link>
+              <Link href="/terms" className="text-neutral-500 hover:text-white transition-colors text-sm">Terms of Service</Link>
+              <Link href="/accessibility" className="text-neutral-500 hover:text-white transition-colors text-sm">Accessibility</Link>
             </div>
           </div>
         </div>

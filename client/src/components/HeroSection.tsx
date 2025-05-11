@@ -22,16 +22,12 @@ export default function HeroSection() {
             Compare personalized offers from top lenders for business loans, personal loans, credit cards, and more.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/get-started">
-              <a className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-block">
+            <Link href="/get-started" className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-block">
                 Get Started Today
-              </a>
             </Link>
-            <Link href="/how-it-works">
-              <a className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center">
+            <Link href="/how-it-works" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center">
                 <i className="fas fa-play-circle mr-2"></i>
                 How It Works
-              </a>
             </Link>
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-6">
