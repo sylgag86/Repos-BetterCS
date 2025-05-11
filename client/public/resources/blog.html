@@ -519,7 +519,131 @@
       
       // Initialize with all articles visible
       filterByCategory('all');
+      
+      // Newsletter Modal Functionality
+      const readMoreLinks = document.querySelectorAll('a');
+      const newsletterModal = document.getElementById('newsletter-modal');
+      const closeModalBtn = document.getElementById('close-modal');
+      const newsletterForm = document.getElementById('newsletter-popup-form');
+      
+      // Show modal when any "Read More" link is clicked
+      readMoreLinks.forEach(link => {
+        if (link.textContent.trim() === 'Read More') {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            newsletterModal.classList.remove('hidden');
+          });
+        }
+      });
+      
+      // Close modal when clicking close button
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', function() {
+          newsletterModal.classList.add('hidden');
+        });
+      }
+      
+      // Close modal when clicking outside
+      if (newsletterModal) {
+        newsletterModal.addEventListener('click', function(e) {
+          if (e.target === newsletterModal || e.target === newsletterModal.firstElementChild) {
+            newsletterModal.classList.add('hidden');
+          }
+        });
+      }
+      
+      // Handle form submission
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form values
+          const email = document.getElementById('popup-email').value;
+          const name = document.getElementById('popup-name').value;
+          
+          // Show success message
+          const formContent = newsletterForm.innerHTML;
+          newsletterForm.innerHTML = `
+            <div class="text-center py-4">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-success/20 text-success mb-4">
+                <i class="fas fa-check text-xl"></i>
+              </div>
+              <h4 class="text-lg font-medium text-neutral-900 mb-2">Thank You for Subscribing!</h4>
+              <p class="text-neutral-600">You now have full access to our premium content.</p>
+            </div>
+          `;
+          
+          // Close modal after 3 seconds
+          setTimeout(function() {
+            newsletterModal.classList.add('hidden');
+            // Reset form for next time
+            setTimeout(function() {
+              newsletterForm.innerHTML = formContent;
+            }, 500);
+          }, 3000);
+        });
+      }
     });
   </script>
+  
+  <!-- Newsletter Popup Modal -->
+  <div id="newsletter-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative">
+        <button id="close-modal" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-700">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-envelope text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-heading font-bold text-neutral-900 mb-2">Exclusive Access</h3>
+          <p class="text-neutral-600">Subscribe to our newsletter for full access to all our premium content and financial insights.</p>
+        </div>
+        <form id="newsletter-popup-form" class="space-y-4">
+          <div>
+            <label for="popup-email" class="block text-sm font-medium text-neutral-700 mb-1">Email Address</label>
+            <input 
+              type="email" 
+              id="popup-email" 
+              class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+              placeholder="Your email address"
+              required
+            >
+          </div>
+          <div>
+            <label for="popup-name" class="block text-sm font-medium text-neutral-700 mb-1">Full Name</label>
+            <input 
+              type="text" 
+              id="popup-name" 
+              class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+              placeholder="Your full name"
+              required
+            >
+          </div>
+          <button 
+            type="submit"
+            class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
+          >
+            Subscribe & Continue Reading
+          </button>
+        </form>
+        <div class="mt-4 text-center text-xs text-neutral-500">
+          <p>We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    #newsletter-modal {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </body>
 </html>
