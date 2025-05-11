@@ -35,6 +35,12 @@ export default function Navbar() {
             <Link href="/" className="text-primary font-medium">Home</Link>
             <Link href="/personal-funding" className="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</Link>
             <Link href="/business-funding" className="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</Link>
+            <Link href="/funding-recommendation" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+              <span className="flex items-center">
+                <i className="fas fa-magic mr-1"></i> 
+                AI Advisor
+              </span>
+            </Link>
             <Link href="/reviews" className="text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</Link>
             <Link href="/guides" className="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</Link>
             <Link href="/contact" className="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</Link>
@@ -48,6 +54,12 @@ export default function Navbar() {
           <Link href="/" className="block px-3 py-2 text-primary font-medium">Home</Link>
           <Link href="/personal-funding" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</Link>
           <Link href="/business-funding" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</Link>
+          <Link href="/funding-recommendation" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">
+            <span className="flex items-center">
+              <i className="fas fa-magic mr-1"></i> 
+              AI Advisor
+            </span>
+          </Link>
           <Link href="/reviews" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</Link>
           <Link href="/guides" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Guides</Link>
           <Link href="/contact" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Contact</Link>

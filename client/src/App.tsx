@@ -153,6 +153,9 @@ function Router() {
         }}
       </Route>
       
+      {/* AI Funding Recommendation Tool */}
+      <Route path="/funding-recommendation" component={FundingRecommendation} />
+
       {/* These routes will show the NotFound page until we implement them */}
       <Route path="/personal-funding" component={NotFound} />
       <Route path="/business-funding" component={NotFound} />
