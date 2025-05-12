@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
   <!-- Main Pages -->
   <url>
     <loc>https://bettercapitalsolutions.com/</loc>
@@ -17,10 +18,22 @@
     <loc>https://bettercapitalsolutions.com/contact</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/privacy-policy.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/terms-of-service.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   
-  <!-- Funding Pages -->
+  <!-- Funding Funnel Pages -->
   <url>
     <loc>https://bettercapitalsolutions.com/funding-funnel/index.html</loc>
     <lastmod>2025-05-12</lastmod>
@@ -33,20 +46,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Credit Repair Pages -->
   <url>
-    <loc>https://bettercapitalsolutions.com/funding-recommendation</loc>
+    <loc>https://bettercapitalsolutions.com/credit-repair/index.html</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Credit Repair Pages -->
   <url>
     <loc>https://bettercapitalsolutions.com/credit-repair/join.html</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- DIY Credit Repair Pages -->
   <url>
     <loc>https://bettercapitalsolutions.com/diy-credit/start.html</loc>
     <lastmod>2025-05-12</lastmod>
@@ -54,13 +69,41 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Directory Pages -->
+  <!-- BCS Top 100 Directory -->
   <url>
-    <loc>https://bettercapitalsolutions.com/lenders</loc>
+    <loc>https://bettercapitalsolutions.com/betterlist-100.html</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Individual Lender Pages -->
+  <url>
+    <loc>https://bettercapitalsolutions.com/lenders/fundgrow.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/lenders/capitalprime.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/lenders/lendingcircle.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/lenders/rewardone.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Funding Category Pages -->
   <url>
     <loc>https://bettercapitalsolutions.com/lenders/sba</loc>
     <lastmod>2025-05-12</lastmod>
@@ -83,34 +126,69 @@
     <loc>https://bettercapitalsolutions.com/lenders/equipment-financing</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- AI Recommendation Tool -->
+  <url>
+    <loc>https://bettercapitalsolutions.com/funding-recommendation</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Application Process -->
+  <url>
+    <loc>https://bettercapitalsolutions.com/apply</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- Resource Pages -->
+  <!-- Resource/Guide Pages -->
   <url>
-    <loc>https://bettercapitalsolutions.com/guides</loc>
+    <loc>https://bettercapitalsolutions.com/resources/index.html</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bettercapitalsolutions.com/reviews</loc>
+    <loc>https://bettercapitalsolutions.com/resources/blog.html</loc>
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/guides/credit-score</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/guides/credit-building</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/guides/dispute-letters</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bettercapitalsolutions.com/guides/business-credit</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- Legal Pages -->
+  <!-- Calculator Tool -->
   <url>
-    <loc>https://bettercapitalsolutions.com/privacy-policy.html</loc>
+    <loc>https://bettercapitalsolutions.com/calculator</loc>
     <lastmod>2025-05-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://bettercapitalsolutions.com/terms-of-service.html</loc>
-    <lastmod>2025-05-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
+  
 </urlset>
