@@ -22,6 +22,10 @@ export default function HeroSection() {
             Compare personalized offers from top lenders for business loans, personal loans, credit cards, and more.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/apply" className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-primary hover:bg-primary/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
+                <i className="fas fa-rocket mr-2"></i>
+                Apply for Funding
+            </Link>
             <Link href="/funding-recommendation" className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
                 <i className="fas fa-magic mr-2"></i>
                 Get AI Recommendations
