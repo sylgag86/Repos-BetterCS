@@ -512,32 +512,15 @@
         if (window.currentPage > 1) {
           window.currentPage--;
           displayLenders(lenders, window.currentPage, itemsPerPage);
-          updatePaginationActive();
+          renderPagination(totalPages);
           // Scroll to top of page for better user experience
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
       paginationContainer.appendChild(prevButton);
       
-      // Page buttons
-      for (let i = 1; i <= totalPages; i++) {
-        const pageButton = document.createElement('li');
-        pageButton.className = 'mx-1';
-        pageButton.innerHTML = `
-          <a href="#" class="flex items-center justify-center w-10 h-10 border border-neutral-300 rounded-md hover:bg-primary hover:text-white transition-colors ${i === window.currentPage ? 'bg-primary text-white' : 'text-neutral-600'}" data-page="${i}">
-            ${i}
-          </a>
-        `;
-        pageButton.addEventListener('click', function(e) {
-          e.preventDefault();
-          window.currentPage = i;
-          displayLenders(lenders, window.currentPage, itemsPerPage);
-          updatePaginationActive();
-          // Scroll to top of page for better user experience
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        paginationContainer.appendChild(pageButton);
-      }
+      // Initial render of pagination buttons
+      renderPagination(totalPages);
       
       // Next button
       const nextButton = document.createElement('li');
@@ -552,25 +535,88 @@
         if (window.currentPage < totalPages) {
           window.currentPage++;
           displayLenders(lenders, window.currentPage, itemsPerPage);
-          updatePaginationActive();
+          renderPagination(totalPages);
           // Scroll to top of page for better user experience
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
       paginationContainer.appendChild(nextButton);
       
-      function updatePaginationActive() {
-        const pageLinks = paginationContainer.querySelectorAll('[data-page]');
-        pageLinks.forEach(link => {
-          const page = parseInt(link.getAttribute('data-page'));
-          if (page === window.currentPage) {
-            link.classList.add('bg-primary', 'text-white');
-            link.classList.remove('text-neutral-600');
-          } else {
-            link.classList.remove('bg-primary', 'text-white');
-            link.classList.add('text-neutral-600');
+      // Function to render the pagination with sliding window
+      function renderPagination(totalPages) {
+        // Remove all existing page buttons
+        const existingButtons = paginationContainer.querySelectorAll('li:not(:first-child):not(:last-child)');
+        existingButtons.forEach(button => button.remove());
+        
+        // Show a sliding window of page numbers (maximum 5 at a time)
+        const maxVisiblePages = 5;
+        let startPage = Math.max(1, window.currentPage - Math.floor(maxVisiblePages / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+        
+        // Adjust start page if we're near the end
+        if (endPage - startPage + 1 < maxVisiblePages) {
+          startPage = Math.max(1, endPage - maxVisiblePages + 1);
+        }
+        
+        // First page with ellipsis if needed
+        if (startPage > 1) {
+          const firstPageButton = createPageButton(1, lenders);
+          paginationContainer.insertBefore(firstPageButton, paginationContainer.lastChild);
+          
+          if (startPage > 2) {
+            const ellipsisStart = document.createElement('li');
+            ellipsisStart.className = 'mx-1';
+            ellipsisStart.innerHTML = `
+              <span class="flex items-center justify-center w-10 h-10 text-neutral-600">
+                ...
+              </span>
+            `;
+            paginationContainer.insertBefore(ellipsisStart, paginationContainer.lastChild);
           }
+        }
+        
+        // Visible page buttons
+        for (let i = startPage; i <= endPage; i++) {
+          const pageButton = createPageButton(i, lenders);
+          paginationContainer.insertBefore(pageButton, paginationContainer.lastChild);
+        }
+        
+        // Last page with ellipsis if needed
+        if (endPage < totalPages) {
+          if (endPage < totalPages - 1) {
+            const ellipsisEnd = document.createElement('li');
+            ellipsisEnd.className = 'mx-1';
+            ellipsisEnd.innerHTML = `
+              <span class="flex items-center justify-center w-10 h-10 text-neutral-600">
+                ...
+              </span>
+            `;
+            paginationContainer.insertBefore(ellipsisEnd, paginationContainer.lastChild);
+          }
+          
+          const lastPageButton = createPageButton(totalPages, lenders);
+          paginationContainer.insertBefore(lastPageButton, paginationContainer.lastChild);
+        }
+      }
+      
+      // Helper function to create a page button
+      function createPageButton(pageNum, lenders) {
+        const pageButton = document.createElement('li');
+        pageButton.className = 'mx-1';
+        pageButton.innerHTML = `
+          <a href="#" class="flex items-center justify-center w-10 h-10 border border-neutral-300 rounded-md hover:bg-primary hover:text-white transition-colors ${pageNum === window.currentPage ? 'bg-primary text-white' : 'text-neutral-600'}" data-page="${pageNum}">
+            ${pageNum}
+          </a>
+        `;
+        pageButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.currentPage = pageNum;
+          displayLenders(lenders, window.currentPage, itemsPerPage);
+          renderPagination(totalPages);
+          // Scroll to top of page for better user experience
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+        return pageButton;
       }
     }
     
