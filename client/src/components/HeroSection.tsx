@@ -29,7 +29,7 @@ export default function HeroSection() {
                 Find Your Perfect Funding
             </a>
             <Link href="/funding-recommendation" className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
-                <i className="fas fa-magic mr-2"></i>
+                <i className="far fa-lightbulb mr-2"></i>
                 Get AI Recommendations
             </Link>
             <a 

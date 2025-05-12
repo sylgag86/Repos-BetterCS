@@ -37,7 +37,7 @@ export default function Navbar() {
             <Link href="/business-funding" className="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</Link>
             <Link href="/funding-recommendation" className="text-neutral-700 hover:text-primary transition-colors font-medium">
               <span className="flex items-center">
-                <i className="fas fa-magic mr-1"></i> 
+                <i className="far fa-lightbulb mr-1"></i> 
                 AI Advisor
               </span>
             </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
           <Link href="/business-funding" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</Link>
           <Link href="/funding-recommendation" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">
             <span className="flex items-center">
-              <i className="fas fa-magic mr-1"></i> 
+              <i className="far fa-lightbulb mr-1"></i> 
               AI Advisor
             </span>
           </Link>

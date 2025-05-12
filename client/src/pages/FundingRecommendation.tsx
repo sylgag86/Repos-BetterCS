@@ -491,7 +491,7 @@ const FundingRecommendation = () => {
                       ) : (
                         <>
                           Get Recommendations
-                          <i className="fas fa-magic ml-2"></i>
+                          <i className="far fa-lightbulb ml-2"></i>
                         </>
                       )}
                     </Button>
