@@ -766,5 +766,37 @@
     "featured": false,
     "slug": "fundera",
     "website": "https://www.fundera.com/"
+  },
+  {
+    "id": "upstart",
+    "name": "Upstart",
+    "category": "Personal Loans",
+    "rating": 4.5,
+    "reviews": 1950,
+    "creditMin": 600,
+    "maxFunding": 50000,
+    "approvalTime": "Same Day",
+    "features": ["AI-Powered Lending", "Fixed Rates", "No Prepayment Penalty"],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "upstart",
+    "website": "https://www.upstart.com/"
+  },
+  {
+    "id": "credibly",
+    "name": "Credibly",
+    "category": "Small Business Loans",
+    "rating": 4.3,
+    "reviews": 890,
+    "creditMin": 500,
+    "maxFunding": 400000,
+    "approvalTime": "24 hours",
+    "features": ["Merchant Cash Advances", "Business Expansion Loans", "Working Capital"],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "credibly",
+    "website": "https://www.credibly.com/"
   }
 ]
