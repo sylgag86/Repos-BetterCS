@@ -23,12 +23,10 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a 
-                href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
-                target="_blank"
-                rel="noopener noreferrer" 
+                href="/funding-funnel/index.html"
                 className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-primary hover:bg-primary/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
                 <i className="fas fa-rocket mr-2"></i>
-                Apply for Funding
+                Find Your Perfect Funding
             </a>
             <Link href="/funding-recommendation" className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
                 <i className="fas fa-magic mr-2"></i>
