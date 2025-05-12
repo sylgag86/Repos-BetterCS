@@ -513,6 +513,8 @@
           window.currentPage--;
           displayLenders(lenders, window.currentPage, itemsPerPage);
           updatePaginationActive();
+          // Scroll to top of page for better user experience
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
       paginationContainer.appendChild(prevButton);
@@ -531,6 +533,8 @@
           window.currentPage = i;
           displayLenders(lenders, window.currentPage, itemsPerPage);
           updatePaginationActive();
+          // Scroll to top of page for better user experience
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         paginationContainer.appendChild(pageButton);
       }
@@ -549,6 +553,8 @@
           window.currentPage++;
           displayLenders(lenders, window.currentPage, itemsPerPage);
           updatePaginationActive();
+          // Scroll to top of page for better user experience
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
       paginationContainer.appendChild(nextButton);
