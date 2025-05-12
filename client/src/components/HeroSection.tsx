@@ -22,18 +22,26 @@ export default function HeroSection() {
             Compare personalized offers from top lenders for business loans, personal loans, credit cards, and more.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/apply" className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-primary hover:bg-primary/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
+            <a 
+                href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-primary hover:bg-primary/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
                 <i className="fas fa-rocket mr-2"></i>
                 Apply for Funding
-            </Link>
+            </a>
             <Link href="/funding-recommendation" className="btn-primary px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-flex items-center justify-center">
                 <i className="fas fa-magic mr-2"></i>
                 Get AI Recommendations
             </Link>
-            <Link href="/apply" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center transform hover:-translate-y-1 duration-200">
+            <a 
+                href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center transform hover:-translate-y-1 duration-200">
                 <i className="fas fa-arrow-right mr-2"></i>
                 Explore All Options
-            </Link>
+            </a>
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-6">
             <div className="trusted-badge rounded-lg px-4 py-2 text-primary flex items-center">

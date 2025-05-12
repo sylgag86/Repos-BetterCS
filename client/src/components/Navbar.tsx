@@ -44,10 +44,15 @@ export default function Navbar() {
             <Link href="/reviews" className="text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</Link>
             <Link href="/guides" className="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</Link>
             <Link href="/contact" className="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</Link>
-            <Link href="/apply" className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center">
+            <a
+              href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center"
+            >
               <i className="fas fa-rocket mr-1"></i>
               Apply Now
-            </Link>
+            </a>
           </div>
         </nav>
       </div>
@@ -69,12 +74,17 @@ export default function Navbar() {
           <Link href="/contact" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Contact</Link>
           
           <div className="mt-4 pt-4 border-t border-neutral-100">
-            <Link href="/apply" className="block w-full text-center bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg font-medium transition-all duration-200">
+            <a
+              href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg font-medium transition-all duration-200"
+            >
               <span className="flex items-center justify-center">
                 <i className="fas fa-rocket mr-2"></i>
                 Apply for Funding Now
               </span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
