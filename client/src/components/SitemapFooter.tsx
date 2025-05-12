@@ -128,7 +128,7 @@ export default function SitemapFooter() {
                 </Link>
               </li>
               <li>
-                <a href="/privacy-policy.html" className="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>
               </li>
               <li>
                 <a href="/terms-of-service.html" className="text-neutral-400 hover:text-white transition-colors">Terms of Service</a>

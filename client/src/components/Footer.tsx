@@ -55,15 +55,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3 text-neutral-400"></i>
-                <span className="text-neutral-400">1234 Financial District, Suite 500<br/>New York, NY 10004</span>
+                <span className="text-neutral-400">1317 Main St. #202<br/>Niagara Falls, NY 14301</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-phone-alt mr-3 text-neutral-400"></i>
-                <a href="tel:+18005551212" className="text-neutral-400 hover:text-white transition-colors">1-800-555-1212</a>
+                <a href="tel:+17162431397" className="text-neutral-400 hover:text-white transition-colors">716-243-1397</a>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-envelope mr-3 text-neutral-400"></i>
-                <a href="mailto:info@bettercapitalsolutions.com" className="text-neutral-400 hover:text-white transition-colors">info@bettercapitalsolutions.com</a>
+                <a href="mailto:support@bettercapitalsolutions.com" className="text-neutral-400 hover:text-white transition-colors">support@bettercapitalsolutions.com</a>
               </li>
             </ul>
           </div>
@@ -84,7 +84,7 @@ export default function Footer() {
               &copy; 2025 Better Capital Solutions. All rights reserved.
             </div>
             <div className="flex space-x-6">
-              <Link href="/privacy" className="text-neutral-500 hover:text-white transition-colors text-sm">Privacy Policy</Link>
+              <Link href="/privacy-policy" className="text-neutral-500 hover:text-white transition-colors text-sm">Privacy Policy</Link>
               <Link href="/terms" className="text-neutral-500 hover:text-white transition-colors text-sm">Terms of Service</Link>
               <Link href="/accessibility" className="text-neutral-500 hover:text-white transition-colors text-sm">Accessibility</Link>
             </div>
