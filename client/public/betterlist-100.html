@@ -369,9 +369,27 @@
       document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
       
       // Global variables for pagination - declare with window to ensure global scope
-      window.currentPage = 1;
       window.itemsPerPage = 10;
       let allLenders = [];
+      
+      // Check URL for page parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const pageParam = urlParams.get('page');
+      window.currentPage = pageParam ? parseInt(pageParam) : 1;
+      
+      // Handle browser back/forward button
+      window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.page) {
+          window.currentPage = event.state.page;
+          displayLenders(allLenders, window.currentPage, window.itemsPerPage);
+          renderPagination(Math.ceil(allLenders.length / window.itemsPerPage));
+        }
+      });
+      
+      // Initialize browser history
+      if (!pageParam) {
+        history.replaceState({ page: 1 }, '', '?page=1');
+      }
       
       // Use hard-coded lender data as a fallback
       const fallbackLenders = [
@@ -511,6 +529,10 @@
         e.preventDefault();
         if (window.currentPage > 1) {
           window.currentPage--;
+          
+          // Update URL and browser history
+          history.pushState({ page: window.currentPage }, '', `?page=${window.currentPage}`);
+          
           displayLenders(lenders, window.currentPage, itemsPerPage);
           renderPagination(totalPages);
           // Scroll to top of page for better user experience
@@ -534,6 +556,10 @@
         e.preventDefault();
         if (window.currentPage < totalPages) {
           window.currentPage++;
+          
+          // Update URL and browser history
+          history.pushState({ page: window.currentPage }, '', `?page=${window.currentPage}`);
+          
           displayLenders(lenders, window.currentPage, itemsPerPage);
           renderPagination(totalPages);
           // Scroll to top of page for better user experience
@@ -611,6 +637,10 @@
         pageButton.addEventListener('click', function(e) {
           e.preventDefault();
           window.currentPage = pageNum;
+          
+          // Update URL and browser history
+          history.pushState({ page: window.currentPage }, '', `?page=${window.currentPage}`);
+          
           displayLenders(lenders, window.currentPage, itemsPerPage);
           renderPagination(totalPages);
           // Scroll to top of page for better user experience
