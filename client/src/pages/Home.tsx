@@ -5,7 +5,7 @@ import FeaturedLenders from "@/components/FeaturedLenders";
 import BetterList from "@/components/BetterList";
 import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
+import SitemapFooter from "@/components/SitemapFooter";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <Testimonials />
         <CTASection />
       </main>
-      <Footer />
+      <SitemapFooter />
     </div>
   );
 }

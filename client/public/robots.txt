@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bettercapitalsolutions.com/sitemap.xml
+
+# Disallow access to any admin or backend areas
+Disallow: /admin/
+Disallow: /backend/
+Disallow: /api/
+
+# Disallow crawling of thank you and confirmation pages
+Disallow: */thank-you*
+Disallow: */confirmation*

@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import FundingRecommendation from "@/pages/FundingRecommendation";
 import FundingApplication from "@/pages/FundingApplication";
 import ApplicationSuccess from "@/pages/ApplicationSuccess";
+import SitemapFooter from "@/components/SitemapFooter";
 
 function Router() {
   return (
