@@ -3,14 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apply for Business Funding | Better Capital Solutions</title>
-  <meta name="description" content="Apply for business funding with Better Capital Solutions. Our experts will help you secure the best funding options for your business needs.">
-  
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <title>Apply for Funding | Better Capital Solutions</title>
+  <meta name="description" content="Complete this short form to begin your funding application process with Better Capital Solutions.">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,536 +13,352 @@
       theme: {
         extend: {
           colors: {
-            primary: {
-              DEFAULT: 'hsl(215, 80%, 40%)',
-              50: 'hsl(215, 80%, 95%)',
-              100: 'hsl(215, 80%, 90%)',
-              200: 'hsl(215, 80%, 80%)',
-              300: 'hsl(215, 80%, 70%)',
-              400: 'hsl(215, 80%, 60%)',
-              500: 'hsl(215, 80%, 50%)',
-              600: 'hsl(215, 80%, 40%)',
-              700: 'hsl(215, 80%, 30%)',
-              800: 'hsl(215, 80%, 20%)',
-              900: 'hsl(215, 80%, 10%)',
-            },
-            accent: {
-              DEFAULT: 'hsl(25, 95%, 50%)',
-              50: 'hsl(25, 95%, 95%)',
-              100: 'hsl(25, 95%, 90%)',
-              200: 'hsl(25, 95%, 80%)',
-              300: 'hsl(25, 95%, 70%)',
-              400: 'hsl(25, 95%, 60%)',
-              500: 'hsl(25, 95%, 50%)',
-              600: 'hsl(25, 95%, 40%)',
-              700: 'hsl(25, 95%, 30%)',
-              800: 'hsl(25, 95%, 20%)',
-              900: 'hsl(25, 95%, 10%)',
-            },
+            primary: '#0056b3',
+            secondary: '#4f46e5',
+            accent: '#10b981',
+            success: '#10b981',
+            warning: '#f59e0b',
+            danger: '#ef4444',
             neutral: {
-              50: 'hsl(220, 20%, 98%)',
-              100: 'hsl(220, 20%, 95%)',
-              200: 'hsl(220, 20%, 90%)',
-              300: 'hsl(220, 20%, 80%)',
-              400: 'hsl(220, 20%, 70%)',
-              500: 'hsl(220, 20%, 60%)',
-              600: 'hsl(220, 20%, 50%)',
-              700: 'hsl(220, 20%, 40%)',
-              800: 'hsl(220, 20%, 30%)',
-              900: 'hsl(220, 20%, 20%)',
-            }
+              50: '#f9fafb',
+              100: '#f3f4f6',
+              200: '#e5e7eb',
+              300: '#d1d5db',
+              400: '#9ca3af',
+              500: '#6b7280',
+              600: '#4b5563',
+              700: '#374151',
+              800: '#1f2937',
+              900: '#111827',
+            },
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
-            heading: ['Poppins', 'sans-serif'],
-          },
+            heading: ['Montserrat', 'sans-serif'],
+          }
         }
       }
     }
   </script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    .hero-gradient {
+      background: linear-gradient(135deg, #0056b3 0%, #4f46e5 100%);
+    }
+  </style>
 </head>
-<body class="font-sans antialiased bg-neutral-100 text-neutral-800">
-  <!-- Header/Navbar -->
-  <header class="sticky top-0 bg-white shadow-md z-40">
+<body class="bg-neutral-50 font-sans">
+  <!-- Header -->
+  <header class="bg-white shadow-sm py-4">
     <div class="container mx-auto px-4">
-      <nav class="flex justify-between items-center py-6">
-        <!-- Logo -->
-        <div class="flex-shrink-0">
-          <a href="/" class="flex items-center">
-            <img src="/assets/logo.png" alt="Better Capital Solutions" class="h-20 mr-3" />
+      <div class="flex justify-between items-center">
+        <a href="/" class="flex items-center">
+          <img src="/assets/logo.png" alt="Better Capital Solutions" class="h-12">
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="/" class="text-neutral-600 hover:text-primary transition-colors">
+            <i class="fas fa-home mr-1"></i>
+            Home
+          </a>
+          <a href="/contact" class="text-neutral-600 hover:text-primary transition-colors">
+            <i class="fas fa-headset mr-1"></i>
+            Support
           </a>
         </div>
-        
-        <!-- Desktop navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="/" class="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
-          <a href="/personal-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
-          <a href="/business-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
-          <a href="/betterlist-100" class="text-neutral-700 hover:text-primary transition-colors font-medium">BCS Top 100™</a>
-          <a href="/resources" class="text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
-          <a href="/guides" class="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
-          <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
-        </div>
-        
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <button 
-            type="button" 
-            class="text-neutral-500 hover:text-primary focus:outline-none"
-            onclick="toggleMobileMenu()"
-          >
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </nav>
-    </div>
-    
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden hidden">
-      <div class="px-2 pt-2 pb-4 space-y-1 bg-white border-t border-neutral-200">
-        <a href="/" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
-        <a href="/personal-funding" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
-        <a href="/business-funding" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
-        <a href="/betterlist-100" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">BCS Top 100™</a>
-        <a href="/resources" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
-        <a href="/guides" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
-        <a href="/contact" class="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="pt-12 md:pt-20 pb-16 md:pb-24 bg-gradient-to-b from-primary-800 to-primary-700 text-white">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight">
-            Apply for Business Funding
-          </h1>
-          <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Take the first step toward securing the capital your business needs to grow. Our funding experts will help you navigate the process.
-          </p>
-          <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 text-white/90 flex items-center">
-              <i class="fas fa-check-circle text-green-400 mr-2"></i>
-              <span>Quick Application</span>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 text-white/90 flex items-center">
-              <i class="fas fa-check-circle text-green-400 mr-2"></i>
-              <span>Multiple Lender Options</span>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 text-white/90 flex items-center">
-              <i class="fas fa-check-circle text-green-400 mr-2"></i>
-              <span>No Impact to Credit Score</span>
-            </div>
+  <!-- Main Content -->
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <!-- Form Card -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="hero-gradient p-6 text-white text-center">
+            <h1 class="text-2xl md:text-3xl font-heading font-bold mb-2">
+              Apply for Business Funding
+            </h1>
+            <p class="text-white/80">
+              Complete this form to start your application
+            </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Application Form Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto">
-          <form id="funding-application" class="space-y-8">
-            <!-- Business Information -->
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-neutral-200">
-              <h2 class="text-2xl font-heading font-bold mb-6">Business Information</h2>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div class="p-6 md:p-8">
+            <form action="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78" method="post" target="_blank">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Personal Information -->
                 <div>
-                  <label for="business-name" class="block text-sm font-medium text-neutral-700 mb-1">Business Name*</label>
-                  <input type="text" id="business-name" name="business-name" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-                
-                <div>
-                  <label for="business-type" class="block text-sm font-medium text-neutral-700 mb-1">Business Type*</label>
-                  <select id="business-type" name="business-type" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select business type</option>
-                    <option value="sole-proprietorship">Sole Proprietorship</option>
-                    <option value="llc">LLC</option>
-                    <option value="corporation">Corporation</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="non-profit">Non-Profit</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="business-industry" class="block text-sm font-medium text-neutral-700 mb-1">Industry*</label>
-                  <select id="business-industry" name="business-industry" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select industry</option>
-                    <option value="retail">Retail</option>
-                    <option value="food-service">Food Service/Restaurant</option>
-                    <option value="construction">Construction</option>
-                    <option value="professional-services">Professional Services</option>
-                    <option value="healthcare">Healthcare</option>
-                    <option value="manufacturing">Manufacturing</option>
-                    <option value="technology">Technology</option>
-                    <option value="real-estate">Real Estate</option>
-                    <option value="transportation">Transportation</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="years-in-business" class="block text-sm font-medium text-neutral-700 mb-1">Years in Business*</label>
-                  <select id="years-in-business" name="years-in-business" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select years</option>
-                    <option value="less-than-1">Less than 1 year</option>
-                    <option value="1-2">1-2 years</option>
-                    <option value="3-5">3-5 years</option>
-                    <option value="6-10">6-10 years</option>
-                    <option value="more-than-10">More than 10 years</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="annual-revenue" class="block text-sm font-medium text-neutral-700 mb-1">Annual Revenue*</label>
-                  <select id="annual-revenue" name="annual-revenue" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select revenue range</option>
-                    <option value="less-than-100k">Less than $100,000</option>
-                    <option value="100k-250k">$100,000 - $250,000</option>
-                    <option value="250k-500k">$250,000 - $500,000</option>
-                    <option value="500k-1m">$500,000 - $1 million</option>
-                    <option value="1m-5m">$1 million - $5 million</option>
-                    <option value="more-than-5m">More than $5 million</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="business-address" class="block text-sm font-medium text-neutral-700 mb-1">Business Address*</label>
-                  <input type="text" id="business-address" name="business-address" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-                
-                <div>
-                  <label for="business-city" class="block text-sm font-medium text-neutral-700 mb-1">City*</label>
-                  <input type="text" id="business-city" name="business-city" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-                
-                <div>
-                  <label for="business-state" class="block text-sm font-medium text-neutral-700 mb-1">State*</label>
-                  <select id="business-state" name="business-state" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select state</option>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <!-- Additional states would be listed here -->
-                    <option value="WY">Wyoming</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="business-zip" class="block text-sm font-medium text-neutral-700 mb-1">ZIP Code*</label>
-                  <input type="text" id="business-zip" name="business-zip" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-              </div>
-            </div>
-            
-            <!-- Owner Information -->
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-neutral-200">
-              <h2 class="text-2xl font-heading font-bold mb-6">Owner Information</h2>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label for="owner-first-name" class="block text-sm font-medium text-neutral-700 mb-1">First Name*</label>
-                  <input type="text" id="owner-first-name" name="owner-first-name" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-                
-                <div>
-                  <label for="owner-last-name" class="block text-sm font-medium text-neutral-700 mb-1">Last Name*</label>
-                  <input type="text" id="owner-last-name" name="owner-last-name" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-                
-                <div>
-                  <label for="owner-email" class="block text-sm font-medium text-neutral-700 mb-1">Email Address*</label>
-                  <input type="email" id="owner-email" name="owner-email" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-                
-                <div>
-                  <label for="owner-phone" class="block text-sm font-medium text-neutral-700 mb-1">Phone Number*</label>
-                  <input type="tel" id="owner-phone" name="owner-phone" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                </div>
-                
-                <div>
-                  <label for="owner-credit-score" class="block text-sm font-medium text-neutral-700 mb-1">Credit Score Range*</label>
-                  <select id="owner-credit-score" name="owner-credit-score" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select credit score range</option>
-                    <option value="excellent">Excellent (720+)</option>
-                    <option value="good">Good (660-719)</option>
-                    <option value="fair">Fair (600-659)</option>
-                    <option value="poor">Poor (below 600)</option>
-                    <option value="unknown">I don't know</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="ownership-percentage" class="block text-sm font-medium text-neutral-700 mb-1">Ownership Percentage*</label>
-                  <select id="ownership-percentage" name="ownership-percentage" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select percentage</option>
-                    <option value="100">100%</option>
-                    <option value="76-99">76-99%</option>
-                    <option value="51-75">51-75%</option>
-                    <option value="25-50">25-50%</option>
-                    <option value="less-than-25">Less than 25%</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Funding Needs -->
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-neutral-200">
-              <h2 class="text-2xl font-heading font-bold mb-6">Funding Needs</h2>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label for="funding-amount" class="block text-sm font-medium text-neutral-700 mb-1">Desired Funding Amount*</label>
-                  <select id="funding-amount" name="funding-amount" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select amount</option>
-                    <option value="10k-25k">$10,000 - $25,000</option>
-                    <option value="25k-50k">$25,000 - $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="100k-250k">$100,000 - $250,000</option>
-                    <option value="250k-500k">$250,000 - $500,000</option>
-                    <option value="500k-1m">$500,000 - $1 million</option>
-                    <option value="more-than-1m">More than $1 million</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="funding-purpose" class="block text-sm font-medium text-neutral-700 mb-1">Purpose of Funding*</label>
-                  <select id="funding-purpose" name="funding-purpose" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select purpose</option>
-                    <option value="working-capital">Working Capital</option>
-                    <option value="expansion">Business Expansion</option>
-                    <option value="equipment">Equipment Purchase</option>
-                    <option value="inventory">Inventory Purchase</option>
-                    <option value="real-estate">Commercial Real Estate</option>
-                    <option value="debt-refinance">Debt Refinancing</option>
-                    <option value="startup">Business Startup</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="funding-timeline" class="block text-sm font-medium text-neutral-700 mb-1">Timeline*</label>
-                  <select id="funding-timeline" name="funding-timeline" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select timeline</option>
-                    <option value="immediate">As soon as possible</option>
-                    <option value="30-days">Within 30 days</option>
-                    <option value="60-days">Within 60 days</option>
-                    <option value="90-days">Within 90 days</option>
-                    <option value="flexible">Flexible</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="funding-type" class="block text-sm font-medium text-neutral-700 mb-1">Preferred Funding Type*</label>
-                  <select id="funding-type" name="funding-type" required class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
-                    <option value="" selected disabled>Select type</option>
-                    <option value="term-loan">Term Loan</option>
-                    <option value="line-of-credit">Line of Credit</option>
-                    <option value="sba-loan">SBA Loan</option>
-                    <option value="equipment-financing">Equipment Financing</option>
-                    <option value="merchant-cash-advance">Merchant Cash Advance</option>
-                    <option value="invoice-factoring">Invoice Factoring</option>
-                    <option value="not-sure">Not Sure</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div class="mt-6">
-                <label for="additional-info" class="block text-sm font-medium text-neutral-700 mb-1">Additional Information (Optional)</label>
-                <textarea id="additional-info" name="additional-info" rows="3" class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
-                <p class="text-sm text-neutral-500 mt-1">Share any other relevant details about your funding needs.</p>
-              </div>
-            </div>
-            
-            <!-- Terms & Consent -->
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-neutral-200">
-              <h2 class="text-2xl font-heading font-bold mb-6">Terms & Consent</h2>
-              
-              <div class="space-y-4">
-                <div class="flex items-start">
-                  <input type="checkbox" id="terms-agreement" name="terms-agreement" required class="mt-1 mr-3">
-                  <div>
-                    <label for="terms-agreement" class="font-medium">Terms and Conditions*</label>
-                    <p class="text-sm text-neutral-600 mt-1">I agree to the <a href="/terms-of-service" class="text-primary underline">Terms and Conditions</a> and acknowledge our <a href="/privacy-policy" class="text-primary underline">Privacy Policy</a>.</p>
+                  <h2 class="text-lg font-medium text-neutral-800 mb-4 flex items-center">
+                    <span class="bg-primary/10 text-primary rounded-full w-6 h-6 inline-flex items-center justify-center mr-2 text-sm">1</span>
+                    Personal Information
+                  </h2>
+                  
+                  <div class="space-y-4">
+                    <div>
+                      <label for="first_name" class="block text-sm font-medium text-neutral-700 mb-1">First Name*</label>
+                      <input 
+                        type="text" 
+                        id="first_name" 
+                        name="first_name" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      >
+                    </div>
+                    
+                    <div>
+                      <label for="last_name" class="block text-sm font-medium text-neutral-700 mb-1">Last Name*</label>
+                      <input 
+                        type="text" 
+                        id="last_name" 
+                        name="last_name" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      >
+                    </div>
+                    
+                    <div>
+                      <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">Email Address*</label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      >
+                    </div>
+                    
+                    <div>
+                      <label for="phone" class="block text-sm font-medium text-neutral-700 mb-1">Phone Number*</label>
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      >
+                    </div>
                   </div>
                 </div>
                 
-                <div class="flex items-start">
-                  <input type="checkbox" id="credit-check" name="credit-check" required class="mt-1 mr-3">
+                <!-- Business Information -->
+                <div>
+                  <h2 class="text-lg font-medium text-neutral-800 mb-4 flex items-center">
+                    <span class="bg-primary/10 text-primary rounded-full w-6 h-6 inline-flex items-center justify-center mr-2 text-sm">2</span>
+                    Business Information
+                  </h2>
+                  
+                  <div class="space-y-4">
+                    <div>
+                      <label for="business_name" class="block text-sm font-medium text-neutral-700 mb-1">Business Name*</label>
+                      <input 
+                        type="text" 
+                        id="business_name" 
+                        name="business_name" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                      >
+                    </div>
+                    
+                    <div>
+                      <label for="business_type" class="block text-sm font-medium text-neutral-700 mb-1">Business Type*</label>
+                      <select 
+                        id="business_type" 
+                        name="business_type" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white"
+                      >
+                        <option value="" disabled selected>Select business type</option>
+                        <option value="Sole Proprietorship">Sole Proprietorship</option>
+                        <option value="LLC">LLC</option>
+                        <option value="Corporation">Corporation</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label for="time_in_business" class="block text-sm font-medium text-neutral-700 mb-1">Time in Business*</label>
+                      <select 
+                        id="time_in_business" 
+                        name="time_in_business" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white"
+                      >
+                        <option value="" disabled selected>Select time in business</option>
+                        <option value="Startup">Startup (0-6 months)</option>
+                        <option value="6-12 months">6-12 months</option>
+                        <option value="1-2 years">1-2 years</option>
+                        <option value="2-5 years">2-5 years</option>
+                        <option value="5+ years">5+ years</option>
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label for="annual_revenue" class="block text-sm font-medium text-neutral-700 mb-1">Annual Revenue*</label>
+                      <select 
+                        id="annual_revenue" 
+                        name="annual_revenue" 
+                        required
+                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white"
+                      >
+                        <option value="" disabled selected>Select annual revenue</option>
+                        <option value="Pre-revenue">Pre-revenue</option>
+                        <option value="Under $50K">Under $50K</option>
+                        <option value="$50K - $100K">$50K - $100K</option>
+                        <option value="$100K - $250K">$100K - $250K</option>
+                        <option value="$250K - $500K">$250K - $500K</option>
+                        <option value="$500K - $1M">$500K - $1M</option>
+                        <option value="$1M+">$1M+</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Funding Needs -->
+              <div class="mb-8">
+                <h2 class="text-lg font-medium text-neutral-800 mb-4 flex items-center">
+                  <span class="bg-primary/10 text-primary rounded-full w-6 h-6 inline-flex items-center justify-center mr-2 text-sm">3</span>
+                  Funding Needs
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label for="credit-check" class="font-medium">Credit Check Authorization*</label>
-                    <p class="text-sm text-neutral-600 mt-1">I authorize Better Capital Solutions to perform a soft credit check to qualify me for lender programs. This will not affect my credit score.</p>
+                    <label for="funding_amount" class="block text-sm font-medium text-neutral-700 mb-1">Desired Funding Amount*</label>
+                    <select 
+                      id="funding_amount" 
+                      name="funding_amount" 
+                      required
+                      class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white"
+                    >
+                      <option value="" disabled selected>Select amount</option>
+                      <option value="Under $10K">Under $10K</option>
+                      <option value="$10K - $25K">$10K - $25K</option>
+                      <option value="$25K - $50K">$25K - $50K</option>
+                      <option value="$50K - $100K">$50K - $100K</option>
+                      <option value="$100K - $250K">$100K - $250K</option>
+                      <option value="$250K - $500K">$250K - $500K</option>
+                      <option value="$500K - $1M">$500K - $1M</option>
+                      <option value="$1M+">$1M+</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label for="funding_purpose" class="block text-sm font-medium text-neutral-700 mb-1">Funding Purpose*</label>
+                    <select 
+                      id="funding_purpose" 
+                      name="funding_purpose" 
+                      required
+                      class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white"
+                    >
+                      <option value="" disabled selected>Select purpose</option>
+                      <option value="Working Capital">Working Capital</option>
+                      <option value="Equipment Purchase">Equipment Purchase</option>
+                      <option value="Business Expansion">Business Expansion</option>
+                      <option value="Inventory">Inventory</option>
+                      <option value="Debt Refinancing">Debt Refinancing</option>
+                      <option value="Business Acquisition">Business Acquisition</option>
+                      <option value="Startup Funding">Startup Funding</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
                 </div>
                 
-                <div class="flex items-start">
-                  <input type="checkbox" id="communication-consent" name="communication-consent" required class="mt-1 mr-3">
-                  <div>
-                    <label for="communication-consent" class="font-medium">Communication Consent*</label>
-                    <p class="text-sm text-neutral-600 mt-1">I consent to receive emails, calls, and text messages from Better Capital Solutions and its partners regarding my funding application.</p>
-                  </div>
+                <div class="mt-4">
+                  <label for="additional_info" class="block text-sm font-medium text-neutral-700 mb-1">Additional Information (Optional)</label>
+                  <textarea 
+                    id="additional_info" 
+                    name="additional_info" 
+                    rows="3"
+                    class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                    placeholder="Any other details about your funding needs..."
+                  ></textarea>
                 </div>
               </div>
-            </div>
-            
-            <!-- Submit Button -->
-            <div class="text-center">
-              <div class="text-center text-red-600 font-semibold mb-2 text-sm animate-pulse">
-                Limited Time: Priority Processing Available
+              
+              <!-- Terms and Submit -->
+              <div>
+                <div class="mb-6">
+                  <label class="flex items-start">
+                    <input 
+                      type="checkbox" 
+                      required
+                      class="mt-1 h-4 w-4 text-primary border-neutral-300 rounded focus:ring-primary"
+                    >
+                    <span class="ml-2 text-sm text-neutral-600">
+                      I agree to the <a href="/terms-of-service.html" target="_blank" class="text-primary hover:underline">Terms of Service</a> and <a href="/privacy-policy.html" target="_blank" class="text-primary hover:underline">Privacy Policy</a>. I understand that by submitting this form, I consent to being contacted regarding my funding application.
+                    </span>
+                  </label>
+                </div>
+                
+                <div>
+                  <button 
+                    type="submit"
+                    class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md transition-colors flex items-center justify-center"
+                  >
+                    <span>Submit Application</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                  </button>
+                  
+                  <p class="text-center text-sm text-neutral-500 mt-4">
+                    Your information is secure and encrypted
+                  </p>
+                </div>
               </div>
-              <button type="submit" id="submit-application" class="px-8 py-4 bg-primary hover:bg-primary-700 text-white rounded-lg font-bold text-lg transform hover:-translate-y-1 transition-all duration-200 shadow-lg">
-                Submit Application
-              </button>
-              <p class="text-sm text-neutral-500 mt-4">A funding advisor will contact you within 1 business day.</p>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="py-16 bg-neutral-50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center mb-12">
-          <h2 class="text-3xl font-heading font-bold mb-6">Why Choose Better Capital Solutions</h2>
-          <p class="text-lg text-neutral-600">We make the business funding process simple, fast, and tailored to your needs.</p>
+            </form>
+          </div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mb-4">
-              <i class="fas fa-network-wired text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Lender Network</h3>
-            <p class="text-neutral-600">Access to 75+ lenders with various funding programs for all business types and credit profiles.</p>
-          </div>
+        <!-- Trust Indicators -->
+        <div class="mt-8 text-center">
+          <p class="text-sm text-neutral-500 mb-4">
+            Trusted by thousands of business owners
+          </p>
           
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mb-4">
-              <i class="fas fa-bolt text-xl"></i>
+          <div class="flex flex-wrap justify-center gap-6">
+            <div class="bg-white rounded-lg px-4 py-2 shadow-sm flex items-center">
+              <i class="fas fa-lock text-primary mr-2"></i>
+              <span class="text-sm text-neutral-700">256-bit SSL Encrypted</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Fast Processing</h3>
-            <p class="text-neutral-600">Many of our clients receive funding offers within 24-48 hours of completing their application.</p>
-          </div>
-          
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mb-4">
-              <i class="fas fa-user-tie text-xl"></i>
+            
+            <div class="bg-white rounded-lg px-4 py-2 shadow-sm flex items-center">
+              <i class="fas fa-shield-alt text-primary mr-2"></i>
+              <span class="text-sm text-neutral-700">100% Secure</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Expert Guidance</h3>
-            <p class="text-neutral-600">Dedicated funding advisors who work with you throughout the entire application process.</p>
+            
+            <div class="bg-white rounded-lg px-4 py-2 shadow-sm flex items-center">
+              <i class="fas fa-clock text-primary mr-2"></i>
+              <span class="text-sm text-neutral-700">Fast Response Time</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </main>
-  
+
   <!-- Footer -->
-  <footer class="bg-neutral-900 text-white pt-12 pb-8">
+  <footer class="bg-neutral-800 text-white py-8 mt-12">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h3 class="text-xl font-bold mb-4">Better Capital Solutions</h3>
-          <p class="text-neutral-400 mb-4">Connecting you to the perfect funding solutions for your personal and business needs.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4 class="text-lg font-medium mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="/" class="text-neutral-400 hover:text-white transition-colors">Home</a></li>
-            <li><a href="/personal-funding" class="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></li>
-            <li><a href="/business-funding" class="text-neutral-400 hover:text-white transition-colors">Business Funding</a></li>
-            <li><a href="/betterlist-100" class="text-neutral-400 hover:text-white transition-colors">BCS Top 100™</a></li>
-            <li><a href="/resources" class="text-neutral-400 hover:text-white transition-colors">Resources</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-medium mb-4">Resources</h4>
-          <ul class="space-y-2">
-            <li><a href="/resources/blog.html" class="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
-            <li><a href="/resources/financial-calculator.html" class="text-neutral-400 hover:text-white transition-colors">Financial Calculators</a></li>
-            <li><a href="/resources/loan-comparison-tool.html" class="text-neutral-400 hover:text-white transition-colors">Loan Comparison Tool</a></li>
-            <li><a href="/resources/credit-score-guide.html" class="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a></li>
-            <li><a href="/resources/faq.html" class="text-neutral-400 hover:text-white transition-colors">FAQs</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-medium mb-4">Contact Us</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt mt-1 mr-3 text-neutral-400"></i>
-              <span class="text-neutral-400">123 Financial District<br>New York, NY 10001</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-phone-alt mr-3 text-neutral-400"></i>
-              <span class="text-neutral-400">(555) 123-4567</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-envelope mr-3 text-neutral-400"></i>
-              <span class="text-neutral-400">info@bettercapitalsolutions.com</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <hr class="border-neutral-800 my-8" />
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-neutral-500 text-sm">&copy; 2025 Better Capital Solutions. All rights reserved.</p>
-        <div class="flex space-x-6 mt-4 md:mt-0">
-          <a href="/privacy-policy" class="text-neutral-500 hover:text-neutral-300 text-sm">Privacy Policy</a>
-          <a href="/terms-of-service" class="text-neutral-500 hover:text-neutral-300 text-sm">Terms of Service</a>
-          <a href="/sitemap" class="text-neutral-500 hover:text-neutral-300 text-sm">Sitemap</a>
+        <div>
+          <p class="text-sm text-neutral-400">
+            &copy; 2025 Better Capital Solutions. All rights reserved.
+          </p>
         </div>
-      </div>
-      <div class="mt-6 text-xs text-neutral-600 text-center">
-        <p>Disclaimer: Better Capital Solutions is not a lender. We connect businesses with our network of lending partners. Approval is not guaranteed and is subject to lender requirements.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="/privacy-policy.html" class="text-sm text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="/terms-of-service.html" class="text-sm text-neutral-400 hover:text-white transition-colors">Terms of Service</a>
+          <a href="/contact" class="text-sm text-neutral-400 hover:text-white transition-colors">Contact Us</a>
+        </div>
       </div>
     </div>
   </footer>
-
-  <!-- JavaScript -->
-  <script>
-    // Toggle mobile menu
-    function toggleMobileMenu() {
-      const mobileMenu = document.getElementById('mobile-menu');
-      mobileMenu.classList.toggle('hidden');
-    }
-    
-    // Form submission
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('funding-application');
-      const submitButton = document.getElementById('submit-application');
-      
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Disable submit button and show loading state
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
-        
-        // Simulate form submission (in a real app, this would send data to a server)
-        setTimeout(function() {
-          // Redirect to confirmation page
-          window.location.href = '/application-submitted.html';
-        }, 2000);
-      });
-    });
-  </script>
 </body>
 </html>

@@ -494,25 +494,27 @@
         // Default redirection is the thank you page (fallback)
         let redirectURL = "/funding-funnel/thank-you.html";
         
-        // Check credit score first
-        if (userSelections.creditScore === 'excellent' || userSelections.creditScore === 'good') {
-          // Good credit path
-          if (userSelections.fundingGoal === 'business_funding') {
-            // They want business funding and have good credit
-            // Redirects to the CRO form for the premium service
-            redirectURL = "https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78";
-          } else {
-            // Other goals but good credit, also send them to CRO form
-            redirectURL = "https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78";
-          }
-        } else {
-          // Poor credit path
+        // Determine where to send based on goal and budget
+        if (userSelections.fundingGoal === 'business_funding') {
+          // Business funding path
           if (userSelections.budget === 'ready_to_pay') {
-            // They need credit repair and are ready to pay
-            redirectURL = "/credit-repair/join.html";
+            // Funding + Ready to Pay → lead capture form
+            redirectURL = "/apply-now.html";
           } else {
-            // They need DIY approach
+            // Funding + DIY → thank you page (fallback)
+            redirectURL = "/funding-funnel/thank-you.html";
+          }
+        } else if (userSelections.fundingGoal === 'improve_credit') {
+          // Improve Credit path → CRO sales page
+          redirectURL = "/credit-repair/join.html";
+        } else {
+          // DIY path or other selections
+          if (userSelections.budget === 'need_diy') {
+            // Need DIY Option → eBook page
             redirectURL = "/diy-credit/start.html";
+          } else {
+            // Other combinations → thank you page (fallback)
+            redirectURL = "/funding-funnel/thank-you.html";
           }
         }
         

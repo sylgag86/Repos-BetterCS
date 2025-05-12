@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Credit Repair Services | Better Capital Solutions</title>
-  <meta name="description" content="Professional credit repair services to help improve your credit score and qualify for better funding options.">
+  <title>Professional Credit Repair Services | Choose Your Plan | Better Capital Solutions</title>
+  <meta name="description" content="Compare our two professional credit repair service plans and choose the option that best fits your needs. Start with our $99 Essentials Plan or upgrade to our Full Repair Plan.">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -52,6 +52,15 @@
       background: linear-gradient(135deg, #0056b3 0%, #4f46e5 100%);
     }
     
+    .pricing-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
     .testimonial-card {
       transition: transform 0.3s ease;
     }
@@ -72,6 +81,31 @@
       font-size: 0.75rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transform: rotate(5deg);
+    }
+    
+    .feature-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    
+    .popular-badge {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(to right, #0056b3, #4f46e5);
+      color: white;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
@@ -98,86 +132,288 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-gradient py-16 md:py-24 text-white">
+  <section class="hero-gradient py-16 md:py-20 text-white">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
         <div class="inline-flex items-center px-4 py-2 mb-6 rounded-full text-sm font-medium bg-white/10 backdrop-blur-sm">
           <span class="text-warning mr-2">
-            <i class="fas fa-tags"></i>
+            <i class="fas fa-certificate"></i>
           </span>
-          <span>Special Offer: $99 Setup Fee (Normally $189)</span>
+          <span>Choose Your Credit Repair Plan</span>
         </div>
         
         <h1 class="text-3xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-          Repair Your Credit. Unlock Better Funding.
+          Fix Your Credit with a Real CRO — Choose Your Plan
         </h1>
         
         <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-          Our professional credit repair services help you remove negative items, improve your score, and qualify for the best funding options.
+          Select the credit repair plan that best fits your needs and budget. Our professional team is ready to help improve your score and unlock better funding options.
         </p>
-        
-        <a 
-          href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78" 
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-200"
-        >
-          <span>Get Started Today - Only $99</span>
-          <i class="fas fa-arrow-right ml-2"></i>
-        </a>
       </div>
     </div>
   </section>
   
   <!-- Main Content -->
   <main>
-    <!-- Benefits Section -->
-    <section class="py-16 bg-white">
+    <!-- Pricing Comparison Section -->
+    <section class="py-16 -mt-8">
       <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center mb-12">
-          <h2 class="text-3xl font-heading font-bold text-neutral-800 mb-4">
-            Why Choose Our Credit Repair Services?
-          </h2>
-          <p class="text-neutral-600 text-lg">
-            We offer a comprehensive approach to improving your credit score and financial health.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-6 bg-neutral-50 rounded-xl border border-neutral-200">
-            <div class="h-12 w-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-search-plus text-lg"></i>
+        <div class="max-w-6xl mx-auto">
+          <!-- Pricing Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Essentials Plan Card -->
+            <div class="pricing-card bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden relative">
+              <div class="limited-badge">
+                <span>SPECIAL OFFER</span>
+              </div>
+              
+              <div class="p-8">
+                <h3 class="text-2xl font-bold text-neutral-800 mb-2 text-center">
+                  Essentials Plan
+                </h3>
+                
+                <div class="flex justify-center items-baseline mb-4">
+                  <span class="text-4xl font-bold text-primary">$99</span>
+                  <span class="text-neutral-500 line-through ml-2">$189</span>
+                  <span class="text-neutral-600 ml-2">setup fee</span>
+                </div>
+                
+                <p class="text-center text-neutral-600 mb-6">
+                  Plus $60/month until your credit goals are achieved
+                </p>
+                
+                <div class="border-t border-neutral-200 pt-6 mb-6">
+                  <h4 class="text-lg font-semibold text-neutral-800 mb-4 flex items-center">
+                    <i class="fas fa-check-circle text-success mr-2"></i>
+                    What's Included:
+                  </h4>
+                  
+                  <ul class="space-y-3 mb-8">
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-id-card text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Personal Information Corrections</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-search text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Hard Inquiry Removal</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-calendar-times text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Late Payment Disputes</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-file-invoice-dollar text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Collections Removal</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-chart-line text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Credit Score Monitoring</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-comments text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Basic Support</span>
+                    </li>
+                    <li class="flex items-start opacity-50">
+                      <div class="feature-icon bg-neutral-200 text-neutral-400">
+                        <i class="fas fa-graduation-cap text-xs"></i>
+                      </div>
+                      <span class="text-neutral-400">Student Loan Disputes</span>
+                    </li>
+                    <li class="flex items-start opacity-50">
+                      <div class="feature-icon bg-neutral-200 text-neutral-400">
+                        <i class="fas fa-car text-xs"></i>
+                      </div>
+                      <span class="text-neutral-400">Repossession Removal</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="text-center">
+                  <a 
+                    href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center w-full px-6 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md transition-colors"
+                  >
+                    <span>Start with the $99 Essentials Plan</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                  </a>
+                  
+                  <p class="text-sm text-neutral-500 mt-4">
+                    No long-term contracts required. Cancel anytime.
+                  </p>
+                </div>
+              </div>
             </div>
-            <h3 class="text-xl font-semibold text-neutral-800 mb-3">
-              Thorough Credit Analysis
-            </h3>
-            <p class="text-neutral-600">
-              We perform a detailed review of your credit reports from all three major bureaus to identify negative items that can be disputed.
-            </p>
+            
+            <!-- Full Repair Plan Card -->
+            <div class="pricing-card bg-white rounded-xl shadow-lg border border-primary/30 overflow-hidden relative">
+              <div class="popular-badge">
+                <span>MOST COMPREHENSIVE</span>
+              </div>
+              
+              <div class="p-8">
+                <h3 class="text-2xl font-bold text-neutral-800 mb-2 text-center">
+                  Full Repair Plan
+                </h3>
+                
+                <div class="flex justify-center items-baseline mb-4">
+                  <span class="text-4xl font-bold text-primary">$189</span>
+                  <span class="text-neutral-600 ml-2">setup fee</span>
+                </div>
+                
+                <p class="text-center text-neutral-600 mb-6">
+                  Plus $85/month until your credit goals are achieved
+                </p>
+                
+                <div class="border-t border-neutral-200 pt-6 mb-6">
+                  <h4 class="text-lg font-semibold text-neutral-800 mb-4 flex items-center">
+                    <i class="fas fa-check-circle text-success mr-2"></i>
+                    What's Included:
+                  </h4>
+                  
+                  <ul class="space-y-3 mb-8">
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-id-card text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Personal Information Corrections</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-search text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Hard Inquiry Removal</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-calendar-times text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Late Payment Disputes</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-file-invoice-dollar text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Collections Removal</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-graduation-cap text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Student Loan Disputes</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-car text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Repossession Removal</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-university text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">Bankruptcy Challenges</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="feature-icon bg-success/10 text-success">
+                        <i class="fas fa-gavel text-xs"></i>
+                      </div>
+                      <span class="text-neutral-700">IRS & Child Support Judgement Assistance</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="text-center">
+                  <a 
+                    href="https://safeclientaccess.com/forms/f/8ed535fb-0609-4580-9ccc-db3beffc39ae" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center w-full px-6 py-4 bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-lg shadow-md transition-colors"
+                  >
+                    <span>Upgrade to the $189 Full Repair Plan</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                  </a>
+                  
+                  <p class="text-sm text-neutral-500 mt-4">
+                    No long-term contracts required. Cancel anytime.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div class="p-6 bg-neutral-50 rounded-xl border border-neutral-200">
-            <div class="h-12 w-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-file-alt text-lg"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-neutral-800 mb-3">
-              Custom Dispute Letters
+          <!-- Plan Selection Help -->
+          <div class="mt-12 bg-white p-6 rounded-xl shadow-md border border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-800 mb-4 text-center">
+              Which Plan is Right for Me?
             </h3>
-            <p class="text-neutral-600">
-              Our experts craft personalized dispute letters tailored to your specific situation for maximum effectiveness.
-            </p>
-          </div>
-          
-          <div class="p-6 bg-neutral-50 rounded-xl border border-neutral-200">
-            <div class="h-12 w-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-chart-line text-lg"></i>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-medium text-neutral-800 mb-3 flex items-center">
+                  <span class="bg-primary/10 text-primary rounded-full w-6 h-6 inline-flex items-center justify-center mr-2 text-sm">1</span>
+                  Choose the Essentials Plan if:
+                </h4>
+                
+                <ul class="space-y-2 pl-8">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">You have a few negative items to dispute</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">Your credit issues are primarily related to late payments or collections</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">You're looking for a budget-friendly option</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">Your credit score is in the 580-650 range</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 class="font-medium text-neutral-800 mb-3 flex items-center">
+                  <span class="bg-secondary/10 text-secondary rounded-full w-6 h-6 inline-flex items-center justify-center mr-2 text-sm">2</span>
+                  Choose the Full Repair Plan if:
+                </h4>
+                
+                <ul class="space-y-2 pl-8">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">You have serious credit issues (bankruptcy, repossessions, etc.)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">You need comprehensive support for complex credit problems</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">You want the fastest possible credit improvement</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-success mt-1 mr-2"></i>
+                    <span class="text-neutral-600">Your credit score is below 580</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <h3 class="text-xl font-semibold text-neutral-800 mb-3">
-              Score Improvement Strategy
-            </h3>
-            <p class="text-neutral-600">
-              Beyond disputes, we provide guidance on positive actions you can take to actively improve your credit score.
-            </p>
           </div>
         </div>
       </div>
@@ -235,89 +471,8 @@
       </div>
     </section>
     
-    <!-- Pricing Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center mb-12">
-          <h2 class="text-3xl font-heading font-bold text-neutral-800 mb-4">
-            Affordable Credit Repair Services
-          </h2>
-          <p class="text-neutral-600 text-lg">
-            Invest in your financial future with our cost-effective credit repair solution
-          </p>
-        </div>
-        
-        <div class="max-w-lg mx-auto">
-          <div class="bg-neutral-50 rounded-xl border border-neutral-200 overflow-hidden relative">
-            <div class="limited-badge">
-              <span>LIMITED TIME</span>
-            </div>
-            
-            <div class="p-8">
-              <h3 class="text-2xl font-bold text-center text-neutral-800 mb-2">
-                Professional Credit Repair
-              </h3>
-              
-              <div class="flex justify-center items-baseline mb-6">
-                <span class="text-4xl font-bold text-primary">$99</span>
-                <span class="text-neutral-500 line-through ml-2">$189</span>
-                <span class="text-neutral-600 ml-2">setup fee</span>
-              </div>
-              
-              <p class="text-center text-neutral-600 mb-6">
-                Plus $60/month until your credit goals are achieved
-              </p>
-              
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-success mt-1 mr-3"></i>
-                  <span class="text-neutral-600">Complete credit analysis from all 3 bureaus</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-success mt-1 mr-3"></i>
-                  <span class="text-neutral-600">Unlimited custom dispute letters</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-success mt-1 mr-3"></i>
-                  <span class="text-neutral-600">Personal credit advisor</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-success mt-1 mr-3"></i>
-                  <span class="text-neutral-600">Monthly progress reports</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-success mt-1 mr-3"></i>
-                  <span class="text-neutral-600">Score improvement strategies</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-success mt-1 mr-3"></i>
-                  <span class="text-neutral-600">Cancel anytime with no penalties</span>
-                </li>
-              </ul>
-              
-              <div class="text-center">
-                <a 
-                  href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md transition-colors"
-                >
-                  <span>Get Started Now</span>
-                  <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <p class="text-center text-sm text-neutral-500 mt-4">
-            No long-term contracts required. Cancel anytime.
-          </p>
-        </div>
-      </div>
-    </section>
-    
     <!-- Testimonials -->
-    <section class="py-16 bg-neutral-50">
+    <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <h2 class="text-3xl font-heading font-bold text-neutral-800 mb-4">
@@ -329,7 +484,7 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+          <div class="testimonial-card bg-neutral-50 p-6 rounded-xl shadow-sm border border-neutral-200">
             <div class="flex mb-4">
               <i class="fas fa-star text-warning"></i>
               <i class="fas fa-star text-warning"></i>
@@ -353,7 +508,7 @@
             </div>
           </div>
           
-          <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+          <div class="testimonial-card bg-neutral-50 p-6 rounded-xl shadow-sm border border-neutral-200">
             <div class="flex mb-4">
               <i class="fas fa-star text-warning"></i>
               <i class="fas fa-star text-warning"></i>
@@ -377,7 +532,7 @@
             </div>
           </div>
           
-          <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+          <div class="testimonial-card bg-neutral-50 p-6 rounded-xl shadow-sm border border-neutral-200">
             <div class="flex mb-4">
               <i class="fas fa-star text-warning"></i>
               <i class="fas fa-star text-warning"></i>
@@ -405,7 +560,7 @@
     </section>
     
     <!-- FAQ Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-neutral-50">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <h2 class="text-3xl font-heading font-bold text-neutral-800 mb-4">
@@ -418,50 +573,62 @@
         
         <div class="max-w-3xl mx-auto">
           <div class="space-y-4">
-            <div class="border border-neutral-200 rounded-lg">
+            <div class="border border-neutral-200 rounded-lg bg-white">
+              <button class="flex justify-between items-center w-full p-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
+                <span class="font-medium text-neutral-800">What's the difference between the two plans?</span>
+                <i class="fas fa-chevron-down text-neutral-500 transition-transform"></i>
+              </button>
+              <div class="hidden p-4 pt-0 border-t border-neutral-200">
+                <p class="text-neutral-600">
+                  The Essentials Plan covers the basics of credit repair, including personal information corrections, hard inquiry removal, late payment disputes, and collections. The Full Repair Plan includes everything in the Essentials Plan plus more complex issues like student loan disputes, repossession removal, bankruptcy challenges, and IRS & child support judgement assistance. The Full Repair Plan is more comprehensive and designed for more serious credit issues.
+                </p>
+              </div>
+            </div>
+            
+            <div class="border border-neutral-200 rounded-lg bg-white">
               <button class="flex justify-between items-center w-full p-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
                 <span class="font-medium text-neutral-800">How long does credit repair take?</span>
                 <i class="fas fa-chevron-down text-neutral-500 transition-transform"></i>
               </button>
               <div class="hidden p-4 pt-0 border-t border-neutral-200">
                 <p class="text-neutral-600">
-                  Results vary based on your unique situation. Many clients see improvements within 30-60 days, with significant results typically occurring within 3-6 months. The process involves disputing inaccurate items with credit bureaus, which takes time as they have 30 days to investigate each dispute.
+                  Results vary based on your unique situation. Many clients see improvements within 30-60 days, with significant results typically occurring within 3-6 months. The process involves disputing inaccurate items with credit bureaus, which takes time as they have 30 days to investigate each dispute. The Full Repair Plan often yields faster results due to its more comprehensive approach.
                 </p>
               </div>
             </div>
             
-            <div class="border border-neutral-200 rounded-lg">
+            <div class="border border-neutral-200 rounded-lg bg-white">
               <button class="flex justify-between items-center w-full p-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
                 <span class="font-medium text-neutral-800">Is credit repair legal?</span>
                 <i class="fas fa-chevron-down text-neutral-500 transition-transform"></i>
               </button>
               <div class="hidden p-4 pt-0 border-t border-neutral-200">
                 <p class="text-neutral-600">
-                  Yes, credit repair is completely legal. The Fair Credit Reporting Act (FCRA) gives you the right to dispute inaccurate or unverifiable information on your credit reports. Our services help you exercise these rights effectively.
+                  Yes, credit repair is completely legal. The Fair Credit Reporting Act (FCRA) gives you the right to dispute inaccurate or unverifiable information on your credit reports. Our services help you exercise these rights effectively. We follow all legal guidelines and regulations governing the credit repair industry.
                 </p>
               </div>
             </div>
             
-            <div class="border border-neutral-200 rounded-lg">
+            <div class="border border-neutral-200 rounded-lg bg-white">
               <button class="flex justify-between items-center w-full p-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
-                <span class="font-medium text-neutral-800">What can be removed from my credit report?</span>
+                <span class="font-medium text-neutral-800">Can I switch plans later?</span>
                 <i class="fas fa-chevron-down text-neutral-500 transition-transform"></i>
               </button>
               <div class="hidden p-4 pt-0 border-t border-neutral-200">
                 <p class="text-neutral-600">
-                  Items that can potentially be removed include: inaccurate late payments, collections, charge-offs, repossessions, foreclosures, bankruptcies, inquiries, and outdated information. We focus on disputing items that are inaccurate, misleading, unverifiable, or expired according to credit reporting laws.
+                  Yes, you can upgrade from the Essentials Plan to the Full Repair Plan at any time if you find that you need more comprehensive services. If you start with the Essentials Plan and later decide to upgrade, you'll only need to pay the difference in setup fees ($90). Contact our customer support team to arrange an upgrade.
                 </p>
               </div>
             </div>
             
-            <div class="border border-neutral-200 rounded-lg">
+            <div class="border border-neutral-200 rounded-lg bg-white">
               <button class="flex justify-between items-center w-full p-4 text-left focus:outline-none" onclick="toggleFAQ(this)">
                 <span class="font-medium text-neutral-800">Can I cancel anytime?</span>
                 <i class="fas fa-chevron-down text-neutral-500 transition-transform"></i>
               </button>
               <div class="hidden p-4 pt-0 border-t border-neutral-200">
                 <p class="text-neutral-600">
-                  Yes, you can cancel your service at any time without any cancellation fees or penalties. We don't lock you into long-term contracts because we're confident in the quality of our service.
+                  Yes, you can cancel your service at any time without any cancellation fees or penalties. We don't lock you into long-term contracts because we're confident in the quality of our service. Many clients stay with us for 4-6 months to achieve their credit goals.
                 </p>
               </div>
             </div>
@@ -478,19 +645,33 @@
             Ready to Improve Your Credit?
           </h2>
           <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Take advantage of our limited-time offer and start your journey to better credit today.
+            Choose the plan that's right for you and start your journey to better credit today.
           </p>
-          <a 
-            href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78" 
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center px-8 py-4 bg-white text-primary hover:bg-neutral-100 font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-200"
-          >
-            <span>Get Started - Only $99</span>
-            <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-          <p class="text-sm text-white/70 mt-4">
-            Regular price: $189 setup fee. Limited time offer.
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <a 
+              href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-6 py-4 bg-white text-primary hover:bg-neutral-100 font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-200"
+            >
+              <span>Get the $99 Essentials Plan</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            
+            <a 
+              href="https://safeclientaccess.com/forms/f/8ed535fb-0609-4580-9ccc-db3beffc39ae" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-6 py-4 bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-200 border border-white/30"
+            >
+              <span>Get the $189 Full Repair Plan</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          
+          <p class="text-sm text-white/70 mt-6">
+            No long-term contracts required. Cancel anytime.
           </p>
         </div>
       </div>
