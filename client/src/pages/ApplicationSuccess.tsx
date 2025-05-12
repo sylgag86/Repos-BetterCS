@@ -263,7 +263,12 @@ const ApplicationSuccess = () => {
                   </div>
                 </Link>
                 
-                <Link href="/betterlist-100.html" className="block group">
+                <a 
+                  href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
                   <div className="bg-neutral-50 hover:bg-neutral-100 transition-colors p-4 rounded-lg border border-neutral-200 text-center">
                     <div className="h-12 w-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-3">
                       <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -271,13 +276,13 @@ const ApplicationSuccess = () => {
                       </svg>
                     </div>
                     <h3 className="font-medium text-neutral-900 group-hover:text-primary transition-colors">
-                      Lender Directory
+                      Premium Funding Service
                     </h3>
                     <p className="text-neutral-600 text-sm mt-2">
-                      Browse our comprehensive directory of top-rated funding providers
+                      Get our expert team to help you secure the best funding options <span className="text-primary font-medium">- Limited Time Offer: $99!</span>
                     </p>
                   </div>
-                </Link>
+                </a>
                 
                 <Link href="/contact" className="block group">
                   <div className="bg-neutral-50 hover:bg-neutral-100 transition-colors p-4 rounded-lg border border-neutral-200 text-center">
