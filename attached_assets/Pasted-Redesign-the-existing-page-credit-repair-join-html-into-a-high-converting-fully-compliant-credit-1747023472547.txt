@@ -1,0 +1,42 @@
+Redesign the existing page `/credit-repair/join.html` into a high-converting, fully compliant credit repair sales page for Better Capital Solutions.
+
+🔥 GOAL: Emphasize that we begin work immediately and **clients don’t pay until services are rendered**, per FCSA and CFPB regulations.
+
+🎯 SALES POINTS TO INCLUDE:
+- We start working on your credit **within minutes of signing up**
+- You pay **only after your first round of dispute letters is sent**
+- **We charge by the round**, not per letter — saving you hundreds in inflated fees
+- Our AI-powered system ensures the **fastest possible turnaround**, maximizing efficiency and results
+
+🛡️ COMPLIANCE:
+- Include **FCSA-Compliant** and **CFPB-Compliant** badges near the CTA or hero section
+- Add a **popup modal** with the full *Billing & Payment Clause* (provided below). Before continuing, user must:
+  - Check a box: "I have read and agree to the Billing & Payment Terms"
+  - Only then activate the main Call-to-Action button (“Get Started Now”)
+
+📄 LEGAL MODAL CONTENT:
+[Insert the full Billing & Payment Clause provided below into the modal popup]
+
+💻 UI/UX:
+- Use a modern, glassmorphism aesthetic with gradients and soft shadows (like fundedai.carrd.co)
+- Add motion effects (button hover glow, scroll fade-ins)
+- Bold, high-impact typography for benefits and guarantees
+- Use high-contrast CTA buttons (“Get Started Now” and “See How It Works”)
+- Include client testimonial slider or case study quotes below the main pitch
+- Responsive layout for mobile/desktop
+
+🧠 SECTION LAYOUT:
+1. Hero section: Bold statement — “We Start Now. You Don’t Pay Until We Do.”
+2. Benefits grid: AI-powered speed, pay-per-round, FCSA/CFPB compliance
+3. How It Works (3-step visual walkthrough)
+4. Pricing comparison (Our Round-Based Model vs Per-Letter Competitors)
+5. Billing & Compliance popup modal trigger
+6. Client testimonials
+7. Final CTA with guarantee
+
+🔒 PAGE NAME: `/credit-repair/join.html`
+🔗 Styling: Tailwind CSS or embedded CSS (clean, modern aesthetic)
+
+IMPORTANT: Do not allow user to click the main CTA button unless they first check the Billing & Payment Terms box. Use JS validation for that.
+
+[Insert Better Capital Solutions logo at top left. Use placeholder if none provided.]
