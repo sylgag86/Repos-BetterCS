@@ -223,7 +223,7 @@ const FundingApplication = () => {
         variant: "default"
       });
       
-      // Redirect to success page
+      // Redirect to success page with CRO signup link
       setLocation("/application-success");
     }, 2000);
   };

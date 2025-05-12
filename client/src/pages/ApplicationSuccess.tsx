@@ -50,6 +50,20 @@ const ApplicationSuccess = () => {
                   <Progress value={progress} className="h-2 mb-2 transition-all duration-1000 ease-out" />
                   <span className="text-sm text-success font-medium">100% Complete</span>
                 </div>
+                
+                <div className="mt-8 bg-primary/5 border border-primary/20 p-6 rounded-lg max-w-2xl">
+                  <h2 className="text-xl font-bold text-primary mb-3">Limited Time Offer: Fast-Track Your Funding!</h2>
+                  <p className="mb-5 text-neutral-700">Get pre-qualified with our premium service for only <span className="line-through text-neutral-500">$189</span> <span className="font-bold text-primary">$99</span> setup fee — take advantage of this special rate today!</p>
+                  <a 
+                    href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-lg text-lg transform hover:-translate-y-1 transition-all duration-200 shadow-md"
+                  >
+                    <span>Get Pre-Qualified Now - Only $99</span>
+                    <Trophy className="h-5 w-5" />
+                  </a>
+                </div>
               </div>
               
               <div className="p-6 sm:p-8">
@@ -193,6 +207,39 @@ const ApplicationSuccess = () => {
               </CardContent>
             </Card>
             
+            {/* DIY Option */}
+            <div className="bg-white rounded-xl shadow-md border border-neutral-200 p-6 mb-8">
+              <div className="flex flex-col md:flex-row items-center gap-6 p-4">
+                <div className="md:w-1/3 flex justify-center">
+                  <div className="h-24 w-24 bg-accent/10 text-accent rounded-full flex items-center justify-center">
+                    <Award className="h-12 w-12" />
+                  </div>
+                </div>
+                <div className="md:w-2/3 text-center md:text-left">
+                  <div className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium mb-2">
+                    Limited Time: $29 Only
+                  </div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-2">
+                    Prefer to DIY? Try Our Self-Guided Credit Repair Bundle
+                  </h3>
+                  <p className="text-neutral-600 mb-4">
+                    Get instant access to our complete DIY credit repair toolkit with step-by-step guides, dispute letter templates, and expert strategies to improve your credit score on your own.
+                  </p>
+                  <a
+                    href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-medium px-6 py-3 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
+                  >
+                    <span>Get DIY Bundle - Only $29</span>
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* What's Next Section */}
             <div className="bg-white rounded-xl shadow-md border border-neutral-200 p-6">
               <h2 className="text-xl font-heading font-semibold mb-6 text-center">
