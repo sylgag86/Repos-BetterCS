@@ -1166,7 +1166,8 @@
       [ctaButton, ctaButton2].forEach(button => {
         if (button) {
           button.addEventListener('click', function() {
-            window.location.href = 'https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78';
+            // Show terms modal first
+            termsModal.classList.add('active');
           });
         }
       });
