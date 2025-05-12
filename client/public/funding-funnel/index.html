@@ -274,50 +274,137 @@
           
           <!-- Step 4: Budget -->
           <div id="step-4" class="step-transition hidden">
-            <h2 class="text-xl font-heading font-bold mb-6 text-center text-neutral-800">
+            <h2 class="text-xl font-heading font-bold mb-6 text-center text-neutral-800" id="budget-step-heading">
               What's your preferred approach?
             </h2>
             
-            <div class="grid grid-cols-1 gap-6 mb-8">
-              <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left" data-value="ready_to_pay">
-                <div class="flex items-start">
-                  <div class="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                    <i class="fas fa-handshake"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-neutral-800 text-lg block mb-2">
-                      Help Me Secure Funding
-                    </span>
-                    <p class="text-neutral-600 mb-2">
-                      Work with our funding specialists who will guide you through the process and match you with the right lenders.
-                    </p>
-                    <div class="bg-success/10 text-success text-sm py-1 px-3 rounded-full inline-block">
-                      <i class="fas fa-check-circle mr-1"></i>
-                      Personalized support
+            <div class="grid grid-cols-1 gap-6 mb-8" id="budget-options-container">
+              <!-- These options will be dynamically populated based on the user's funding goal -->
+              <div id="funding-options" style="display: none;">
+                <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left" data-value="ready_to_pay">
+                  <div class="flex items-start">
+                    <div class="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <i class="fas fa-handshake"></i>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-neutral-800 text-lg block mb-2">
+                        Help Me Secure Funding
+                      </span>
+                      <p class="text-neutral-600 mb-2">
+                        Work with our funding specialists who will guide you through the process and match you with the right lenders.
+                      </p>
+                      <div class="bg-success/10 text-success text-sm py-1 px-3 rounded-full inline-block">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        Personalized support
+                      </div>
                     </div>
                   </div>
-                </div>
-              </button>
+                </button>
+                
+                <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left mt-6" data-value="need_diy">
+                  <div class="flex items-start">
+                    <div class="h-12 w-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <i class="fas fa-list-ul"></i>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-neutral-800 text-lg block mb-2">
+                        Browse Lender Directory
+                      </span>
+                      <p class="text-neutral-600 mb-2">
+                        Explore our BCS Top 100™ directory of lenders and funding providers to find options on your own.
+                      </p>
+                      <div class="bg-primary/10 text-primary text-sm py-1 px-3 rounded-full inline-block">
+                        <i class="fas fa-search mr-1"></i>
+                        Self-directed search
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
               
-              <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left" data-value="need_diy">
-                <div class="flex items-start">
-                  <div class="h-12 w-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                    <i class="fas fa-tools"></i>
-                  </div>
-                  <div>
-                    <span class="font-semibold text-neutral-800 text-lg block mb-2">
-                      DIY Approach
-                    </span>
-                    <p class="text-neutral-600 mb-2">
-                      Get access to our resources, templates, and guides to improve your creditworthiness on your own.
-                    </p>
-                    <div class="bg-primary/10 text-primary text-sm py-1 px-3 rounded-full inline-block">
-                      <i class="fas fa-tag mr-1"></i>
-                      Special offer: $29
+              <div id="credit-options" style="display: none;">
+                <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left" data-value="ready_to_pay">
+                  <div class="flex items-start">
+                    <div class="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-neutral-800 text-lg block mb-2">
+                        Professional Credit Repair
+                      </span>
+                      <p class="text-neutral-600 mb-2">
+                        Work with our credit repair specialists who will help remove negative items and boost your score.
+                      </p>
+                      <div class="bg-success/10 text-success text-sm py-1 px-3 rounded-full inline-block">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        Expert assistance
+                      </div>
                     </div>
                   </div>
-                </div>
-              </button>
+                </button>
+                
+                <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left mt-6" data-value="need_diy">
+                  <div class="flex items-start">
+                    <div class="h-12 w-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-neutral-800 text-lg block mb-2">
+                        DIY Credit Repair Bundle
+                      </span>
+                      <p class="text-neutral-600 mb-2">
+                        Get access to our templates, guides, and strategies to improve your credit score on your own.
+                      </p>
+                      <div class="bg-primary/10 text-primary text-sm py-1 px-3 rounded-full inline-block">
+                        <i class="fas fa-tag mr-1"></i>
+                        Special offer: $29
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              
+              <div id="learn-options" style="display: none;">
+                <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left" data-value="ready_to_pay">
+                  <div class="flex items-start">
+                    <div class="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-neutral-800 text-lg block mb-2">
+                        Get Personalized Guidance
+                      </span>
+                      <p class="text-neutral-600 mb-2">
+                        Speak with our funding advisors to learn about options tailored to your specific situation.
+                      </p>
+                      <div class="bg-success/10 text-success text-sm py-1 px-3 rounded-full inline-block">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        Free consultation
+                      </div>
+                    </div>
+                  </div>
+                </button>
+                
+                <button class="budget-option p-6 border border-neutral-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left mt-6" data-value="need_diy">
+                  <div class="flex items-start">
+                    <div class="h-12 w-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                      <span class="font-semibold text-neutral-800 text-lg block mb-2">
+                        Access Educational Resources
+                      </span>
+                      <p class="text-neutral-600 mb-2">
+                        Browse our comprehensive guides, videos, and tools to learn about funding and credit options.
+                      </p>
+                      <div class="bg-primary/10 text-primary text-sm py-1 px-3 rounded-full inline-block">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Self-paced learning
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
             </div>
             
             <div class="flex justify-between mt-6">
@@ -417,6 +504,11 @@
         // Show the current step
         stepElements[stepNumber].classList.remove('hidden');
         
+        // If this is step 4 (Budget/Approach), update the options based on the user's goal
+        if (stepNumber === 4) {
+          updateBudgetOptions();
+        }
+        
         // Apply enter animation
         stepElements[stepNumber].classList.add('step-enter');
         
@@ -430,6 +522,26 @@
         
         // Update progress
         updateProgress();
+      }
+      
+      // Update budget options based on user's funding goal
+      function updateBudgetOptions() {
+        // Hide all option sets first
+        document.getElementById('funding-options').style.display = 'none';
+        document.getElementById('credit-options').style.display = 'none';
+        document.getElementById('learn-options').style.display = 'none';
+        
+        // Show the appropriate options based on the user's goal selection
+        if (userSelections.fundingGoal === 'business_funding') {
+          document.getElementById('funding-options').style.display = 'block';
+          document.getElementById('budget-step-heading').innerText = "How would you like to find funding?";
+        } else if (userSelections.fundingGoal === 'improve_credit') {
+          document.getElementById('credit-options').style.display = 'block';
+          document.getElementById('budget-step-heading').innerText = "Choose your credit improvement approach:";
+        } else if (userSelections.fundingGoal === 'learn_first') {
+          document.getElementById('learn-options').style.display = 'block';
+          document.getElementById('budget-step-heading').innerText = "How would you like to learn more?";
+        }
       }
       
       // Event handlers for step 1 (Credit Score)
@@ -494,28 +606,43 @@
         // Default redirection is the thank you page (fallback)
         let redirectURL = "/funding-funnel/thank-you.html";
         
-        // Determine where to send based on goal and budget
+        // Determine where to send based on initial goal
         if (userSelections.fundingGoal === 'business_funding') {
           // Business funding path
           if (userSelections.budget === 'ready_to_pay') {
             // Funding + Ready to Pay → lead capture form
             redirectURL = "/apply-now.html";
+          } else if (userSelections.budget === 'need_diy') {
+            // Funding + DIY → BCS Top 100 listing page
+            redirectURL = "/"; // This would ideally point to the BCS Top 100 page
           } else {
-            // Funding + DIY → thank you page (fallback)
+            // Other funding combinations → thank you page (fallback)
             redirectURL = "/funding-funnel/thank-you.html";
           }
         } else if (userSelections.fundingGoal === 'improve_credit') {
-          // Improve Credit path → CRO sales page
-          redirectURL = "/credit-repair/join.html";
-        } else {
-          // DIY path or other selections
-          if (userSelections.budget === 'need_diy') {
-            // Need DIY Option → eBook page
+          // Credit improvement path
+          if (userSelections.budget === 'ready_to_pay') {
+            // Credit + Ready to Pay → CRO sales page
+            redirectURL = "/credit-repair/join.html";
+          } else if (userSelections.budget === 'need_diy') {
+            // Credit + DIY → DIY credit repair bundle
             redirectURL = "/diy-credit/start.html";
           } else {
-            // Other combinations → thank you page (fallback)
+            // Other credit combinations → thank you page (fallback)
             redirectURL = "/funding-funnel/thank-you.html";
           }
+        } else if (userSelections.fundingGoal === 'learn_first') {
+          // Learn first path - send to appropriate educational content
+          if (userSelections.creditScore === 'excellent' || userSelections.creditScore === 'good') {
+            // Good credit scores - send to funding info
+            redirectURL = "/";  // Would ideally point to a funding education page
+          } else {
+            // Lower credit scores - send to credit education
+            redirectURL = "/diy-credit/start.html";  // As this has educational content
+          }
+        } else {
+          // Other goal combinations → thank you page (fallback)
+          redirectURL = "/funding-funnel/thank-you.html";
         }
         
         // Redirect the user
