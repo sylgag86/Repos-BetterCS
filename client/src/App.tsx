@@ -171,8 +171,18 @@ function AppRoutes() {
             return null;
           }}
         </Route>
-        <Route path="/reviews" component={NotFound} />
-        <Route path="/contact" component={NotFound} />
+        <Route path="/reviews">
+          {() => {
+            window.location.href = "/#testimonials";
+            return null;
+          }}
+        </Route>
+        <Route path="/contact">
+          {() => {
+            window.location.href = "/contact/index.html";
+            return null;
+          }}
+        </Route>
         
         {/* Catch-all route */}
         <Route component={NotFound} />

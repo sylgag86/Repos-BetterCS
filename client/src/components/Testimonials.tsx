@@ -51,7 +51,7 @@ const renderStars = (rating: number) => {
 
 export default function Testimonials() {
   return (
-    <section className="py-16 bg-neutral-100">
+    <section id="testimonials" className="py-16 bg-neutral-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-4">
