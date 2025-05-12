@@ -589,13 +589,12 @@ const FundingRecommendation = () => {
                                   >
                                     View Profile
                                   </a>
-                                  <a 
-                                    href={rec.lenderDetails.website} 
-                                    target="_blank"
+                                  <Link 
+                                    href="/apply"
                                     className="text-center flex-1 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary hover:bg-primary/90 text-white transition-colors rounded-lg font-medium text-xs sm:text-sm"
                                   >
                                     Apply Now
-                                  </a>
+                                  </Link>
                                 </div>
                               </div>
                             </div>

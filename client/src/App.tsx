@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import FundingRecommendation from "@/pages/FundingRecommendation";
+import FundingApplication from "@/pages/FundingApplication";
+import ApplicationSuccess from "@/pages/ApplicationSuccess";
 
 function Router() {
   return (
@@ -155,6 +157,10 @@ function Router() {
       
       {/* AI Funding Recommendation Tool */}
       <Route path="/funding-recommendation" component={FundingRecommendation} />
+      
+      {/* Gamified Funding Application Process */}
+      <Route path="/apply" component={FundingApplication} />
+      <Route path="/application-success" component={ApplicationSuccess} />
 
       {/* These routes will show the NotFound page until we implement them */}
       <Route path="/personal-funding" component={NotFound} />

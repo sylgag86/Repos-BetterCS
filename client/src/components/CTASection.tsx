@@ -19,9 +19,9 @@ export default function CTASection() {
               <i className="fas fa-magic mr-2"></i>
               AI Funding Advisor
             </Link>
-            <Link href="/contact" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center inline-block">
-              <i className="fas fa-headset mr-2"></i>
-              Speak to an Advisor
+            <Link href="/apply" className="px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors flex items-center justify-center inline-block transform hover:-translate-y-1 duration-200 shadow-lg">
+              <i className="fas fa-rocket mr-2"></i>
+              Apply for Funding
             </Link>
           </div>
         </div>
