@@ -158,9 +158,19 @@ function AppRoutes() {
         <Route path="/apply" component={FundingApplication} />
         <Route path="/application-success" component={ApplicationSuccess} />
 
-        {/* These routes will show the NotFound page until we implement them */}
-        <Route path="/personal-funding" component={NotFound} />
-        <Route path="/business-funding" component={NotFound} />
+        {/* Personal & Business Funding pages */}
+        <Route path="/personal-funding">
+          {() => {
+            window.location.href = "/personal-funding/index.html";
+            return null;
+          }}
+        </Route>
+        <Route path="/business-funding">
+          {() => {
+            window.location.href = "/business-funding/index.html";
+            return null;
+          }}
+        </Route>
         <Route path="/reviews" component={NotFound} />
         <Route path="/contact" component={NotFound} />
         
