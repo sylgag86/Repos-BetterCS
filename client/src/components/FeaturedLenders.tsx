@@ -12,7 +12,7 @@ const featuredLenders = [
       "Terms up to 25 years",
       "Approval in 3-5 days"
     ],
-    link: "/lenders/capitalprime"
+    link: "/betterlist-100.html"
   },
   {
     name: "LendingCircle",
@@ -25,7 +25,7 @@ const featuredLenders = [
       "Terms from 3-5 years",
       "Same-day decisions"
     ],
-    link: "/lenders/lendingcircle",
+    link: "/betterlist-100.html",
     buttonClass: "bg-accent hover:bg-accent/90"
   },
   {
@@ -39,7 +39,7 @@ const featuredLenders = [
       "No annual fee",
       "Instant approval for qualified"
     ],
-    link: "/lenders/rewardone"
+    link: "/betterlist-100.html"
   }
 ];
 
@@ -122,7 +122,7 @@ export default function FeaturedLenders() {
         </div>
         
         <div className="text-center mt-10">
-          <Link href="/lenders" className="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
+          <Link href="/betterlist-100.html" className="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
             View all lenders
             <i className="fas fa-chevron-right ml-1 text-sm"></i>
           </Link>
