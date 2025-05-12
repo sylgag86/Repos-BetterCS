@@ -69,18 +69,30 @@
       transform: translateY(-5px);
     }
     
-    .limited-badge {
+    .price-badge {
       position: absolute;
-      top: -10px;
-      right: -10px;
-      padding: 0.25rem 0.75rem;
-      background: linear-gradient(to right, #f59e0b, #ef4444);
+      top: 0;
+      left: 0;
+      padding: 0.5rem 1rem;
       color: white;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.75rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transform: rotate(5deg);
+      font-weight: 700;
+      font-size: 0.8rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+      border-radius: 0;
+      width: 180px;
+      text-align: center;
+      z-index: 10;
+    }
+    
+    .essentials-badge {
+      background: #0056b3;
+    }
+    
+    .comprehensive-badge {
+      background: #4f46e5;
     }
     
     .feature-icon {
@@ -94,19 +106,7 @@
       flex-shrink: 0;
     }
     
-    .popular-badge {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 0.5rem 1.5rem;
-      background: linear-gradient(to right, #0056b3, #4f46e5);
-      color: white;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.75rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+    /* Replaced by price-badge with comprehensive-badge */
   </style>
 </head>
 <body class="bg-neutral-50 font-sans">
@@ -163,7 +163,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Essentials Plan Card -->
             <div class="pricing-card bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden relative">
-              <div class="limited-badge" style="background: #0056b3; transform: rotate(0deg);">
+              <div class="price-badge essentials-badge">
                 <span>SPECIAL OFFER</span>
               </div>
               
@@ -258,7 +258,7 @@
             
             <!-- Full Repair Plan Card -->
             <div class="pricing-card bg-white rounded-xl shadow-lg border border-primary/30 overflow-hidden relative">
-              <div class="popular-badge" style="background: #4f46e5;">
+              <div class="price-badge comprehensive-badge">
                 <span>COMPREHENSIVE</span>
               </div>
               
@@ -344,7 +344,7 @@
                   </a>
                   
                   <p class="text-sm text-neutral-500 mt-4">
-                    No long-term contracts required. Cancel anytime.
+                    One-time setup fee. No other charges.
                   </p>
                 </div>
               </div>
@@ -624,7 +624,7 @@
               </button>
               <div class="hidden p-4 pt-0 border-t border-neutral-200">
                 <p class="text-neutral-600">
-                  Yes, you can cancel your service at any time without any cancellation fees or penalties. We don't lock you into long-term contracts because we're confident in the quality of our service. Many clients stay with us for 4-6 months to achieve their credit goals.
+                  Yes, our service is a simple one-time fee with no recurring charges or contracts. There are no additional fees or commitments beyond the initial setup fee.
                 </p>
               </div>
             </div>
@@ -667,7 +667,7 @@
           </div>
           
           <p class="text-sm text-white/70 mt-6">
-            No long-term contracts required. Cancel anytime.
+            One-time setup fee. No other charges.
           </p>
         </div>
       </div>
