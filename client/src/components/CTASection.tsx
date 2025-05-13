@@ -17,10 +17,10 @@ export default function CTASection() {
               className="btn-primary px-8 py-4 rounded-lg text-primary font-medium bg-white hover:bg-neutral-100 transition-colors transform hover:-translate-y-1 duration-200 shadow-lg inline-block">
               Explore Funding Options
             </a>
-            <Link href="/funding-recommendation" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center inline-block transform hover:-translate-y-1 duration-200">
+            <a href="/funding-recommendation" className="px-8 py-4 rounded-lg text-white font-medium bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors flex items-center justify-center inline-block transform hover:-translate-y-1 duration-200">
               <i className="fas fa-magic mr-2"></i>
               AI Funding Advisor
-            </Link>
+            </a>
             <a 
               href="/funding-funnel/index.html"
               className="px-8 py-4 rounded-lg text-white font-medium bg-accent hover:bg-accent/90 transition-colors flex items-center justify-center inline-block transform hover:-translate-y-1 duration-200 shadow-lg">

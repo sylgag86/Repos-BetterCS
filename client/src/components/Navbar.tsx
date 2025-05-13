@@ -32,18 +32,18 @@ export default function Navbar() {
           
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-primary font-medium">Home</Link>
-            <Link href="/personal-funding" className="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</Link>
-            <Link href="/business-funding" className="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</Link>
-            <Link href="/funding-recommendation" className="text-neutral-700 hover:text-primary transition-colors font-medium ml-[-10px]">
+            <a href="/" className="text-primary font-medium">Home</a>
+            <a href="/personal-funding/index.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+            <a href="/business-funding/index.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+            <a href="/funding-recommendation" className="text-neutral-700 hover:text-primary transition-colors font-medium ml-[-10px]">
               <span className="flex items-center">
                 <i className="far fa-lightbulb mr-1"></i> 
                 AI Advisor
               </span>
-            </Link>
-            <Link href="/reviews" className="text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</Link>
-            <Link href="/guides" className="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</Link>
-            <Link href="/contact" className="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</Link>
+            </a>
+            <a href="/#testimonials" className="text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</a>
+            <a href="/resources/blog.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
+            <a href="/contact/index.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
             <a
               href="/funding-funnel/index.html"
               className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center"
@@ -58,18 +58,18 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-4 space-y-1 bg-white border-t border-neutral-200">
-          <Link href="/" className="block px-3 py-2 text-primary font-medium">Home</Link>
-          <Link href="/personal-funding" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</Link>
-          <Link href="/business-funding" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</Link>
-          <Link href="/funding-recommendation" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">
+          <a href="/" className="block px-3 py-2 text-primary font-medium">Home</a>
+          <a href="/personal-funding/index.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+          <a href="/business-funding/index.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+          <a href="/funding-recommendation" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">
             <span className="flex items-center">
               <i className="far fa-lightbulb mr-1"></i> 
               AI Advisor
             </span>
-          </Link>
-          <Link href="/reviews" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</Link>
-          <Link href="/guides" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Guides</Link>
-          <Link href="/contact" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Contact</Link>
+          </a>
+          <a href="/#testimonials" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</a>
+          <a href="/resources/blog.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
+          <a href="/contact/index.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
           
           <div className="mt-4 pt-4 border-t border-neutral-100">
             <a
