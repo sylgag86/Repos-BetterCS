@@ -9,77 +9,28 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 bg-white shadow-md z-50">
-      <div className="container mx-auto px-4">
-        <nav className="flex justify-between items-center py-6">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <img src="/assets/exact-logo.png" alt="Better Capital Solutions" className="h-14" />
-            </Link>
-          </div>
-          
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button 
-              type="button" 
-              className="text-neutral-500 hover:text-primary focus:outline-none"
-              onClick={toggleMobileMenu}
-            >
-              <i className="fas fa-bars text-xl"></i>
-            </button>
-          </div>
-          
-          {/* Desktop navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="/" className="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
-            <a href="/betterlist-100.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Directory</a>
-            <a href="/funding-recommendation" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              <span className="flex items-center">
-                <i className="far fa-lightbulb mr-1"></i> 
-                AI Advisor
-              </span>
-            </a>
-            <a href="/resources/index.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
-            <a href="/resources/blog.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
-            <a
-              href="/funding-funnel/index.html"
-              className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center"
-            >
-              <i className="fas fa-rocket mr-1"></i>
-              Find Funding
-            </a>
-          </div>
-        </nav>
+    <header className="header">
+      <div className="logo-container">
+        <Link href="/">
+          <img src="/assets/exact-logo.png" alt="Better Capital Solutions" className="logo" />
+        </Link>
       </div>
       
-      {/* Mobile menu */}
-      <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-4 space-y-1 bg-white border-t border-neutral-200">
-          <a href="/" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
-          <a href="/betterlist-100.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Directory</a>
-          <a href="/funding-recommendation" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">
-            <span className="flex items-center">
-              <i className="far fa-lightbulb mr-1"></i> 
-              AI Advisor
-            </span>
-          </a>
-          <a href="/resources/index.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Resources</a>
-          <a href="/resources/blog.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
-          
-          <div className="mt-4 pt-4 border-t border-neutral-100">
-            <a
-              href="/funding-funnel/index.html"
-              className="block w-full text-center bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg font-medium transition-all duration-200"
-            >
-              <span className="flex items-center justify-center">
-                <i className="fas fa-rocket mr-2"></i>
-                Find Funding
-              </span>
-            </a>
-          </div>
-        </div>
+      <div className="menu-icon" onClick={toggleMobileMenu}>
+        <i className="fas fa-bars"></i>
       </div>
+      
+      {/* Mobile menu, show/hide based on menu state */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu">
+          <a href="/">Home</a>
+          <a href="/betterlist-100.html">Directory</a>
+          <a href="/funding-recommendation">AI Advisor</a>
+          <a href="/resources/index.html">Resources</a>
+          <a href="/resources/blog.html">Guides</a>
+          <a href="/funding-funnel/index.html" className="cta-button">Find Funding</a>
+        </div>
+      )}
     </header>
   );
 }
