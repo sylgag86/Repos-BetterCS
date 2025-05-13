@@ -50,29 +50,16 @@ export default function SitemapFooter() {
             <h3 className="text-lg font-semibold mb-4 text-white">Credit Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/credit-repair/join">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Professional Credit Repair</span>
-                </Link>
+                <a href="/credit-repair/join.html" className="text-neutral-400 hover:text-white transition-colors">Professional Credit Repair</a>
               </li>
               <li>
-                <Link href="/diy-credit/start">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">DIY Credit Repair Bundle</span>
-                </Link>
+                <a href="/diy-credit/start.html" className="text-neutral-400 hover:text-white transition-colors">DIY Credit Repair Bundle</a>
               </li>
               <li>
-                <Link href="/guides/credit-score">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Credit Score Guides</span>
-                </Link>
+                <a href="/resources/credit-score-guide.html" className="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a>
               </li>
               <li>
-                <Link href="/guides/credit-building">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Credit Building Tips</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/guides/dispute-letters">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Dispute Letter Samples</span>
-                </Link>
+                <a href="/credit-repair/index.html" className="text-neutral-400 hover:text-white transition-colors">Credit Repair Services</a>
               </li>
             </ul>
           </div>
@@ -82,19 +69,13 @@ export default function SitemapFooter() {
             <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/guides">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Funding Guides</span>
-                </Link>
+                <a href="/resources/blog.html" className="text-neutral-400 hover:text-white transition-colors">Funding Guides</a>
               </li>
               <li>
-                <Link href="/guides/business-credit">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Business Credit Building</span>
-                </Link>
+                <a href="/resources/financial-calculator.html" className="text-neutral-400 hover:text-white transition-colors">Loan Calculator</a>
               </li>
               <li>
-                <Link href="/calculator">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Loan Calculator</span>
-                </Link>
+                <a href="/resources/faq.html" className="text-neutral-400 hover:text-white transition-colors">FAQ</a>
               </li>
               <li>
                 <a href="/privacy-policy.html" className="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>

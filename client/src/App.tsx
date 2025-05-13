@@ -184,6 +184,13 @@ function AppRoutes() {
           }}
         </Route>
         
+        <Route path="/privacy-policy">
+          {() => {
+            window.location.href = "/privacy-policy.html";
+            return null;
+          }}
+        </Route>
+        
         {/* Catch-all route */}
         <Route component={NotFound} />
       </Switch>
