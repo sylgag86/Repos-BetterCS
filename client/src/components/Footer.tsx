@@ -55,11 +55,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3 text-neutral-400"></i>
-                <span className="text-neutral-400">1317 Main St. #202<br/>Niagara Falls, NY 14301</span>
+                <span className="text-neutral-400">169 Madison Ave STE 15717<br/>New York, NY 10016</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-phone-alt mr-3 text-neutral-400"></i>
-                <a href="tel:+17162431397" className="text-neutral-400 hover:text-white transition-colors">716-243-1397</a>
+                <a href="tel:+18449854567" className="text-neutral-400 hover:text-white transition-colors">844-985-4567</a>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-envelope mr-3 text-neutral-400"></i>
