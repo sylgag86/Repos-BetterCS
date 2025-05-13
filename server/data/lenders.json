@@ -1408,19 +1408,19 @@
     "website": "https://www.payoff.com/"
   },
   {
-    "id": "onemain-financial",
-    "name": "OneMain Financial",
-    "category": "Personal Loans",
-    "rating": 4.2,
-    "reviews": 3150,
-    "creditMin": 550,
-    "maxFunding": 30000,
-    "approvalTime": "Same Day",
-    "features": ["Bad Credit Options", "Branch Locations", "Fixed Rates"],
+    "id": "laurel-road",
+    "name": "Laurel Road",
+    "category": "Student Loan Refinancing",
+    "rating": 4.5,
+    "reviews": 1820,
+    "creditMin": 660,
+    "maxFunding": 300000,
+    "approvalTime": "3-5 days",
+    "features": ["Healthcare Professional Focus", "Competitive Rates", "No Fees"],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
-    "slug": "onemain-financial",
-    "website": "https://www.onemainfinancial.com/"
+    "slug": "laurel-road",
+    "website": "https://www.laurelroad.com/"
   }
 ]
