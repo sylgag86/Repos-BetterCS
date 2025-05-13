@@ -205,6 +205,27 @@ function AppRoutes() {
           }}
         </Route>
         
+        <Route path="/resources/articles/sba-loans-guide">
+          {() => {
+            window.location.href = "/resources/articles/sba-loans-guide.html";
+            return null;
+          }}
+        </Route>
+        
+        <Route path="/resources/articles/debt-consolidation-vs-balance-transfer">
+          {() => {
+            window.location.href = "/resources/articles/debt-consolidation-vs-balance-transfer.html";
+            return null;
+          }}
+        </Route>
+        
+        <Route path="/resources/articles/improve-credit-score-150-points">
+          {() => {
+            window.location.href = "/resources/articles/improve-credit-score-150-points.html";
+            return null;
+          }}
+        </Route>
+        
         {/* Catch-all route */}
         <Route component={NotFound} />
       </Switch>
