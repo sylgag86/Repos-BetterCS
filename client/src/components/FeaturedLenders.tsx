@@ -107,9 +107,9 @@ export default function FeaturedLenders() {
                     </div>
                   ))}
                 </div>
-                <Link href={lender.link} className={`block w-full py-3 text-center rounded-lg ${lender.buttonClass || 'bg-primary hover:bg-primary/90'} text-white font-semibold transition-colors`}>
+                <a href={lender.link} className={`block w-full py-3 text-center rounded-lg ${lender.buttonClass || 'bg-primary hover:bg-primary/90'} text-white font-semibold transition-colors`}>
                   Apply Now
-                </Link>
+                </a>
                 <div className="mt-4 text-center text-sm text-neutral-500">
                   <span className="flex justify-center items-center">
                     <i className="fas fa-shield-alt mr-1"></i>
