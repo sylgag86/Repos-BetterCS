@@ -1184,20 +1184,20 @@
     "website": "https://www.brex.com/"
   },
   {
-    "id": "marcus",
-    "name": "Marcus by Goldman Sachs",
-    "category": "Personal Loans",
-    "rating": 4.8,
-    "reviews": 3200,
-    "creditMin": 660,
-    "maxFunding": 40000,
-    "approvalTime": "1-3 days",
-    "features": ["No Fees Ever", "Fixed Rates", "Flexible Terms"],
+    "id": "lendinghome",
+    "name": "LendingHome",
+    "category": "Real Estate Loans",
+    "rating": 4.6,
+    "reviews": 950,
+    "creditMin": 620,
+    "maxFunding": 1000000,
+    "approvalTime": "7-14 days",
+    "features": ["Bridge Loans", "Rental Property Loans", "Fix-and-Flip Loans"],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
-    "slug": "marcus",
-    "website": "https://www.marcus.com/us/en/personal-loans"
+    "slug": "lendinghome",
+    "website": "https://www.lendinghome.com/"
   },
   {
     "id": "crest-capital",
@@ -1262,5 +1262,21 @@
     "featured": false,
     "slug": "first-republic",
     "website": "https://www.firstrepublic.com/business-banking"
+  },
+  {
+    "id": "avalanche",
+    "name": "Avalanche",
+    "category": "Crypto Lending",
+    "rating": 4.3,
+    "reviews": 725,
+    "creditMin": null,
+    "maxFunding": "Varies",
+    "approvalTime": "Same Day",
+    "features": ["Crypto-Backed Loans", "No Credit Check", "Instant Funding"],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "avalanche",
+    "website": "https://www.avalabs.org/"
   }
 ]
