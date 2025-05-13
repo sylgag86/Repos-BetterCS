@@ -100,41 +100,19 @@ export default function FeaturedLenders() {
               key={index}
               className="bg-white overflow-hidden shadow transition-all hover:shadow-md duration-300 relative"
             >
-              {lender.badge && (
-                <div className="absolute -top-0 -left-2">
-                  <div className="relative">
-                    {/* Top ribbon */}
-                    <div className="py-2 px-8 shadow-md z-10 relative" 
-                         style={{ 
-                           backgroundColor: lender.badge.color, 
-                           boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
-                         }}>
-                      <span className="text-white text-xs font-bold tracking-wide uppercase">{lender.badge.text}</span>
-                    </div>
-                    
-                    {/* Left fold shadow */}
-                    <div className="absolute w-2 h-2 top-full left-0 z-0" 
-                         style={{ 
-                           backgroundColor: 'rgba(0,0,0,0.25)', 
-                           clipPath: 'polygon(0 0, 100% 0, 0 100%)' 
-                         }}>
-                    </div>
-                    
-                    {/* Right ribbon tail */}
-                    <div className="absolute h-5 w-4 -right-4 top-0 z-0"
-                         style={{ 
-                           backgroundColor: lender.badge.color,
-                           clipPath: 'polygon(0 0, 0% 100%, 100% 50%)'
-                         }}>
-                    </div>
-                  </div>
-                </div>
-              )}
+
               <div className="p-8">
                 <div className="flex justify-between items-start mb-6">
-                  <span className={`${lender.categoryClass} text-xs font-medium px-2.5 py-1 rounded-sm`}>
-                    {lender.category}
-                  </span>
+                  <div className="flex flex-col gap-2">
+                    <span className={`${lender.categoryClass} text-xs font-medium px-2.5 py-1 rounded-sm`}>
+                      {lender.category}
+                    </span>
+                    {lender.badge && (
+                      <span className="text-xs font-semibold py-1 px-2.5 rounded-sm text-white" style={{ backgroundColor: lender.badge.color }}>
+                        {lender.badge.text}
+                      </span>
+                    )}
+                  </div>
                   <div className="rating-stars flex">
                     {renderStars(lender.rating)}
                   </div>
