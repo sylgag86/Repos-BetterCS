@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main background -->
+  <rect width="300" height="80" fill="white" opacity="0"/>
+  
+  <!-- Shield Icon with graph lines -->
+  <g transform="translate(10, 15)">
+    <!-- Shield shape - slightly flat top, rounded bottom -->
+    <path d="M25,5 C30,5 35,5 40,5 L40,5 C42,5 45,7 45,10 L45,40 C45,43 40,47 25,55 C10,47 5,43 5,40 L5,10 C5,7 8,5 10,5 L25,5 Z" 
+          fill="white" stroke="#002968" stroke-width="2"/>
+    
+    <!-- Line chart symbol (simplified/stylized) -->
+    <path d="M12,35 C15,35 18,30 20,25 C22,20 25,15 28,18 C31,21 33,38 38,28" 
+          stroke="#002968" stroke-width="1.5" fill="none"/>
+  </g>
+  
+  <!-- Text: Better Capital Solutions -->
+  <g transform="translate(70, 0)">
+    <!-- "Better Capital" in serif font -->
+    <text x="0" y="35" font-family="'Times New Roman', serif" font-weight="700" font-size="26" fill="#002968">Better Capital</text>
+    
+    <!-- "SOLUTIONS" in gray sans-serif -->
+    <text x="0" y="55" font-family="Arial, sans-serif" font-weight="400" font-size="16" fill="#4A5568">SOLUTIONS</text>
+  </g>
+</svg>

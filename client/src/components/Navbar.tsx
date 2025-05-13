@@ -15,7 +15,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img src="/assets/better-capital-logo-horizontal.svg" alt="Better Capital Solutions" className="h-14" />
+              <img src="/assets/final-logo.svg" alt="Better Capital Solutions" className="h-12" />
             </Link>
           </div>
           
