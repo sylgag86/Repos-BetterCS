@@ -177,6 +177,13 @@ function AppRoutes() {
             return null;
           }}
         </Route>
+        
+        <Route path="/success-stories">
+          {() => {
+            window.location.href = "/#testimonials";
+            return null;
+          }}
+        </Route>
         <Route path="/contact">
           {() => {
             window.location.href = "/contact/index.html";
