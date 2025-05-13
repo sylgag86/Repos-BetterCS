@@ -190,6 +190,13 @@ function AppRoutes() {
             return null;
           }}
         </Route>
+
+        <Route path="/calculator">
+          {() => {
+            window.location.href = "/resources/financial-calculator.html";
+            return null;
+          }}
+        </Route>
         
         {/* Catch-all route */}
         <Route component={NotFound} />

@@ -72,7 +72,7 @@ export default function SitemapFooter() {
                 <a href="/resources/blog.html" className="text-neutral-400 hover:text-white transition-colors">Funding Guides</a>
               </li>
               <li>
-                <a href="/resources/financial-calculator.html" className="text-neutral-400 hover:text-white transition-colors">Loan Calculator</a>
+                <a href="/calculator" className="text-neutral-400 hover:text-white transition-colors">Loan Calculator</a>
               </li>
               <li>
                 <a href="/resources/faq.html" className="text-neutral-400 hover:text-white transition-colors">FAQ</a>
