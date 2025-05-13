@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="260" height="80" viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background rectangle for the logo (optional) -->
+  <rect width="260" height="80" fill="white" opacity="0" />
+  
+  <!-- Main text: Better Capital Solutions -->
+  <text x="10" y="35" font-family="'Poppins', sans-serif" font-weight="700" font-size="24" fill="#0050A0">Better Capital</text>
+  <text x="10" y="60" font-family="'Poppins', sans-serif" font-weight="600" font-size="20" fill="#404040">Solutions</text>
+  
+  <!-- Financial Symbol/Icon -->
+  <g transform="translate(205, 10)">
+    <!-- Building/Growth Symbol -->
+    <rect x="0" y="24" width="10" height="16" fill="#0050A0" rx="1" />
+    <rect x="14" y="18" width="10" height="22" fill="#0050A0" rx="1" />
+    <rect x="28" y="10" width="10" height="30" fill="#0050A0" rx="1" />
+    
+    <!-- Dollar Symbol -->
+    <circle cx="19" cy="15" r="13" fill="#ffffff" stroke="#0050A0" stroke-width="2" />
+    <path d="M19 6 v18 M15 9 h8 M15 16 h8" stroke="#0050A0" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>

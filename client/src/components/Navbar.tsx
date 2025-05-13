@@ -15,7 +15,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img src="/assets/logo.png" alt="Better Capital Solutions" className="h-20 mr-3" />
+              <img src="/assets/logo-new.svg" alt="Better Capital Solutions" className="h-20 mr-3" />
             </Link>
           </div>
           
@@ -32,7 +32,7 @@ export default function Navbar() {
           
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="/" className="text-primary font-medium">Home</a>
+            <a href="/" className="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
             <a href="/betterlist-100.html" className="text-neutral-700 hover:text-primary transition-colors font-medium">Directory</a>
             <a href="/funding-recommendation" className="text-neutral-700 hover:text-primary transition-colors font-medium">
               <span className="flex items-center">
@@ -56,7 +56,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-4 space-y-1 bg-white border-t border-neutral-200">
-          <a href="/" className="block px-3 py-2 text-primary font-medium">Home</a>
+          <a href="/" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
           <a href="/betterlist-100.html" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">Directory</a>
           <a href="/funding-recommendation" className="block px-3 py-2 text-neutral-700 hover:text-primary transition-colors font-medium">
             <span className="flex items-center">
