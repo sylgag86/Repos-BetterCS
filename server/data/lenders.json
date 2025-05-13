@@ -768,20 +768,20 @@
     "website": "https://www.fundera.com/"
   },
   {
-    "id": "avant",
-    "name": "Avant",
-    "category": "Personal Loans",
-    "rating": 4.4,
-    "reviews": 2150,
-    "creditMin": 580,
-    "maxFunding": 35000,
-    "approvalTime": "Same Day",
-    "features": ["Fair Credit Options", "Fixed Rates", "Mobile Management"],
+    "id": "earnest",
+    "name": "Earnest",
+    "category": "Student Loan Refinancing",
+    "rating": 4.7,
+    "reviews": 2380,
+    "creditMin": 650,
+    "maxFunding": 500000,
+    "approvalTime": "5-10 days",
+    "features": ["Student Loan Refinancing", "Flexible Repayment", "Skip Payment Option"],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
-    "slug": "avant",
-    "website": "https://www.avant.com/"
+    "slug": "earnest",
+    "website": "https://www.earnest.com/"
   },
   {
     "id": "credibly",
@@ -1312,20 +1312,20 @@
     "website": "https://lendistry.com/"
   },
   {
-    "id": "upgrade",
-    "name": "Upgrade",
-    "category": "Personal Loans",
-    "rating": 4.5,
-    "reviews": 2680,
-    "creditMin": 620,
-    "maxFunding": 50000,
-    "approvalTime": "1-2 days",
-    "features": ["Credit Health Tools", "Card + Loan Hybrid", "No Prepayment Fees"],
+    "id": "commonbond",
+    "name": "CommonBond",
+    "category": "Student Loan Refinancing",
+    "rating": 4.6,
+    "reviews": 1870,
+    "creditMin": 660,
+    "maxFunding": 500000,
+    "approvalTime": "2-3 days",
+    "features": ["Low Interest Rates", "Social Impact", "Flexible Terms"],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
-    "slug": "upgrade",
-    "website": "https://www.upgrade.com/"
+    "slug": "commonbond",
+    "website": "https://www.commonbond.co/"
   },
   {
     "id": "penfed-credit-union",
@@ -1408,19 +1408,19 @@
     "website": "https://www.payoff.com/"
   },
   {
-    "id": "lending-point",
-    "name": "LendingPoint",
+    "id": "onemain-financial",
+    "name": "OneMain Financial",
     "category": "Personal Loans",
-    "rating": 4.5,
-    "reviews": 2470,
-    "creditMin": 600,
-    "maxFunding": 36500,
+    "rating": 4.2,
+    "reviews": 3150,
+    "creditMin": 550,
+    "maxFunding": 30000,
     "approvalTime": "Same Day",
-    "features": ["Fast Approvals", "Fair Credit Accepted", "Flexible Payment Options"],
+    "features": ["Bad Credit Options", "Branch Locations", "Fixed Rates"],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
-    "slug": "lending-point",
-    "website": "https://www.lendingpoint.com/"
+    "slug": "onemain-financial",
+    "website": "https://www.onemainfinancial.com/"
   }
 ]
