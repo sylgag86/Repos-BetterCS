@@ -82,66 +82,70 @@ const renderStars = (rating: number) => {
 
 export default function FeaturedLenders() {
   return (
-    <section className="py-16 bg-neutral-100">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-6">
             Top-Ranked Lenders
           </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             Best-in-class providers with #1 ratings in their categories, verified excellence, and exceptional customer satisfaction.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {featuredLenders.map((lender, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:translate-y-[-4px] duration-300 border border-neutral-200 relative"
+              className="bg-white overflow-hidden shadow transition-all hover:shadow-md duration-300 relative"
             >
               {lender.badge && (
-                <div className={`absolute -top-3 -left-3 px-3.5 py-2 rounded-lg shadow-lg z-10 text-sm font-extrabold transform rotate-[-4deg] ${lender.badge.class}`} style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.25)' }}>
+                <div className={`absolute top-4 right-4 px-2.5 py-1 rounded-sm z-10 text-xs font-bold ${lender.badge.class}`} style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
                   {lender.badge.text}
                 </div>
               )}
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <span className={`${lender.categoryClass} text-xs font-medium px-2.5 py-1 rounded-full`}>
-                      {lender.category}
-                    </span>
-                  </div>
+              <div className="p-8">
+                <div className="flex justify-between items-start mb-6">
+                  <span className={`${lender.categoryClass} text-xs font-medium px-2.5 py-1 rounded-sm`}>
+                    {lender.category}
+                  </span>
                   <div className="rating-stars flex">
                     {renderStars(lender.rating)}
                   </div>
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-neutral-900 mb-2">{lender.name}</h3>
-                <div className="mb-6">
+                
+                <h3 className="text-2xl font-heading font-bold text-neutral-900 mb-5 border-b border-neutral-100 pb-4">{lender.name}</h3>
+                
+                <div className="mb-8 space-y-3">
                   {lender.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center mb-2">
-                      <i className="fas fa-check-circle text-success mr-2"></i>
-                      <span className="text-neutral-700">{feature}</span>
+                    <div key={idx} className="flex items-center">
+                      <i className="fas fa-check text-success mr-3 text-sm"></i>
+                      <span className="text-neutral-600 text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <a href={lender.link} className={`block w-full py-3 text-center rounded-lg ${lender.buttonClass || 'bg-primary hover:bg-primary/90'} text-white font-semibold transition-colors`}>
-                  Apply Now
-                </a>
-                <div className="mt-4 text-center text-sm text-neutral-500">
-                  <span className="flex justify-center items-center">
-                    <i className="fas fa-shield-alt mr-1"></i>
-                    Pre-qualify with no impact to credit score
-                  </span>
+                
+                <div className="space-y-4">
+                  <a href={lender.link} className={`block w-full py-3 text-center border ${lender.buttonClass ? 'border-accent text-accent hover:bg-accent hover:text-white' : 'border-primary text-primary hover:bg-primary hover:text-white'} font-medium transition-colors`}>
+                    View Profile
+                  </a>
+                  <div className="text-center text-xs text-neutral-400">
+                    <span className="flex justify-center items-center">
+                      <i className="fas fa-shield-alt mr-1"></i>
+                      Pre-qualify with no impact to credit score
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="text-center mt-10">
-          <a href="/betterlist-100.html" className="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
-            View all lenders
-            <i className="fas fa-chevron-right ml-1 text-sm"></i>
+        <div className="text-center mt-16">
+          <a href="/betterlist-100.html" className="inline-flex items-center px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-colors font-medium rounded-sm">
+            View All Lenders
+            <i className="fas fa-arrow-right ml-2 text-sm"></i>
           </a>
         </div>
       </div>
