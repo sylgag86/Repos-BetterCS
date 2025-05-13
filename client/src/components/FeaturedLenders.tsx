@@ -2,44 +2,56 @@ import { Link } from "wouter";
 
 const featuredLenders = [
   {
-    name: "CapitalPrime",
-    category: "Business Loans",
+    name: "American Express Business",
+    category: "Business Cards",
     categoryClass: "bg-primary/10 text-primary",
-    rating: 4.5,
+    rating: 5.0,
+    badge: {
+      text: "#1 in Rating",
+      class: "bg-yellow-500 text-white"
+    },
     features: [
-      "Loans up to $5M",
-      "Rates from 3.75%",
-      "Terms up to 25 years",
-      "Approval in 3-5 days"
+      "Premium business rewards",
+      "Vendor payment flexibility",
+      "Interest-free periods",
+      "Business management tools"
     ],
-    link: "/lenders/capitalprime.html"
+    link: "/lenders/american-express-business.html"
   },
   {
-    name: "LendingCircle",
-    category: "Personal Loans",
+    name: "Kabbage",
+    category: "Business Loans",
     categoryClass: "bg-accent/10 text-accent",
-    rating: 5,
+    rating: 4.8,
+    badge: {
+      text: "#1 in Reviews",
+      class: "bg-blue-500 text-white"
+    },
     features: [
-      "Loans up to $40K",
-      "Rates from 5.99%",
-      "Terms from 3-5 years",
-      "Same-day decisions"
+      "Lines up to $250K",
+      "Same-day funding available",
+      "No origination fees",
+      "Over 2,000 verified reviews"
     ],
-    link: "/lenders/lendingcircle.html",
+    link: "/lenders/kabbage.html",
     buttonClass: "bg-accent hover:bg-accent/90"
   },
   {
-    name: "RewardOne",
+    name: "American Express",
     category: "Credit Cards",
     categoryClass: "bg-primary/10 text-primary",
-    rating: 4,
+    rating: 4.7,
+    badge: {
+      text: "#1 in Credit Cards",
+      class: "bg-green-500 text-white"
+    },
     features: [
-      "5% cash back on select purchases",
-      "$200 welcome bonus",
-      "No annual fee",
-      "Instant approval for qualified"
+      "Premium rewards programs",
+      "Exceptional travel benefits",
+      "Purchase protection",
+      "Member-exclusive offers"
     ],
-    link: "/lenders/rewardone.html"
+    link: "/lenders/american-express.html"
   }
 ];
 
@@ -85,8 +97,13 @@ export default function FeaturedLenders() {
           {featuredLenders.map((lender, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:translate-y-[-4px] duration-300 border border-neutral-200"
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:translate-y-[-4px] duration-300 border border-neutral-200 relative"
             >
+              {lender.badge && (
+                <div className="absolute -top-3 -left-3 px-3 py-1 rounded-lg shadow-md z-10 text-xs font-bold" style={{ backgroundColor: lender.badge.class.split(' ')[0].replace('bg-', '') }}>
+                  {lender.badge.text}
+                </div>
+              )}
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
