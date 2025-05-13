@@ -7,6 +7,7 @@
   <meta name="description" content="Learn how Better Capital Solutions protects your personal information and privacy, including our data collection, usage, and sharing practices.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script src="https://kit.fontawesome.com/14e4984227.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/global-header.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -47,29 +48,14 @@
 </head>
 <body class="bg-white text-neutral-800">
   <!-- Header/Navbar -->
-  <header class="sticky top-0 bg-white shadow-md z-50">
-    <div class="container mx-auto px-4">
-      <nav class="flex justify-between items-center py-6">
-        <!-- Logo -->
-        <div class="flex-shrink-0">
-          <a href="/" class="flex items-center">
-            <img src="/assets/exact-logo.png" alt="Better Capital Solutions" class="h-14" />
-          </a>
-        </div>
-        
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <button 
-            type="button" 
-            class="text-neutral-500 hover:text-primary focus:outline-none"
-            onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-          >
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-        
-        <!-- Desktop navigation -->
-        <div class="hidden md:flex items-center space-x-6">
+  <header class="header">
+    <div class="logo-container">
+      <a href="/">
+        <img src="/assets/exact-logo.png" alt="Better Capital Solutions" class="logo">
+      </a>
+    </div>
+    
+    <div class="desktop-menu">
           <a href="/" class="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
           <a href="/betterlist-100.html" class="text-neutral-700 hover:text-primary transition-colors font-medium">Directory</a>
           <a href="/funding-recommendation" class="text-neutral-700 hover:text-primary transition-colors font-medium">
