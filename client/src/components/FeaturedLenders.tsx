@@ -7,7 +7,7 @@ const featuredLenders = [
     categoryClass: "bg-primary/10 text-primary",
     rating: 5.0,
     badge: {
-      text: "#1 in Ratings",
+      text: "#1 Ratings",
       color: "#FFD700" // Gold
     },
     features: [
@@ -24,7 +24,7 @@ const featuredLenders = [
     categoryClass: "bg-accent/10 text-accent",
     rating: 4.8,
     badge: {
-      text: "#1 in Reviews",
+      text: "#1 Reviews",
       color: "#1E88E5" // Blue
     },
     features: [
@@ -42,7 +42,7 @@ const featuredLenders = [
     categoryClass: "bg-green-700/10 text-green-700",
     rating: 4.6,
     badge: {
-      text: "#1 in Bad Credit",
+      text: "#1 Bad Credit",
       color: "#388E3C" // Green
     },
     features: [
@@ -102,20 +102,14 @@ export default function FeaturedLenders() {
               className="bg-white overflow-hidden shadow transition-all hover:shadow-md duration-300 relative"
             >
               {lender.badge && (
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center transform -rotate-12"
-                         style={{ 
-                           backgroundColor: lender.badge.color,
-                           boxShadow: '0 3px 6px rgba(0,0,0,0.15)'
-                         }}>
-                      <span className="text-white text-xs font-extrabold">#1</span>
-                    </div>
-                    <div className="bg-white py-1 px-3 rounded-r-md shadow-md -ml-1 pl-3">
-                      <span className="text-xs font-semibold tracking-wide" style={{ color: lender.badge.color }}>
-                        {lender.badge.text.replace('#1 ', '')}
-                      </span>
-                    </div>
+                <div className="absolute top-0 right-0 z-10">
+                  <div className="px-3 py-1 text-center"
+                       style={{ 
+                         backgroundColor: lender.badge.color,
+                       }}>
+                    <span className="text-white text-xs font-medium">
+                      {lender.badge.text}
+                    </span>
                   </div>
                 </div>
               )}
