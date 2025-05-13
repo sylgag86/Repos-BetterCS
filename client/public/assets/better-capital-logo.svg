@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="440" height="170" viewBox="0 0 440 170" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main background -->
+  <rect width="440" height="170" fill="white" opacity="0"/>
+  
+  <!-- Shield Icon -->
+  <g transform="translate(20, 20)">
+    <!-- Shield shape -->
+    <path d="M105,0 C125,0 145,0 165,10 C165,40 165,70 165,100 C135,115 105,130 85,155 C65,130 35,115 5,100 C5,70 5,40 5,10 C25,0 45,0 65,0 L105,0 Z" 
+          fill="white" stroke="#002968" stroke-width="8"/>
+    
+    <!-- Lightning bolt with integrated chart bars -->
+    <path d="M50,40 L90,110 L75,110 L110,40" 
+          stroke="#002968" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Small chart bars integrated with the lightning design -->
+    <rect x="35" y="115" width="10" height="20" fill="#002968"/>
+    <rect x="55" y="105" width="10" height="30" fill="#002968"/>
+    <rect x="75" y="95" width="10" height="40" fill="#002968"/>
+  </g>
+  
+  <!-- Text: Better Capital Solutions -->
+  <g transform="translate(220, 20)">
+    <!-- "Better Capital" in navy blue serif font -->
+    <text x="0" y="60" font-family="Georgia, serif" font-weight="700" font-size="55" fill="#002968" letter-spacing="0" text-anchor="middle">Better</text>
+    <text x="0" y="120" font-family="Georgia, serif" font-weight="700" font-size="55" fill="#002968" letter-spacing="0" text-anchor="middle">Capital</text>
+    
+    <!-- "SOLUTIONS" in gray sans-serif font -->
+    <text x="0" y="165" font-family="Arial, sans-serif" font-weight="500" font-size="32" fill="#4A5568" letter-spacing="4" text-anchor="middle">SOLUTIONS</text>
+  </g>
+</svg>

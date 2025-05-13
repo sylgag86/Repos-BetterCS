@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="80" viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main background -->
+  <rect width="400" height="80" fill="white" opacity="0"/>
+  
+  <!-- Shield Icon -->
+  <g transform="translate(5, 5)">
+    <!-- Shield shape -->
+    <path d="M35,5 C40,5 45,5 50,5 C55,5 60,7 60,12 L60,45 C60,55 35,65 25,70 C15,65 -10,55 -10,45 L-10,12 C-10,7 -5,5 0,5 L35,5 Z" 
+          fill="white" stroke="#002968" stroke-width="4"/>
+    
+    <!-- Lightning bolt with chart elements -->
+    <path d="M20,20 L35,45 L30,45 L40,20" 
+          stroke="#002968" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Chart bars -->
+    <rect x="15" y="50" width="5" height="10" fill="#002968"/>
+    <rect x="25" y="45" width="5" height="15" fill="#002968"/>
+    <rect x="35" y="40" width="5" height="20" fill="#002968"/>
+  </g>
+  
+  <!-- Text: Better Capital Solutions -->
+  <g transform="translate(80, 0)">
+    <!-- "Better Capital" in navy blue serif font -->
+    <text x="0" y="35" font-family="Georgia, serif" font-weight="700" font-size="28" fill="#002968" letter-spacing="0">Better Capital</text>
+    
+    <!-- "SOLUTIONS" in gray sans-serif font -->
+    <text x="0" y="60" font-family="Arial, sans-serif" font-weight="600" font-size="18" fill="#4A5568" letter-spacing="2">SOLUTIONS</text>
+  </g>
+</svg>
