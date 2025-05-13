@@ -48,22 +48,6 @@
     "website": "https://www.wellsfargo.com/biz/loans-and-financing/" 
   },
   {
-    "id": "capital-one",
-    "name": "Capital One",
-    "category": "Credit Cards",
-    "rating": 4.8,
-    "reviews": 4200,
-    "creditMin": 670,
-    "maxFunding": 100000,
-    "approvalTime": "Same Day",
-    "features": ["Cash Back Rewards", "0% Intro APR", "No Annual Fee Options"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": true,
-    "slug": "capital-one",
-    "website": "https://www.capitalone.com/credit-cards/"
-  },
-  {
     "id": "american-express",
     "name": "American Express",
     "category": "Credit Cards",
@@ -110,22 +94,6 @@
     "featured": false,
     "slug": "discover",
     "website": "https://www.discover.com/credit-cards/"
-  },
-  {
-    "id": "bluevine",
-    "name": "BlueVine",
-    "category": "Line of Credit",
-    "rating": 4.5,
-    "reviews": 1250,
-    "creditMin": 600,
-    "maxFunding": 250000,
-    "approvalTime": "24 hours",
-    "features": ["Fast Funding", "Transparent Pricing", "Only Pay for What You Use"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": true,
-    "slug": "bluevine",
-    "website": "https://www.bluevine.com/line-of-credit/"
   },
   {
     "id": "upstart",
