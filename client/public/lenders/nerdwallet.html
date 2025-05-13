@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NerdWallet | Better Capital Solutions</title>
+  <meta name="description" content="Learn about NerdWallet, a BCS Top 100™ certified Loan Marketplace providing financial product comparison, educational resources, and personalized recommendations to help users make informed financial decisions.">
+  
+  <!-- Open Graph tags for better social media sharing -->
+  <meta property="og:title" content="NerdWallet | Better Capital Solutions">
+  <meta property="og:description" content="Learn about NerdWallet, a BCS Top 100™ certified Loan Marketplace providing financial product comparison, educational resources, and personalized recommendations to help users make informed financial decisions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bettercapitalsolutions.com/lenders/nerdwallet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: 'hsl(207, 90%, 54%)',
+              light: 'hsl(207, 90%, 94%)',
+            },
+            accent: {
+              DEFAULT: 'hsl(24, 100%, 50%)',
+              light: 'hsl(24, 100%, 96%)',
+            },
+            success: 'hsl(142, 71%, 45%)',
+            neutral: {
+              100: 'hsl(220, 14%, 96%)',
+              200: 'hsl(220, 13%, 91%)',
+              300: 'hsl(216, 12%, 84%)',
+              400: 'hsl(218, 11%, 65%)',
+              500: 'hsl(220, 9%, 46%)',
+              600: 'hsl(215, 14%, 34%)',
+              700: 'hsl(217, 19%, 27%)',
+              800: 'hsl(215, 28%, 17%)',
+              900: 'hsl(221, 39%, 11%)',
+            },
+            nerd: {
+              DEFAULT: '#01B650', // NerdWallet green
+            }
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/css">
+    .rating-stars {
+      color: #F59E0B; /* amber-400 */
+    }
+    
+    .trusted-badge {
+      background-color: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(to bottom, hsl(220, 39%, 20%), hsl(215, 48%, 15%));
+    }
+    
+    .badge-100 {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.08));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: hsl(207, 90%, 54%);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-neutral-100 text-neutral-800">
+  <!-- Header/Navbar -->
+  <header class="sticky top-0 bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-6">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="flex items-center">
+            <img src="/assets/logo.png" alt="Better Capital Solutions" class="h-20 mr-3" />
+          </a>
+        </div>
+        
+        <!-- Mobile menu button (simplified for template) -->
+        <div class="md:hidden">
+          <button type="button" class="text-neutral-500 hover:text-primary focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+        
+        <!-- Desktop navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-neutral-700 hover:text-primary transition-colors font-medium">Home</a>
+          <a href="/personal-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Personal Funding</a>
+          <a href="/business-funding" class="text-neutral-700 hover:text-primary transition-colors font-medium">Business Funding</a>
+          <a href="/reviews" class="text-neutral-700 hover:text-primary transition-colors font-medium">Reviews</a>
+          <a href="/guides" class="text-neutral-700 hover:text-primary transition-colors font-medium">Guides</a>
+          <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="py-20 bg-white border-b border-neutral-200">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/3 flex justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg flex items-center justify-center w-64 h-64">
+              <img src="https://logo.clearbit.com/nerdwallet.com" alt="NerdWallet logo" class="max-w-full max-h-full object-contain" />
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="mb-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium badge-100">
+                <i class="fas fa-check-circle text-xs mr-2"></i>
+                BCS TOP 100™ CERTIFIED
+              </span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-neutral-900 mb-2">NerdWallet</h1>
+            <div class="text-xl text-primary font-medium mb-4">Loan Marketplace</div>
+            <div class="flex items-center mb-6">
+              <div class="rating-stars flex mr-3">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-lg font-medium">4.7</span>
+              <span class="text-neutral-500 ml-2">(2,950 reviews)</span>
+            </div>
+            <p class="text-neutral-700 text-lg max-w-2xl">
+              NerdWallet is a comprehensive financial comparison platform that helps users make smarter financial decisions by providing objective product comparisons, personalized recommendations, and extensive educational resources across loans, credit cards, banking, and investing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Company Summary -->
+          <div class="lg:col-span-2 space-y-8">
+            <div class="bg-white p-8 rounded-xl shadow-md">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-6">About NerdWallet</h2>
+              <div class="prose prose-lg text-neutral-700 max-w-none">
+                <p>Founded in 2009 by Tim Chen and Jacob Gibson, NerdWallet emerged from a personal frustration with the lack of transparent, accessible information about financial products. When Chen's sister asked him for help finding a credit card with favorable foreign transaction fees, he discovered how challenging it was to find clear, comparative information about financial products online. What began as a simple credit card comparison spreadsheet evolved into a mission to provide consumers with clarity across the entire financial landscape. From this origin, NerdWallet has grown into a comprehensive financial guidance platform that serves millions of users monthly across multiple financial verticals including credit cards, banking, loans, investing, and insurance. Unlike traditional financial institutions that typically promote their own products, NerdWallet was built on the principle of objective comparison, helping consumers understand their options across the entire market. This approach represented a significant shift in how consumers interact with financial information, moving from relying solely on individual financial institutions for guidance to having access to comprehensive, comparative data from an independent source. Throughout its growth, NerdWallet has maintained this core mission of empowering individuals to make smarter financial choices through a combination of expert-developed content, intuitive tools, and personalized recommendations based on individual financial profiles and goals.</p>
+                
+                <p>What sets NerdWallet apart in the financial marketplace landscape is its distinctive combination of comprehensive product coverage, editorial independence, and user-centric design. Unlike many financial comparison sites that focus exclusively on generating leads or affiliate revenue, NerdWallet has built its reputation on providing genuinely objective guidance, often highlighting products with minimal or no monetary benefit to the company if they represent the best option for consumers. This commitment to editorial independence is reflected in their transparent review methodology, which evaluates financial products across consistent criteria developed by their team of financial experts. Additionally, NerdWallet offers a substantially more comprehensive suite of educational resources compared to transaction-focused competitors, with thousands of articles, guides, and tools designed to improve financial literacy alongside product recommendations. Their approach to personalization also distinguishes them in the marketplace, using sophisticated algorithms to tailor recommendations based on a user's unique financial situation, goals, and preferences without requiring them to create an account or share sensitive personal information. This focus on user privacy and convenience contrasts with many financial platforms that require extensive data sharing before providing meaningful guidance. For consumers navigating the increasingly complex financial landscape, NerdWallet's combination of trustworthy information, user-friendly interfaces, and personalized guidance provides a uniquely valuable service that bridges the gap between general financial education and individualized financial advice.</p>
+                
+                <p>NerdWallet's loan marketplace offers a comprehensive comparison platform across multiple lending categories, including personal loans, student loans, mortgages, auto loans, and business loans. Rather than originating loans directly, NerdWallet partners with a diverse network of lenders—from traditional banks and credit unions to online lenders and fintech companies—to provide users with a broad overview of available options based on their financial profiles. Their loan comparison tools allow users to filter and sort options based on factors such as loan amounts, interest rates, fees, term lengths, and specialized features, with clear highlighting of eligibility requirements to help users focus on options they're likely to qualify for. Personal loan options typically range from $1,000 to $100,000 with APRs from 6% to 36% depending on creditworthiness, while small business loan offerings span from $5,000 to $5 million with various structures including term loans, lines of credit, SBA loans, and equipment financing. NerdWallet doesn't directly handle loan applications or underwriting; instead, they use a pre-qualification process with soft credit pulls (when available) to help users understand their likely options without impacting their credit scores, before directing interested users to lender websites to complete formal applications. Their loan marketplace is supported by extensive educational resources including loan calculators, guides to improving approval odds, explanations of different loan types, and strategies for comparing offers effectively. What distinguishes NerdWallet's approach is their focus on transparent information rather than pushing users toward particular products—they clearly disclose how they make money through affiliate relationships while maintaining editorial independence in their recommendations, ensuring users receive guidance aligned with their best interests rather than NerdWallet's financial relationships.</p>
+              </div>
+            </div>
+            
+            <!-- Customer Reviews -->
+            <div class="bg-white p-8 rounded-xl shadow-md">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-6">Customer Reviews</h2>
+              <div class="mb-6">
+                <div class="flex items-center mb-2">
+                  <div class="rating-stars flex mr-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="text-lg font-medium">4.7 out of 5</span>
+                </div>
+                <div class="text-neutral-600">Based on 2,950 verified customer reviews</div>
+              </div>
+              <div class="bg-neutral-50 border border-neutral-200 p-6 rounded-lg">
+                <div class="flex items-start mb-4">
+                  <i class="fas fa-quote-left text-primary text-3xl mr-4 mt-1"></i>
+                  <blockquote class="italic text-neutral-700">
+                    "After going through a difficult divorce that left my finances in disarray and my credit score significantly damaged, I found myself needing a personal loan to consolidate some high-interest debt. My first instinct was to check with my local bank, but they promptly rejected my application due to my recently diminished credit score. Feeling discouraged and uncertain about my options, I stumbled upon NerdWallet while researching alternatives online. What immediately impressed me was how the platform allowed me to see potential loan options without requiring a hard credit pull that would further damage my score. After answering questions about my financial situation, income, and loan needs, NerdWallet presented me with several lenders that specialized in working with consumers with credit challenges like mine. Each option was displayed with transparent information about interest rates, fees, term lengths, and eligibility requirements, making it easy to compare my realistic options. The educational content alongside the recommendations helped me understand the factors affecting my approval odds and taught me strategies to strengthen my application. I ultimately applied with one of the suggested lenders that specifically mentioned considering factors beyond credit score in their approval process, and to my relief, I was approved for a $12,000 consolidation loan with terms that were much better than I expected given my situation. What I appreciated most about NerdWallet was that they didn't present false hope or push me toward lenders where I had no chance of approval—they helped me understand my realistic options in an honest way, while also providing guidance on how to improve my financial situation for the future. For anyone feeling lost in their search for financial products, especially after facing setbacks, NerdWallet provides a valuable compass that points toward genuinely achievable solutions."
+                  </blockquote>
+                </div>
+                <div class="flex justify-end">
+                  <div class="text-right">
+                    <div class="font-medium">Personal Loan User</div>
+                    <div class="text-sm text-neutral-500">Verified Customer Review</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Key Features & CTA -->
+          <div class="lg:col-span-1 space-y-8">
+            <!-- Key Features -->
+            <div class="bg-white p-8 rounded-xl shadow-md">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-6">Key Features</h2>
+              <table class="w-full">
+                <tbody>
+                  <tr class="border-b border-neutral-200">
+                    <td class="py-3 text-neutral-600 font-medium">Business Model</td>
+                    <td class="py-3 text-right font-semibold">Marketplace</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200">
+                    <td class="py-3 text-neutral-600 font-medium">Credit Check</td>
+                    <td class="py-3 text-right font-semibold">Soft Pull Only</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200">
+                    <td class="py-3 text-neutral-600 font-medium">Loan Range</td>
+                    <td class="py-3 text-right font-semibold">$1K-$5M</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200">
+                    <td class="py-3 text-neutral-600 font-medium">APR Range</td>
+                    <td class="py-3 text-right font-semibold">Varies by Lender</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 text-neutral-600 font-medium">Service Cost</td>
+                    <td class="py-3 text-right font-semibold">Free to Users</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- Product Features -->
+            <div class="bg-white p-8 rounded-xl shadow-md">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-6">What They Offer</h2>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                  <span>Personal Loan Marketplace</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                  <span>Business Loan Comparison</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                  <span>Mortgage & Refinance Options</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                  <span>Financial Calculators</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                  <span>Educational Resources</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-success mt-1 mr-3"></i>
+                  <span>Personalized Recommendations</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="bg-nerd/5 p-8 rounded-xl border border-nerd/20">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-3">Ready to Compare?</h2>
+              <p class="text-neutral-700 mb-6">
+                Click below to visit NerdWallet's website and explore loan options personalized to your needs.
+              </p>
+              <a href="https://www.nerdwallet.com/loans" target="_blank" class="block w-full py-4 bg-nerd hover:bg-nerd/90 text-white font-bold rounded-lg text-center text-lg transition-colors">
+                Visit NerdWallet
+              </a>
+              <div class="mt-4 text-center text-sm text-neutral-500">
+                <span class="flex justify-center items-center">
+                  <i class="fas fa-shield-alt mr-1"></i>
+                  Free personalized comparisons
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Lenders -->
+    <section class="py-12 bg-neutral-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-3 text-center">Similar Services</h2>
+        <p class="text-lg text-neutral-600 mb-8 text-center max-w-3xl mx-auto">
+          Compare other top-rated financial comparison platforms
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Nav -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-heading font-bold text-neutral-900">Nav</h3>
+                <div class="rating-stars flex">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full mb-3">
+                  Business Credit Platform
+                </span>
+                <div class="text-sm text-neutral-600 mb-4">Business credit monitoring and funding marketplace with personalized business funding matches.</div>
+              </div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="font-medium">Focus:</span> Business
+                </div>
+                <div>
+                  <span class="font-medium">Cost:</span> Free/Premium
+                </div>
+              </div>
+              <a href="/lenders/nav.html" class="block w-full py-2 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center text-sm transition-colors mt-4">
+                View Profile
+              </a>
+            </div>
+          </div>
+          
+          <!-- Fundera -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-heading font-bold text-neutral-900">Fundera</h3>
+                <div class="rating-stars flex">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full mb-3">
+                  Business Lending
+                </span>
+                <div class="text-sm text-neutral-600 mb-4">Business loan marketplace with specialized focus on small business financing solutions.</div>
+              </div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="font-medium">Focus:</span> Business
+                </div>
+                <div>
+                  <span class="font-medium">Cost:</span> Free
+                </div>
+              </div>
+              <a href="/lenders/fundera.html" class="block w-full py-2 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center text-sm transition-colors mt-4">
+                View Profile
+              </a>
+            </div>
+          </div>
+          
+          <!-- LendingTree -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-heading font-bold text-neutral-900">LendingTree</h3>
+                <div class="rating-stars flex">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full mb-3">
+                  Loan Marketplace
+                </span>
+                <div class="text-sm text-neutral-600 mb-4">Multi-lender marketplace specializing in personal, business, and mortgage loan comparisons.</div>
+              </div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="font-medium">Focus:</span> Multiple
+                </div>
+                <div>
+                  <span class="font-medium">Cost:</span> Free
+                </div>
+              </div>
+              <a href="/lenders/lendingtree.html" class="block w-full py-2 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center text-sm transition-colors mt-4">
+                View Profile
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-10 text-center">
+          <a href="/betterlist-100.html" class="inline-flex items-center font-medium text-primary hover:text-primary/80 transition-colors">
+            View the complete BCS Top 100™
+            <i class="fas fa-chevron-right ml-1 text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <img src="/assets/logo-light.png" alt="Better Capital Solutions" class="h-12" />
+          <p class="text-neutral-400 text-sm">
+            Helping businesses and individuals find the right funding solutions since 2021.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-neutral-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="/personal-funding" class="text-neutral-400 hover:text-white transition-colors">Personal Funding</a></li>
+            <li><a href="/business-funding" class="text-neutral-400 hover:text-white transition-colors">Business Funding</a></li>
+            <li><a href="/reviews" class="text-neutral-400 hover:text-white transition-colors">Reviews</a></li>
+            <li><a href="/guides" class="text-neutral-400 hover:text-white transition-colors">Guides</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Categories</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">SBA Loans</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Business Loans</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Personal Loans</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Credit Cards</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Equipment Financing</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-medium mb-4">Contact</h4>
+          <ul class="space-y-2 text-neutral-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+              <span>123 Business Ave, Suite 100<br>New York, NY 10001</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-primary"></i>
+              <span>(555) 123-4567</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-primary"></i>
+              <span>info@bettercapitalsolutions.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-6 border-t border-neutral-800 text-center text-neutral-500 text-sm">
+        <p>&copy; 2025 Better Capital Solutions. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Terms of Service</a>
+          <a href="#" class="text-neutral-500 hover:text-neutral-300 transition-colors">Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD Schema for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "NerdWallet",
+      "description": "NerdWallet is a comprehensive financial comparison platform that helps users make smarter financial decisions by providing objective product comparisons, personalized recommendations, and extensive educational resources across loans, credit cards, banking, and investing.",
+      "image": "https://logo.clearbit.com/nerdwallet.com",
+      "url": "https://www.nerdwallet.com/loans",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "2950",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Personal Loan Comparison",
+          "description": "Personalized loan offers based on your financial profile"
+        },
+        {
+          "@type": "Offer",
+          "name": "Business Loan Marketplace",
+          "description": "Compare business financing options across multiple lenders"
+        },
+        {
+          "@type": "Offer",
+          "name": "Financial Education Resources",
+          "description": "Expert guidance and tools for better financial decisions"
+        }
+      ]
+    }
+  </script>
+</body>
+</html>

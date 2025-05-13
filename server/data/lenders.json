@@ -112,22 +112,6 @@
     "website": "https://www.upstart.com/personal-loans"
   },
   {
-    "id": "us-bank",
-    "name": "U.S. Bank",
-    "category": "SBA Loans",
-    "rating": 4.3,
-    "reviews": 1850,
-    "creditMin": 680,
-    "maxFunding": 5000000,
-    "approvalTime": "1-2 weeks",
-    "features": ["SBA 7(a) Loans", "SBA 504 Loans", "Express Loans"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "us-bank",
-    "website": "https://www.usbank.com/business-banking/business-lending/sba-loans.html"
-  },
-  {
     "id": "paypal",
     "name": "PayPal Working Capital",
     "category": "Business Loans",
@@ -272,22 +256,6 @@
     "website": "https://www.huntington.com/SmallBusiness/loans/sba-loans"
   },
   {
-    "id": "regions-bank",
-    "name": "Regions Bank",
-    "category": "Equipment Financing",
-    "rating": 4.2,
-    "reviews": 850,
-    "creditMin": 660,
-    "maxFunding": 1000000,
-    "approvalTime": "3-5 days",
-    "features": ["Equipment Loans", "Commercial Vehicles", "Medical Equipment"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "regions-bank",
-    "website": "https://www.regions.com/small-business/loans-and-credit-lines/equipment-financing"
-  },
-  {
     "id": "prosper",
     "name": "Prosper",
     "category": "Personal Loans",
@@ -430,22 +398,6 @@
     "featured": false,
     "slug": "smbc",
     "website": "https://www.smbcgroup.com/americas/products-services/corporate-institutional/lending/"
-  },
-  {
-    "id": "fifth-third-bank",
-    "name": "Fifth Third Bank",
-    "category": "Business Loans",
-    "rating": 4.3,
-    "reviews": 1150,
-    "creditMin": 660,
-    "maxFunding": 2000000,
-    "approvalTime": "5-7 days",
-    "features": ["Equipment Financing", "Commercial Real Estate", "Business Term Loans"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "fifth-third-bank",
-    "website": "https://www.53.com/content/fifth-third/en/business-banking/borrowing.html"
   },
   {
     "id": "first-citizens-bank",
