@@ -451,6 +451,18 @@
         if (response.ok) {
           allLenders = await response.json();
           console.log('Successfully loaded API data:', allLenders);
+          
+          // DEBUGGING: Let's filter for betterList100: true only, as this might be implicit
+          allLenders = allLenders.filter(lender => lender.betterList100 === true);
+          console.log(`After filtering for BCS Top 100, we have ${allLenders.length} lenders`);
+          
+          // Count lenders on page 10
+          const startIdx = 9 * window.itemsPerPage; // 0-indexed, so page 10 starts at index 90
+          const endIdx = Math.min(startIdx + window.itemsPerPage, allLenders.length);
+          const page10Lenders = allLenders.slice(startIdx, endIdx);
+          console.log(`Page 10 (indexes ${startIdx}-${endIdx-1}) has ${page10Lenders.length} lenders:`, 
+                     page10Lenders.map(l => l.name));
+          
         } else {
           throw new Error('API responded with an error');
         }
