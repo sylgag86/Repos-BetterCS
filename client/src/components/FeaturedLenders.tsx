@@ -7,8 +7,8 @@ const featuredLenders = [
     categoryClass: "bg-primary/10 text-primary",
     rating: 5.0,
     badge: {
-      text: "#1 in Rating",
-      color: "var(--color-primary)"
+      text: "#1 in Ratings",
+      color: "#FFD700" // Gold
     },
     features: [
       "Premium business rewards",
@@ -25,7 +25,7 @@ const featuredLenders = [
     rating: 4.8,
     badge: {
       text: "#1 in Reviews",
-      color: "var(--color-accent)"
+      color: "#1E88E5" // Blue
     },
     features: [
       "Lines up to $250K",
@@ -34,24 +34,25 @@ const featuredLenders = [
       "Over 2,000 verified reviews"
     ],
     link: "/lenders/kabbage.html",
-    buttonClass: "bg-accent hover:bg-accent/90"
+    buttonClass: "border-accent text-accent hover:bg-accent hover:text-white"
   },
   {
-    name: "American Express",
-    category: "Credit Cards",
-    categoryClass: "bg-primary/10 text-primary",
-    rating: 4.7,
+    name: "OneMain Financial",
+    category: "Personal Loans",
+    categoryClass: "bg-green-700/10 text-green-700",
+    rating: 4.6,
     badge: {
-      text: "#1 in Credit Cards",
-      color: "#2D5A27"
+      text: "#1 in Bad Credit",
+      color: "#388E3C" // Green
     },
     features: [
-      "Premium rewards programs",
-      "Exceptional travel benefits",
-      "Purchase protection",
-      "Member-exclusive offers"
+      "Accept low credit scores",
+      "Fast funding available",
+      "Flexible loan terms",
+      "No prepayment penalties"
     ],
-    link: "/lenders/american-express.html"
+    link: "/lenders/onemain-financial.html",
+    buttonClass: "border-green-700 text-green-700 hover:bg-green-700 hover:text-white"
   }
 ];
 
@@ -101,31 +102,19 @@ export default function FeaturedLenders() {
               className="bg-white overflow-hidden shadow transition-all hover:shadow-md duration-300 relative"
             >
               {lender.badge && (
-                <div className="absolute -top-0 -left-2">
-                  <div className="relative">
-                    {/* Top ribbon */}
-                    <div className="py-2 px-8 shadow-md z-10 relative" 
-                         style={{ 
-                           backgroundColor: lender.badge.color, 
-                           boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
-                         }}>
-                      <span className="text-white text-xs font-bold tracking-wide uppercase">{lender.badge.text}</span>
-                    </div>
-                    
-                    {/* Left fold shadow */}
-                    <div className="absolute w-2 h-2 top-full left-0 z-0" 
-                         style={{ 
-                           backgroundColor: 'rgba(0,0,0,0.25)', 
-                           clipPath: 'polygon(0 0, 100% 0, 0 100%)' 
-                         }}>
-                    </div>
-                    
-                    {/* Right ribbon tail */}
-                    <div className="absolute h-5 w-4 -right-4 top-0 z-0"
+                <div className="absolute top-4 left-4 z-10">
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center transform -rotate-12"
                          style={{ 
                            backgroundColor: lender.badge.color,
-                           clipPath: 'polygon(0 0, 0% 100%, 100% 50%)'
+                           boxShadow: '0 3px 6px rgba(0,0,0,0.15)'
                          }}>
+                      <span className="text-white text-xs font-extrabold">#1</span>
+                    </div>
+                    <div className="bg-white py-1 px-3 rounded-r-md shadow-md -ml-1 pl-3">
+                      <span className="text-xs font-semibold tracking-wide" style={{ color: lender.badge.color }}>
+                        {lender.badge.text.replace('#1 ', '')}
+                      </span>
                     </div>
                   </div>
                 </div>
