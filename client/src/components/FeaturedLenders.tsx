@@ -101,17 +101,31 @@ export default function FeaturedLenders() {
               className="bg-white overflow-hidden shadow transition-all hover:shadow-md duration-300 relative"
             >
               {lender.badge && (
-                <div className="absolute top-0 right-0">
-                  <div className="w-[90px] h-[90px] overflow-hidden">
-                    <div className="absolute top-0 right-0 transform rotate-45 text-white text-xs font-medium py-1 text-center" 
+                <div className="absolute -top-0 -left-2">
+                  <div className="relative">
+                    {/* Top ribbon */}
+                    <div className="py-2 px-8 shadow-md z-10 relative" 
                          style={{ 
-                           width: '140px', 
-                           top: '22px', 
-                           right: '-30px', 
-                           backgroundColor: lender.badge.color,
-                           boxShadow: '0 1px 3px rgba(0,0,0,0.15)' 
+                           backgroundColor: lender.badge.color, 
+                           boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
                          }}>
-                      {lender.badge.text}
+                      <span className="text-white text-xs font-bold tracking-wide uppercase">{lender.badge.text}</span>
+                    </div>
+                    
+                    {/* Left fold shadow */}
+                    <div className="absolute w-2 h-2 top-full left-0 z-0" 
+                         style={{ 
+                           backgroundColor: 'rgba(0,0,0,0.25)', 
+                           clipPath: 'polygon(0 0, 100% 0, 0 100%)' 
+                         }}>
+                    </div>
+                    
+                    {/* Right ribbon tail */}
+                    <div className="absolute h-5 w-4 -right-4 top-0 z-0"
+                         style={{ 
+                           backgroundColor: lender.badge.color,
+                           clipPath: 'polygon(0 0, 0% 100%, 100% 50%)'
+                         }}>
                     </div>
                   </div>
                 </div>
