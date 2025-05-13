@@ -9,7 +9,7 @@ const categories = [
     rate: "4.75%",
     rateLabel: "Rates from:",
     linkText: "Explore Options",
-    link: "/resources/articles/sba-loans-guide.html"
+    link: "/funding-categories/sba-loans.html"
   },
   {
     title: "Credit Cards",
@@ -19,7 +19,7 @@ const categories = [
     rate: "5%",
     rateLabel: "Cashback up to:",
     linkText: "Compare Cards",
-    link: "/resources/articles/debt-consolidation-vs-balance-transfer.html"
+    link: "/funding-categories/credit-cards.html"
   },
   {
     title: "Bad Credit Funding",
@@ -29,7 +29,7 @@ const categories = [
     rate: "580+",
     rateLabel: "Min. credit score:",
     linkText: "Find Solutions",
-    link: "/resources/articles/improve-credit-score-150-points.html"
+    link: "/funding-categories/bad-credit.html"
   },
   {
     title: "Fast Approval",
@@ -39,7 +39,7 @@ const categories = [
     rate: "24 hours",
     rateLabel: "Funding as fast as:",
     linkText: "Apply Now",
-    link: "/funding-funnel/index.html"
+    link: "/funding-categories/fast-approval.html"
   }
 ];
 
