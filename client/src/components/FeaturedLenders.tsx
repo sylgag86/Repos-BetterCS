@@ -8,7 +8,7 @@ const featuredLenders = [
     rating: 5.0,
     badge: {
       text: "#1 in Rating",
-      class: "bg-yellow-500 text-white"
+      class: "bg-yellow-500 text-white border-2 border-white"
     },
     features: [
       "Premium business rewards",
@@ -25,7 +25,7 @@ const featuredLenders = [
     rating: 4.8,
     badge: {
       text: "#1 in Reviews",
-      class: "bg-blue-500 text-white"
+      class: "bg-blue-500 text-white border-2 border-white"
     },
     features: [
       "Lines up to $250K",
@@ -43,7 +43,7 @@ const featuredLenders = [
     rating: 4.7,
     badge: {
       text: "#1 in Credit Cards",
-      class: "bg-green-500 text-white"
+      class: "bg-green-500 text-white border-2 border-white"
     },
     features: [
       "Premium rewards programs",
@@ -86,10 +86,10 @@ export default function FeaturedLenders() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-neutral-900 mb-4">
-            Featured Top Lenders
+            Top-Ranked Lenders
           </h2>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Our highest-rated funding providers with exceptional terms and customer satisfaction.
+            Best-in-class providers with #1 ratings in their categories, verified excellence, and exceptional customer satisfaction.
           </p>
         </div>
         
@@ -100,7 +100,7 @@ export default function FeaturedLenders() {
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:translate-y-[-4px] duration-300 border border-neutral-200 relative"
             >
               {lender.badge && (
-                <div className="absolute -top-3 -left-3 px-3 py-1 rounded-lg shadow-md z-10 text-xs font-bold" style={{ backgroundColor: lender.badge.class.split(' ')[0].replace('bg-', '') }}>
+                <div className={`absolute -top-3 -left-3 px-3 py-1.5 rounded-lg shadow-lg z-10 text-xs font-bold transform rotate-[-5deg] ${lender.badge.class}`} style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>
                   {lender.badge.text}
                 </div>
               )}
