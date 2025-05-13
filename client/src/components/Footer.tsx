@@ -84,9 +84,8 @@ export default function Footer() {
               &copy; 2025 Better Capital Solutions. All rights reserved.
             </div>
             <div className="flex space-x-6">
-              <Link href="/privacy-policy" className="text-neutral-500 hover:text-white transition-colors text-sm">Privacy Policy</Link>
-              <Link href="/terms" className="text-neutral-500 hover:text-white transition-colors text-sm">Terms of Service</Link>
-              <Link href="/accessibility" className="text-neutral-500 hover:text-white transition-colors text-sm">Accessibility</Link>
+              <a href="/privacy-policy.html" className="text-neutral-500 hover:text-white transition-colors text-sm">Privacy Policy</a>
+              <a href="/sitemap.xml" className="text-neutral-500 hover:text-white transition-colors text-sm">Sitemap</a>
             </div>
           </div>
         </div>

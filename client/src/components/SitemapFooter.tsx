@@ -12,29 +12,16 @@ export default function SitemapFooter() {
             <h3 className="text-lg font-semibold mb-4 text-white">Better Capital Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Home</span>
-                </Link>
+                <a href="/" className="text-neutral-400 hover:text-white transition-colors">Home</a>
               </li>
               <li>
-                <Link href="/about">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">About Us</span>
-                </Link>
+                <a href="/contact/index.html" className="text-neutral-400 hover:text-white transition-colors">Contact Us</a>
               </li>
               <li>
-                <Link href="/contact">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Contact Us</span>
-                </Link>
+                <a href="/#testimonials" className="text-neutral-400 hover:text-white transition-colors">Reviews</a>
               </li>
               <li>
-                <Link href="/reviews">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Reviews</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/funding-funnel">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Find Funding</span>
-                </Link>
+                <a href="/funding-funnel/index.html" className="text-neutral-400 hover:text-white transition-colors">Find Funding</a>
               </li>
             </ul>
           </div>
@@ -44,34 +31,16 @@ export default function SitemapFooter() {
             <h3 className="text-lg font-semibold mb-4 text-white">Funding Options</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/lenders">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">BCS Top 100™ Directory</span>
-                </Link>
+                <a href="/betterlist-100.html" className="text-neutral-400 hover:text-white transition-colors">BCS Top 100™ Directory</a>
               </li>
               <li>
-                <Link href="/lenders/sba">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">SBA Loans</span>
-                </Link>
+                <a href="/business-funding/index.html" className="text-neutral-400 hover:text-white transition-colors">Business Loans</a>
               </li>
               <li>
-                <Link href="/lenders/business-loans">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Business Loans</span>
-                </Link>
+                <a href="/personal-funding/index.html" className="text-neutral-400 hover:text-white transition-colors">Personal Funding</a>
               </li>
               <li>
-                <Link href="/lenders/lines-of-credit">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Lines of Credit</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/lenders/equipment-financing">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">Equipment Financing</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/funding-recommendation">
-                  <span className="text-neutral-400 hover:text-white transition-colors cursor-pointer">AI Funding Advisor</span>
-                </Link>
+                <a href="/funding-recommendation" className="text-neutral-400 hover:text-white transition-colors">AI Funding Advisor</a>
               </li>
             </ul>
           </div>
@@ -128,10 +97,7 @@ export default function SitemapFooter() {
                 </Link>
               </li>
               <li>
-                <a href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="/terms-of-service.html" className="text-neutral-400 hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy-policy.html" className="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>
               </li>
               <li>
                 <a href="/sitemap.xml" className="text-neutral-400 hover:text-white transition-colors">Sitemap</a>
