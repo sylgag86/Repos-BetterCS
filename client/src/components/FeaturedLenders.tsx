@@ -98,7 +98,7 @@ export default function FeaturedLenders() {
           {featuredLenders.map((lender, index) => (
             <div 
               key={index}
-              className="bg-white overflow-hidden shadow-sm transition-all hover:shadow-md hover:border-neutral-200 duration-300 relative border border-neutral-100 group"
+              className="bg-white overflow-hidden shadow transition-all hover:shadow-md duration-300 relative"
             >
               {lender.badge && (
                 <div className="absolute top-0 right-0">
@@ -138,9 +138,8 @@ export default function FeaturedLenders() {
                 </div>
                 
                 <div className="space-y-4">
-                  <a href={lender.link} className={`relative overflow-hidden block w-full py-3 text-center border ${lender.buttonClass ? 'border-accent text-accent' : 'border-primary text-primary'} font-medium transition-all duration-300 group-hover:border-transparent group-hover:text-white`}>
-                    <span className="relative z-10">View Profile</span>
-                    <div className={`absolute inset-0 w-full h-full transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 ${lender.buttonClass ? 'bg-accent' : 'bg-primary'}`}></div>
+                  <a href={lender.link} className={`block w-full py-3 text-center border ${lender.buttonClass ? 'border-accent text-accent hover:bg-accent hover:text-white' : 'border-primary text-primary hover:bg-primary hover:text-white'} font-medium transition-colors`}>
+                    View Profile
                   </a>
                   <div className="text-center text-xs text-neutral-400">
                     <span className="flex justify-center items-center">
