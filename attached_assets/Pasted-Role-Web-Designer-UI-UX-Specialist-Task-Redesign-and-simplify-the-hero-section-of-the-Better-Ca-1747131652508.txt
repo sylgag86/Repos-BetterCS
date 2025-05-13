@@ -1,0 +1,57 @@
+Role: Web Designer / UI/UX Specialist
+
+Task: Redesign and simplify the hero section of the Better Capital Solutions website to create a sleek, high-end, professional look. The goal is to make the section more visually appealing, reduce clutter, and focus on the primary call-to-action (CTA) with modern design principles.
+
+Key Requirements:
+Simplify the Layout:
+
+Remove any unnecessary elements that create visual noise, such as excessive text, badges, or icons. Focus on making the CTA clear and easy to see.
+
+Keep "Better Capital Solutions" prominent but clean. Use a serif or modern sans-serif font for a professional, corporate feel.
+
+Main CTA:
+
+The primary call-to-action (CTA) should be "Get Funded Now" or something similar, in a prominent and bold font.
+
+The button should stand out with a clean, minimal design. Consider a dark button with a light text color (e.g., navy blue with white text).
+
+The CTA should be central and above the fold, easily accessible without the user having to scroll.
+
+Background:
+
+Replace the current busy background with a solid color, subtle gradient, or a minimalist financial-themed image (such as a blurred office environment or abstract finance graphics) that doesn’t detract from the CTA.
+
+Avoid using complex graphs or charts in the hero section. Keep the design clean and open, focusing attention on the message and CTA.
+
+Typography:
+
+Use a bold, professional font for the main headline: "Better Capital Solutions". The text should be clear, simple, and modern.
+
+Reduce the subheading text to a smaller size but still legible. Make sure it doesn’t overpower the main headline.
+
+Consider dynamic font sizing for mobile to ensure readability across devices.
+
+User Engagement:
+
+Add a subtle animation or hover effect on the CTA button to indicate interactivity.
+
+If the premium newsletter is featured, reduce its prominence and add a small banner or link under the main CTA.
+
+Spacing & Responsiveness:
+
+Ensure there’s plenty of white space around the CTA button to prevent overcrowding.
+
+Make the hero section fully responsive, ensuring the design works well on both desktop and mobile devices. The CTA should still be easy to find and click on smaller screens.
+
+Professional and High-End Aesthetic:
+
+Use a minimalist design with a focus on elegance. Ensure the overall color scheme aligns with your blue and silver theme, maintaining consistency across the website.
+
+Avoid any over-the-top graphics or text. Focus on a clean, corporate, and professional look.
+
+Animation or Parallax Effect (Optional):
+
+If you’d like to add a bit of dynamic flair, consider incorporating a subtle parallax effect on the background image as the user scrolls. Keep it smooth and non-distracting.
+
+Outcome:
+The result should be a sleek, high-end hero section that showcases your brand’s professionalism while keeping the user experience clean and straightforward. The design should make users feel confident and prompt them to take action on the main CTA, whether it’s applying for funding or learning more about your services.
