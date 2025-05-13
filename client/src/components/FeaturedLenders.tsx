@@ -8,7 +8,7 @@ const featuredLenders = [
     rating: 5.0,
     badge: {
       text: "#1 in Rating",
-      class: "bg-yellow-500 text-black font-extrabold border-2 border-white"
+      color: "var(--color-primary)"
     },
     features: [
       "Premium business rewards",
@@ -25,7 +25,7 @@ const featuredLenders = [
     rating: 4.8,
     badge: {
       text: "#1 in Reviews",
-      class: "bg-blue-600 text-white font-extrabold border-2 border-white"
+      color: "var(--color-accent)"
     },
     features: [
       "Lines up to $250K",
@@ -43,7 +43,7 @@ const featuredLenders = [
     rating: 4.7,
     badge: {
       text: "#1 in Credit Cards",
-      class: "bg-green-700 text-white font-extrabold border-2 border-white"
+      color: "#2D5A27"
     },
     features: [
       "Premium rewards programs",
@@ -101,8 +101,19 @@ export default function FeaturedLenders() {
               className="bg-white overflow-hidden shadow transition-all hover:shadow-md duration-300 relative"
             >
               {lender.badge && (
-                <div className={`absolute top-4 right-4 px-2.5 py-1 rounded-sm z-10 text-xs font-bold ${lender.badge.class}`} style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-                  {lender.badge.text}
+                <div className="absolute top-0 right-0">
+                  <div className="w-[90px] h-[90px] overflow-hidden">
+                    <div className="absolute top-0 right-0 transform rotate-45 text-white text-xs font-medium py-1 text-center" 
+                         style={{ 
+                           width: '140px', 
+                           top: '22px', 
+                           right: '-30px', 
+                           backgroundColor: lender.badge.color,
+                           boxShadow: '0 1px 3px rgba(0,0,0,0.15)' 
+                         }}>
+                      {lender.badge.text}
+                    </div>
+                  </div>
                 </div>
               )}
               <div className="p-8">
