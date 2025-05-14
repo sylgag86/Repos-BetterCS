@@ -366,7 +366,7 @@ const FundingApplication = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          placeholder="(555) 123-4567"
+                          placeholder="844-985-4567"
                           required
                         />
                       </div>
@@ -435,7 +435,7 @@ const FundingApplication = () => {
                           name="address"
                           value={formData.address}
                           onChange={handleInputChange}
-                          placeholder="123 Business St."
+                          placeholder="169 Madison Ave"
                           required
                         />
                       </div>
