@@ -1126,8 +1126,19 @@
       const ctaButton2 = document.getElementById('ctaButton2');
       const termsCheckbox = document.getElementById('termsCheckbox');
       
+      // Plan buttons
+      const essentialsPlanButton = document.getElementById('essentialsPlanButton');
+      const comprehensivePlanButton = document.getElementById('comprehensivePlanButton');
+      
+      // URLs for plan signup
+      const essentialsPlanUrl = 'https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78';
+      const comprehensivePlanUrl = 'https://safeclientaccess.com/forms/f/8ed535fb-0609-4580-9ccc-db3beffc39ae';
+      
+      // Track which plan was selected
+      let selectedPlanUrl = '';
+      
       // Open Modal
-      termsModalButton.addEventListener('click', function() {
+      termsModalButton?.addEventListener('click', function() {
         termsModal.classList.add('active');
       });
       
@@ -1150,16 +1161,22 @@
       
       // Terms Checkbox State
       termsCheckbox.addEventListener('change', function() {
-        ctaButton.disabled = !this.checked;
-        ctaButton2.disabled = !this.checked;
+        if (ctaButton) ctaButton.disabled = !this.checked;
+        if (ctaButton2) ctaButton2.disabled = !this.checked;
       });
       
-      // Agree to Continue
+      // Agree to Continue - when user agrees in the modal
       agreeToContinue.addEventListener('click', function() {
         termsCheckbox.checked = true;
-        ctaButton.disabled = false;
-        ctaButton2.disabled = false;
+        if (ctaButton) ctaButton.disabled = false;
+        if (ctaButton2) ctaButton2.disabled = false;
         termsModal.classList.remove('active');
+        
+        // If a plan was selected, navigate to it after agreement
+        if (selectedPlanUrl) {
+          window.open(selectedPlanUrl, '_blank');
+          selectedPlanUrl = ''; // Reset after opening
+        }
       });
       
       // Set up CTA buttons
@@ -1169,6 +1186,29 @@
             // Show terms modal first
             termsModal.classList.add('active');
           });
+        }
+      });
+      
+      // Handle plan button clicks
+      essentialsPlanButton.addEventListener('click', function() {
+        if (termsCheckbox.checked) {
+          // User already agreed to terms, proceed directly
+          window.open(essentialsPlanUrl, '_blank');
+        } else {
+          // User hasn't agreed to terms, show modal first
+          selectedPlanUrl = essentialsPlanUrl;
+          termsModal.classList.add('active');
+        }
+      });
+      
+      comprehensivePlanButton.addEventListener('click', function() {
+        if (termsCheckbox.checked) {
+          // User already agreed to terms, proceed directly
+          window.open(comprehensivePlanUrl, '_blank');
+        } else {
+          // User hasn't agreed to terms, show modal first
+          selectedPlanUrl = comprehensivePlanUrl;
+          termsModal.classList.add('active');
         }
       });
       
