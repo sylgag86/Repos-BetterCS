@@ -53,13 +53,13 @@ export default function SitemapFooter() {
                 <a href="/financial-restoration/index.html" className="text-neutral-400 hover:text-white transition-colors">Professional Credit Restoration</a>
               </li>
               <li>
-                <a href="/diy-credit/start.html" className="text-neutral-400 hover:text-white transition-colors">DIY Credit Repair Bundle</a>
+                <a href="/diy-credit/start.html" className="text-neutral-400 hover:text-white transition-colors">DIY Credit Improvement Bundle</a>
               </li>
               <li>
                 <a href="/resources/credit-score-guide.html" className="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a>
               </li>
               <li>
-                <a href="/credit-repair/index.html" className="text-neutral-400 hover:text-white transition-colors">Credit Repair Services</a>
+                <a href="/financial-restoration/index.html" className="text-neutral-400 hover:text-white transition-colors">Credit Restoration Services</a>
               </li>
             </ul>
           </div>
