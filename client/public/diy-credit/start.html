@@ -74,6 +74,100 @@
     .bundle-item:hover {
       transform: translateY(-5px);
     }
+    
+    /* Modal styles */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .modal-content {
+      background-color: white;
+      border-radius: 0.75rem;
+      max-width: 32rem;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      margin: 0 1rem;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+    
+    /* Custom Checkbox */
+    .custom-checkbox {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+      background-color: #f3f4f6;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+    }
+    
+    .custom-checkbox:hover input ~ .checkmark {
+      background-color: #e5e7eb;
+    }
+    
+    .custom-checkbox input:checked ~ .checkmark {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+    }
+    
+    .custom-checkbox .checkmark:after {
+      left: 9px;
+      top: 5px;
+      width: 6px;
+      height: 11px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8222641087493398" crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-8222641087493398">
@@ -127,15 +221,13 @@
           </div>
         </div>
         
-        <a 
-          href="https://buy.stripe.com/test_bIYaGN5aJ1sCcZW9AA" 
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
+          id="waitlistButton"
           class="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-200"
         >
           <span>Get Instant Access - Only $29</span>
           <i class="fas fa-arrow-right ml-2"></i>
-        </a>
+        </button>
         
         <p class="text-sm text-white/70 mt-4">
           One-time payment. Instant digital download. No subscription.
@@ -567,5 +659,136 @@
       </div>
     </div>
   </footer>
+  
+  <!-- Waiting List Modal -->
+  <div id="waitlistModal" class="modal fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 invisible">
+    <div class="modal-content bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto mx-4">
+      <div class="p-6 border-b border-neutral-200 flex justify-between items-center">
+        <h3 class="text-xl font-bold text-neutral-900">
+          <i class="fas fa-list-alt text-primary mr-2"></i>
+          Join Our Waiting List
+        </h3>
+        <button id="closeModal" class="text-neutral-500 hover:text-neutral-700">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      
+      <div class="p-6">
+        <div class="bg-primary/5 p-4 rounded-lg mb-6">
+          <p class="text-neutral-700">
+            Our DIY Credit Repair Bundle is currently being updated with the latest strategies and templates. Join our waiting list to be the first to know when it's available!
+          </p>
+        </div>
+        
+        <form id="waitlistForm" class="space-y-4">
+          <div>
+            <label for="waitlist-name" class="block text-sm font-medium text-neutral-700 mb-1">Full Name</label>
+            <input 
+              type="text" 
+              id="waitlist-name" 
+              class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-colors"
+              placeholder="Your full name"
+              required
+            >
+          </div>
+          
+          <div>
+            <label for="waitlist-email" class="block text-sm font-medium text-neutral-700 mb-1">Email Address</label>
+            <input 
+              type="email" 
+              id="waitlist-email" 
+              class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-colors"
+              placeholder="Your email address"
+              required
+            >
+          </div>
+          
+          <div class="pt-2">
+            <label class="custom-checkbox text-neutral-700 mb-4">
+              <input type="checkbox" id="waitlist-notifications" checked>
+              <span class="checkmark"></span>
+              I agree to receive notifications when the bundle is available
+            </label>
+          </div>
+          
+          <div class="text-center pt-2">
+            <button 
+              type="submit"
+              class="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md transition-colors"
+            >
+              <span>Join Waiting List</span>
+              <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </div>
+        </form>
+        
+        <div id="waitlist-success" class="hidden pt-4 text-center">
+          <div class="bg-success/10 p-4 rounded-lg">
+            <i class="fas fa-check-circle text-success text-3xl mb-2"></i>
+            <p class="text-neutral-700 font-medium">
+              Thanks for joining our waiting list! We'll notify you as soon as the DIY Credit Repair Bundle becomes available.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Waiting List Modal Elements
+      const waitlistModal = document.getElementById('waitlistModal');
+      const waitlistButton = document.getElementById('waitlistButton');
+      const closeModal = document.getElementById('closeModal');
+      const waitlistForm = document.getElementById('waitlistForm');
+      const waitlistSuccess = document.getElementById('waitlist-success');
+      
+      // Open Modal
+      waitlistButton.addEventListener('click', function() {
+        waitlistModal.classList.add('active');
+      });
+      
+      // Close Modal
+      closeModal.addEventListener('click', function() {
+        waitlistModal.classList.remove('active');
+      });
+      
+      // Click outside to close
+      waitlistModal.addEventListener('click', function(event) {
+        if (event.target === waitlistModal) {
+          waitlistModal.classList.remove('active');
+        }
+      });
+      
+      // Handle Form Submission
+      waitlistForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('waitlist-name').value;
+        const email = document.getElementById('waitlist-email').value;
+        const notifications = document.getElementById('waitlist-notifications').checked;
+        
+        // Here you would typically send this data to your backend
+        console.log('Waiting List Signup:', { name, email, notifications });
+        
+        // Show success message
+        waitlistForm.classList.add('hidden');
+        waitlistSuccess.classList.remove('hidden');
+        
+        // Auto close after 3 seconds
+        setTimeout(function() {
+          waitlistModal.classList.remove('active');
+          // Reset form after modal is closed
+          setTimeout(function() {
+            waitlistForm.reset();
+            waitlistForm.classList.remove('hidden');
+            waitlistSuccess.classList.add('hidden');
+          }, 300);
+        }, 3000);
+      });
+    });
+  </script>
 </body>
 </html>
