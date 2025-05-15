@@ -50,16 +50,16 @@ export default function SitemapFooter() {
             <h3 className="text-lg font-semibold mb-4 text-white">Credit Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/financial-restoration/index.html" className="text-neutral-400 hover:text-white transition-colors">Professional Credit Restoration</a>
+                <a href="/financial-restoration/index.html" className="text-neutral-400 hover:text-white transition-colors">Professional Credit Solutions</a>
               </li>
               <li>
-                <a href="/diy-credit/start.html" className="text-neutral-400 hover:text-white transition-colors">DIY Credit Improvement Bundle</a>
+                <a href="/diy-credit/start.html" className="text-neutral-400 hover:text-white transition-colors">DIY Credit Resources Bundle</a>
               </li>
               <li>
                 <a href="/resources/credit-score-guide.html" className="text-neutral-400 hover:text-white transition-colors">Credit Score Guide</a>
               </li>
               <li>
-                <a href="/financial-restoration/index.html" className="text-neutral-400 hover:text-white transition-colors">Credit Restoration Services</a>
+                <a href="/financial-restoration/index.html" className="text-neutral-400 hover:text-white transition-colors">Credit Services</a>
               </li>
             </ul>
           </div>
