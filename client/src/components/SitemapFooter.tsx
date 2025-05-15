@@ -45,12 +45,12 @@ export default function SitemapFooter() {
             </ul>
           </div>
           
-          {/* Column 3: Credit Repair */}
+          {/* Column 3: Credit Solutions */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Credit Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/credit-repair/join.html" className="text-neutral-400 hover:text-white transition-colors">Professional Credit Repair</a>
+                <a href="/financial-restoration/index.html" className="text-neutral-400 hover:text-white transition-colors">Professional Credit Restoration</a>
               </li>
               <li>
                 <a href="/diy-credit/start.html" className="text-neutral-400 hover:text-white transition-colors">DIY Credit Repair Bundle</a>
