@@ -820,6 +820,46 @@
           </div>
         </div>
       </div>
+
+      <!-- Email Bundle Signup -->
+      <div class="max-w-3xl mx-auto mt-16 p-8 bg-secondary/5 rounded-xl border border-secondary/20 shadow-lg">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-3">
+            <i class="fas fa-envelope-open-text text-secondary mr-2"></i>
+            Get Notified When Our Bundle is Ready
+          </h3>
+          <p class="text-lg text-neutral-600">
+            Sign up to receive an email when our exclusive Financial Restoration Bundle is available.
+            Be the first to access our premium resources at special pricing.
+          </p>
+        </div>
+        
+        <form id="bundleSignupForm" class="max-w-xl mx-auto">
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex-grow">
+              <input 
+                type="email" 
+                id="bundleEmail" 
+                placeholder="Your email address" 
+                required
+                class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
+              >
+            </div>
+            <button 
+              type="submit"
+              class="bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-lg shadow transition-colors"
+            >
+              <i class="fas fa-bell mr-2"></i>
+              Notify Me
+            </button>
+          </div>
+          <div class="mt-4 text-center text-sm text-neutral-500">
+            <i class="fas fa-shield-alt text-compliant mr-1"></i>
+            We respect your privacy and will never share your information.
+          </div>
+          <div id="bundleSignupMessage" class="mt-4 text-center hidden"></div>
+        </form>
+      </div>
     </div>
   </section>
   
@@ -1211,6 +1251,47 @@
           termsModal.classList.add('active');
         }
       });
+      
+      // Handle Bundle Email Signup
+      const bundleSignupForm = document.getElementById('bundleSignupForm');
+      const bundleEmail = document.getElementById('bundleEmail');
+      const bundleSignupMessage = document.getElementById('bundleSignupMessage');
+      
+      bundleSignupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = bundleEmail.value.trim();
+        if (!email) {
+          showBundleMessage('Please enter your email address.', 'error');
+          return;
+        }
+        
+        // In a real implementation, you would send this to your server
+        // Here we'll simulate a successful signup
+        bundleEmail.value = '';
+        showBundleMessage('Thanks! We\'ll notify you when our bundle is ready.', 'success');
+        
+        // In production, you would add code here to send the email to your server/API
+        console.log('Bundle signup email:', email);
+      });
+      
+      function showBundleMessage(message, type) {
+        bundleSignupMessage.textContent = message;
+        bundleSignupMessage.classList.remove('hidden', 'text-success', 'text-danger');
+        
+        if (type === 'success') {
+          bundleSignupMessage.classList.add('text-success');
+        } else if (type === 'error') {
+          bundleSignupMessage.classList.add('text-danger');
+        }
+        
+        bundleSignupMessage.classList.remove('hidden');
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          bundleSignupMessage.classList.add('hidden');
+        }, 5000);
+      }
       
       // FAQ Accordions (if any)
       const faqButtons = document.querySelectorAll('.faq-button');
