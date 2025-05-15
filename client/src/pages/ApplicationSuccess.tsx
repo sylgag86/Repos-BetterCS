@@ -220,10 +220,10 @@ const ApplicationSuccess = () => {
                     Limited Time: $29 Only
                   </div>
                   <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                    Prefer to DIY? Try Our Self-Guided Credit Repair Bundle
+                    Prefer to DIY? Try Our Self-Guided Credit Improvement Bundle
                   </h3>
                   <p className="text-neutral-600 mb-4">
-                    Get instant access to our complete DIY credit repair toolkit with step-by-step guides, dispute letter templates, and expert strategies to improve your credit score on your own.
+                    Get instant access to our complete DIY credit improvement toolkit with step-by-step guides, dispute letter templates, and expert strategies to improve your credit score on your own.
                   </p>
                   <a
                     href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
