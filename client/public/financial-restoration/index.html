@@ -834,31 +834,28 @@
           </p>
         </div>
         
-        <form id="bundleSignupForm" class="max-w-xl mx-auto">
-          <div class="flex flex-col md:flex-row gap-4">
-            <div class="flex-grow">
-              <input 
-                type="email" 
-                id="bundleEmail" 
-                placeholder="Your email address" 
-                required
-                class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
-              >
-            </div>
-            <button 
-              type="submit"
-              class="bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-lg shadow transition-colors"
-            >
-              <i class="fas fa-bell mr-2"></i>
-              Notify Me
-            </button>
-          </div>
-          <div class="mt-4 text-center text-sm text-neutral-500">
-            <i class="fas fa-shield-alt text-compliant mr-1"></i>
-            We respect your privacy and will never share your information.
-          </div>
-          <div id="bundleSignupMessage" class="mt-4 text-center hidden"></div>
-        </form>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button 
+            id="openWaitlistBtn"
+            class="bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-colors text-lg"
+          >
+            <i class="fas fa-user-plus mr-2"></i>
+            Join Waiting List
+          </button>
+          
+          <button 
+            id="learnMoreBtn"
+            class="bg-white border border-secondary text-secondary hover:bg-secondary/5 font-semibold py-3 px-8 rounded-lg shadow-md transition-colors text-lg"
+          >
+            <i class="fas fa-info-circle mr-2"></i>
+            Learn More
+          </button>
+        </div>
+        
+        <div class="mt-6 text-center text-sm text-neutral-500">
+          <i class="fas fa-shield-alt text-compliant mr-1"></i>
+          Get early access to limited-time offers and exclusive bonuses.
+        </div>
       </div>
     </div>
   </section>
@@ -1021,6 +1018,70 @@
     </div>
   </section>
   
+  <!-- Email Signup Modal -->
+  <div id="waitlistModal" class="modal fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 invisible">
+    <div class="modal-content bg-white rounded-xl max-w-md w-full mx-4">
+      <div class="p-6 border-b border-neutral-200 flex justify-between items-center">
+        <h3 class="text-xl font-bold text-neutral-900">
+          <i class="fas fa-envelope-open text-secondary mr-2"></i>
+          Join Our Waiting List
+        </h3>
+        <button id="closeWaitlistModal" class="text-neutral-500 hover:text-neutral-700">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      
+      <div class="p-6">
+        <div class="bg-secondary/10 p-4 rounded-lg mb-6">
+          <p class="text-neutral-700">
+            Be the first to know when our exclusive Financial Restoration Bundle is available. 
+            Join our waiting list and get early access to special offers.
+          </p>
+        </div>
+        
+        <form id="waitlistForm" class="space-y-4">
+          <div>
+            <label for="waitlistEmail" class="block text-sm font-medium text-neutral-700 mb-1">Email Address</label>
+            <input 
+              type="email" 
+              id="waitlistEmail" 
+              placeholder="Your email address" 
+              required
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
+            >
+          </div>
+          
+          <div>
+            <label for="waitlistName" class="block text-sm font-medium text-neutral-700 mb-1">Full Name (Optional)</label>
+            <input 
+              type="text" 
+              id="waitlistName" 
+              placeholder="Your name" 
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary focus:outline-none"
+            >
+          </div>
+          
+          <div class="pt-2">
+            <button 
+              type="submit"
+              class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-lg shadow transition-colors"
+            >
+              <i class="fas fa-paper-plane mr-2"></i>
+              Join Waiting List
+            </button>
+          </div>
+        </form>
+        
+        <div id="waitlistMessage" class="mt-4 text-center hidden"></div>
+        
+        <div class="mt-4 text-center text-xs text-neutral-500">
+          <i class="fas fa-lock text-neutral-400 mr-1"></i>
+          Your information is secure and will never be shared with third parties.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Terms and Payment Modal -->
   <div id="termsModal" class="modal fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 invisible">
     <div class="modal-content bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto mx-4">
@@ -1154,10 +1215,22 @@
   <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Auto show waitlist modal after 15 seconds if user is not already on the waitlist
+      const alreadyOnWaitlist = localStorage.getItem('onWaitlist') === 'true';
+      const waitlistClosedThisSession = sessionStorage.getItem('waitlistClosed') === 'true';
+      
+      if (!alreadyOnWaitlist && !waitlistClosedThisSession) {
+        setTimeout(() => {
+          openWaitlistModal();
+        }, 15000);
+      }
+      
       // Modal Elements
       const termsModal = document.getElementById('termsModal');
+      const waitlistModal = document.getElementById('waitlistModal');
       const termsModalButton = document.getElementById('termsModalButton');
       const closeModal = document.getElementById('closeModal');
+      const closeWaitlistModal = document.getElementById('closeWaitlistModal');
       const modalCheckbox = document.getElementById('modalCheckbox');
       const agreeToContinue = document.getElementById('agreeToContinue');
       
@@ -1291,6 +1364,92 @@
         setTimeout(() => {
           bundleSignupMessage.classList.add('hidden');
         }, 5000);
+      }
+      
+      // Waitlist Modal Functions
+      function openWaitlistModal() {
+        waitlistModal.classList.add('active');
+      }
+      
+      // Open Waitlist Button Handler
+      const openWaitlistBtn = document.getElementById('openWaitlistBtn');
+      if (openWaitlistBtn) {
+        openWaitlistBtn.addEventListener('click', function() {
+          openWaitlistModal();
+        });
+      }
+      
+      // Learn More Button Handler
+      const learnMoreBtn = document.getElementById('learnMoreBtn');
+      if (learnMoreBtn) {
+        learnMoreBtn.addEventListener('click', function() {
+          // Scroll to the bundles section for more information
+          document.querySelector('.pricing-card').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+      
+      // Waitlist Form Handling
+      const waitlistForm = document.getElementById('waitlistForm');
+      const waitlistEmail = document.getElementById('waitlistEmail');
+      const waitlistName = document.getElementById('waitlistName');
+      const waitlistMessage = document.getElementById('waitlistMessage');
+      
+      // Close waitlist modal
+      closeWaitlistModal.addEventListener('click', function() {
+        waitlistModal.classList.remove('active');
+        // Store in session that user closed the modal
+        sessionStorage.setItem('waitlistClosed', 'true');
+      });
+      
+      // Click outside to close waitlist modal
+      waitlistModal.addEventListener('click', function(event) {
+        if (event.target === waitlistModal) {
+          waitlistModal.classList.remove('active');
+          sessionStorage.setItem('waitlistClosed', 'true');
+        }
+      });
+      
+      // Handle waitlist form submission
+      waitlistForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = waitlistEmail.value.trim();
+        const name = waitlistName.value.trim();
+        
+        if (!email) {
+          showWaitlistMessage('Please enter your email address.', 'error');
+          return;
+        }
+        
+        // In a real implementation, you would send this to your server
+        // Here we'll simulate a successful signup
+        waitlistEmail.value = '';
+        waitlistName.value = '';
+        
+        showWaitlistMessage('Thank you for joining our waiting list!', 'success');
+        
+        // In production, you would add code here to send the data to your server/API
+        console.log('Waitlist signup:', { email, name });
+        
+        // Close modal after 2 seconds
+        setTimeout(() => {
+          waitlistModal.classList.remove('active');
+          // Store that user is on waitlist
+          localStorage.setItem('onWaitlist', 'true');
+        }, 2000);
+      });
+      
+      function showWaitlistMessage(message, type) {
+        waitlistMessage.textContent = message;
+        waitlistMessage.classList.remove('hidden', 'text-success', 'text-danger');
+        
+        if (type === 'success') {
+          waitlistMessage.classList.add('text-success');
+        } else if (type === 'error') {
+          waitlistMessage.classList.add('text-danger');
+        }
+        
+        waitlistMessage.classList.remove('hidden');
       }
       
       // FAQ Accordions (if any)
