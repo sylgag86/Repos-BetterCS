@@ -1345,9 +1345,11 @@
     </div>
   </footer>
 
-  <!-- FAQ Toggle Script -->
+  <!-- FAQ and Calculator JavaScript -->
   <script>
+    // Handle FAQ toggle buttons
     document.addEventListener('DOMContentLoaded', function() {
+      // Setup FAQ toggles
       const faqButtons = document.querySelectorAll('.faq-button');
       
       faqButtons.forEach(button => {
@@ -1365,26 +1367,24 @@
           }
         });
       });
-    });
-  </script>
-  
-  <!-- Alpine.js Loan Calculator Component -->
-  <script>
-    function loanCalculator() {
-      return {
-        // State variables
-        activeTab: 'calculator',
-        chartType: 'pie',
-        showOptionalFields: false,
-        detailedAmortization: false,
-        displayLimit: 12,
-        loanChart: null,
-        comparisonChart: null,
-        amortizationChart: null,
       
-      const monthlyPaymentElement = document.getElementById('monthlyPayment');
-      const totalInterestElement = document.getElementById('totalInterest');
-      const totalPaidElement = document.getElementById('totalPaid');
+      // Setup loan calculator
+      // Get sliders and output elements
+      const loanAmountSlider = document.getElementById('loanAmount');
+      const interestRateSlider = document.getElementById('interestRate');
+      const loanTermSlider = document.getElementById('loanTerm');
+      
+      const loanAmountValue = document.getElementById('loanAmountValue');
+      const interestRateValue = document.getElementById('interestRateValue');
+      const loanTermValue = document.getElementById('loanTermValue');
+      
+      const manualAmount = document.getElementById('manualAmount');
+      const manualRate = document.getElementById('manualRate');
+      const manualTerm = document.getElementById('manualTerm');
+      
+      const monthlyPayment = document.getElementById('monthlyPayment');
+      const totalInterest = document.getElementById('totalInterest');
+      const totalPaid = document.getElementById('totalPaid');
       
       const principalBar = document.getElementById('principalBar');
       const interestBar = document.getElementById('interestBar');
@@ -1397,18 +1397,150 @@
       
       // Format currency
       function formatCurrency(value) {
-        return new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        }).format(value);
+        return '$' + Number(value).toLocaleString('en-US');
       }
       
-      // Format percentage
-      function formatPercent(value) {
-        return (value * 100).toFixed(1) + '%';
+      // Update display values
+      function updateSliderValues() {
+        loanAmountValue.textContent = formatCurrency(loanAmountSlider.value);
+        interestRateValue.textContent = interestRateSlider.value + '%';
+        loanTermValue.textContent = loanTermSlider.value + (loanTermSlider.value == 1 ? ' year' : ' years');
       }
+      
+      // Sync manual inputs with sliders
+      function syncManualInputs() {
+        manualAmount.value = loanAmountSlider.value;
+        manualRate.value = interestRateSlider.value;
+        manualTerm.value = loanTermSlider.value;
+      }
+      
+      // Sync sliders with manual inputs
+      function syncSliders() {
+        loanAmountSlider.value = manualAmount.value;
+        interestRateSlider.value = manualRate.value;
+        loanTermSlider.value = manualTerm.value;
+        updateSliderValues();
+      }
+      
+      // Calculate loan details
+      function calculateLoan() {
+        const principal = parseFloat(loanAmountSlider.value);
+        const annualRate = parseFloat(interestRateSlider.value) / 100;
+        const termYears = parseFloat(loanTermSlider.value);
+        
+        // Calculate monthly payment
+        const monthlyRate = annualRate / 12;
+        const termMonths = termYears * 12;
+        const monthlyPaymentAmount = principal * monthlyRate * Math.pow(1 + monthlyRate, termMonths) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+        
+        if (isFinite(monthlyPaymentAmount)) {
+          // Update payment results
+          const totalPaymentAmount = monthlyPaymentAmount * termMonths;
+          const totalInterestAmount = totalPaymentAmount - principal;
+          
+          monthlyPayment.textContent = formatCurrency(monthlyPaymentAmount.toFixed(2));
+          totalInterest.textContent = formatCurrency(totalInterestAmount.toFixed(2));
+          totalPaid.textContent = formatCurrency(totalPaymentAmount.toFixed(2));
+          
+          // Update chart visualization
+          const principalPercVal = ((principal / totalPaymentAmount) * 100).toFixed(1);
+          const interestPercVal = ((totalInterestAmount / totalPaymentAmount) * 100).toFixed(1);
+          
+          principalBar.style.height = principalPercVal + '%';
+          interestBar.style.height = interestPercVal + '%';
+          
+          principalAmount.textContent = formatCurrency(principal);
+          interestAmount.textContent = formatCurrency(totalInterestAmount.toFixed(2));
+          principalPercent.textContent = principalPercVal + '%';
+          interestPercent.textContent = interestPercVal + '%';
+          
+          // Generate amortization table
+          generateAmortizationTable(principal, annualRate, termYears);
+        }
+      }
+      
+      // Generate amortization table
+      function generateAmortizationTable(principal, annualRate, termYears) {
+        amortizationTable.innerHTML = '';
+        
+        const monthlyRate = annualRate / 12;
+        const totalMonths = termYears * 12;
+        const monthlyPaymentAmount = principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        
+        let balance = principal;
+        let yearlyPrincipalPaid = 0;
+        let yearlyInterestPaid = 0;
+        
+        for (let year = 1; year <= termYears; year++) {
+          yearlyPrincipalPaid = 0;
+          yearlyInterestPaid = 0;
+          
+          for (let month = 1; month <= 12; month++) {
+            if ((year - 1) * 12 + month <= totalMonths) {
+              const interestPayment = balance * monthlyRate;
+              const principalPayment = monthlyPaymentAmount - interestPayment;
+              
+              yearlyPrincipalPaid += principalPayment;
+              yearlyInterestPaid += interestPayment;
+              
+              balance = Math.max(0, balance - principalPayment);
+            }
+          }
+          
+          // Create table row
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td class="px-3 py-2 whitespace-nowrap text-sm text-neutral-900">${year}</td>
+            <td class="px-3 py-2 whitespace-nowrap text-sm text-neutral-700">${formatCurrency(yearlyPrincipalPaid.toFixed(2))}</td>
+            <td class="px-3 py-2 whitespace-nowrap text-sm text-neutral-700">${formatCurrency(yearlyInterestPaid.toFixed(2))}</td>
+            <td class="px-3 py-2 whitespace-nowrap text-sm text-neutral-700">${formatCurrency(balance.toFixed(2))}</td>
+          `;
+          
+          amortizationTable.appendChild(row);
+        }
+      }
+      
+      // Add event listeners
+      loanAmountSlider.addEventListener('input', function() {
+        updateSliderValues();
+        syncManualInputs();
+        calculateLoan();
+      });
+      
+      interestRateSlider.addEventListener('input', function() {
+        updateSliderValues();
+        syncManualInputs();
+        calculateLoan();
+      });
+      
+      loanTermSlider.addEventListener('input', function() {
+        updateSliderValues();
+        syncManualInputs();
+        calculateLoan();
+      });
+      
+      manualAmount.addEventListener('input', function() {
+        syncSliders();
+        calculateLoan();
+      });
+      
+      manualRate.addEventListener('input', function() {
+        syncSliders();
+        calculateLoan();
+      });
+      
+      manualTerm.addEventListener('input', function() {
+        syncSliders();
+        calculateLoan();
+      });
+      
+      document.getElementById('calculateBtn').addEventListener('click', calculateLoan);
+      
+      // Initialize calculator
+      updateSliderValues();
+      calculateLoan();
+    });
+  </script>
       
       // Update sliders
       loanAmountSlider.addEventListener('input', function() {
