@@ -219,210 +219,668 @@
     </div>
   </header>
 
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
   <main>
     <!-- Page Header -->
     <section class="bg-primary py-16 md:py-24">
       <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Loan Calculator</h1>
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Advanced Loan Calculator</h1>
         <p class="text-lg md:text-xl font-medium text-white/90 max-w-2xl mx-auto">
-          Estimate your monthly payments, total interest, and full loan cost
+          Estimate payments, compare loans, and understand the full cost of borrowing
         </p>
       </div>
     </section>
 
     <!-- Calculator Section -->
     <section class="py-16">
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4" x-data="loanCalculator()">
         <div class="max-w-6xl mx-auto">
-          <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <!-- Input Column -->
-              <div class="lg:col-span-5 space-y-6">
-                <h2 class="text-2xl font-heading font-semibold text-neutral-900 mb-6">Loan Details</h2>
-                
-                <!-- Loan Amount -->
-                <div class="space-y-2">
-                  <div class="flex justify-between">
-                    <label for="loanAmount" class="block text-sm font-medium text-neutral-700">Loan Amount</label>
-                    <span class="text-sm font-medium text-primary" id="loanAmountValue">$50,000</span>
-                  </div>
-                  <input
-                    type="range"
-                    id="loanAmount"
-                    min="1000"
-                    max="1000000"
-                    step="1000"
-                    value="50000"
-                    class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
-                  >
-                  <div class="flex justify-between text-xs text-neutral-500">
-                    <span>$1,000</span>
-                    <span>$1,000,000</span>
-                  </div>
-                </div>
-                
-                <!-- Interest Rate -->
-                <div class="space-y-2">
-                  <div class="flex justify-between">
-                    <label for="interestRate" class="block text-sm font-medium text-neutral-700">Interest Rate (%)</label>
-                    <span class="text-sm font-medium text-primary" id="interestRateValue">7.5%</span>
-                  </div>
-                  <input
-                    type="range"
-                    id="interestRate"
-                    min="0.1"
-                    max="30"
-                    step="0.1"
-                    value="7.5"
-                    class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
-                  >
-                  <div class="flex justify-between text-xs text-neutral-500">
-                    <span>0.1%</span>
-                    <span>30%</span>
-                  </div>
-                </div>
-                
-                <!-- Loan Term -->
-                <div class="space-y-2">
-                  <div class="flex justify-between">
-                    <label for="loanTerm" class="block text-sm font-medium text-neutral-700">Loan Term (Years)</label>
-                    <span class="text-sm font-medium text-primary" id="loanTermValue">5 years</span>
-                  </div>
-                  <input
-                    type="range"
-                    id="loanTerm"
-                    min="1"
-                    max="30"
-                    step="1"
-                    value="5"
-                    class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
-                  >
-                  <div class="flex justify-between text-xs text-neutral-500">
-                    <span>1 year</span>
-                    <span>30 years</span>
-                  </div>
-                </div>
-                
-                <!-- Manual Input -->
-                <div class="pt-4">
-                  <h3 class="text-sm font-medium text-neutral-700 mb-3">Or enter values manually:</h3>
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <label for="manualAmount" class="block text-xs text-neutral-500 mb-1">Loan Amount ($)</label>
-                      <input
-                        type="number"
-                        id="manualAmount"
-                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                        value="50000"
-                        min="1000"
-                        max="1000000"
-                      >
+          <!-- Tabs Navigation -->
+          <div class="mb-8 flex flex-wrap justify-center gap-4">
+            <button 
+              class="loan-tab px-5 py-3 rounded-lg border-2 border-neutral-200 font-medium text-center transition-colors"
+              :class="{'active': activeTab === 'calculator'}"
+              @click="setActiveTab('calculator')"
+            >
+              <i class="fas fa-calculator mr-2"></i>
+              Loan Calculator
+            </button>
+            <button 
+              class="loan-tab px-5 py-3 rounded-lg border-2 border-neutral-200 font-medium text-center transition-colors"
+              :class="{'active': activeTab === 'comparison'}"
+              @click="setActiveTab('comparison')"
+            >
+              <i class="fas fa-balance-scale mr-2"></i>
+              Loan Comparison
+            </button>
+            <button 
+              class="loan-tab px-5 py-3 rounded-lg border-2 border-neutral-200 font-medium text-center transition-colors"
+              :class="{'active': activeTab === 'amortization'}"
+              @click="setActiveTab('amortization')"
+            >
+              <i class="fas fa-table mr-2"></i>
+              Amortization Schedule
+            </button>
+          </div>
+
+          <!-- Single Loan Calculator Tab -->
+          <div class="tab-content" :class="{'active': activeTab === 'calculator'}" id="calculator-tab">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Input Column -->
+                <div class="lg:col-span-5 space-y-6">
+                  <h2 class="text-2xl font-heading font-semibold text-neutral-900 mb-6">Loan Details</h2>
+                  
+                  <!-- Loan Amount -->
+                  <div class="space-y-2">
+                    <div class="flex justify-between">
+                      <label for="loanAmount" class="block text-sm font-medium text-neutral-700">Loan Amount</label>
+                      <span class="text-sm font-medium text-primary" id="loanAmountValue">$50,000</span>
                     </div>
-                    <div>
-                      <label for="manualRate" class="block text-xs text-neutral-500 mb-1">Interest Rate (%)</label>
-                      <input
-                        type="number"
-                        id="manualRate"
-                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                        value="7.5"
-                        min="0.1"
-                        max="30"
-                        step="0.1"
-                      >
-                    </div>
-                    <div>
-                      <label for="manualTerm" class="block text-xs text-neutral-500 mb-1">Term (Years)</label>
-                      <input
-                        type="number"
-                        id="manualTerm"
-                        class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                        value="5"
-                        min="1"
-                        max="30"
-                      >
+                    <input
+                      type="range"
+                      id="loanAmount"
+                      min="1000"
+                      max="1000000"
+                      step="1000"
+                      value="50000"
+                      class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                      x-model="loan.amount"
+                      @input="updateCalculations"
+                    >
+                    <div class="flex justify-between text-xs text-neutral-500">
+                      <span>$1,000</span>
+                      <span>$1,000,000</span>
                     </div>
                   </div>
+                  
+                  <!-- Interest Rate -->
+                  <div class="space-y-2">
+                    <div class="flex justify-between">
+                      <label for="interestRate" class="block text-sm font-medium text-neutral-700">Interest Rate (%)</label>
+                      <span class="text-sm font-medium text-primary" id="interestRateValue">7.5%</span>
+                    </div>
+                    <input
+                      type="range"
+                      id="interestRate"
+                      min="0.1"
+                      max="30"
+                      step="0.1"
+                      value="7.5"
+                      class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                      x-model="loan.rate"
+                      @input="updateCalculations"
+                    >
+                    <div class="flex justify-between text-xs text-neutral-500">
+                      <span>0.1%</span>
+                      <span>30%</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Loan Term -->
+                  <div class="space-y-2">
+                    <div class="flex justify-between">
+                      <label for="loanTerm" class="block text-sm font-medium text-neutral-700">Loan Term (Years)</label>
+                      <span class="text-sm font-medium text-primary" id="loanTermValue">5 years</span>
+                    </div>
+                    <input
+                      type="range"
+                      id="loanTerm"
+                      min="1"
+                      max="30"
+                      step="1"
+                      value="5"
+                      class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                      x-model="loan.term"
+                      @input="updateCalculations"
+                    >
+                    <div class="flex justify-between text-xs text-neutral-500">
+                      <span>1 year</span>
+                      <span>30 years</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Payment Frequency -->
+                  <div class="pt-4">
+                    <label class="block text-sm font-medium text-neutral-700 mb-2">Payment Frequency</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                      <button 
+                        type="button" 
+                        class="flex-1 px-3 py-2 text-sm font-medium rounded-md border"
+                        :class="loan.frequency === 'monthly' ? 'bg-primary text-white border-primary' : 'bg-white text-neutral-700 border-neutral-300 hover:bg-neutral-50'"
+                        @click="setFrequency('monthly')"
+                      >
+                        Monthly
+                      </button>
+                      <button 
+                        type="button" 
+                        class="flex-1 px-3 py-2 text-sm font-medium rounded-md border"
+                        :class="loan.frequency === 'biweekly' ? 'bg-primary text-white border-primary' : 'bg-white text-neutral-700 border-neutral-300 hover:bg-neutral-50'"
+                        @click="setFrequency('biweekly')"
+                      >
+                        Bi-Weekly
+                      </button>
+                      <button 
+                        type="button" 
+                        class="flex-1 px-3 py-2 text-sm font-medium rounded-md border"
+                        :class="loan.frequency === 'weekly' ? 'bg-primary text-white border-primary' : 'bg-white text-neutral-700 border-neutral-300 hover:bg-neutral-50'"
+                        @click="setFrequency('weekly')"
+                      >
+                        Weekly
+                      </button>
+                      <button 
+                        type="button" 
+                        class="flex-1 px-3 py-2 text-sm font-medium rounded-md border"
+                        :class="loan.frequency === 'accelerated' ? 'bg-primary text-white border-primary' : 'bg-white text-neutral-700 border-neutral-300 hover:bg-neutral-50'"
+                        @click="setFrequency('accelerated')"
+                      >
+                        Accelerated
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <!-- Optional Fields Toggle -->
+                  <div class="pt-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <label class="block text-sm font-medium text-neutral-700">Optional Fields</label>
+                      <button 
+                        type="button" 
+                        class="text-sm text-primary hover:text-primary/80 focus:outline-none"
+                        @click="toggleOptionalFields"
+                      >
+                        <span x-text="showOptionalFields ? 'Hide' : 'Show'"></span>
+                        <i class="fas fa-chevron-down ml-1" :class="{'transform rotate-180': showOptionalFields}"></i>
+                      </button>
+                    </div>
+                    
+                    <!-- Optional Fields -->
+                    <div class="space-y-4 overflow-hidden transition-all duration-300" x-show="showOptionalFields" x-transition>
+                      <!-- Down Payment -->
+                      <div class="space-y-2">
+                        <div class="flex justify-between">
+                          <label for="downPayment" class="block text-sm text-neutral-700">
+                            Down Payment
+                            <span class="tooltip">
+                              <i class="fas fa-info-circle text-primary text-xs ml-1"></i>
+                              <span class="tooltiptext">Initial payment that reduces your loan amount</span>
+                            </span>
+                          </label>
+                          <span class="text-sm text-primary" x-text="formatCurrency(loan.downPayment)"></span>
+                        </div>
+                        <input
+                          type="range"
+                          id="downPayment"
+                          min="0"
+                          :max="loan.originalAmount * 0.5"
+                          :step="Math.max(1, Math.floor(loan.originalAmount * 0.01))"
+                          class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                          x-model="loan.downPayment"
+                          @input="updateCalculations"
+                        >
+                        <div class="flex justify-between text-xs text-neutral-500">
+                          <span>$0</span>
+                          <span x-text="formatCurrency(loan.originalAmount * 0.5)"></span>
+                        </div>
+                      </div>
+                      
+                      <!-- Fees -->
+                      <div class="space-y-2">
+                        <div class="flex justify-between">
+                          <label for="fees" class="block text-sm text-neutral-700">
+                            Loan Fees
+                            <span class="tooltip">
+                              <i class="fas fa-info-circle text-primary text-xs ml-1"></i>
+                              <span class="tooltiptext">Processing fees, origination fees, etc.</span>
+                            </span>
+                          </label>
+                          <span class="text-sm text-primary" x-text="formatCurrency(loan.fees)"></span>
+                        </div>
+                        <input
+                          type="range"
+                          id="fees"
+                          min="0"
+                          :max="Math.max(10000, Math.floor(loan.originalAmount * 0.1))"
+                          :step="50"
+                          class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                          x-model="loan.fees"
+                          @input="updateCalculations"
+                        >
+                        <div class="flex justify-between text-xs text-neutral-500">
+                          <span>$0</span>
+                          <span x-text="formatCurrency(Math.max(10000, Math.floor(loan.originalAmount * 0.1)))"></span>
+                        </div>
+                      </div>
+                      
+                      <!-- Taxes -->
+                      <div class="space-y-2">
+                        <div class="flex justify-between">
+                          <label for="taxes" class="block text-sm text-neutral-700">
+                            Taxes & Insurance (Monthly)
+                            <span class="tooltip">
+                              <i class="fas fa-info-circle text-primary text-xs ml-1"></i>
+                              <span class="tooltiptext">Property taxes & insurance (for mortgage loans)</span>
+                            </span>
+                          </label>
+                          <span class="text-sm text-primary" x-text="formatCurrency(loan.taxes)"></span>
+                        </div>
+                        <input
+                          type="range"
+                          id="taxes"
+                          min="0"
+                          max="2000"
+                          step="10"
+                          class="w-full h-2 bg-primary/20 rounded-lg appearance-none cursor-pointer"
+                          x-model="loan.taxes"
+                          @input="updateCalculations"
+                        >
+                        <div class="flex justify-between text-xs text-neutral-500">
+                          <span>$0</span>
+                          <span>$2,000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Manual Input -->
+                  <div class="pt-4">
+                    <h3 class="text-sm font-medium text-neutral-700 mb-3">Or enter values manually:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div>
+                        <label for="manualAmount" class="block text-xs text-neutral-500 mb-1">Loan Amount ($)</label>
+                        <input
+                          type="number"
+                          id="manualAmount"
+                          class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                          x-model="loan.amount"
+                          min="1000"
+                          max="1000000"
+                          @input="updateCalculations"
+                        >
+                      </div>
+                      <div>
+                        <label for="manualRate" class="block text-xs text-neutral-500 mb-1">Interest Rate (%)</label>
+                        <input
+                          type="number"
+                          id="manualRate"
+                          class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                          x-model="loan.rate"
+                          min="0.1"
+                          max="30"
+                          step="0.1"
+                          @input="updateCalculations"
+                        >
+                      </div>
+                      <div>
+                        <label for="manualTerm" class="block text-xs text-neutral-500 mb-1">Term (Years)</label>
+                        <input
+                          type="number"
+                          id="manualTerm"
+                          class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                          x-model="loan.term"
+                          min="1"
+                          max="30"
+                          @input="updateCalculations"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Action Buttons -->
+                  <div class="pt-6 grid grid-cols-2 gap-4">
+                    <button
+                      @click="saveToCompare"
+                      class="py-3 bg-accent hover:bg-accent/90 text-white font-medium rounded-lg text-center transition-colors"
+                    >
+                      <i class="fas fa-plus-circle mr-1"></i> Add to Compare
+                    </button>
+                    <button
+                      @click="exportResults"
+                      class="py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
+                    >
+                      <i class="fas fa-file-pdf mr-1"></i> Export Results
+                    </button>
+                  </div>
                 </div>
                 
-                <!-- Calculate Button -->
-                <div class="pt-6">
-                  <button
-                    id="calculateBtn"
-                    class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
+                <!-- Results Column -->
+                <div class="lg:col-span-7" id="resultsContainer">
+                  <h2 class="text-2xl font-heading font-semibold text-neutral-900 mb-6">Loan Summary</h2>
+                  
+                  <!-- Results Cards -->
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
+                      <p class="text-sm text-neutral-600 mb-1">
+                        <span x-text="getPaymentFrequencyLabel()"></span> Payment
+                      </p>
+                      <p class="text-2xl font-bold text-primary" x-text="formatCurrency(results.payment)"></p>
+                      <p class="text-xs text-neutral-500 mt-1" x-show="loan.taxes > 0">
+                        <span class="inline-block py-0.5 px-1.5 bg-neutral-100 rounded">+<span x-text="formatCurrency(loan.taxes)"></span> taxes/insurance</span>
+                      </p>
+                    </div>
+                    <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
+                      <p class="text-sm text-neutral-600 mb-1">Total Interest</p>
+                      <p class="text-2xl font-bold text-primary" x-text="formatCurrency(results.totalInterest)"></p>
+                      <p class="text-xs text-neutral-500 mt-1" x-show="loan.fees > 0">
+                        <span class="inline-block py-0.5 px-1.5 bg-neutral-100 rounded">+<span x-text="formatCurrency(loan.fees)"></span> in fees</span>
+                      </p>
+                    </div>
+                    <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
+                      <p class="text-sm text-neutral-600 mb-1">Total Cost</p>
+                      <p class="text-2xl font-bold text-primary" x-text="formatCurrency(results.totalCost)"></p>
+                      <p class="text-xs text-neutral-500 mt-1" x-show="loan.downPayment > 0">
+                        <span class="inline-block py-0.5 px-1.5 bg-neutral-100 rounded">+<span x-text="formatCurrency(loan.downPayment)"></span> down payment</span>
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- Visualization -->
+                  <div class="bg-white border border-neutral-200 rounded-lg p-6">
+                    <div class="flex justify-between items-center mb-4">
+                      <h3 class="text-lg font-medium text-neutral-800">Loan Breakdown</h3>
+                      <div class="flex items-center gap-2">
+                        <button 
+                          class="text-sm py-1 px-3 rounded-full border border-neutral-200 hover:bg-neutral-50 transition-colors"
+                          :class="{'bg-primary/10 border-primary/30 text-primary': chartType === 'pie'}"
+                          @click="setChartType('pie')"
+                        >
+                          <i class="fas fa-chart-pie mr-1"></i> Pie
+                        </button>
+                        <button 
+                          class="text-sm py-1 px-3 rounded-full border border-neutral-200 hover:bg-neutral-50 transition-colors"
+                          :class="{'bg-primary/10 border-primary/30 text-primary': chartType === 'bar'}"
+                          @click="setChartType('bar')"
+                        >
+                          <i class="fas fa-chart-bar mr-1"></i> Bar
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <!-- Chart Container -->
+                    <div class="h-64 w-full">
+                      <canvas id="loanChart"></canvas>
+                    </div>
+                    
+                    <!-- Loan Stats -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 border-t pt-4">
+                      <div>
+                        <p class="text-xs text-neutral-500">Principal Amount</p>
+                        <p class="text-lg font-semibold text-neutral-800" x-text="formatCurrency(loan.amount)"></p>
+                      </div>
+                      <div>
+                        <p class="text-xs text-neutral-500">Interest Rate</p>
+                        <p class="text-lg font-semibold text-neutral-800" x-text="loan.rate + '%'"></p>
+                      </div>
+                      <div>
+                        <p class="text-xs text-neutral-500">Loan Term</p>
+                        <p class="text-lg font-semibold text-neutral-800" x-text="loan.term + (loan.term == 1 ? ' Year' : ' Years')"></p>
+                      </div>
+                      <div>
+                        <p class="text-xs text-neutral-500">Payment Frequency</p>
+                        <p class="text-lg font-semibold text-neutral-800 capitalize" x-text="loan.frequency"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Loan Comparison Tab -->
+          <div class="tab-content" :class="{'active': activeTab === 'comparison'}" id="comparison-tab">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+              <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-heading font-semibold text-neutral-900">Loan Comparison</h2>
+                <div>
+                  <button 
+                    @click="clearComparisonLoans"
+                    class="text-sm py-1 px-3 text-neutral-600 hover:text-neutral-800 hover:bg-neutral-100 rounded transition-colors"
+                    :disabled="comparisonLoans.length === 0"
+                    :class="{'opacity-50 cursor-not-allowed': comparisonLoans.length === 0}"
                   >
-                    Calculate Loan
+                    <i class="fas fa-trash-alt"></i> Clear All
                   </button>
                 </div>
               </div>
               
-              <!-- Results Column -->
-              <div class="lg:col-span-7">
-                <h2 class="text-2xl font-heading font-semibold text-neutral-900 mb-6">Loan Summary</h2>
-                
-                <!-- Results Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                  <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
-                    <p class="text-sm text-neutral-600 mb-1">Monthly Payment</p>
-                    <p class="text-2xl font-bold text-primary" id="monthlyPayment">$993.64</p>
-                  </div>
-                  <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
-                    <p class="text-sm text-neutral-600 mb-1">Total Interest</p>
-                    <p class="text-2xl font-bold text-primary" id="totalInterest">$9,618.54</p>
-                  </div>
-                  <div class="bg-primary/5 rounded-lg p-4 border border-primary/10 result-card">
-                    <p class="text-sm text-neutral-600 mb-1">Total Paid</p>
-                    <p class="text-2xl font-bold text-primary" id="totalPaid">$59,618.54</p>
-                  </div>
+              <!-- Empty State -->
+              <div class="text-center py-12 border-2 border-dashed border-neutral-200 rounded-lg" x-show="comparisonLoans.length === 0">
+                <div class="inline-flex items-center justify-center w-16 h-16 mb-4 bg-primary/10 rounded-full">
+                  <i class="fas fa-balance-scale text-primary text-2xl"></i>
                 </div>
-                
-                <!-- Visualization -->
-                <div class="bg-white border border-neutral-200 rounded-lg p-6">
-                  <h3 class="text-lg font-medium text-neutral-800 mb-4">Loan Breakdown</h3>
-                  
-                  <!-- Chart -->
-                  <div class="flex items-end h-56 mb-4 mt-6 space-x-2">
-                    <div class="h-full flex flex-col justify-between items-center">
-                      <span class="text-xs text-neutral-500">100%</span>
-                      <span class="text-xs text-neutral-500">75%</span>
-                      <span class="text-xs text-neutral-500">50%</span>
-                      <span class="text-xs text-neutral-500">25%</span>
-                      <span class="text-xs text-neutral-500">0%</span>
-                    </div>
-                    <div class="flex-1 flex items-end space-x-6">
-                      <div class="flex-1 flex flex-col items-center">
-                        <div class="w-full bg-primary chart-bar" id="principalBar" style="height: 60%;"></div>
-                        <span class="mt-2 text-sm font-medium">Principal</span>
-                        <span class="text-sm text-neutral-600" id="principalAmount">$50,000</span>
-                        <span class="text-xs text-neutral-500" id="principalPercent">83.9%</span>
-                      </div>
-                      <div class="flex-1 flex flex-col items-center">
-                        <div class="w-full bg-accent chart-bar" id="interestBar" style="height: 12%;"></div>
-                        <span class="mt-2 text-sm font-medium">Interest</span>
-                        <span class="text-sm text-neutral-600" id="interestAmount">$9,618.54</span>
-                        <span class="text-xs text-neutral-500" id="interestPercent">16.1%</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Amortization Toggle -->
-                  <details class="mt-8 border-t pt-4">
-                    <summary class="cursor-pointer font-medium text-primary">View Amortization Schedule</summary>
-                    <div class="mt-4 overflow-auto max-h-96">
-                      <table class="min-w-full divide-y divide-neutral-200">
-                        <thead class="bg-neutral-50">
-                          <tr>
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Year</th>
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Principal Paid</th>
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Interest Paid</th>
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Remaining Balance</th>
-                          </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-neutral-200" id="amortizationTable">
-                          <!-- JS will populate this -->
-                        </tbody>
-                      </table>
-                    </div>
-                  </details>
+                <h3 class="text-lg font-medium text-neutral-800 mb-2">No Loans to Compare</h3>
+                <p class="text-neutral-600 max-w-md mx-auto mb-6">
+                  Add loans to your comparison by clicking "Add to Compare" from the calculator tab
+                </p>
+                <button 
+                  @click="setActiveTab('calculator')"
+                  class="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  <i class="fas fa-calculator mr-1"></i> Go to Calculator
+                </button>
+              </div>
+              
+              <!-- Comparison Table -->
+              <div class="overflow-x-auto" x-show="comparisonLoans.length > 0">
+                <table class="min-w-full divide-y divide-neutral-200">
+                  <thead class="bg-neutral-50">
+                    <tr>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Loan Details</th>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium">
+                          <div class="flex justify-between items-center">
+                            <span x-text="'Loan ' + (index + 1)" class="text-neutral-500 uppercase tracking-wider"></span>
+                            <button @click="removeComparisonLoan(index)" class="text-neutral-400 hover:text-neutral-600">
+                              <i class="fas fa-times"></i>
+                            </button>
+                          </div>
+                        </th>
+                      </template>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-neutral-200">
+                    <!-- Loan Amount -->
+                    <tr>
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Loan Amount</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm text-neutral-700" x-text="formatCurrency(loan.amount)"></td>
+                      </template>
+                    </tr>
+                    
+                    <!-- Interest Rate -->
+                    <tr>
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Interest Rate</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm text-neutral-700" x-text="loan.rate + '%'"></td>
+                      </template>
+                    </tr>
+                    
+                    <!-- Loan Term -->
+                    <tr>
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Loan Term</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm text-neutral-700" x-text="loan.term + (loan.term === 1 ? ' Year' : ' Years')"></td>
+                      </template>
+                    </tr>
+                    
+                    <!-- Down Payment -->
+                    <tr>
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Down Payment</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm text-neutral-700" x-text="formatCurrency(loan.downPayment || 0)"></td>
+                      </template>
+                    </tr>
+                    
+                    <!-- Payment Frequency -->
+                    <tr>
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Payment Frequency</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm text-neutral-700 capitalize" x-text="loan.frequency"></td>
+                      </template>
+                    </tr>
+                    
+                    <!-- Monthly Payment -->
+                    <tr class="bg-neutral-50">
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Payment Amount</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm font-medium text-primary" x-text="formatCurrency(loan.calculatedPayment)"></td>
+                      </template>
+                    </tr>
+                    
+                    <!-- Total Interest -->
+                    <tr>
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Total Interest</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm text-neutral-700" x-text="formatCurrency(loan.calculatedTotalInterest)"></td>
+                      </template>
+                    </tr>
+                    
+                    <!-- Total Cost -->
+                    <tr class="bg-neutral-50">
+                      <td class="px-3 py-3 text-sm font-medium text-neutral-900">Total Cost</td>
+                      <template x-for="(loan, index) in comparisonLoans" :key="index">
+                        <td class="px-3 py-3 text-sm font-medium text-primary" x-text="formatCurrency(loan.calculatedTotalCost)"></td>
+                      </template>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <!-- Comparison Chart -->
+              <div class="mt-8" x-show="comparisonLoans.length > 0">
+                <h3 class="text-lg font-medium text-neutral-800 mb-4">Cost Comparison</h3>
+                <div class="h-80 w-full">
+                  <canvas id="comparisonChart"></canvas>
+                </div>
+              </div>
+              
+              <!-- Share/Export Options -->
+              <div class="mt-8 flex justify-center" x-show="comparisonLoans.length > 0">
+                <div class="flex space-x-4">
+                  <button @click="exportComparison" class="flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    <i class="fas fa-file-pdf mr-2"></i> Export as PDF
+                  </button>
+                  <button @click="shareComparison" class="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i> Share by Email
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amortization Tab -->
+          <div class="tab-content" :class="{'active': activeTab === 'amortization'}" id="amortization-tab">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <h2 class="text-2xl font-heading font-semibold text-neutral-900">Amortization Schedule</h2>
+                <div class="flex items-center gap-2">
+                  <button 
+                    @click="toggleAmortizationDetail"
+                    class="px-4 py-2 bg-primary/10 text-primary rounded hover:bg-primary/20 transition-colors text-sm font-medium"
+                  >
+                    <i class="fas" :class="detailedAmortization ? 'fa-compress-alt' : 'fa-expand-alt'"></i>
+                    <span x-text="detailedAmortization ? ' Simple View' : ' Detailed View'"></span>
+                  </button>
+                  <button 
+                    @click="exportAmortizationSchedule"
+                    class="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors text-sm font-medium"
+                  >
+                    <i class="fas fa-download mr-1"></i> Export
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Schedule Summary -->
+              <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+                <div class="bg-neutral-50 rounded-lg p-4">
+                  <p class="text-sm text-neutral-500 mb-1">Loan Amount</p>
+                  <p class="text-xl font-semibold text-neutral-900" x-text="formatCurrency(loan.amount)"></p>
+                </div>
+                <div class="bg-neutral-50 rounded-lg p-4">
+                  <p class="text-sm text-neutral-500 mb-1">Interest Rate</p>
+                  <p class="text-xl font-semibold text-neutral-900" x-text="loan.rate + '%'"></p>
+                </div>
+                <div class="bg-neutral-50 rounded-lg p-4">
+                  <p class="text-sm text-neutral-500 mb-1">Term</p>
+                  <p class="text-xl font-semibold text-neutral-900" x-text="loan.term + (loan.term == 1 ? ' year' : ' years')"></p>
+                </div>
+                <div class="bg-neutral-50 rounded-lg p-4">
+                  <p class="text-sm text-neutral-500 mb-1">Payment</p>
+                  <p class="text-xl font-semibold text-primary" x-text="formatCurrency(results.payment)"></p>
+                </div>
+              </div>
+              
+              <!-- Interest vs. Principal Chart -->
+              <div class="mb-8">
+                <h3 class="text-lg font-medium text-neutral-800 mb-4">Interest vs. Principal Over Time</h3>
+                <div class="h-60 w-full">
+                  <canvas id="amortizationChart"></canvas>
+                </div>
+              </div>
+              
+              <!-- Amortization Table - Yearly View (default) -->
+              <div x-show="!detailedAmortization" class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-neutral-200" id="yearlyAmortizationTable">
+                  <thead class="bg-neutral-50">
+                    <tr>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Year</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Principal Paid</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Interest Paid</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Total Payment</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Remaining Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-neutral-200">
+                    <template x-for="(row, index) in yearlyAmortization" :key="index">
+                      <tr :class="index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'">
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-900" x-text="row.year"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.principalPaid)"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.interestPaid)"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.totalPayment)"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.balance)"></td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+              
+              <!-- Amortization Table - Monthly View (detailed) -->
+              <div x-show="detailedAmortization" class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-neutral-200" id="monthlyAmortizationTable">
+                  <thead class="bg-neutral-50">
+                    <tr>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Payment #</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Payment Date</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Payment</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Principal</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Interest</th>
+                      <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Remaining Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-neutral-200">
+                    <template x-for="(row, index) in monthlyAmortization" :key="index" x-show="index < displayLimit">
+                      <tr :class="index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'">
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-900" x-text="row.paymentNumber"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="row.date"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.payment)"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.principal)"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.interest)"></td>
+                        <td class="px-3 py-3 whitespace-nowrap text-sm text-neutral-700" x-text="formatCurrency(row.balance)"></td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+                <!-- Load More Button -->
+                <div class="text-center mt-4" x-show="detailedAmortization && displayLimit < monthlyAmortization.length">
+                  <button 
+                    @click="loadMorePayments"
+                    class="px-4 py-2 bg-neutral-100 text-neutral-700 rounded hover:bg-neutral-200 transition-colors text-sm"
+                  >
+                    Load More Payments
+                  </button>
                 </div>
               </div>
             </div>
@@ -431,20 +889,379 @@
       </div>
     </section>
 
-    <!-- Looking for Funding -->
-    <section class="bg-primary/5 py-16">
+    <!-- SEO Content Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto prose prose-lg">
+          <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-6 text-center">Understanding Loan Payments and Financial Terms</h2>
+          
+          <h3 class="font-heading mt-8">How Are Loan Payments Calculated?</h3>
+          <p>
+            Loan payments are calculated using a mathematical formula that accounts for the principal amount, interest rate, and loan term. 
+            The standard formula used for fixed-rate loans is:
+          </p>
+          <div class="bg-neutral-50 p-4 rounded-lg my-4">
+            <p class="font-mono text-center">
+              M = P [ i(1 + i)<sup>n</sup> ] / [ (1 + i)<sup>n</sup> - 1]
+            </p>
+            <p class="text-sm text-neutral-600 mt-2">
+              Where:<br>
+              M = Monthly payment<br>
+              P = Principal loan amount<br>
+              i = Monthly interest rate (annual rate divided by 12)<br>
+              n = Total number of payments (loan term in years × 12)
+            </p>
+          </div>
+          <p>
+            This formula ensures that you pay the same amount each month while gradually reducing your principal balance. In the early years of your loan, 
+            a larger portion of each payment goes toward interest, while in later years, more goes toward reducing the principal.
+          </p>
+          
+          <h3 class="font-heading mt-8">Different Payment Frequencies and Their Impact</h3>
+          <p>
+            While monthly payments are standard, alternative payment schedules can help you save money and pay off your loan faster:
+          </p>
+          <ul>
+            <li><strong>Bi-weekly payments</strong>: Making half your monthly payment every two weeks results in 26 half-payments per year (equivalent to 13 monthly payments), reducing your loan term and total interest.</li>
+            <li><strong>Weekly payments</strong>: Dividing your monthly payment by four and paying weekly can further accelerate your loan payoff, though the additional savings are modest compared to bi-weekly payments.</li>
+            <li><strong>Accelerated payments</strong>: Paying more than the minimum payment directly reduces your principal, lowering the interest charged over the life of the loan.</li>
+          </ul>
+          
+          <h3 class="font-heading mt-8">Comparing Different Loan Types</h3>
+          
+          <h4 class="font-heading mt-4">SBA Loans</h4>
+          <p>
+            Small Business Administration (SBA) loans are government-backed loans designed for small businesses. They typically offer:
+          </p>
+          <ul>
+            <li>Lower down payments and longer repayment terms</li>
+            <li>Competitive interest rates (typically 5-8%)</li>
+            <li>More flexible qualification requirements than traditional business loans</li>
+            <li>Maximum loan amounts up to $5 million for SBA 7(a) loans</li>
+          </ul>
+          <p>SBA loans are ideal for established businesses looking to expand, purchase equipment, or refinance debt.</p>
+          
+          <h4 class="font-heading mt-4">Personal Loans</h4>
+          <p>
+            Personal loans are unsecured loans based primarily on your credit history and income. Key characteristics include:
+          </p>
+          <ul>
+            <li>Fixed interest rates typically ranging from 6% to 36%</li>
+            <li>Shorter terms, usually 2-7 years</li>
+            <li>No collateral requirements</li>
+            <li>Quick approval and funding process</li>
+          </ul>
+          <p>Personal loans work well for debt consolidation, major purchases, or unexpected expenses.</p>
+          
+          <h4 class="font-heading mt-4">Business Loans</h4>
+          <p>
+            Traditional business loans from banks or alternative lenders offer:
+          </p>
+          <ul>
+            <li>Higher loan amounts for qualified businesses</li>
+            <li>Interest rates varying widely based on business credit, time in business, and revenue</li>
+            <li>Terms ranging from 1-25 years depending on loan purpose</li>
+            <li>May require collateral and detailed business documentation</li>
+          </ul>
+          <p>These loans are suited for established businesses with strong financials and clear expansion plans.</p>
+          
+          <h3 class="font-heading mt-8">Key Financial Terms to Understand</h3>
+          <dl class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="bg-neutral-50 p-4 rounded-lg">
+              <dt class="font-semibold">APR (Annual Percentage Rate)</dt>
+              <dd class="text-neutral-700">The yearly cost of a loan including interest and fees, expressed as a percentage. APR provides a more comprehensive view of loan costs than the interest rate alone.</dd>
+            </div>
+            <div class="bg-neutral-50 p-4 rounded-lg">
+              <dt class="font-semibold">Amortization</dt>
+              <dd class="text-neutral-700">The process of paying off a loan through regular payments, where each payment covers both interest and a portion of the principal balance.</dd>
+            </div>
+            <div class="bg-neutral-50 p-4 rounded-lg">
+              <dt class="font-semibold">Principal</dt>
+              <dd class="text-neutral-700">The original loan amount or the remaining balance that you're paying interest on.</dd>
+            </div>
+            <div class="bg-neutral-50 p-4 rounded-lg">
+              <dt class="font-semibold">Loan Term</dt>
+              <dd class="text-neutral-700">The length of time you have to repay the loan in full, typically expressed in months or years.</dd>
+            </div>
+            <div class="bg-neutral-50 p-4 rounded-lg">
+              <dt class="font-semibold">Origination Fee</dt>
+              <dd class="text-neutral-700">A fee charged by the lender to process a new loan application, typically 1-8% of the loan amount.</dd>
+            </div>
+            <div class="bg-neutral-50 p-4 rounded-lg">
+              <dt class="font-semibold">Prepayment Penalty</dt>
+              <dd class="text-neutral-700">A fee some lenders charge if you pay off a loan before the end of the term, compensating them for lost interest income.</dd>
+            </div>
+          </dl>
+          
+          <h3 class="font-heading mt-8">Making Smart Borrowing Decisions</h3>
+          <p>
+            Before taking out any loan, consider these important factors:
+          </p>
+          <ol>
+            <li><strong>Total cost of borrowing</strong>: Look beyond monthly payments to understand the full amount you'll pay over the life of the loan.</li>
+            <li><strong>Impact on cash flow</strong>: Ensure the payment amount fits comfortably within your monthly budget.</li>
+            <li><strong>Loan purpose and ROI</strong>: For business loans, calculate whether the potential return on investment justifies the borrowing cost.</li>
+            <li><strong>Alternative financing options</strong>: Compare different loan types and lenders to find the most favorable terms.</li>
+            <li><strong>Prepayment options</strong>: Check if you can make extra payments without penalties to save on interest.</li>
+          </ol>
+          <p>
+            Using our advanced loan calculator can help you visualize these factors and make more informed borrowing decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section with Schema.org Markup -->
+    <section class="py-16 bg-neutral-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">Frequently Asked Questions</h2>
+          
+          <div itemscope itemtype="https://schema.org/FAQPage" class="space-y-6">
+            <!-- Question 1 -->
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <button class="faq-button w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                <h3 itemprop="name" class="text-lg font-semibold text-neutral-900">How accurate is this loan calculator?</h3>
+                <i class="fas fa-chevron-down text-neutral-400 transition-transform"></i>
+              </button>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="faq-content hidden px-6 py-4 border-t">
+                <div itemprop="text">
+                  <p class="text-neutral-700">
+                    This calculator provides a highly accurate estimate of loan payments, interest costs, and amortization schedules based on the information you provide. It uses standard financial formulas used by banks and lending institutions. 
+                    However, actual loan terms may vary slightly based on factors like the exact day of your first payment, compounding methods, or rounding differences. For official loan terms, always refer to your loan agreement documents.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <button class="faq-button w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                <h3 itemprop="name" class="text-lg font-semibold text-neutral-900">How does changing my payment frequency affect my loan?</h3>
+                <i class="fas fa-chevron-down text-neutral-400 transition-transform"></i>
+              </button>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="faq-content hidden px-6 py-4 border-t">
+                <div itemprop="text">
+                  <p class="text-neutral-700">
+                    Changing your payment frequency can significantly impact your loan in several ways:
+                  </p>
+                  <ul class="list-disc pl-5 mt-2 space-y-1 text-neutral-700">
+                    <li>Bi-weekly payments (26 payments per year) effectively give you 13 monthly payments annually instead of 12, reducing your loan term and total interest paid.</li>
+                    <li>Weekly payments can further accelerate your repayment, though with diminishing returns compared to bi-weekly.</li>
+                    <li>More frequent payments reduce your average daily balance, which means less interest accrues between payments.</li>
+                    <li>Accelerated payment options may better align with your income schedule, making budgeting easier.</li>
+                  </ul>
+                  <p class="text-neutral-700 mt-2">
+                    Our calculator can show you exactly how much time and money you'll save by changing your payment frequency.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <button class="faq-button w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                <h3 itemprop="name" class="text-lg font-semibold text-neutral-900">What's the difference between interest rate and APR?</h3>
+                <i class="fas fa-chevron-down text-neutral-400 transition-transform"></i>
+              </button>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="faq-content hidden px-6 py-4 border-t">
+                <div itemprop="text">
+                  <p class="text-neutral-700">
+                    The interest rate and Annual Percentage Rate (APR) are both important but different measures of loan cost:
+                  </p>
+                  <ul class="list-disc pl-5 mt-2 space-y-1 text-neutral-700">
+                    <li><strong>Interest rate</strong> is the percentage of the loan amount that the lender charges you for borrowing money, excluding any fees or additional costs.</li>
+                    <li><strong>APR</strong> includes both the interest rate and certain fees and costs associated with the loan, giving you a more comprehensive picture of the total cost of borrowing.</li>
+                  </ul>
+                  <p class="text-neutral-700 mt-2">
+                    For example, a loan might have a 7% interest rate but a 7.5% APR when origination fees and other charges are included. When comparing loans, the APR is typically more useful for understanding the true cost.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <button class="faq-button w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                <h3 itemprop="name" class="text-lg font-semibold text-neutral-900">Should I choose a shorter or longer loan term?</h3>
+                <i class="fas fa-chevron-down text-neutral-400 transition-transform"></i>
+              </button>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="faq-content hidden px-6 py-4 border-t">
+                <div itemprop="text">
+                  <p class="text-neutral-700">
+                    Choosing between a shorter or longer loan term involves weighing several factors:
+                  </p>
+                  <p class="font-medium mt-2 text-neutral-800">Shorter loan terms typically offer:</p>
+                  <ul class="list-disc pl-5 mt-1 space-y-1 text-neutral-700">
+                    <li>Lower interest rates</li>
+                    <li>Significantly less total interest paid over the life of the loan</li>
+                    <li>Faster debt freedom and equity building</li>
+                    <li>Higher monthly payments</li>
+                  </ul>
+                  
+                  <p class="font-medium mt-3 text-neutral-800">Longer loan terms typically offer:</p>
+                  <ul class="list-disc pl-5 mt-1 space-y-1 text-neutral-700">
+                    <li>Lower monthly payments</li>
+                    <li>More budget flexibility</li>
+                    <li>Easier qualification (due to lower payment-to-income ratio)</li>
+                    <li>Significantly more total interest paid over the life of the loan</li>
+                  </ul>
+                  <p class="text-neutral-700 mt-2">
+                    The best choice depends on your financial situation, cash flow needs, and long-term goals. Our loan comparison tool can help you visualize the differences and make an informed decision.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <button class="faq-button w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                <h3 itemprop="name" class="text-lg font-semibold text-neutral-900">How can I save money on my loan?</h3>
+                <i class="fas fa-chevron-down text-neutral-400 transition-transform"></i>
+              </button>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="faq-content hidden px-6 py-4 border-t">
+                <div itemprop="text">
+                  <p class="text-neutral-700">
+                    There are several effective strategies to save money on your loan:
+                  </p>
+                  <ul class="list-disc pl-5 mt-2 space-y-1 text-neutral-700">
+                    <li><strong>Make a larger down payment</strong> to reduce the principal amount and total interest.</li>
+                    <li><strong>Choose a shorter loan term</strong> if you can afford the higher monthly payments.</li>
+                    <li><strong>Make bi-weekly or accelerated payments</strong> to reduce the loan term and total interest.</li>
+                    <li><strong>Pay extra toward the principal</strong> whenever possible, even small amounts can make a big difference over time.</li>
+                    <li><strong>Refinance to a lower interest rate</strong> if market rates drop significantly after you take out your loan.</li>
+                    <li><strong>Improve your credit score</strong> before applying to qualify for better interest rates.</li>
+                    <li><strong>Compare multiple lenders</strong> to find the best rates and lowest fees.</li>
+                  </ul>
+                  <p class="text-neutral-700 mt-2">
+                    Our calculator can help you quantify exactly how much each of these strategies could save you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Looking for Funding - CTA Section -->
+    <section class="bg-primary py-16">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-3">Looking for Funding?</h2>
-        <p class="text-lg text-neutral-600 mb-8 max-w-3xl mx-auto">
-          Compare top lenders and find the best rates for your business or personal funding needs.
+        <h2 class="text-3xl font-heading font-bold text-white mb-6">Ready to Find Your Perfect Funding Solution?</h2>
+        <p class="text-xl text-white/80 max-w-3xl mx-auto mb-10">
+          Now that you understand your loan options, take the next step toward securing the right funding for your needs
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/business-funding" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors">
-            Explore Business Loans
-          </a>
-          <a href="/personal-funding" class="px-6 py-3 bg-white border border-primary text-primary hover:bg-primary/5 font-medium rounded-lg text-center transition-colors">
-            Explore Personal Loans
-          </a>
+        
+        <!-- CTA Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <!-- Personal Loans CTA -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-user text-primary text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-neutral-900 mb-2">Personal Funding</h3>
+              <p class="text-neutral-600 mb-6">
+                Access competitive personal loans with rates starting at 5.99% APR and funding as soon as tomorrow.
+              </p>
+              <a 
+                href="/personal-funding" 
+                class="block w-full py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
+                onclick="dataLayer.push({'event': 'cta_click', 'cta_type': 'personal_funding'});"
+              >
+                Apply for Personal Funding
+              </a>
+            </div>
+          </div>
+          
+          <!-- Business Loans CTA -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-briefcase text-primary text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-neutral-900 mb-2">Business Funding</h3>
+              <p class="text-neutral-600 mb-6">
+                Get matched with lenders offering SBA loans, lines of credit, and equipment financing for your business.
+              </p>
+              <a 
+                href="/business-funding" 
+                class="block w-full py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg text-center transition-colors"
+                onclick="dataLayer.push({'event': 'cta_click', 'cta_type': 'business_funding'});"
+              >
+                Explore Business Options
+              </a>
+            </div>
+          </div>
+          
+          <!-- AI Advisor CTA -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-lightbulb text-primary text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-neutral-900 mb-2">Personalized Advice</h3>
+              <p class="text-neutral-600 mb-6">
+                Get AI-powered funding recommendations tailored to your specific financial situation and goals.
+              </p>
+              <a 
+                href="/ai-advisor" 
+                class="block w-full py-3 bg-accent hover:bg-accent/90 text-white font-medium rounded-lg text-center transition-colors"
+                onclick="dataLayer.push({'event': 'cta_click', 'cta_type': 'ai_advisor'});"
+              >
+                Get Personalized Funding
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Top Lenders Quick Access -->
+        <div class="mt-12 pt-12 border-t border-white/20">
+          <h3 class="text-xl font-semibold text-white mb-6">Explore Our Top-Rated Lenders</h3>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a 
+              href="/lenders/fundbox" 
+              class="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+              onclick="dataLayer.push({'event': 'lender_click', 'lender_name': 'fundbox'});"
+            >
+              Fundbox
+            </a>
+            <a 
+              href="/lenders/ondeck" 
+              class="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+              onclick="dataLayer.push({'event': 'lender_click', 'lender_name': 'ondeck'});"
+            >
+              OnDeck
+            </a>
+            <a 
+              href="/lenders/bluevine" 
+              class="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+              onclick="dataLayer.push({'event': 'lender_click', 'lender_name': 'bluevine'});"
+            >
+              BlueVine
+            </a>
+            <a 
+              href="/lenders/lendio" 
+              class="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+              onclick="dataLayer.push({'event': 'lender_click', 'lender_name': 'lendio'});"
+            >
+              Lendio
+            </a>
+            <a 
+              href="/lenders/kabbage" 
+              class="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+              onclick="dataLayer.push({'event': 'lender_click', 'lender_name': 'kabbage'});"
+            >
+              Kabbage
+            </a>
+            <a 
+              href="/betterlist-100" 
+              class="px-5 py-2 bg-accent hover:bg-accent/90 text-white rounded-full transition-colors"
+              onclick="dataLayer.push({'event': 'lender_click', 'lender_name': 'all_lenders'});"
+            >
+              View All Lenders <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
