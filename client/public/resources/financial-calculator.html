@@ -1345,10 +1345,32 @@
     </div>
   </footer>
 
-  <!-- Calculator JavaScript -->
+  <!-- FAQ Toggle Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Elements
+      const faqButtons = document.querySelectorAll('.faq-button');
+      
+      faqButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const content = this.nextElementSibling;
+          const icon = this.querySelector('.fa-chevron-down');
+          
+          // Toggle content visibility
+          if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            icon.classList.add('transform', 'rotate-180');
+          } else {
+            content.classList.add('hidden');
+            icon.classList.remove('transform', 'rotate-180');
+          }
+        });
+      });
+    });
+  </script>
+  
+  <!-- Alpine.js Loan Calculator Component -->
+  <script>
+    // Define Alpine.js Loan Calculator Component
       const loanAmountSlider = document.getElementById('loanAmount');
       const interestRateSlider = document.getElementById('interestRate');
       const loanTermSlider = document.getElementById('loanTerm');
