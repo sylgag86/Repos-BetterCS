@@ -40,6 +40,33 @@
 }
 </script>
 
+<script id="article-schema">
+// This will be populated dynamically based on the article data
+const articleData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": document.querySelector('h1')?.textContent,
+  "datePublished": document.querySelector('meta[property="article:published_time"]')?.content,
+  "author": {
+    "@type": "Person",
+    "name": document.querySelector('meta[property="article:author"]')?.content
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Better Capital Solutions",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/assets/logo.png"
+    }
+  }
+};
+
+const articleSchema = document.createElement('script');
+articleSchema.type = 'application/ld+json';
+articleSchema.text = JSON.stringify(articleData);
+document.head.appendChild(articleSchema);
+</script>
+
   <script>
     tailwind.config = {
       theme: {
