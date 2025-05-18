@@ -16,6 +16,9 @@ router.get('/lender/:id', async (req: Request, res: Response) => {
         error: 'Lender ID is required' 
       });
     }
+
+    // Normalize slug format
+    const normalizedId = lenderId.replace(/-/g, '_');
     
     // Get lender schema from database
     const schemaJson = await storage.getLenderSchema(lenderId);

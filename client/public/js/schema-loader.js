@@ -13,7 +13,7 @@
     const match = path.match(/\/lenders\/([^/]+)\.html/);
     
     if (match && match[1]) {
-      return match[1].replace(/-/g, '_');
+      return match[1].replace(/_/g, '-');
     }
     
     return null;
