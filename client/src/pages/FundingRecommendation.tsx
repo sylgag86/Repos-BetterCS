@@ -88,7 +88,7 @@ const FundingRecommendation = () => {
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
-
+    
     return (
       <div className="flex">
         {[...Array(fullStars)].map((_, i) => (
@@ -108,7 +108,7 @@ const FundingRecommendation = () => {
   const submitForm = async () => {
     try {
       setIsLoading(true);
-
+      
       // Convert string values to numbers where appropriate
       const processedData = {
         ...formData,
@@ -116,7 +116,7 @@ const FundingRecommendation = () => {
         timeInBusiness: formData.timeInBusiness ? parseInt(formData.timeInBusiness) : undefined,
         fundingAmount: formData.fundingAmount ? parseInt(formData.fundingAmount) : undefined,
       };
-
+      
       const response = await fetch('/api/ai/recommendations', {
         method: 'POST',
         headers: {
@@ -124,17 +124,17 @@ const FundingRecommendation = () => {
         },
         body: JSON.stringify(processedData),
       });
-
+      
       if (!response.ok) {
         throw new Error('Failed to get recommendations');
       }
-
+      
       const data = await response.json();
-
+      
       if (!data.success) {
         throw new Error(data.message || 'Failed to get recommendations');
       }
-
+      
       setRecommendations(data.data);
       setShowResults(true);
     } catch (error) {
@@ -152,7 +152,7 @@ const FundingRecommendation = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-
+      
       <main className="flex-grow py-8 sm:py-12 bg-neutral-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -164,7 +164,7 @@ const FundingRecommendation = () => {
                 Answer a few questions about your business and funding needs, and our AI will analyze your situation to provide tailored funding recommendations.
               </p>
             </div>
-
+            
             {!showResults ? (
               <Card className="shadow-lg">
                 <CardHeader className="px-4 sm:px-6">
@@ -187,7 +187,7 @@ const FundingRecommendation = () => {
                     {currentStep === 3 && "Additional context to refine your recommendations."}
                   </CardDescription>
                 </CardHeader>
-
+                
                 <CardContent className="px-4 sm:px-6">
                   {currentStep === 1 && (
                     <div className="space-y-5">
@@ -212,7 +212,7 @@ const FundingRecommendation = () => {
                             </SelectContent>
                           </Select>
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="industry" className="text-sm sm:text-base">Industry</Label>
                           <Select 
@@ -241,7 +241,7 @@ const FundingRecommendation = () => {
                           </Select>
                         </div>
                       </div>
-
+                      
                       <div className="space-y-2 py-2">
                         <Label htmlFor="creditScore" className="text-sm sm:text-base">
                           Approximate Credit Score: <span className="font-semibold">{formData.creditScore}</span>
@@ -261,7 +261,7 @@ const FundingRecommendation = () => {
                           <span>Excellent</span>
                         </div>
                       </div>
-
+                      
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                         <div className="space-y-2">
                           <Label htmlFor="annualRevenue" className="text-sm sm:text-base">Annual Revenue ($)</Label>
@@ -275,7 +275,7 @@ const FundingRecommendation = () => {
                             className="h-10 sm:h-11"
                           />
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="timeInBusiness" className="text-sm sm:text-base">Time in Business (months)</Label>
                           <Input
@@ -291,7 +291,7 @@ const FundingRecommendation = () => {
                       </div>
                     </div>
                   )}
-
+                  
                   {currentStep === 2 && (
                     <div className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -307,7 +307,7 @@ const FundingRecommendation = () => {
                             className="h-10 sm:h-11"
                           />
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="fundingPurpose" className="text-sm sm:text-base">Funding Purpose</Label>
                           <Select 
@@ -337,7 +337,7 @@ const FundingRecommendation = () => {
                           </Select>
                         </div>
                       </div>
-
+                      
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                         <div className="space-y-2">
                           <Label htmlFor="fundingTimeframe" className="text-sm sm:text-base">Funding Timeframe</Label>
@@ -359,7 +359,7 @@ const FundingRecommendation = () => {
                             </SelectContent>
                           </Select>
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="preferredFundingType" className="text-sm sm:text-base">Preferred Funding Type</Label>
                           <Select 
@@ -386,7 +386,7 @@ const FundingRecommendation = () => {
                       </div>
                     </div>
                   )}
-
+                  
                   {currentStep === 3 && (
                     <div className="space-y-5">
                       <div className="space-y-2">
@@ -403,7 +403,7 @@ const FundingRecommendation = () => {
                           className="min-h-[100px]"
                         />
                       </div>
-
+                      
                       <div className="bg-neutral-50 p-3 sm:p-4 rounded-lg border border-neutral-200">
                         <h3 className="font-medium text-neutral-900 mb-3 text-sm sm:text-base">Information Review</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 text-xs sm:text-sm">
@@ -454,7 +454,7 @@ const FundingRecommendation = () => {
                     </div>
                   )}
                 </CardContent>
-
+                
                 <CardFooter className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between px-4 sm:px-6">
                   {currentStep > 1 ? (
                     <Button 
@@ -468,7 +468,7 @@ const FundingRecommendation = () => {
                   ) : (
                     <div className="hidden sm:block"></div> // Empty div for spacing on desktop only
                   )}
-
+                  
                   {currentStep < 3 ? (
                     <Button 
                       onClick={nextStep}
@@ -507,13 +507,13 @@ const FundingRecommendation = () => {
                       Based on your inputs, our AI has identified the following funding options as the best match for your situation.
                     </CardDescription>
                   </CardHeader>
-
+                  
                   <CardContent className="px-4 sm:px-6">
                     <div className="bg-neutral-50 p-3 sm:p-4 rounded-lg border border-neutral-200 mb-5 sm:mb-6">
                       <h3 className="font-medium text-neutral-900 mb-2 text-sm sm:text-base">Expert Advice</h3>
                       <p className="text-neutral-700 text-xs sm:text-sm">{recommendations?.generalAdvice}</p>
                     </div>
-
+                    
                     <div className="space-y-5 sm:space-y-6">
                       {recommendations?.recommendations.map((rec, index) => (
                         <Card key={index} className={`border-l-4 ${index === 0 ? 'border-l-primary' : index === 1 ? 'border-l-accent' : 'border-l-neutral-400'}`}>
@@ -530,13 +530,13 @@ const FundingRecommendation = () => {
                               </div>
                             </div>
                           </CardHeader>
-
+                          
                           <CardContent className="pt-2 px-3 sm:px-4">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
                               <div>
                                 <h4 className="text-xs sm:text-sm font-medium text-neutral-500 mb-2">Why It's a Good Match</h4>
                                 <p className="text-neutral-700 text-xs sm:text-sm mb-4">{rec.reasoning}</p>
-
+                                
                                 <h4 className="text-xs sm:text-sm font-medium text-neutral-500 mb-2">Key Benefits</h4>
                                 <ul className="space-y-1 mb-4">
                                   {rec.keyBenefits.map((benefit, i) => (
@@ -547,7 +547,7 @@ const FundingRecommendation = () => {
                                   ))}
                                 </ul>
                               </div>
-
+                              
                               <div className="bg-neutral-50 p-3 sm:p-4 rounded-lg">
                                 <h4 className="text-xs sm:text-sm font-medium text-neutral-500 mb-2">Lender Details</h4>
                                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-x-3 sm:gap-x-4 gap-y-2 text-xs sm:text-sm mb-3 sm:mb-4">
@@ -571,7 +571,7 @@ const FundingRecommendation = () => {
                                     <div className="font-medium">{rec.lenderDetails.approvalTime}</div>
                                   </div>
                                 </div>
-
+                                
                                 <h4 className="text-xs sm:text-sm font-medium text-neutral-500 mb-2">Features</h4>
                                 <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
                                   {rec.lenderDetails.features.map((feature, i) => (
@@ -580,7 +580,7 @@ const FundingRecommendation = () => {
                                     </span>
                                   ))}
                                 </div>
-
+                                
                                 <div className="flex flex-col sm:flex-row gap-2 mt-3 sm:mt-4">
                                   <a 
                                     href={`/lenders/${rec.lenderDetails.slug}.html`} 
@@ -603,7 +603,7 @@ const FundingRecommendation = () => {
                       ))}
                     </div>
                   </CardContent>
-
+                  
                   <CardFooter className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-6">
                     <Button 
                       variant="outline" 
@@ -624,7 +624,7 @@ const FundingRecommendation = () => {
                     </Link>
                   </CardFooter>
                 </Card>
-
+                
                 <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-neutral-200">
                   <h2 className="text-lg sm:text-xl font-heading font-bold text-neutral-900 mb-3 sm:mb-4">Don't See What You're Looking For?</h2>
                   <p className="text-sm sm:text-base text-neutral-600 mb-4">
@@ -650,7 +650,7 @@ const FundingRecommendation = () => {
           </div>
         </div>
       </main>
-
+      
       <Footer />
     </div>
   );

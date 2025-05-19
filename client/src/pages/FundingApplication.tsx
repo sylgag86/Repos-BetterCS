@@ -22,7 +22,7 @@ interface FormData {
   lastName: string;
   email: string;
   phone: string;
-
+  
   // Business Information
   businessName: string;
   businessType: string;
@@ -31,20 +31,20 @@ interface FormData {
   city: string;
   state: string;
   zipCode: string;
-
+  
   // Funding Details
   fundingAmount: string;
   fundingPurpose: string;
   timeInBusiness: string;
   annualRevenue: string;
   creditScore: string;
-
+  
   // Additional Information
   hasBusinessPlan: boolean;
   hasTaxReturns: boolean;
   hasFinancialStatements: boolean;
   additionalInfo: string;
-
+  
   // Agreement
   agreeToTerms: boolean;
 }
@@ -114,74 +114,74 @@ const FundingApplication = () => {
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [completedItems, setCompletedItems] = useState<string[]>([]);
-
+  
   // Track completed form fields
   useEffect(() => {
     const newCompletedItems: string[] = [];
-
+    
     // Check personal information
     if (formData.firstName && formData.lastName && formData.email && formData.phone) {
       newCompletedItems.push('Personal Information');
     }
-
+    
     // Check business information
     if (formData.businessName && formData.businessType && formData.address) {
       newCompletedItems.push('Business Information');
     }
-
+    
     // Check funding details
     if (formData.fundingAmount && formData.fundingPurpose) {
       newCompletedItems.push('Funding Details');
     }
-
+    
     // Check document requirements
     const documentCount = [
       formData.hasBusinessPlan,
       formData.hasTaxReturns,
       formData.hasFinancialStatements
     ].filter(Boolean).length;
-
+    
     if (documentCount > 0) {
       newCompletedItems.push(`${documentCount}/3 Documents Ready`);
     }
-
+    
     setCompletedItems(newCompletedItems);
   }, [formData]);
-
+  
   // Handle input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
+  
   // Handle checkbox changes
   const handleCheckboxChange = (name: string, checked: boolean) => {
     setFormData(prev => ({ ...prev, [name]: checked }));
   };
-
+  
   // Handle select changes
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
+  
   // Mark a step as completed
   const completeStep = (step: number) => {
     if (!completedSteps.includes(step)) {
       setCompletedSteps(prev => [...prev, step]);
     }
   };
-
+  
   // Navigate to next step
   const nextStep = () => {
     completeStep(currentStep);
     setCurrentStep(prev => Math.min(prev + 1, applicationSteps.length));
   };
-
+  
   // Go back to previous step
   const prevStep = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
-
+  
   // Check if current step can proceed
   const canProceed = () => {
     switch (currentStep) {
@@ -199,7 +199,7 @@ const FundingApplication = () => {
         return false;
     }
   };
-
+  
   // Submit the application
   const submitApplication = () => {
     if (!formData.agreeToTerms) {
@@ -210,31 +210,24 @@ const FundingApplication = () => {
       });
       return;
     }
-
+    
     setIsSubmitting(true);
-
-    // Sanitize and validate data before sending
-    const sanitizedData = {
-      ...formData,
-      email: formData.email?.toLowerCase().trim(),
-      phone: formData.phone?.replace(/\D/g, '')
-    };
-
+    
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
-
+      
       toast({
         title: "Application Submitted!",
         description: "Your funding application has been successfully submitted. We'll be in touch soon!",
         variant: "default"
       });
-
+      
       // Redirect to success page with CRO signup link
       setLocation("/application-success");
     }, 2000);
   };
-
+  
   // Jump to a specific step
   const goToStep = (step: number) => {
     // Only allow jumping to completed steps or the current step + 1
@@ -242,11 +235,11 @@ const FundingApplication = () => {
       setCurrentStep(step);
     }
   };
-
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-
+      
       <main className="flex-grow py-8 sm:py-12 bg-neutral-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
@@ -258,7 +251,7 @@ const FundingApplication = () => {
                 Complete your application to get matched with the perfect funding solution for your business.
               </p>
             </div>
-
+            
             {/* Gamified Progress Tracker */}
             <div className="mb-8">
               <GamifiedProgressTracker 
@@ -267,7 +260,7 @@ const FundingApplication = () => {
                 completedItems={completedItems}
               />
             </div>
-
+            
             {/* Step Navigation Tabs */}
             <div className="hidden md:flex mb-6 border-b">
               {applicationSteps.map((step, index) => (
@@ -296,7 +289,7 @@ const FundingApplication = () => {
                 </button>
               ))}
             </div>
-
+            
             {/* Mobile Steps */}
             <div className="md:hidden mb-4">
               <div className="bg-white shadow-sm rounded-lg p-3">
@@ -316,7 +309,7 @@ const FundingApplication = () => {
                 </div>
               </div>
             </div>
-
+            
             {/* Application Form */}
             <Card className="shadow-md">
               <CardContent className="p-0">
@@ -327,7 +320,7 @@ const FundingApplication = () => {
                       <UserPlus className="h-5 w-5 mr-2" />
                       <h2 className="text-xl font-semibold">Personal Information</h2>
                     </div>
-
+                    
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">First Name</Label>
@@ -340,7 +333,7 @@ const FundingApplication = () => {
                           required
                         />
                       </div>
-
+                      
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Last Name</Label>
                         <Input
@@ -352,7 +345,7 @@ const FundingApplication = () => {
                           required
                         />
                       </div>
-
+                      
                       <div className="space-y-2">
                         <Label htmlFor="email">Email Address</Label>
                         <Input
@@ -365,7 +358,7 @@ const FundingApplication = () => {
                           required
                         />
                       </div>
-
+                      
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone Number</Label>
                         <Input
@@ -380,7 +373,7 @@ const FundingApplication = () => {
                     </div>
                   </div>
                 )}
-
+                
                 {/* Step 2: Business Information */}
                 {currentStep === 2 && (
                   <div className="p-6 space-y-6">
@@ -388,7 +381,7 @@ const FundingApplication = () => {
                       <Building className="h-5 w-5 mr-2" />
                       <h2 className="text-xl font-semibold">Business Information</h2>
                     </div>
-
+                    
                     <div className="grid grid-cols-1 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="businessName">Business Name</Label>
@@ -401,7 +394,7 @@ const FundingApplication = () => {
                           required
                         />
                       </div>
-
+                      
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="businessType">Business Type</Label>
@@ -422,7 +415,7 @@ const FundingApplication = () => {
                             </SelectContent>
                           </Select>
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="ein">EIN (Optional)</Label>
                           <Input
@@ -434,7 +427,7 @@ const FundingApplication = () => {
                           />
                         </div>
                       </div>
-
+                      
                       <div className="space-y-2">
                         <Label htmlFor="address">Business Address</Label>
                         <Input
@@ -446,7 +439,7 @@ const FundingApplication = () => {
                           required
                         />
                       </div>
-
+                      
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="city">City</Label>
@@ -459,7 +452,7 @@ const FundingApplication = () => {
                             required
                           />
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="state">State</Label>
                           <Input
@@ -471,7 +464,7 @@ const FundingApplication = () => {
                             required
                           />
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="zipCode">ZIP Code</Label>
                           <Input
@@ -487,7 +480,7 @@ const FundingApplication = () => {
                     </div>
                   </div>
                 )}
-
+                
                 {/* Step 3: Funding Details */}
                 {currentStep === 3 && (
                   <div className="p-6 space-y-6">
@@ -495,7 +488,7 @@ const FundingApplication = () => {
                       <DollarSign className="h-5 w-5 mr-2" />
                       <h2 className="text-xl font-semibold">Funding Details</h2>
                     </div>
-
+                    
                     <div className="grid grid-cols-1 gap-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
@@ -509,7 +502,7 @@ const FundingApplication = () => {
                             required
                           />
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="fundingPurpose">Funding Purpose</Label>
                           <Select
@@ -533,7 +526,7 @@ const FundingApplication = () => {
                           </Select>
                         </div>
                       </div>
-
+                      
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="timeInBusiness">Time in Business</Label>
@@ -554,7 +547,7 @@ const FundingApplication = () => {
                             </SelectContent>
                           </Select>
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="annualRevenue">Annual Revenue</Label>
                           <Select
@@ -574,7 +567,7 @@ const FundingApplication = () => {
                             </SelectContent>
                           </Select>
                         </div>
-
+                        
                         <div className="space-y-2">
                           <Label htmlFor="creditScore">Credit Score</Label>
                           <Select
@@ -598,7 +591,7 @@ const FundingApplication = () => {
                     </div>
                   </div>
                 )}
-
+                
                 {/* Step 4: Documentation */}
                 {currentStep === 4 && (
                   <div className="p-6 space-y-6">
@@ -606,11 +599,11 @@ const FundingApplication = () => {
                       <FileText className="h-5 w-5 mr-2" />
                       <h2 className="text-xl font-semibold">Documentation</h2>
                     </div>
-
+                    
                     <p className="text-neutral-600 mb-4">
                       Having these documents ready will speed up your application. You'll be able to upload them after submission.
                     </p>
-
+                    
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3 p-4 bg-neutral-50 rounded-lg">
                         <Checkbox 
@@ -630,7 +623,7 @@ const FundingApplication = () => {
                           </p>
                         </div>
                       </div>
-
+                      
                       <div className="flex items-start space-x-3 p-4 bg-neutral-50 rounded-lg">
                         <Checkbox 
                           id="hasTaxReturns" 
@@ -649,7 +642,7 @@ const FundingApplication = () => {
                           </p>
                         </div>
                       </div>
-
+                      
                       <div className="flex items-start space-x-3 p-4 bg-neutral-50 rounded-lg">
                         <Checkbox 
                           id="hasFinancialStatements" 
@@ -669,7 +662,7 @@ const FundingApplication = () => {
                         </div>
                       </div>
                     </div>
-
+                    
                     <div className="mt-6">
                       <Label htmlFor="additionalInfo">Additional Information (Optional)</Label>
                       <Textarea
@@ -683,7 +676,7 @@ const FundingApplication = () => {
                     </div>
                   </div>
                 )}
-
+                
                 {/* Step 5: Review & Submit */}
                 {currentStep === 5 && (
                   <div className="p-6 space-y-6">
@@ -691,7 +684,7 @@ const FundingApplication = () => {
                       <CheckSquare className="h-5 w-5 mr-2" />
                       <h2 className="text-xl font-semibold">Review & Submit</h2>
                     </div>
-
+                    
                     <div className="space-y-6">
                       <div className="space-y-4">
                         <h3 className="text-lg font-medium">Personal Information</h3>
@@ -710,9 +703,9 @@ const FundingApplication = () => {
                           </div>
                         </div>
                       </div>
-
+                      
                       <Separator />
-
+                      
                       <div className="space-y-4">
                         <h3 className="text-lg font-medium">Business Information</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
@@ -734,9 +727,9 @@ const FundingApplication = () => {
                           </div>
                         </div>
                       </div>
-
+                      
                       <Separator />
-
+                      
                       <div className="space-y-4">
                         <h3 className="text-lg font-medium">Funding Details</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
@@ -762,9 +755,9 @@ const FundingApplication = () => {
                           </div>
                         </div>
                       </div>
-
+                      
                       <Separator />
-
+                      
                       <div className="space-y-4">
                         <h3 className="text-lg font-medium">Documentation</h3>
                         <div className="grid grid-cols-1 gap-y-2 text-sm">
@@ -788,7 +781,7 @@ const FundingApplication = () => {
                           </div>
                         </div>
                       </div>
-
+                      
                       {formData.additionalInfo && (
                         <>
                           <Separator />
@@ -798,7 +791,7 @@ const FundingApplication = () => {
                           </div>
                         </>
                       )}
-
+                      
                       <div className="p-4 bg-neutral-50 border border-neutral-200 rounded-lg">
                         <div className="flex items-start space-x-3">
                           <Checkbox 
@@ -823,7 +816,7 @@ const FundingApplication = () => {
                   </div>
                 )}
               </CardContent>
-
+              
               <CardFooter className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between p-6 border-t">
                 {currentStep > 1 ? (
                   <Button 
@@ -836,7 +829,7 @@ const FundingApplication = () => {
                 ) : (
                   <div className="hidden sm:block"></div> // Empty div for spacing on desktop only
                 )}
-
+                
                 {currentStep < applicationSteps.length ? (
                   <Button 
                     onClick={nextStep}
@@ -856,13 +849,13 @@ const FundingApplication = () => {
                 )}
               </CardFooter>
             </Card>
-
+            
             {/* Rewards Display */}
             {(currentStep > 1 || completedSteps.length > 0) && (
               <div className="mt-10">
                 <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md border border-neutral-200">
                   <h3 className="text-lg font-medium mb-4">Your Application Progress Rewards</h3>
-
+                  
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className={`p-4 rounded-lg text-center ${completedSteps.includes(1) ? 'bg-green-50 border border-green-100' : 'bg-neutral-50 border border-neutral-200'}`}>
                       <div className="mb-2 flex justify-center">
@@ -875,7 +868,7 @@ const FundingApplication = () => {
                         {completedSteps.includes(1) ? 'Completed!' : 'Not completed'}
                       </div>
                     </div>
-
+                    
                     <div className={`p-4 rounded-lg text-center ${completedSteps.includes(2) ? 'bg-green-50 border border-green-100' : 'bg-neutral-50 border border-neutral-200'}`}>
                       <div className="mb-2 flex justify-center">
                         <div className={`h-12 w-12 rounded-full flex items-center justify-center ${completedSteps.includes(2) ? 'bg-success text-white' : 'bg-neutral-200 text-neutral-400'}`}>
@@ -887,7 +880,7 @@ const FundingApplication = () => {
                         {completedSteps.includes(2) ? 'Completed!' : 'Not completed'}
                       </div>
                     </div>
-
+                    
                     <div className={`p-4 rounded-lg text-center ${completedSteps.includes(3) ? 'bg-green-50 border border-green-100' : 'bg-neutral-50 border border-neutral-200'}`}>
                       <div className="mb-2 flex justify-center">
                         <div className={`h-12 w-12 rounded-full flex items-center justify-center ${completedSteps.includes(3) ? 'bg-success text-white' : 'bg-neutral-200 text-neutral-400'}`}>
@@ -899,7 +892,7 @@ const FundingApplication = () => {
                         {completedSteps.includes(3) ? 'Completed!' : 'Not completed'}
                       </div>
                     </div>
-
+                    
                     <div className={`p-4 rounded-lg text-center ${completedSteps.includes(4) ? 'bg-green-50 border border-green-100' : 'bg-neutral-50 border border-neutral-200'}`}>
                       <div className="mb-2 flex justify-center">
                         <div className={`h-12 w-12 rounded-full flex items-center justify-center ${completedSteps.includes(4) ? 'bg-success text-white' : 'bg-neutral-200 text-neutral-400'}`}>
@@ -912,7 +905,7 @@ const FundingApplication = () => {
                       </div>
                     </div>
                   </div>
-
+                  
                   {completedSteps.length >= 3 && (
                     <div className="mt-6 p-4 bg-primary/5 border border-primary/20 rounded-lg flex items-center">
                       <Award className="h-8 w-8 text-primary mr-4 flex-shrink-0" />
@@ -922,7 +915,7 @@ const FundingApplication = () => {
                       </div>
                     </div>
                   )}
-
+                  
                   {completedSteps.length === applicationSteps.length && (
                     <div className="mt-4 p-4 bg-success/5 border border-success/20 rounded-lg flex items-center">
                       <Trophy className="h-8 w-8 text-success mr-4 flex-shrink-0" />
@@ -938,7 +931,7 @@ const FundingApplication = () => {
           </div>
         </div>
       </main>
-
+      
       <Footer />
     </div>
   );

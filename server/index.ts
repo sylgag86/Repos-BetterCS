@@ -56,38 +56,15 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // Try multiple ports in sequence since we're having issues with specific ports
-  const ports = [3333, 4444, 7777, 8888, 9999];
-  
-  function tryNextPort(index = 0) {
-    if (index >= ports.length) {
-      log(`Failed to find an available port. Please try restarting the repl.`);
-      process.exit(1);
-      return;
-    }
-    
-    const currentPort = ports[index];
-    
-    const errorHandler = (err: any) => {
-      if (err.code === 'EADDRINUSE') {
-        log(`Port ${currentPort} is in use, trying next port...`);
-        server.removeListener('error', errorHandler);
-        tryNextPort(index + 1);
-      } else {
-        log(`Server error: ${err.message}`);
-        process.exit(1);
-      }
-    };
-    
-    server.once('error', errorHandler);
-    
-    server.listen({
-      port: currentPort,
-      host: "0.0.0.0",
-    }, () => {
-      log(`Server running successfully on port ${currentPort}`);
-    });
-  }
-  
-  tryNextPort();
+  // ALWAYS serve the app on port 5000
+  // this serves both the API and the client.
+  // It is the only port that is not firewalled.
+  const port = 5000;
+  server.listen({
+    port,
+    host: "0.0.0.0",
+    reusePort: true,
+  }, () => {
+    log(`serving on port ${port}`);
+  });
 })();
