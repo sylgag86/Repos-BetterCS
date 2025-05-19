@@ -36,7 +36,13 @@ export async function setupVite(app: Express, server: Server) {
         process.exit(1);
       },
     },
-    server: serverOptions,
+    server: { 
+      middlewareMode: true,
+      hmr: {
+        timeout: 10000,
+        heartbeat: 5000
+      }
+    },
     appType: "custom",
   });
 
