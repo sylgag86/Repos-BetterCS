@@ -60,11 +60,22 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  const tryListen = (retryPort = port) => {
+    server.listen({
+      port: retryPort,
+      host: "0.0.0.0",
+      reusePort: true,
+    }, () => {
+      log(`serving on port ${retryPort}`);
+    }).on('error', (e: any) => {
+      if (e.code === 'EADDRINUSE' && retryPort < 5010) {
+        log(`Port ${retryPort} in use, trying ${retryPort + 1}`);
+        tryListen(retryPort + 1);
+      } else {
+        throw e;
+      }
+    });
+  };
+  
+  tryListen();
 })();
