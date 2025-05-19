@@ -56,12 +56,38 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // Use port 5001 as an alternative if 5000 is already in use
-  const port = process.env.PORT || 5001;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  // Try multiple ports in sequence since we're having issues with specific ports
+  const ports = [3333, 4444, 7777, 8888, 9999];
+  
+  function tryNextPort(index = 0) {
+    if (index >= ports.length) {
+      log(`Failed to find an available port. Please try restarting the repl.`);
+      process.exit(1);
+      return;
+    }
+    
+    const currentPort = ports[index];
+    
+    const errorHandler = (err: any) => {
+      if (err.code === 'EADDRINUSE') {
+        log(`Port ${currentPort} is in use, trying next port...`);
+        server.removeListener('error', errorHandler);
+        tryNextPort(index + 1);
+      } else {
+        log(`Server error: ${err.message}`);
+        process.exit(1);
+      }
+    };
+    
+    server.once('error', errorHandler);
+    
+    server.listen({
+      port: currentPort,
+      host: "0.0.0.0",
+    }, () => {
+      log(`Server running successfully on port ${currentPort}`);
+    });
+  }
+  
+  tryNextPort();
 })();
