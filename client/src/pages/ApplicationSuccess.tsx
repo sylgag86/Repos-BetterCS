@@ -125,7 +125,7 @@ const ApplicationSuccess = () => {
                 
                 <div className="mt-8 flex justify-center">
                   <Button variant="outline" className="gap-2" asChild>
-                    <Link href="/directory">
+                    <Link href="/betterlist-100">
                       <Share2 className="h-4 w-4" />
                       Explore More Funding Options
                     </Link>
@@ -218,7 +218,7 @@ const ApplicationSuccess = () => {
                     Get instant access to our complete DIY credit improvement toolkit with step-by-step guides, dispute letter templates, and expert strategies to improve your credit score on your own.
                   </p>
                   <Link
-                    to="/diy-credit"
+                    href="/credit-repair/diy"
                     className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-medium px-6 py-3 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
                   >
                     <span>Get DIY Bundle - Only $29</span>
