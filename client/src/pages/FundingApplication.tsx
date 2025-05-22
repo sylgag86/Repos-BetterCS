@@ -214,6 +214,7 @@ const FundingApplication = () => {
     setIsSubmitting(true);
     
     try {
+      console.log('Submitting form data:', formData);
       const response = await fetch('/api/applications/submit', {
         method: 'POST',
         headers: {
@@ -222,7 +223,11 @@ const FundingApplication = () => {
         body: JSON.stringify(formData),
       });
       
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+      
       const result = await response.json();
+      console.log('Response data:', result);
       
       if (response.ok && result.success) {
         toast({
