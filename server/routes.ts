@@ -7,7 +7,7 @@ import path from "path";
 import lenderRoutes from "./routes/lenders";
 import aiRecommendationsRoutes from "./routes/ai-recommendations";
 import schemaRoutes from "./routes/schema";
-import { router as applicationsRoutes } from "./routes/applications";
+import applicationsRoutes from "./routes/applications";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
