@@ -7,6 +7,7 @@ import path from "path";
 import lenderRoutes from "./routes/lenders";
 import aiRecommendationsRoutes from "./routes/ai-recommendations";
 import schemaRoutes from "./routes/schema";
+import { router as applicationsRoutes } from "./routes/applications";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -20,6 +21,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Add schema routes for structured data
   app.use('/api/schema', schemaRoutes);
+
+  // Add applications routes for form submissions
+  app.use('/api/applications', applicationsRoutes);
 
   // Add additional routes for utility functions if needed
   app.get('/api/seed-lenders', async (req, res) => {

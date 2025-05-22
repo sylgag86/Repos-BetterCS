@@ -201,7 +201,7 @@ const FundingApplication = () => {
   };
   
   // Submit the application
-  const submitApplication = () => {
+  const submitApplication = async () => {
     if (!formData.agreeToTerms) {
       toast({
         title: "Agreement Required",
@@ -213,19 +213,43 @@ const FundingApplication = () => {
     
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      
-      toast({
-        title: "Application Submitted!",
-        description: "Your funding application has been successfully submitted. We'll be in touch soon!",
-        variant: "default"
+    try {
+      const response = await fetch('/api/applications/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
       
-      // Redirect to success page with CRO signup link
-      setLocation("/application-success");
-    }, 2000);
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        toast({
+          title: "Application Submitted!",
+          description: "Your funding application has been successfully submitted. We'll be in touch soon!",
+          variant: "default"
+        });
+        
+        // Redirect to success page
+        setLocation("/application-success");
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: result.message || "There was an error submitting your application. Please try again.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   // Jump to a specific step

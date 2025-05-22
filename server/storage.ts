@@ -1,4 +1,4 @@
-import { users, lenders, lenderSchemas, type User, type InsertUser, type Lender, type InsertLender, type InsertLenderSchema } from "@shared/schema";
+import { users, lenders, lenderSchemas, applications, type User, type InsertUser, type Lender, type InsertLender, type InsertLenderSchema, type Application, type InsertApplication } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -17,6 +17,9 @@ export interface IStorage {
   // Schema methods
   createLenderSchema(schemaData: InsertLenderSchema): Promise<string>;
   getLenderSchema(lenderId: string): Promise<string | undefined>;
+  // Application methods
+  createApplication(application: InsertApplication): Promise<Application>;
+  getAllApplications(): Promise<Application[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -74,18 +77,32 @@ export class DatabaseStorage implements IStorage {
       .where(eq(lenderSchemas.lenderId, lenderId));
     return schema ? schema.schemaJson : undefined;
   }
+
+  async createApplication(application: InsertApplication): Promise<Application> {
+    const [createdApplication] = await db
+      .insert(applications)
+      .values(application)
+      .returning();
+    return createdApplication;
+  }
+
+  async getAllApplications(): Promise<Application[]> {
+    return await db.select().from(applications);
+  }
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private lendersStore: Map<string, Lender>;
   private lenderSchemaStore: Map<string, string>;
+  private applicationsStore: Map<number, Application>;
   currentId: number;
 
   constructor() {
     this.users = new Map();
     this.lendersStore = new Map();
     this.lenderSchemaStore = new Map();
+    this.applicationsStore = new Map();
     this.currentId = 1;
   }
 
@@ -142,6 +159,22 @@ export class MemStorage implements IStorage {
 
   async getLenderSchema(lenderId: string): Promise<string | undefined> {
     return this.lenderSchemaStore.get(lenderId);
+  }
+
+  async createApplication(insertApplication: InsertApplication): Promise<Application> {
+    const id = this.currentId++;
+    const application: Application = {
+      ...insertApplication,
+      id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.applicationsStore.set(id, application);
+    return application;
+  }
+
+  async getAllApplications(): Promise<Application[]> {
+    return Array.from(this.applicationsStore.values());
   }
 }
 
