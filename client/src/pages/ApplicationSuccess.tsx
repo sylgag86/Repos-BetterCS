@@ -218,7 +218,7 @@ const ApplicationSuccess = () => {
                     Get instant access to our complete DIY credit improvement toolkit with step-by-step guides, dispute letter templates, and expert strategies to improve your credit score on your own.
                   </p>
                   <Link
-                    href="/credit-repair/diy"
+                    href="/diy-credit/start"
                     className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-medium px-6 py-3 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
                   >
                     <span>Get DIY Bundle - Only $29</span>
