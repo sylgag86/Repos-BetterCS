@@ -53,14 +53,12 @@ const ApplicationSuccess = () => {
                 
                 <div className="mt-8 bg-primary/5 border border-primary/20 p-6 rounded-lg max-w-2xl">
                   <h2 className="text-xl font-bold text-primary mb-3">Limited Time Offer: Fast-Track Your Funding!</h2>
-                  <p className="mb-5 text-neutral-700">Get pre-qualified with our premium service for only <span className="line-through text-neutral-500">$189</span> <span className="font-bold text-primary">$99</span> setup fee — take advantage of this special rate today!</p>
+                  <p className="mb-5 text-neutral-700">Get pre-qualified with our premium service - take advantage of this special offer today!</p>
                   <a 
-                    href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:716-243-1397"
                     className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-lg text-lg transform hover:-translate-y-1 transition-all duration-200 shadow-md"
                   >
-                    <span>Get Pre-Qualified Now - Only $99</span>
+                    <span>Get Pre Qualified Now - FREE</span>
                     <Trophy className="h-5 w-5" />
                   </a>
                 </div>
@@ -125,15 +123,9 @@ const ApplicationSuccess = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <Button className="flex-1" asChild>
-                    <Link href="/dashboard">
-                      Go to Application Dashboard
-                    </Link>
-                  </Button>
-                  
-                  <Button variant="outline" className="flex-1 gap-2" asChild>
-                    <Link href="/betterlist-100.html">
+                <div className="mt-8 flex justify-center">
+                  <Button variant="outline" className="gap-2" asChild>
+                    <Link href="/directory">
                       <Share2 className="h-4 w-4" />
                       Explore More Funding Options
                     </Link>
