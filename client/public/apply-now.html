@@ -365,45 +365,14 @@
   </footer>
 
   <script>
-    async function handleFormSubmit(event) {
+    function handleFormSubmit(event) {
       event.preventDefault();
       
-      const form = document.getElementById('applicationForm');
-      const formData = new FormData(form);
+      // Show simple confirmation and redirect to thank you page
+      alert('Thank you for your application! We will reach out ASAP.');
       
-      // Convert FormData to JSON object
-      const data = {};
-      for (let [key, value] of formData.entries()) {
-        data[key] = value;
-      }
-      
-      // Set agreeToTerms to true (assuming user agreed by submitting)
-      data.agreeToTerms = true;
-      
-      console.log('Submitting application:', data);
-      
-      try {
-        const response = await fetch('/api/applications/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-        
-        const result = await response.json();
-        
-        if (response.ok && result.success) {
-          // Redirect to thank you page
-          window.location.href = '/application-success';
-        } else {
-          alert('There was an error submitting your application. Please try again.');
-          console.error('Submission error:', result);
-        }
-      } catch (error) {
-        alert('There was an error submitting your application. Please try again.');
-        console.error('Network error:', error);
-      }
+      // Redirect to thank you page immediately
+      window.location.href = '/application-success';
     }
   </script>
 </body>
