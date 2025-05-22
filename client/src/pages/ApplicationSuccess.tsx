@@ -217,17 +217,15 @@ const ApplicationSuccess = () => {
                   <p className="text-neutral-600 mb-4">
                     Get instant access to our complete DIY credit improvement toolkit with step-by-step guides, dispute letter templates, and expert strategies to improve your credit score on your own.
                   </p>
-                  <a
-                    href="https://safeclientaccess.com/forms/f/f0fd3fc6-84d2-4a93-be3b-0bc0bffb2e78"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/diy-credit"
                     className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-medium px-6 py-3 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
                   >
                     <span>Get DIY Bundle - Only $29</span>
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
