@@ -1,7 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" fill="none">
-  <!-- Icon: upward arrow in rounded square -->
+  <!-- Icon: bullish trending arrow in rounded square -->
   <rect x="2" y="4" width="40" height="40" rx="10" fill="#1a8cd8"/>
-  <path d="M22 12 L32 24 H26 V36 H18 V24 H12 Z" fill="white"/>
+  <!-- Trending line going up -->
+  <polyline points="10,32 18,26 24,30 34,16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Arrowhead -->
+  <polyline points="28,16 34,16 34,22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   
   <!-- Better Capital -->
   <text x="50" y="26" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#1a2332">
