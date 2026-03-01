@@ -13,16 +13,12 @@ Allow: /guides/
 Allow: /apply
 Allow: /funding-recommendation
 Allow: /calculator
-Allow: /credit-repair/
-Allow: /diy-credit/
 Allow: /blog
 Allow: /betterlist-100.html
 
 # Disallow confirmation and thank you pages to avoid indexing transient pages
 Disallow: /thank-you
 Disallow: /confirmation
-Disallow: /diy-credit/confirmation.html
-Disallow: /credit-repair/signup-success.html
 Disallow: /application-success
 
 # Disallow testing and development areas

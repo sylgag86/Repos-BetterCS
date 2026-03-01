@@ -118,10 +118,13 @@ export class MemStorage implements IStorage {
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.currentId++;
-    const user: User = { 
-      ...insertUser, 
+    const user: User = {
+      ...insertUser,
       id,
-      createdAt: new Date() 
+      email: insertUser.email ?? null,
+      firstName: insertUser.firstName ?? null,
+      lastName: insertUser.lastName ?? null,
+      createdAt: new Date(),
     };
     this.users.set(id, user);
     return user;
@@ -145,8 +148,18 @@ export class MemStorage implements IStorage {
     const createdLender: Lender = {
       ...lender,
       id: this.lendersStore.size + 1,
+      creditMin: (lender as any).creditMin ?? null,
+      maxFunding: (lender as any).maxFunding ?? null,
+      approvalTime: (lender as any).approvalTime ?? null,
+      features: (lender as any).features ?? null,
+      affiliateLink: (lender as any).affiliateLink ?? null,
+      betterList100: (lender as any).betterList100 ?? true,
+      featured: (lender as any).featured ?? false,
+      description: (lender as any).description ?? null,
+      logoUrl: (lender as any).logoUrl ?? null,
+      reviewSnippet: (lender as any).reviewSnippet ?? null,
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
     this.lendersStore.set(lender.lenderId, createdLender);
     return createdLender;
@@ -166,6 +179,14 @@ export class MemStorage implements IStorage {
     const application: Application = {
       ...insertApplication,
       id,
+      ein: insertApplication.ein ?? null,
+      timeInBusiness: insertApplication.timeInBusiness ?? null,
+      annualRevenue: insertApplication.annualRevenue ?? null,
+      creditScore: insertApplication.creditScore ?? null,
+      additionalInfo: insertApplication.additionalInfo ?? null,
+      hasBusinessPlan: insertApplication.hasBusinessPlan ?? false,
+      hasTaxReturns: insertApplication.hasTaxReturns ?? false,
+      hasFinancialStatements: insertApplication.hasFinancialStatements ?? false,
       createdAt: new Date(),
       updatedAt: new Date(),
     };

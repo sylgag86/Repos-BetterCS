@@ -199,7 +199,7 @@ const ApplicationSuccess = () => {
               </CardContent>
             </Card>
             
-            {/* DIY Option */}
+            {/* Education Option */}
             <div className="bg-white rounded-xl shadow-md border border-neutral-200 p-6 mb-8">
               <div className="flex flex-col md:flex-row items-center gap-6 p-4">
                 <div className="md:w-1/3 flex justify-center">
@@ -209,19 +209,19 @@ const ApplicationSuccess = () => {
                 </div>
                 <div className="md:w-2/3 text-center md:text-left">
                   <div className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium mb-2">
-                    Limited Time: $29 Only
+                    Free Education
                   </div>
                   <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                    Prefer to DIY? Try Our Self-Guided Credit Improvement Bundle
+                    Want to improve your approval odds?
                   </h3>
                   <p className="text-neutral-600 mb-4">
-                    Get instant access to our complete DIY credit improvement toolkit with step-by-step guides, dispute letter templates, and expert strategies to improve your credit score on your own.
+                    Explore our credit score education and funding-readiness guides.
                   </p>
                   <Link
-                    href="/diy-credit/start"
+                    href="/resources/credit-score-guide.html"
                     className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-medium px-6 py-3 rounded-lg transform hover:-translate-y-1 transition-all duration-200"
                   >
-                    <span>Get DIY Bundle - Only $29</span>
+                    <span>Read the Credit Score Guide</span>
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>

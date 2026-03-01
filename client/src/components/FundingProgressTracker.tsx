@@ -4,7 +4,6 @@ import 'react-circular-progressbar/dist/styles.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { Confetti } from './ui/confetti';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 
 // Define the step interface
@@ -599,7 +598,7 @@ const Confetti: React.FC = () => {
           }}
         />
       ))}
-      <style jsx>{`
+      <style>{`
         .confetti-container {
           position: fixed;
           width: 100%;

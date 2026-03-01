@@ -21,8 +21,12 @@ async function seedDatabase() {
   
   try {
     // Clear existing lender data (optional)
-    const keys = await db.list();
-    const lenderKeys = keys.filter(key => key.startsWith('lender_'));
+    const keysResult = await db.list();
+    // @replit/database types vary by version; normalize to string[]
+    const keys: string[] = Array.isArray(keysResult)
+      ? keysResult
+      : ((keysResult as any)?.value ?? (keysResult as any)?.ok ?? []);
+    const lenderKeys = keys.filter((key: string) => key.startsWith('lender_'));
     
     if (lenderKeys.length > 0) {
       console.log(`Clearing ${lenderKeys.length} existing lender records...`);
@@ -32,12 +36,12 @@ async function seedDatabase() {
     }
     
     // Add a lender index to keep track of all lenders
-    const lenderIds = lenders.map(lender => lender.id);
+    const lenderIds = (lenders as any[]).map((lender: any) => lender.id);
     await db.set('lender_index', lenderIds);
     console.log('Created lender index with all lender IDs');
     
     // Add each lender to the database
-    for (const lender of lenders) {
+    for (const lender of lenders as any[]) {
       const key = `lender_${lender.id}`;
       await db.set(key, lender);
       console.log(`Added ${lender.name} to database with key: ${key}`);

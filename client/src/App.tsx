@@ -101,52 +101,9 @@ function AppRoutes() {
           }}
         </Route>
         
-        <Route path="/credit-repair">
-          {() => {
-            window.location.href = "/credit-repair/index.html";
-            return null;
-          }}
-        </Route>
-        
-        <Route path="/credit-repair/join">
-          {() => {
-            window.location.href = "/credit-repair/join.html";
-            return null;
-          }}
-        </Route>
-        
-        <Route path="/credit-repair/signup">
-          {() => {
-            window.location.href = "/credit-repair/signup.html";
-            return null;
-          }}
-        </Route>
-        
         <Route path="/ebook-offer">
           {() => {
             window.location.href = "/ebook-offer.html";
-            return null;
-          }}
-        </Route>
-        
-        {/* DIY Credit Repair Pages */}
-        <Route path="/diy-credit/start">
-          {() => {
-            window.location.href = "/diy-credit/start.html";
-            return null;
-          }}
-        </Route>
-        
-        <Route path="/diy-credit/checkout">
-          {() => {
-            window.location.href = "/diy-credit/checkout.html";
-            return null;
-          }}
-        </Route>
-        
-        <Route path="/diy-credit/confirmation">
-          {() => {
-            window.location.href = "/diy-credit/confirmation.html";
             return null;
           }}
         </Route>
