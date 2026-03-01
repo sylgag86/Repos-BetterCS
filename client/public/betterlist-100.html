@@ -551,7 +551,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
       try {
         // Try actual API call first
-        const response = await fetch('/api/lenders');
+        // Prefer static JSON on static hosting (Vercel/GitHub Pages)
+        const response = await fetch('/data/lenders.json');
         if (response.ok) {
           allLenders = await response.json();
           console.log('Successfully loaded API data:', allLenders);
