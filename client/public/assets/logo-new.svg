@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" fill="none">
+  <!-- Icon: upward arrow in rounded square -->
+  <rect x="2" y="4" width="40" height="40" rx="10" fill="#1a8cd8"/>
+  <path d="M22 12 L32 24 H26 V36 H18 V24 H12 Z" fill="white"/>
+  
+  <!-- Better Capital -->
+  <text x="50" y="26" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#1a2332">
+    Better<tspan fill="#1a8cd8"> Capital</tspan>
+  </text>
+  
+  <!-- Solutions -->
+  <text x="50" y="42" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="400" font-size="13" fill="#64748b" letter-spacing="2">
+    SOLUTIONS
+  </text>
+</svg>
