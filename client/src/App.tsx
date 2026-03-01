@@ -36,19 +36,19 @@ function AppRoutes() {
         </Route>
         <Route path="/lenders/capitalprime">
           {() => {
-            window.location.href = "/lenders/fundgrow.html"; // Using fundgrow as a template for now
+            window.location.href = "/lenders/capitalprime.html";
             return null;
           }}
         </Route>
         <Route path="/lenders/lendingcircle">
           {() => {
-            window.location.href = "/lenders/fundgrow.html"; // Using fundgrow as a template for now
+            window.location.href = "/lenders/lendingcircle.html";
             return null;
           }}
         </Route>
         <Route path="/lenders/rewardone">
           {() => {
-            window.location.href = "/lenders/fundgrow.html"; // Using fundgrow as a template for now
+            window.location.href = "/lenders/rewardone.html";
             return null;
           }}
         </Route>
@@ -88,10 +88,30 @@ function AppRoutes() {
         </Route>
         
         {/* Funding category pages */}
-        <Route path="/sba-loans" component={NotFound} />
-        <Route path="/credit-cards" component={NotFound} />
-        <Route path="/bad-credit" component={NotFound} />
-        <Route path="/fast-approval" component={NotFound} />
+        <Route path="/sba-loans">
+          {() => {
+            window.location.href = "/funding-categories/sba-loans.html";
+            return null;
+          }}
+        </Route>
+        <Route path="/credit-cards">
+          {() => {
+            window.location.href = "/funding-categories/credit-cards.html";
+            return null;
+          }}
+        </Route>
+        <Route path="/bad-credit">
+          {() => {
+            window.location.href = "/funding-categories/bad-credit.html";
+            return null;
+          }}
+        </Route>
+        <Route path="/fast-approval">
+          {() => {
+            window.location.href = "/funding-categories/fast-approval.html";
+            return null;
+          }}
+        </Route>
         
         {/* Funding funnel result pages */}
         <Route path="/apply-now">

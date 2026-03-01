@@ -7,7 +7,7 @@ This guide explains how to implement the sitemap and SEO improvements across the
 The sitemap.xml file has been created and placed in the root directory. This sitemap will help search engines like Google discover and index all pages on the site.
 
 ### Features of the Sitemap:
-- Includes all main pages, funding pages, credit repair pages, and resource pages
+- Includes all main pages, funding pages, and resource pages
 - Provides last modification dates and page priorities
 - Follows sitemap protocol standards
 
