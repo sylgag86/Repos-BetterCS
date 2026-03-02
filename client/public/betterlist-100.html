@@ -645,7 +645,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Check URL for page parameter
       const urlParams = new URLSearchParams(window.location.search);
       const pageParam = urlParams.get('page');
-      window.currentPage = pageParam ? parseInt(pageParam) : 1;
+      const parsedPage = pageParam ? parseInt(pageParam, 10) : 1;
+      window.currentPage = Number.isFinite(parsedPage) && parsedPage > 0 ? parsedPage : 1;
       
       // Handle browser back/forward button
       window.addEventListener('popstate', function(event) {
@@ -742,6 +743,8 @@ document.addEventListener('DOMContentLoaded', function() {
         allLenders = fallbackLenders; // Use fallback data on error
       }
       
+      window.allLenders = allLenders;
+
       // Only proceed if we have lenders
       if (allLenders && allLenders.length > 0) {
         // Display current page of lenders
@@ -767,8 +770,13 @@ document.addEventListener('DOMContentLoaded', function() {
       desktopContainer.innerHTML = '';
       mobileContainer.innerHTML = '';
       
+      // Normalize page bounds
+      const totalPages = Math.max(1, Math.ceil(lenders.length / itemsPerPage));
+      const safePage = Math.min(Math.max(1, Number(page) || 1), totalPages);
+      window.currentPage = safePage;
+
       // Calculate start and end indices
-      const startIndex = (page - 1) * itemsPerPage;
+      const startIndex = (safePage - 1) * itemsPerPage;
       const endIndex = Math.min(startIndex + itemsPerPage, lenders.length);
       
       // Get current page lenders
@@ -1159,6 +1167,147 @@ document.addEventListener('DOMContentLoaded', function() {
       return starsHtml;
     }
     
+    function initializeCompareUI() {
+      const compareNowBtn = document.getElementById('compare-now');
+      const clearBtn = document.getElementById('compare-clear');
+      const closeBtn = document.getElementById('compare-close');
+      const modalOverlay = document.getElementById('compare-modal-overlay');
+
+      document.addEventListener('change', (event) => {
+        if (!event.target.classList.contains('compare-checkbox')) return;
+
+        const checkbox = event.target;
+        const lenderId = checkbox.dataset.lenderId;
+        const lenderName = checkbox.dataset.lenderName;
+
+        if (checkbox.checked) {
+          if (window.compareSelected.size >= 3) {
+            checkbox.checked = false;
+            return;
+          }
+          window.compareSelected.set(lenderId, lenderName);
+        } else {
+          window.compareSelected.delete(lenderId);
+        }
+
+        syncCompareCheckboxes();
+        updateCompareBar();
+      });
+
+      compareNowBtn?.addEventListener('click', openCompareModal);
+      clearBtn?.addEventListener('click', clearCompareSelection);
+      closeBtn?.addEventListener('click', closeCompareModal);
+      modalOverlay?.addEventListener('click', closeCompareModal);
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeCompareModal();
+      });
+    }
+
+    function syncCompareCheckboxes() {
+      const selectedIds = new Set(window.compareSelected.keys());
+      document.querySelectorAll('.compare-checkbox').forEach((checkbox) => {
+        checkbox.checked = selectedIds.has(checkbox.dataset.lenderId);
+        checkbox.disabled = !checkbox.checked && selectedIds.size >= 3;
+      });
+    }
+
+    function updateCompareBar() {
+      const compareBar = document.getElementById('compare-bar');
+      const namesContainer = document.getElementById('compare-selected-names');
+      const compareNowBtn = document.getElementById('compare-now');
+
+      const selectedNames = Array.from(window.compareSelected.values());
+      const count = selectedNames.length;
+
+      namesContainer.textContent = selectedNames.join(' • ') || 'No lenders selected';
+      compareNowBtn.disabled = count < 2;
+      compareNowBtn.classList.toggle('opacity-50', count < 2);
+      compareNowBtn.classList.toggle('cursor-not-allowed', count < 2);
+
+      if (count >= 2) {
+        compareBar.classList.remove('hidden');
+      } else {
+        compareBar.classList.add('hidden');
+      }
+    }
+
+    async function openCompareModal() {
+      if (window.compareSelected.size < 2) return;
+
+      const selectedIds = Array.from(window.compareSelected.keys());
+      const lenders = await getAllTopLenders();
+      const selectedLenders = lenders.filter((lender) => selectedIds.includes(lender.id)).slice(0, 3);
+
+      if (selectedLenders.length < 2) return;
+
+      renderCompareTable(selectedLenders);
+      const modal = document.getElementById('compare-modal');
+      modal.classList.remove('hidden');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeCompareModal() {
+      const modal = document.getElementById('compare-modal');
+      modal.classList.add('hidden');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function clearCompareSelection() {
+      window.compareSelected.clear();
+      syncCompareCheckboxes();
+      updateCompareBar();
+      closeCompareModal();
+    }
+
+    function renderCompareTable(selectedLenders) {
+      const table = document.getElementById('compare-table');
+      const headCells = selectedLenders.map(l => `<th class="p-3 border-b border-neutral-200 text-left font-semibold text-neutral-900 min-w-[180px]">${l.name}</th>`).join('');
+
+      const rows = [
+        { label: 'Name', value: (l) => l.name },
+        { label: 'Category', value: (l) => l.category || '—' },
+        { label: 'Rating', value: (l) => typeof l.rating === 'number' ? l.rating.toFixed(1) : '—' },
+        { label: 'Min Credit Score', value: (l) => l.creditMin ? `${l.creditMin}+` : '—' },
+        { label: 'Approval Time', value: (l) => l.approvalTime || '—' },
+        { label: 'Top 3 Features', value: (l) => (l.features || []).slice(0, 3).join(', ') || '—' }
+      ];
+
+      table.innerHTML = `
+        <thead class="bg-neutral-50">
+          <tr>
+            <th class="p-3 border-b border-neutral-200 text-left font-semibold text-neutral-700 w-[180px]">Field</th>
+            ${headCells}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(row => `
+            <tr class="odd:bg-white even:bg-neutral-50/60 align-top">
+              <td class="p-3 border-b border-neutral-200 font-medium text-neutral-700">${row.label}</td>
+              ${selectedLenders.map(l => `<td class="p-3 border-b border-neutral-200 text-neutral-800">${row.value(l)}</td>`).join('')}
+            </tr>
+          `).join('')}
+        </tbody>
+      `;
+    }
+
+    async function getAllTopLenders() {
+      if (Array.isArray(window.allLenders) && window.allLenders.length) {
+        return window.allLenders;
+      }
+
+      try {
+        const response = await fetch('/data/lenders.json');
+        if (!response.ok) throw new Error('Fetch failed');
+        const lenders = await response.json();
+        return lenders.filter(lender => lender.betterList100 === true);
+      } catch (error) {
+        return [];
+      }
+    }
+
     function setupFilters(allLenders) {
       const categoryFilter = document.getElementById('category-filter');
       const sortOrder = document.getElementById('sort-order');
