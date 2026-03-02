@@ -8,7 +8,11 @@
     "creditMin": 680,
     "maxFunding": 5000000,
     "approvalTime": "2-5 days",
-    "features": ["SBA Preferred Lender", "Business Lines of Credit", "Equipment Financing"],
+    "features": [
+      "SBA Preferred Lender",
+      "Business Lines of Credit",
+      "Equipment Financing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -24,7 +28,11 @@
     "creditMin": 670,
     "maxFunding": 5000000,
     "approvalTime": "3-7 days",
-    "features": ["SBA Loans", "Commercial Real Estate Loans", "Term Loans"],
+    "features": [
+      "SBA Loans",
+      "Commercial Real Estate Loans",
+      "Term Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -40,12 +48,16 @@
     "creditMin": 660,
     "maxFunding": 1000000,
     "approvalTime": "5-10 days",
-    "features": ["Equipment Financing", "Business Lines of Credit", "SBA Loans"],
+    "features": [
+      "Equipment Financing",
+      "Business Lines of Credit",
+      "SBA Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "wells-fargo",
-    "website": "https://www.wellsfargo.com/biz/loans-and-financing/" 
+    "website": "https://www.wellsfargo.com/biz/loans-and-financing/"
   },
   {
     "id": "american-express",
@@ -56,7 +68,11 @@
     "creditMin": 700,
     "maxFunding": 250000,
     "approvalTime": "1-2 days",
-    "features": ["Business Platinum Card", "Blue Business Cash Card", "Membership Rewards"],
+    "features": [
+      "Business Platinum Card",
+      "Blue Business Cash Card",
+      "Membership Rewards"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -72,7 +88,11 @@
     "creditMin": 600,
     "maxFunding": 40000,
     "approvalTime": "1-3 days",
-    "features": ["Fixed Monthly Payments", "No Prepayment Penalties", "Joint Applications"],
+    "features": [
+      "Fixed Monthly Payments",
+      "No Prepayment Penalties",
+      "Joint Applications"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -88,7 +108,11 @@
     "creditMin": 670,
     "maxFunding": 50000,
     "approvalTime": "Same Day",
-    "features": ["Cashback Match", "FICO Score Access", "No Annual Fee"],
+    "features": [
+      "Cashback Match",
+      "FICO Score Access",
+      "No Annual Fee"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -104,7 +128,11 @@
     "creditMin": 580,
     "maxFunding": 50000,
     "approvalTime": "1 day",
-    "features": ["AI-Powered Approval", "Personal Loans", "Fixed Rates"],
+    "features": [
+      "AI-Powered Approval",
+      "Personal Loans",
+      "Fixed Rates"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -120,7 +148,11 @@
     "creditMin": 600,
     "maxFunding": 150000,
     "approvalTime": "Minutes",
-    "features": ["Fixed Fee", "Repay with Sales", "No Credit Check"],
+    "features": [
+      "Fixed Fee",
+      "Repay with Sales",
+      "No Credit Check"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -136,7 +168,11 @@
     "creditMin": 640,
     "maxFunding": 250000,
     "approvalTime": "Same Day",
-    "features": ["Flexible Terms", "No Application Fee", "Quick Access to Funds"],
+    "features": [
+      "Flexible Terms",
+      "No Application Fee",
+      "Quick Access to Funds"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -152,7 +188,11 @@
     "creditMin": 600,
     "maxFunding": 500000,
     "approvalTime": "24 hours",
-    "features": ["Term Loans", "Lines of Credit", "Fast Funding"],
+    "features": [
+      "Term Loans",
+      "Lines of Credit",
+      "Fast Funding"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -168,7 +208,11 @@
     "creditMin": 600,
     "maxFunding": 150000,
     "approvalTime": "Same Day",
-    "features": ["Invoice Financing", "Line of Credit", "Quick Application"],
+    "features": [
+      "Invoice Financing",
+      "Line of Credit",
+      "Quick Application"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -184,7 +228,11 @@
     "creditMin": 680,
     "maxFunding": 1000000,
     "approvalTime": "5-7 days",
-    "features": ["Commercial Loans", "Lines of Credit", "Equipment Financing"],
+    "features": [
+      "Commercial Loans",
+      "Lines of Credit",
+      "Equipment Financing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -200,7 +248,11 @@
     "creditMin": 680,
     "maxFunding": 100000,
     "approvalTime": "2-3 days",
-    "features": ["No Fees", "Unemployment Protection", "Member Benefits"],
+    "features": [
+      "No Fees",
+      "Unemployment Protection",
+      "Member Benefits"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -216,7 +268,11 @@
     "creditMin": 650,
     "maxFunding": 50000,
     "approvalTime": "3 days",
-    "features": ["No Origination Fee", "Flexible Payments", "Auto Loan Refinancing"],
+    "features": [
+      "No Origination Fee",
+      "Flexible Payments",
+      "Auto Loan Refinancing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -232,7 +288,11 @@
     "creditMin": 650,
     "maxFunding": 3000000,
     "approvalTime": "1-2 weeks",
-    "features": ["SBA Loans", "Lines of Credit", "Equipment Financing"],
+    "features": [
+      "SBA Loans",
+      "Lines of Credit",
+      "Equipment Financing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -248,7 +308,11 @@
     "creditMin": 650,
     "maxFunding": 5000000,
     "approvalTime": "1-2 weeks",
-    "features": ["Top SBA Lender", "SBA Express Loans", "Commercial Lending"],
+    "features": [
+      "Top SBA Lender",
+      "SBA Express Loans",
+      "Commercial Lending"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -264,7 +328,11 @@
     "creditMin": 640,
     "maxFunding": 40000,
     "approvalTime": "1-3 days",
-    "features": ["Peer-to-Peer Lending", "Fixed Rates", "No Prepayment Penalties"],
+    "features": [
+      "Peer-to-Peer Lending",
+      "Fixed Rates",
+      "No Prepayment Penalties"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -280,7 +348,11 @@
     "creditMin": 660,
     "maxFunding": 500000,
     "approvalTime": "3 days",
-    "features": ["Term Loans", "Fast Decisions", "Dedicated Account Manager"],
+    "features": [
+      "Term Loans",
+      "Fast Decisions",
+      "Dedicated Account Manager"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -296,7 +368,11 @@
     "creditMin": 650,
     "maxFunding": 1000000,
     "approvalTime": "7-10 days",
-    "features": ["Term Loans", "Lines of Credit", "SBA Preferred Lender"],
+    "features": [
+      "Term Loans",
+      "Lines of Credit",
+      "SBA Preferred Lender"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -312,7 +388,11 @@
     "creditMin": 660,
     "maxFunding": 40000,
     "approvalTime": "1-3 days",
-    "features": ["No Fees Ever", "Fixed Rates", "Flexible Payment Options"],
+    "features": [
+      "No Fees Ever",
+      "Fixed Rates",
+      "Flexible Payment Options"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -328,7 +408,11 @@
     "creditMin": 580,
     "maxFunding": 50000,
     "approvalTime": "2-4 days",
-    "features": ["Military-Friendly", "Personal Loans", "Auto Loans"],
+    "features": [
+      "Military-Friendly",
+      "Personal Loans",
+      "Auto Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -344,7 +428,11 @@
     "creditMin": 550,
     "maxFunding": 5000000,
     "approvalTime": "2-7 days",
-    "features": ["Loan Marketplace", "75+ Lenders", "Multiple Loan Types"],
+    "features": [
+      "Loan Marketplace",
+      "75+ Lenders",
+      "Multiple Loan Types"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -360,7 +448,11 @@
     "creditMin": 575,
     "maxFunding": 1000000,
     "approvalTime": "24 hours",
-    "features": ["Working Capital", "Term Loans", "Commercial Real Estate"],
+    "features": [
+      "Working Capital",
+      "Term Loans",
+      "Commercial Real Estate"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -376,7 +468,11 @@
     "creditMin": 620,
     "maxFunding": 100000,
     "approvalTime": "1 day",
-    "features": ["Loan Marketplace", "Multiple Lenders", "Prequalified Rates"],
+    "features": [
+      "Loan Marketplace",
+      "Multiple Lenders",
+      "Prequalified Rates"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -392,7 +488,11 @@
     "creditMin": 680,
     "maxFunding": 10000000,
     "approvalTime": "1-2 weeks",
-    "features": ["Commercial Loans", "Global Banking", "Trade Finance"],
+    "features": [
+      "Commercial Loans",
+      "Global Banking",
+      "Trade Finance"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -408,7 +508,11 @@
     "creditMin": 670,
     "maxFunding": 5000000,
     "approvalTime": "2 weeks",
-    "features": ["SBA 7(a) Loans", "Express Loans", "504 Loans"],
+    "features": [
+      "SBA 7(a) Loans",
+      "Express Loans",
+      "504 Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -424,7 +528,11 @@
     "creditMin": 660,
     "maxFunding": 35000,
     "approvalTime": "Same Day",
-    "features": ["Debt Consolidation", "Fixed Rates", "No Origination Fees"],
+    "features": [
+      "Debt Consolidation",
+      "Fixed Rates",
+      "No Origination Fees"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -440,7 +548,11 @@
     "creditMin": 660,
     "maxFunding": 1000000,
     "approvalTime": "7-10 days",
-    "features": ["Equipment Financing", "Lines of Credit", "SBA Loans"],
+    "features": [
+      "Equipment Financing",
+      "Lines of Credit",
+      "SBA Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -456,7 +568,11 @@
     "creditMin": 660,
     "maxFunding": 100000,
     "approvalTime": "Same Day",
-    "features": ["No Fees", "Low Rates", "Fast Funding"],
+    "features": [
+      "No Fees",
+      "Low Rates",
+      "Fast Funding"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -472,7 +588,11 @@
     "creditMin": 680,
     "maxFunding": 2000000,
     "approvalTime": "1 week",
-    "features": ["Business Term Loans", "Commercial Mortgages", "Equipment Financing"],
+    "features": [
+      "Business Term Loans",
+      "Commercial Mortgages",
+      "Equipment Financing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -488,7 +608,11 @@
     "creditMin": 600,
     "maxFunding": 500000,
     "approvalTime": "2-3 days",
-    "features": ["Equipment Leasing", "Working Capital", "Fast Approval"],
+    "features": [
+      "Equipment Leasing",
+      "Working Capital",
+      "Fast Approval"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -504,7 +628,11 @@
     "creditMin": 585,
     "maxFunding": 36500,
     "approvalTime": "1-2 days",
-    "features": ["Fair Credit Friendly", "Quick Funding", "Fixed Payments"],
+    "features": [
+      "Fair Credit Friendly",
+      "Quick Funding",
+      "Fixed Payments"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -520,7 +648,11 @@
     "creditMin": 600,
     "maxFunding": 500000,
     "approvalTime": "24 hours",
-    "features": ["Equipment Financing", "Working Capital", "Merchant Cash Advances"],
+    "features": [
+      "Equipment Financing",
+      "Working Capital",
+      "Merchant Cash Advances"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -536,7 +668,11 @@
     "creditMin": 620,
     "maxFunding": 1000000,
     "approvalTime": "1-3 days",
-    "features": ["Equipment Leasing", "Sale-Leaseback", "Working Capital"],
+    "features": [
+      "Equipment Leasing",
+      "Sale-Leaseback",
+      "Working Capital"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -552,7 +688,11 @@
     "creditMin": 550,
     "maxFunding": 500000,
     "approvalTime": "24-48 hours",
-    "features": ["Term Loans", "Unsecured Financing", "No Prepayment Penalty"],
+    "features": [
+      "Term Loans",
+      "Unsecured Financing",
+      "No Prepayment Penalty"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -568,7 +708,11 @@
     "creditMin": 640,
     "maxFunding": 45000,
     "approvalTime": "Same Day",
-    "features": ["Fast Funding", "Fixed Rates", "No Hidden Fees"],
+    "features": [
+      "Fast Funding",
+      "Fixed Rates",
+      "No Hidden Fees"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -584,7 +728,11 @@
     "creditMin": 640,
     "maxFunding": 50000,
     "approvalTime": "1-3 days",
-    "features": ["Fixed Rates", "Flexible Terms", "No Prepayment Penalties"],
+    "features": [
+      "Fixed Rates",
+      "Flexible Terms",
+      "No Prepayment Penalties"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -600,7 +748,11 @@
     "creditMin": 585,
     "maxFunding": 2000000,
     "approvalTime": "24 hours",
-    "features": ["Equipment Leasing", "Working Capital", "Sale-Leaseback"],
+    "features": [
+      "Equipment Leasing",
+      "Working Capital",
+      "Sale-Leaseback"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -616,7 +768,11 @@
     "creditMin": 600,
     "maxFunding": 1000000,
     "approvalTime": "Same Day",
-    "features": ["Equipment Leasing", "Vendor Financing", "Section 179 Qualified"],
+    "features": [
+      "Equipment Leasing",
+      "Vendor Financing",
+      "Section 179 Qualified"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -632,7 +788,11 @@
     "creditMin": 580,
     "maxFunding": 35000,
     "approvalTime": "Next Day",
-    "features": ["Middle-Credit Borrowers", "Mobile App", "Fixed Payments"],
+    "features": [
+      "Middle-Credit Borrowers",
+      "Mobile App",
+      "Fixed Payments"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -648,7 +808,11 @@
     "creditMin": 650,
     "maxFunding": 20000,
     "approvalTime": "Instant",
-    "features": ["No Annual Fee", "Special Financing", "Online Purchases"],
+    "features": [
+      "No Annual Fee",
+      "Special Financing",
+      "Online Purchases"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -664,7 +828,11 @@
     "creditMin": 550,
     "maxFunding": 5000000,
     "approvalTime": "24 hours",
-    "features": ["Merchant Cash Advances", "Term Loans", "Invoice Factoring"],
+    "features": [
+      "Merchant Cash Advances",
+      "Term Loans",
+      "Invoice Factoring"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -680,7 +848,11 @@
     "creditMin": 550,
     "maxFunding": 5000000,
     "approvalTime": "1-3 days",
-    "features": ["Loan Marketplace", "Multiple Offers", "Free Advisor Service"],
+    "features": [
+      "Loan Marketplace",
+      "Multiple Offers",
+      "Free Advisor Service"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -696,7 +868,11 @@
     "creditMin": 650,
     "maxFunding": 500000,
     "approvalTime": "5-10 days",
-    "features": ["Student Loan Refinancing", "Flexible Repayment", "Skip Payment Option"],
+    "features": [
+      "Student Loan Refinancing",
+      "Flexible Repayment",
+      "Skip Payment Option"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -712,7 +888,11 @@
     "creditMin": 500,
     "maxFunding": 400000,
     "approvalTime": "24 hours",
-    "features": ["Merchant Cash Advances", "Business Expansion Loans", "Working Capital"],
+    "features": [
+      "Merchant Cash Advances",
+      "Business Expansion Loans",
+      "Working Capital"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -728,44 +908,16 @@
     "creditMin": 575,
     "maxFunding": 250000,
     "approvalTime": "3-5 days",
-    "features": ["Nonprofit Lender", "Minority & Women-Owned Business Focus", "Business Coaching"],
+    "features": [
+      "Nonprofit Lender",
+      "Minority & Women-Owned Business Focus",
+      "Business Coaching"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "accion-opportunity-fund",
     "website": "https://www.aofund.org/"
-  },
-  {
-    "id": "payoff",
-    "name": "Payoff by Happy Money",
-    "category": "Personal Loans",
-    "rating": 4.4,
-    "reviews": 1050,
-    "creditMin": 640,
-    "maxFunding": 40000,
-    "approvalTime": "2-5 days",
-    "features": ["Debt Consolidation Specialist", "No Late Fees", "Financial Wellness Tools"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "payoff",
-    "website": "https://www.happymoney.com/payoff/"
-  },
-  {
-    "id": "peerform",
-    "name": "Peerform",
-    "category": "Personal Loans",
-    "rating": 4.1,
-    "reviews": 680,
-    "creditMin": 600,
-    "maxFunding": 25000,
-    "approvalTime": "1-3 days",
-    "features": ["Peer-to-Peer Lending", "Fixed Interest Rates", "No Prepayment Penalties"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "peerform",
-    "website": "https://www.peerform.com/"
   },
   {
     "id": "breaking-bank",
@@ -776,7 +928,11 @@
     "creditMin": 600,
     "maxFunding": 500000,
     "approvalTime": "24-48 hours",
-    "features": ["FactorAdvantage", "Business Term Loans", "Invoice Factoring"],
+    "features": [
+      "FactorAdvantage",
+      "Business Term Loans",
+      "Invoice Factoring"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -792,7 +948,11 @@
     "creditMin": 650,
     "maxFunding": 2000000,
     "approvalTime": "24 hours",
-    "features": ["Equipment Leasing", "Software Financing", "Vendor Programs"],
+    "features": [
+      "Equipment Leasing",
+      "Software Financing",
+      "Vendor Programs"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -808,7 +968,11 @@
     "creditMin": 640,
     "maxFunding": 250000,
     "approvalTime": "1-3 days",
-    "features": ["Member-Owned", "Business & Personal Loans", "Lower Fees"],
+    "features": [
+      "Member-Owned",
+      "Business & Personal Loans",
+      "Lower Fees"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -824,7 +988,11 @@
     "creditMin": 550,
     "maxFunding": 20000,
     "approvalTime": "Same Day",
-    "features": ["In-Person Service", "Secured Loan Options", "Fixed Payments"],
+    "features": [
+      "In-Person Service",
+      "Secured Loan Options",
+      "Fixed Payments"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -840,7 +1008,11 @@
     "creditMin": 500,
     "maxFunding": 10000,
     "approvalTime": "Instant",
-    "features": ["Lease-to-Own", "No Credit Needed", "Early Buyout Options"],
+    "features": [
+      "Lease-to-Own",
+      "No Credit Needed",
+      "Early Buyout Options"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -856,7 +1028,11 @@
     "creditMin": 0,
     "maxFunding": 10000000,
     "approvalTime": "48 hours",
-    "features": ["eCommerce Funding", "Revenue Share Repayment", "Data-Driven Decisions"],
+    "features": [
+      "eCommerce Funding",
+      "Revenue Share Repayment",
+      "Data-Driven Decisions"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -872,7 +1048,11 @@
     "creditMin": 500,
     "maxFunding": 5000000,
     "approvalTime": "Varies",
-    "features": ["Multiple Loan Offers", "Compare Rates", "All Credit Types"],
+    "features": [
+      "Multiple Loan Offers",
+      "Compare Rates",
+      "All Credit Types"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -888,7 +1068,11 @@
     "creditMin": 620,
     "maxFunding": 50000,
     "approvalTime": "1-3 days",
-    "features": ["Credit Card Consolidation", "Financial Education Tools", "Credit Health Monitoring"],
+    "features": [
+      "Credit Card Consolidation",
+      "Financial Education Tools",
+      "Credit Health Monitoring"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -904,7 +1088,11 @@
     "creditMin": 0,
     "maxFunding": 0,
     "approvalTime": "2-5 days",
-    "features": ["Recurring Revenue Trading", "Non-Dilutive Funding", "SaaS & Subscription Focus"],
+    "features": [
+      "Recurring Revenue Trading",
+      "Non-Dilutive Funding",
+      "SaaS & Subscription Focus"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -920,7 +1108,11 @@
     "creditMin": 0,
     "maxFunding": 5000000,
     "approvalTime": "24-48 hours",
-    "features": ["eCommerce Funding", "Marketing Analytics", "Inventory Financing"],
+    "features": [
+      "eCommerce Funding",
+      "Marketing Analytics",
+      "Inventory Financing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -936,7 +1128,11 @@
     "creditMin": 650,
     "maxFunding": 5000000,
     "approvalTime": "3-7 days",
-    "features": ["Fintech Partnerships", "Small Business Loans", "Personal Loans"],
+    "features": [
+      "Fintech Partnerships",
+      "Small Business Loans",
+      "Personal Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -952,7 +1148,11 @@
     "creditMin": 0,
     "maxFunding": 12000,
     "approvalTime": "Same Day",
-    "features": ["No Credit History Required", "Inclusive Lending", "Credit Building Focus"],
+    "features": [
+      "No Credit History Required",
+      "Inclusive Lending",
+      "Credit Building Focus"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -968,7 +1168,11 @@
     "creditMin": 600,
     "maxFunding": 2000000,
     "approvalTime": "24-48 hours",
-    "features": ["Working Capital Loans", "Equipment Financing", "Flexible Terms"],
+    "features": [
+      "Working Capital Loans",
+      "Equipment Financing",
+      "Flexible Terms"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -984,7 +1188,11 @@
     "creditMin": 500,
     "maxFunding": 1000000,
     "approvalTime": "24 hours",
-    "features": ["Short Term Financing", "Merchant Cash Advances", "Early Payoff Discounts"],
+    "features": [
+      "Short Term Financing",
+      "Merchant Cash Advances",
+      "Early Payoff Discounts"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1000,28 +1208,16 @@
     "creditMin": 0,
     "maxFunding": 0,
     "approvalTime": "1-3 days",
-    "features": ["Banking for Startups", "Venture Debt", "API Integration"],
+    "features": [
+      "Banking for Startups",
+      "Venture Debt",
+      "API Integration"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "mercury",
     "website": "https://mercury.com/"
-  },
-  {
-    "id": "behalf",
-    "name": "Behalf",
-    "category": "Business Credit",
-    "rating": 4.0,
-    "reviews": 740,
-    "creditMin": 550,
-    "maxFunding": 100000,
-    "approvalTime": "24 hours",
-    "features": ["Net Terms Financing", "Vendor Payment Solutions", "Flexible Repayment Options"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "behalf",
-    "website": "https://www.behalf.com/"
   },
   {
     "id": "ally-lending",
@@ -1032,7 +1228,11 @@
     "creditMin": 640,
     "maxFunding": 40000,
     "approvalTime": "Same Day",
-    "features": ["Point-of-Sale Financing", "Healthcare Financing", "Home Improvement Loans"],
+    "features": [
+      "Point-of-Sale Financing",
+      "Healthcare Financing",
+      "Home Improvement Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1048,7 +1248,11 @@
     "creditMin": 640,
     "maxFunding": 350000,
     "approvalTime": "7-14 days",
-    "features": ["SBA Loan Marketplace", "Streamlined Applications", "Fast Approvals"],
+    "features": [
+      "SBA Loan Marketplace",
+      "Streamlined Applications",
+      "Fast Approvals"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1064,28 +1268,16 @@
     "creditMin": 550,
     "maxFunding": 250000,
     "approvalTime": "1-2 days",
-    "features": ["Amazon Seller Financing", "Instant Access", "No Credit Check"],
+    "features": [
+      "Amazon Seller Financing",
+      "Instant Access",
+      "No Credit Check"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "payability",
     "website": "https://www.payability.com/"
-  },
-  {
-    "id": "figopay",
-    "name": "FigoPay",
-    "category": "Payment Processing",
-    "rating": 4.3,
-    "reviews": 765,
-    "creditMin": 600,
-    "maxFunding": null,
-    "approvalTime": "1-3 days",
-    "features": ["Integrated Payments", "Low Transaction Fees", "Easy Integration"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "figopay",
-    "website": "https://www.figopay.com/"
   },
   {
     "id": "brex",
@@ -1096,7 +1288,11 @@
     "creditMin": null,
     "maxFunding": 5000000,
     "approvalTime": "Same Day",
-    "features": ["No Personal Guarantee", "High Credit Limits", "Startup Friendly"],
+    "features": [
+      "No Personal Guarantee",
+      "High Credit Limits",
+      "Startup Friendly"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1104,20 +1300,24 @@
     "website": "https://www.brex.com/"
   },
   {
-    "id": "lendinghome",
-    "name": "LendingHome",
-    "category": "Real Estate Loans",
+    "id": "kiavi",
+    "name": "Kiavi",
+    "category": "Real Estate Bridge Loans",
     "rating": 4.6,
     "reviews": 950,
     "creditMin": 620,
     "maxFunding": 1000000,
     "approvalTime": "7-14 days",
-    "features": ["Bridge Loans", "Rental Property Loans", "Fix-and-Flip Loans"],
+    "features": [
+      "Fix-and-Flip Loans",
+      "Bridge Loans",
+      "Rental Property Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
-    "slug": "lendinghome",
-    "website": "https://www.lendinghome.com/"
+    "slug": "kiavi",
+    "website": "https://www.kiavi.com/"
   },
   {
     "id": "crest-capital",
@@ -1128,7 +1328,11 @@
     "creditMin": 650,
     "maxFunding": 1000000,
     "approvalTime": "1-2 days",
-    "features": ["Equipment Loans", "Software Financing", "Vehicle Leasing"],
+    "features": [
+      "Equipment Loans",
+      "Software Financing",
+      "Vehicle Leasing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1144,60 +1348,16 @@
     "creditMin": 580,
     "maxFunding": 500000,
     "approvalTime": "24 hours",
-    "features": ["Bridge Loans", "SBA Loans", "Merchant Cash Advances"],
+    "features": [
+      "Bridge Loans",
+      "SBA Loans",
+      "Merchant Cash Advances"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "rapidfinance",
     "website": "https://www.rapidfinance.com/"
-  },
-  {
-    "id": "invoicely",
-    "name": "Invoicely",
-    "category": "Invoice Financing",
-    "rating": 4.2,
-    "reviews": 1245,
-    "creditMin": 620,
-    "maxFunding": 200000,
-    "approvalTime": "1-2 days",
-    "features": ["Invoice Factoring", "Supply Chain Financing", "Early Payments"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "invoicely",
-    "website": "https://www.invoicely.com/"
-  },
-  {
-    "id": "first-republic",
-    "name": "First Republic Bank",
-    "category": "Business Banking",
-    "rating": 4.9,
-    "reviews": 1250,
-    "creditMin": 720,
-    "maxFunding": "Varies",
-    "approvalTime": "3-10 days",
-    "features": ["Premium Business Banking", "Wealth Management", "Personalized Service"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "first-republic",
-    "website": "https://www.firstrepublic.com/business-banking"
-  },
-  {
-    "id": "avalanche",
-    "name": "Avalanche",
-    "category": "Crypto Lending",
-    "rating": 4.3,
-    "reviews": 725,
-    "creditMin": null,
-    "maxFunding": "Varies",
-    "approvalTime": "Same Day",
-    "features": ["Crypto-Backed Loans", "No Credit Check", "Instant Funding"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "avalanche",
-    "website": "https://www.avalabs.org/"
   },
   {
     "id": "horizon-funding",
@@ -1208,7 +1368,11 @@
     "creditMin": 600,
     "maxFunding": 450000,
     "approvalTime": "24 hours",
-    "features": ["Equipment Financing", "Working Capital", "Fast Approvals"],
+    "features": [
+      "Equipment Financing",
+      "Working Capital",
+      "Fast Approvals"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1224,7 +1388,11 @@
     "creditMin": 620,
     "maxFunding": 5000000,
     "approvalTime": "5-7 days",
-    "features": ["SBA Loans", "Term Loans", "Community-Focused Lending"],
+    "features": [
+      "SBA Loans",
+      "Term Loans",
+      "Community-Focused Lending"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1240,7 +1408,11 @@
     "creditMin": 660,
     "maxFunding": 500000,
     "approvalTime": "2-3 days",
-    "features": ["Low Interest Rates", "Social Impact", "Flexible Terms"],
+    "features": [
+      "Low Interest Rates",
+      "Social Impact",
+      "Flexible Terms"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1256,7 +1428,11 @@
     "creditMin": 650,
     "maxFunding": 50000,
     "approvalTime": "1-3 days",
-    "features": ["Personal Loans", "Auto Loans", "Low Interest Rates"],
+    "features": [
+      "Personal Loans",
+      "Auto Loans",
+      "Low Interest Rates"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1272,7 +1448,11 @@
     "creditMin": 680,
     "maxFunding": 25000000,
     "approvalTime": "7-14 days",
-    "features": ["Commercial Real Estate", "Construction Loans", "Bridge Financing"],
+    "features": [
+      "Commercial Real Estate",
+      "Construction Loans",
+      "Bridge Financing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1288,7 +1468,11 @@
     "creditMin": "N/A",
     "maxFunding": "Varies",
     "approvalTime": "1-2 days",
-    "features": ["Buy Now Pay Later", "Business Financing", "Merchant Solutions"],
+    "features": [
+      "Buy Now Pay Later",
+      "Business Financing",
+      "Merchant Solutions"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1304,28 +1488,16 @@
     "creditMin": 640,
     "maxFunding": 35000,
     "approvalTime": "1-3 days",
-    "features": ["Payoff Loan", "Financial Wellness", "Member Focus"],
+    "features": [
+      "Payoff Loan",
+      "Financial Wellness",
+      "Member Focus"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "happy-money",
     "website": "https://www.happymoney.com/"
-  },
-  {
-    "id": "payoff",
-    "name": "Payoff",
-    "category": "Credit Card Consolidation",
-    "rating": 4.5,
-    "reviews": 1870,
-    "creditMin": 640,
-    "maxFunding": 40000,
-    "approvalTime": "2-5 days",
-    "features": ["CC Debt Elimination", "Financial Wellness", "No Late Fees"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "payoff",
-    "website": "https://www.payoff.com/"
   },
   {
     "id": "laurel-road",
@@ -1336,7 +1508,11 @@
     "creditMin": 660,
     "maxFunding": 300000,
     "approvalTime": "3-5 days",
-    "features": ["Healthcare Professional Focus", "Competitive Rates", "No Fees"],
+    "features": [
+      "Healthcare Professional Focus",
+      "Competitive Rates",
+      "No Fees"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1352,7 +1528,11 @@
     "creditMin": 670,
     "maxFunding": 750000,
     "approvalTime": "2-5 days",
-    "features": ["Business Loans", "Working Capital", "Business Lines of Credit"],
+    "features": [
+      "Business Loans",
+      "Working Capital",
+      "Business Lines of Credit"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": true,
@@ -1368,7 +1548,11 @@
     "creditMin": 600,
     "maxFunding": 250000,
     "approvalTime": "24 hours",
-    "features": ["Business Checking", "Lines of Credit", "Invoice Factoring"],
+    "features": [
+      "Business Checking",
+      "Lines of Credit",
+      "Invoice Factoring"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1384,7 +1568,11 @@
     "creditMin": 680,
     "maxFunding": 2000000,
     "approvalTime": "3-7 days",
-    "features": ["Term Loans", "Lines of Credit", "Equipment Financing"],
+    "features": [
+      "Term Loans",
+      "Lines of Credit",
+      "Equipment Financing"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1400,28 +1588,16 @@
     "creditMin": "Varies",
     "maxFunding": "Varies",
     "approvalTime": "Varies",
-    "features": ["Loan Comparison", "Multiple Offers", "Financial Education"],
+    "features": [
+      "Loan Comparison",
+      "Multiple Offers",
+      "Financial Education"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "nerdwallet",
     "website": "https://www.nerdwallet.com/loans"
-  },
-  {
-    "id": "ally-invest",
-    "name": "Ally Invest",
-    "category": "Investment Financing",
-    "rating": 4.6,
-    "reviews": 2250,
-    "creditMin": 620,
-    "maxFunding": "Based on Portfolio",
-    "approvalTime": "Same Day",
-    "features": ["Margin Loans", "Portfolio Line of Credit", "Self-Directed Investing"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "ally-invest",
-    "website": "https://www.ally.com/invest/"
   },
   {
     "id": "us-bank",
@@ -1432,7 +1608,11 @@
     "creditMin": 680,
     "maxFunding": 5000000,
     "approvalTime": "7-14 days",
-    "features": ["SBA Lending", "Equipment Financing", "Commercial Real Estate"],
+    "features": [
+      "SBA Lending",
+      "Equipment Financing",
+      "Commercial Real Estate"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1448,7 +1628,11 @@
     "creditMin": "No minimum",
     "maxFunding": "Varies",
     "approvalTime": "Varies",
-    "features": ["Business Credit Scores", "Financing Marketplace", "Business Tools"],
+    "features": [
+      "Business Credit Scores",
+      "Financing Marketplace",
+      "Business Tools"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1464,7 +1648,11 @@
     "creditMin": 660,
     "maxFunding": 3000000,
     "approvalTime": "5-10 days",
-    "features": ["Term Loans", "Lines of Credit", "SBA Loans"],
+    "features": [
+      "Term Loans",
+      "Lines of Credit",
+      "SBA Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1480,28 +1668,16 @@
     "creditMin": 660,
     "maxFunding": 2500000,
     "approvalTime": "5-14 days",
-    "features": ["Equipment Financing", "Business Lines of Credit", "Expansion Loans"],
+    "features": [
+      "Equipment Financing",
+      "Business Lines of Credit",
+      "Expansion Loans"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "fifth-third-bank",
     "website": "https://www.53.com/content/fifth-third/en/business-banking/borrowing.html"
-  },
-  {
-    "id": "first-republic-bank",
-    "name": "First Republic Bank",
-    "category": "Commercial Banking",
-    "rating": 4.7,
-    "reviews": 3150,
-    "creditMin": 700,
-    "maxFunding": 5000000,
-    "approvalTime": "5-10 days",
-    "features": ["Business Banking", "Commercial Real Estate", "Private Banking"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "first-republic-bank",
-    "website": "https://www.firstrepublic.com/commercial-business"
   },
   {
     "id": "stripe-capital",
@@ -1512,7 +1688,11 @@
     "creditMin": "Based on Sales",
     "maxFunding": 500000,
     "approvalTime": "Next Day",
-    "features": ["Revenue-Based Financing", "Fast Approvals", "Automated Repayments"],
+    "features": [
+      "Revenue-Based Financing",
+      "Fast Approvals",
+      "Automated Repayments"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
@@ -1528,60 +1708,16 @@
     "creditMin": "Based on Sales",
     "maxFunding": 250000,
     "approvalTime": "Next Day",
-    "features": ["Sales-Based Financing", "Quick Access", "Fixed Fee"],
+    "features": [
+      "Sales-Based Financing",
+      "Quick Access",
+      "Fixed Fee"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "square-loans",
     "website": "https://squareup.com/us/en/capital"
-  },
-  {
-    "id": "rocket-mortgage",
-    "name": "Rocket Mortgage",
-    "category": "Mortgage Loans",
-    "rating": 4.8,
-    "reviews": 5600,
-    "creditMin": 620,
-    "maxFunding": "Based on Income",
-    "approvalTime": "1-2 weeks",
-    "features": ["Digital Mortgage", "Fast Pre-Approval", "Competitive Rates"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "rocket-mortgage",
-    "website": "https://www.rocketmortgage.com/"
-  },
-  {
-    "id": "ubs-bank",
-    "name": "UBS Bank",
-    "category": "Wealth Management Financing",
-    "rating": 4.5,
-    "reviews": 1950,
-    "creditMin": 700,
-    "maxFunding": "Tailored Solutions",
-    "approvalTime": "3-5 days",
-    "features": ["Securities-Backed Lending", "Wealth Management", "Global Banking"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "ubs-bank",
-    "website": "https://www.ubs.com/us/en/wealth-management/banking.html"
-  },
-  {
-    "id": "silicon-valley-bank",
-    "name": "Silicon Valley Bank",
-    "category": "Technology Banking",
-    "rating": 4.3,
-    "reviews": 2150,
-    "creditMin": 680,
-    "maxFunding": 10000000,
-    "approvalTime": "1-2 weeks",
-    "features": ["Venture Debt", "Startup Banking", "Tech Industry Focus"],
-    "affiliateLink": "",
-    "betterList100": true,
-    "featured": false,
-    "slug": "silicon-valley-bank",
-    "website": "https://www.svb.com/startup-banking"
   },
   {
     "id": "greensky",
@@ -1592,11 +1728,275 @@
     "creditMin": 640,
     "maxFunding": 65000,
     "approvalTime": "Minutes",
-    "features": ["Point-of-Sale Financing", "No Home Equity Required", "Fixed Terms"],
+    "features": [
+      "Point-of-Sale Financing",
+      "No Home Equity Required",
+      "Fixed Terms"
+    ],
     "affiliateLink": "",
     "betterList100": true,
     "featured": false,
     "slug": "greensky",
     "website": "https://www.greensky.com/"
+  },
+  {
+    "id": "kapitus",
+    "name": "Kapitus",
+    "category": "Small Business Loans",
+    "rating": 4.5,
+    "reviews": 980,
+    "creditMin": 625,
+    "maxFunding": 5000000,
+    "approvalTime": "24-48 hours",
+    "features": [
+      "Term Loans",
+      "Revenue-Based Financing",
+      "Equipment Financing"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "kapitus",
+    "website": "https://www.kapitus.com/"
+  },
+  {
+    "id": "headway-capital",
+    "name": "Headway Capital",
+    "category": "Business Line of Credit",
+    "rating": 4.4,
+    "reviews": 860,
+    "creditMin": 625,
+    "maxFunding": 100000,
+    "approvalTime": "Same day - 24 hours",
+    "features": [
+      "Business Line of Credit",
+      "Flexible Draws",
+      "Transparent Fees"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "headway-capital",
+    "website": "https://www.headwaycapital.com/"
+  },
+  {
+    "id": "funding-societies",
+    "name": "Funding Societies",
+    "category": "SME Financing",
+    "rating": 4.4,
+    "reviews": 1200,
+    "creditMin": 0,
+    "maxFunding": 2000000,
+    "approvalTime": "1-3 days",
+    "features": [
+      "Term Financing",
+      "Invoice Financing",
+      "SME Working Capital"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "funding-societies",
+    "website": "https://www.fundingsocieties.com/"
+  },
+  {
+    "id": "kickfurther",
+    "name": "Kickfurther",
+    "category": "Inventory Financing",
+    "rating": 4.3,
+    "reviews": 640,
+    "creditMin": 0,
+    "maxFunding": 2000000,
+    "approvalTime": "2-5 days",
+    "features": [
+      "Inventory Funding",
+      "Purchase Order Support",
+      "Consumer Brand Financing"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "kickfurther",
+    "website": "https://www.kickfurther.com/"
+  },
+  {
+    "id": "lighter-capital",
+    "name": "Lighter Capital",
+    "category": "Revenue-Based Financing",
+    "rating": 4.5,
+    "reviews": 530,
+    "creditMin": 0,
+    "maxFunding": 4000000,
+    "approvalTime": "1-2 weeks",
+    "features": [
+      "Revenue-Based Financing",
+      "No Equity Dilution",
+      "SaaS Financing"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "lighter-capital",
+    "website": "https://www.lightercapital.com/"
+  },
+  {
+    "id": "rapid-finance",
+    "name": "Rapid Finance",
+    "category": "Small Business Loans",
+    "rating": 4.3,
+    "reviews": 1150,
+    "creditMin": 550,
+    "maxFunding": 1000000,
+    "approvalTime": "Within 24 hours",
+    "features": [
+      "Term Loans",
+      "Merchant Cash Advance",
+      "Line of Credit"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "rapid-finance",
+    "website": "https://www.rapidfinance.com/"
+  },
+  {
+    "id": "idea-financial",
+    "name": "Idea Financial",
+    "category": "Business Line of Credit",
+    "rating": 4.2,
+    "reviews": 410,
+    "creditMin": 650,
+    "maxFunding": 275000,
+    "approvalTime": "24-48 hours",
+    "features": [
+      "Line of Credit",
+      "Business Term Loans",
+      "Fast Funding"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "idea-financial",
+    "website": "https://www.ideafinancial.com/"
+  },
+  {
+    "id": "can-capital",
+    "name": "CAN Capital",
+    "category": "Working Capital Loans",
+    "rating": 4.2,
+    "reviews": 890,
+    "creditMin": 600,
+    "maxFunding": 250000,
+    "approvalTime": "Same day",
+    "features": [
+      "Working Capital Loans",
+      "Merchant Cash Advance",
+      "Short-Term Financing"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "can-capital",
+    "website": "https://www.cancapital.com/"
+  },
+  {
+    "id": "forward-financing",
+    "name": "Forward Financing",
+    "category": "Revenue-Based Financing",
+    "rating": 4.4,
+    "reviews": 770,
+    "creditMin": 500,
+    "maxFunding": 300000,
+    "approvalTime": "As fast as 24 hours",
+    "features": [
+      "Revenue-Based Financing",
+      "Fast Approval",
+      "Fixed Cost Funding"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "forward-financing",
+    "website": "https://www.forwardfinancing.com/"
+  },
+  {
+    "id": "expansion-capital-group",
+    "name": "Expansion Capital Group",
+    "category": "Small Business Funding",
+    "rating": 4.1,
+    "reviews": 360,
+    "creditMin": 550,
+    "maxFunding": 300000,
+    "approvalTime": "24 hours",
+    "features": [
+      "Revenue-Based Financing",
+      "Working Capital",
+      "SMB Funding"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "expansion-capital-group",
+    "website": "https://www.expansioncapitalgroup.com/"
+  },
+  {
+    "id": "lendzi",
+    "name": "Lendzi",
+    "category": "Business Lending Marketplace",
+    "rating": 4.3,
+    "reviews": 520,
+    "creditMin": 500,
+    "maxFunding": 2000000,
+    "approvalTime": "1-3 days",
+    "features": [
+      "Lender Matching",
+      "SBA Loan Options",
+      "Business Lines of Credit"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "lendzi",
+    "website": "https://www.lendzi.com/"
+  },
+  {
+    "id": "libertas-funding",
+    "name": "Libertas Funding",
+    "category": "Small Business Funding",
+    "rating": 4.2,
+    "reviews": 610,
+    "creditMin": 550,
+    "maxFunding": 500000,
+    "approvalTime": "24-48 hours",
+    "features": [
+      "Revenue-Based Funding",
+      "Working Capital",
+      "Renewal Programs"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "libertas-funding",
+    "website": "https://www.libertasfunding.com/"
+  },
+  {
+    "id": "funding-circle-us",
+    "name": "Funding Circle",
+    "category": "Small Business Loans",
+    "rating": 4.4,
+    "reviews": 1400,
+    "creditMin": 660,
+    "maxFunding": 500000,
+    "approvalTime": "24-72 hours",
+    "features": [
+      "Term Loans",
+      "Fixed Payments",
+      "No Prepayment Penalty"
+    ],
+    "affiliateLink": "",
+    "betterList100": true,
+    "featured": false,
+    "slug": "funding-circle-us",
+    "website": "https://www.fundingcircle.com/us/"
   }
 ]
