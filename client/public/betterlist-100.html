@@ -257,19 +257,19 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Filter Bar -->
     <section class="py-8 bg-white shadow-md">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex flex-col gap-4">
           <div class="text-lg font-heading font-semibold text-neutral-900">
             <i class="fas fa-filter mr-2 text-primary"></i> Filter Results
           </div>
-          <div class="flex flex-col md:flex-row gap-3">
-            <div class="relative">
-              <input type="text" placeholder="Search lenders..." class="pl-10 pr-4 py-2 w-full md:w-60 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-6 gap-3">
+            <div class="relative sm:col-span-2 xl:col-span-1">
+              <input type="text" placeholder="Search lenders..." class="pl-10 pr-4 py-2 w-full border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
               <div class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <i class="fas fa-search text-neutral-400"></i>
               </div>
             </div>
             <div class="relative">
-              <select id="category-filter" class="appearance-none pl-4 pr-10 py-2 w-full sm:w-40 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+              <select id="category-filter" class="appearance-none pl-4 pr-10 py-2 w-full border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
                 <option value="all">All Categories</option>
                 <option value="Business Loans">Business Loans</option>
                 <option value="Personal Loans">Personal Loans</option>
@@ -284,7 +284,45 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             </div>
             <div class="relative">
-              <select id="sort-order" class="appearance-none pl-4 pr-10 py-2 w-full sm:w-32 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+              <select id="credit-score-filter" class="appearance-none pl-4 pr-10 py-2 w-full border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+                <option value="all">Min Credit: All</option>
+                <option value="500">500+</option>
+                <option value="550">550+</option>
+                <option value="600">600+</option>
+                <option value="650">650+</option>
+                <option value="700">700+</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
+                <i class="fas fa-chevron-down text-neutral-400 text-xs"></i>
+              </div>
+            </div>
+            <div class="relative">
+              <select id="funding-amount-filter" class="appearance-none pl-4 pr-10 py-2 w-full border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+                <option value="all">Max Funding: All</option>
+                <option value="lte-50000">Up to 50k</option>
+                <option value="lte-100000">Up to 100k</option>
+                <option value="lte-250000">Up to 250k</option>
+                <option value="lte-1000000">Up to 1M</option>
+                <option value="gt-1000000">Above 1M</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
+                <i class="fas fa-chevron-down text-neutral-400 text-xs"></i>
+              </div>
+            </div>
+            <div class="relative">
+              <select id="funding-speed-filter" class="appearance-none pl-4 pr-10 py-2 w-full border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
+                <option value="all">Funding Speed: All</option>
+                <option value="same-day">Same Day</option>
+                <option value="24-48h">24-48h</option>
+                <option value="3-7-days">3-7 days</option>
+                <option value="7-plus-days">7+ days</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
+                <i class="fas fa-chevron-down text-neutral-400 text-xs"></i>
+              </div>
+            </div>
+            <div class="relative sm:col-span-2 xl:col-span-1">
+              <select id="sort-order" class="appearance-none pl-4 pr-10 py-2 w-full border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition">
                 <option value="rank">By Rank</option>
                 <option value="rating">By Rating</option>
                 <option value="az">A to Z</option>
@@ -1396,56 +1434,128 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
+    function normalizeApprovalDays(approvalTime) {
+      const value = String(approvalTime || '').toLowerCase();
+
+      if (!value) return null;
+      if (value.includes('same day') || value.includes('same-day') || value.includes('same_day')) return 0;
+      if (value.includes('24-48') || value.includes('24 to 48')) return 2;
+      if (value.includes('24 hour') || value.includes('24hr') || value.includes('24 hr')) return 1;
+      if (value.includes('48 hour') || value.includes('48hr') || value.includes('48 hr')) return 2;
+
+      const dayRangeMatch = value.match(/(\d+)\s*[-–]\s*(\d+)\s*day/);
+      if (dayRangeMatch) return Number(dayRangeMatch[2]);
+
+      const hourRangeMatch = value.match(/(\d+)\s*[-–]\s*(\d+)\s*hour/);
+      if (hourRangeMatch) return Math.ceil(Number(hourRangeMatch[2]) / 24);
+
+      const singleDayMatch = value.match(/(\d+)\s*day/);
+      if (singleDayMatch) return Number(singleDayMatch[1]);
+
+      return null;
+    }
+
+    function matchesFundingAmountFilter(lender, selectedFundingAmount) {
+      if (selectedFundingAmount === 'all') return true;
+
+      const lenderMaxFunding = Number(lender.maxFunding);
+      if (!Number.isFinite(lenderMaxFunding)) return false;
+
+      switch (selectedFundingAmount) {
+        case 'lte-50000':
+          return lenderMaxFunding <= 50000;
+        case 'lte-100000':
+          return lenderMaxFunding <= 100000;
+        case 'lte-250000':
+          return lenderMaxFunding <= 250000;
+        case 'lte-1000000':
+          return lenderMaxFunding <= 1000000;
+        case 'gt-1000000':
+          return lenderMaxFunding > 1000000;
+        default:
+          return true;
+      }
+    }
+
+    function matchesFundingSpeedFilter(lender, selectedFundingSpeed) {
+      if (selectedFundingSpeed === 'all') return true;
+
+      const maxDays = normalizeApprovalDays(lender.approvalTime);
+      if (maxDays === null) return false;
+
+      switch (selectedFundingSpeed) {
+        case 'same-day':
+          return maxDays === 0;
+        case '24-48h':
+          return maxDays > 0 && maxDays <= 2;
+        case '3-7-days':
+          return maxDays >= 3 && maxDays <= 7;
+        case '7-plus-days':
+          return maxDays > 7;
+        default:
+          return true;
+      }
+    }
+
     function setupFilters(allLenders) {
       const categoryFilter = document.getElementById('category-filter');
+      const creditScoreFilter = document.getElementById('credit-score-filter');
+      const fundingAmountFilter = document.getElementById('funding-amount-filter');
+      const fundingSpeedFilter = document.getElementById('funding-speed-filter');
       const sortOrder = document.getElementById('sort-order');
       const searchInput = document.querySelector('input[placeholder="Search lenders..."]');
-      
-      // Filter change handlers
-      categoryFilter.addEventListener('change', () => {
-        // Reset to page 1 when changing filters
+
+      const resetToFirstPageAndFilter = () => {
         window.currentPage = 1;
         filterAndSortLenders(allLenders);
-      });
-      
+      };
+
+      categoryFilter.addEventListener('change', resetToFirstPageAndFilter);
+      creditScoreFilter.addEventListener('change', resetToFirstPageAndFilter);
+      fundingAmountFilter.addEventListener('change', resetToFirstPageAndFilter);
+      fundingSpeedFilter.addEventListener('change', resetToFirstPageAndFilter);
+
       sortOrder.addEventListener('change', () => {
         filterAndSortLenders(allLenders);
       });
-      
-      searchInput.addEventListener('input', () => {
-        // Reset to page 1 when searching
-        window.currentPage = 1;
-        filterAndSortLenders(allLenders);
-      });
-      
+
+      searchInput.addEventListener('input', resetToFirstPageAndFilter);
+
       // Initial filtering and sorting
       filterAndSortLenders(allLenders);
     }
     
     function filterAndSortLenders(allLenders) {
       const categoryFilter = document.getElementById('category-filter');
+      const creditScoreFilter = document.getElementById('credit-score-filter');
+      const fundingAmountFilter = document.getElementById('funding-amount-filter');
+      const fundingSpeedFilter = document.getElementById('funding-speed-filter');
       const sortOrder = document.getElementById('sort-order');
       const searchInput = document.querySelector('input[placeholder="Search lenders..."]');
       
       const selectedCategory = categoryFilter.value;
+      const selectedCreditScore = creditScoreFilter.value;
+      const selectedFundingAmount = fundingAmountFilter.value;
+      const selectedFundingSpeed = fundingSpeedFilter.value;
       const selectedSortOption = sortOrder.value;
       const searchQuery = searchInput.value.toLowerCase();
       
-      // Step 1: Filter lenders by category
-      let filteredLenders = [...allLenders];
-      if (selectedCategory !== 'all') {
-        filteredLenders = allLenders.filter(lender => lender.category === selectedCategory);
-      }
+      // Apply all filters with AND behavior
+      let filteredLenders = [...allLenders].filter((lender) => {
+        const lenderCategory = lender.category || '';
+        const lenderName = lender.name || '';
+        const lenderCreditMin = Number.isFinite(Number(lender.creditMin)) ? Number(lender.creditMin) : null;
+
+        const categoryMatches = selectedCategory === 'all' || lenderCategory === selectedCategory;
+        const creditScoreMatches = selectedCreditScore === 'all' || (lenderCreditMin !== null && lenderCreditMin >= Number(selectedCreditScore));
+        const fundingAmountMatches = matchesFundingAmountFilter(lender, selectedFundingAmount);
+        const fundingSpeedMatches = matchesFundingSpeedFilter(lender, selectedFundingSpeed);
+        const searchMatches = !searchQuery || lenderName.toLowerCase().includes(searchQuery) || lenderCategory.toLowerCase().includes(searchQuery);
+
+        return categoryMatches && creditScoreMatches && fundingAmountMatches && fundingSpeedMatches && searchMatches;
+      });
       
-      // Step 2: Filter by search query if present
-      if (searchQuery) {
-        filteredLenders = filteredLenders.filter(lender => 
-          lender.name.toLowerCase().includes(searchQuery) || 
-          lender.category.toLowerCase().includes(searchQuery)
-        );
-      }
-      
-      // Step 3: Sort lenders based on selected option
+      // Keep existing sort behavior intact
       switch (selectedSortOption) {
         case 'rating':
           filteredLenders.sort((a, b) => b.rating - a.rating);
