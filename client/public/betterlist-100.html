@@ -223,6 +223,34 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </section>
 
+    <!-- Email Capture Section -->
+    <section class="py-8 md:py-10 bg-white border-b border-neutral-200">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-2xl p-6 md:p-8 shadow-lg">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-2">Get Our Free Top 10 Business Lenders PDF</h2>
+              <p class="text-blue-100">Delivered instantly to your inbox. No spam.</p>
+            </div>
+            <form id="top-email-form" class="w-full lg:w-auto flex flex-col sm:flex-row gap-3" novalidate>
+              <label for="top-email-input" class="sr-only">Email address</label>
+              <input
+                id="top-email-input"
+                type="email"
+                required
+                placeholder="Enter your email"
+                class="w-full sm:w-72 px-4 py-3 rounded-lg border border-white/30 bg-white/95 text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-white"
+              >
+              <button type="submit" class="px-6 py-3 rounded-lg bg-neutral-900 text-white font-semibold hover:bg-neutral-800 transition-colors whitespace-nowrap">
+                Send Me the PDF
+              </button>
+            </form>
+          </div>
+          <p id="top-email-thank-you" class="hidden mt-4 text-white font-medium">Thanks! Your guide is on its way.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Filter Bar -->
     <section class="py-8 bg-white shadow-md">
       <div class="container mx-auto px-4">
@@ -388,7 +416,71 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     </section>
+
+    <!-- Mobile Sticky Email Banner -->
+    <div id="mobile-email-banner" class="fixed bottom-3 left-3 right-3 z-50 md:hidden">
+      <div class="bg-white/95 backdrop-blur border border-blue-200 shadow-lg rounded-xl p-3">
+        <div class="flex items-start gap-2">
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-neutral-900 mb-2">📊 Free Lender Guide → Enter email</p>
+            <form id="mobile-email-form" class="flex gap-2" novalidate>
+              <label for="mobile-email-input" class="sr-only">Email address</label>
+              <input
+                id="mobile-email-input"
+                type="email"
+                required
+                placeholder="Email"
+                class="flex-1 min-w-0 px-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+              >
+              <button type="submit" class="px-3 py-2 text-sm font-semibold rounded-lg bg-primary text-white hover:opacity-90 transition-opacity whitespace-nowrap">
+                Send
+              </button>
+            </form>
+            <p id="mobile-email-thank-you" class="hidden mt-2 text-xs font-medium text-success">Thanks! Check your inbox.</p>
+          </div>
+          <button id="mobile-email-dismiss" type="button" class="text-neutral-500 hover:text-neutral-700 px-1" aria-label="Dismiss banner">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <!-- Compare Sticky Bar -->
+  <div id="compare-bar" class="fixed bottom-0 inset-x-0 z-50 bg-neutral-900/95 text-white border-t border-neutral-700 shadow-2xl hidden">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <div class="text-xs uppercase tracking-wide text-neutral-300">Lender Comparison</div>
+          <div id="compare-selected-names" class="text-sm sm:text-base font-medium">No lenders selected</div>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button id="compare-clear" class="px-4 py-2 rounded-md border border-neutral-500 text-sm hover:bg-neutral-800 transition">Clear</button>
+          <button id="compare-now" class="px-4 py-2 rounded-md bg-primary text-white text-sm font-semibold hover:opacity-90 transition">Compare Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compare Modal -->
+  <div id="compare-modal" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
+    <div id="compare-modal-overlay" class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 h-full w-full flex items-center justify-center p-3 sm:p-6">
+      <div class="bg-white rounded-xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden">
+        <div class="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-neutral-200">
+          <h3 class="text-lg sm:text-xl font-heading font-bold text-neutral-900">Compare Lenders</h3>
+          <button id="compare-close" class="text-neutral-500 hover:text-neutral-800" aria-label="Close comparison modal">
+            <i class="fas fa-times text-lg"></i>
+          </button>
+        </div>
+        <div class="overflow-x-auto p-4 sm:p-6">
+          <table id="compare-table" class="min-w-full border border-neutral-200 rounded-lg overflow-hidden text-sm">
+            <!-- table generated by JS -->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-neutral-900 text-white py-12">
@@ -474,10 +566,81 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add debugging message on page
       document.getElementById('desktop-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
       document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
+
+      const EMAIL_STORAGE_KEY = 'bcsTop10LenderGuideEmail';
+      const BANNER_DISMISSED_KEY = 'bcsTop10LenderGuideBannerDismissed';
+
+      const topEmailForm = document.getElementById('top-email-form');
+      const topEmailInput = document.getElementById('top-email-input');
+      const topThankYou = document.getElementById('top-email-thank-you');
+
+      const mobileEmailBanner = document.getElementById('mobile-email-banner');
+      const mobileEmailForm = document.getElementById('mobile-email-form');
+      const mobileEmailInput = document.getElementById('mobile-email-input');
+      const mobileThankYou = document.getElementById('mobile-email-thank-you');
+      const mobileDismissBtn = document.getElementById('mobile-email-dismiss');
+
+      function showCaptureSuccess(email) {
+        if (topEmailForm) topEmailForm.classList.add('hidden');
+        if (topThankYou) {
+          topThankYou.classList.remove('hidden');
+          topThankYou.textContent = `Thanks! ${email} has been saved. Your guide is on its way.`;
+        }
+
+        if (mobileEmailForm) mobileEmailForm.classList.add('hidden');
+        if (mobileThankYou) mobileThankYou.classList.remove('hidden');
+      }
+
+      function submitEmailCapture(email) {
+        localStorage.setItem(EMAIL_STORAGE_KEY, email);
+        showCaptureSuccess(email);
+      }
+
+      const savedEmail = localStorage.getItem(EMAIL_STORAGE_KEY);
+      if (savedEmail) {
+        showCaptureSuccess(savedEmail);
+      }
+
+      if (localStorage.getItem(BANNER_DISMISSED_KEY) === 'true' && mobileEmailBanner) {
+        mobileEmailBanner.classList.add('hidden');
+      }
+
+      if (topEmailForm) {
+        topEmailForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!topEmailInput || !topEmailInput.checkValidity()) {
+            topEmailInput?.reportValidity();
+            return;
+          }
+          submitEmailCapture(topEmailInput.value.trim());
+        });
+      }
+
+      if (mobileEmailForm) {
+        mobileEmailForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!mobileEmailInput || !mobileEmailInput.checkValidity()) {
+            mobileEmailInput?.reportValidity();
+            return;
+          }
+          submitEmailCapture(mobileEmailInput.value.trim());
+        });
+      }
+
+      if (mobileDismissBtn && mobileEmailBanner) {
+        mobileDismissBtn.addEventListener('click', function() {
+          mobileEmailBanner.classList.add('hidden');
+          localStorage.setItem(BANNER_DISMISSED_KEY, 'true');
+        });
+      }
       
       // Global variables for pagination - declare with window to ensure global scope
       window.itemsPerPage = 10;
       let allLenders = [];
+
+      // Compare state
+      window.compareSelected = new Map();
+      initializeCompareUI();
       
       // Check URL for page parameter
       const urlParams = new URLSearchParams(window.location.search);
@@ -648,6 +811,9 @@ document.addEventListener('DOMContentLoaded', function() {
           mobileContainer.appendChild(mobileAdCard);
         }
       });
+
+      syncCompareCheckboxes();
+      updateCompareBar();
     }
     
     function setupPagination(lenders, itemsPerPage) {
@@ -795,6 +961,56 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
+    function getLenderBadges(lender) {
+      const badges = [];
+      const approvalTime = (lender.approvalTime || '').toString().toLowerCase();
+      const featuresText = Array.isArray(lender.features)
+        ? lender.features.join(' ').toLowerCase()
+        : '';
+      const minCreditScore = Number.isFinite(Number(lender.minCreditScore))
+        ? Number(lender.minCreditScore)
+        : Number.isFinite(Number(lender.creditMin))
+          ? Number(lender.creditMin)
+          : null;
+
+      if (approvalTime.includes('24') || approvalTime.includes('same day')) {
+        badges.push({ label: 'Fastest Funding', classes: 'bg-green-100 text-green-700' });
+      }
+
+      if (featuresText.includes('startup') || featuresText.includes('new business')) {
+        badges.push({ label: 'Best for Startups', classes: 'bg-purple-100 text-purple-700' });
+      }
+
+      if ((minCreditScore !== null && minCreditScore <= 550) || featuresText.includes('bad credit')) {
+        badges.push({ label: 'Best for Bad Credit', classes: 'bg-orange-100 text-orange-700' });
+      }
+
+      if (featuresText.includes('no collateral')) {
+        badges.push({ label: 'No Collateral', classes: 'bg-blue-100 text-blue-700' });
+      }
+
+      if ((lender.category || '') === 'SBA Loans') {
+        badges.push({ label: 'SBA Approved', classes: 'bg-yellow-100 text-yellow-700' });
+      }
+
+      return badges;
+    }
+
+    function renderBadgePills(lender) {
+      const badges = getLenderBadges(lender);
+      if (!badges.length) return '';
+
+      return `
+        <div class="flex flex-wrap gap-1.5 mt-2">
+          ${badges.map(badge => `
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium ${badge.classes}">
+              ${badge.label}
+            </span>
+          `).join('')}
+        </div>
+      `;
+    }
+
     function createDesktopLenderRow(lender, rank) {
       const row = document.createElement('div');
       row.className = 'p-4 grid grid-cols-12 gap-4 items-center lender-row';
@@ -807,6 +1023,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Generate stars based on rating
       const stars = generateStarRating(lender.rating);
+      const badgesHtml = renderBadgePills(lender);
       
       row.innerHTML = `
         <div class="col-span-1">
@@ -815,6 +1032,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="col-span-3">
           <div class="flex flex-col">
             <div class="font-heading font-bold text-lg">${lender.name}</div>
+            ${badgesHtml}
             <div class="flex items-center mt-1">
               <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium badge-100">
                 <i class="fas fa-check-circle text-xs mr-1"></i>
@@ -840,9 +1058,10 @@ document.addEventListener('DOMContentLoaded', function() {
           ${featuresDisplay}
         </div>
         <div class="col-span-2 text-right">
-          
-            View Profile
-          
+          <label class="inline-flex items-center justify-end gap-2 text-sm text-neutral-700 cursor-pointer">
+            <input type="checkbox" class="compare-checkbox h-4 w-4 rounded border-neutral-300 text-primary focus:ring-primary" data-lender-id="${lender.id}" data-lender-name="${lender.name}">
+            <span>Compare</span>
+          </label>
         </div>
       `;
       
@@ -856,6 +1075,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Generate stars based on rating
       const stars = generateStarRating(lender.rating);
+      const badgesHtml = renderBadgePills(lender);
       
       // Format features as list items
       const featuresList = lender.features.slice(0, 3).map(feature => 
@@ -871,6 +1091,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="bg-primary text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm mr-3">${rank}</div>
             <div>
               <div class="font-heading font-bold text-lg">${lender.name}</div>
+              ${badgesHtml}
               <div class="flex flex-col mt-1 space-y-1">
                 <span class="inline-flex items-center w-fit text-xs font-medium badge-100 px-2 py-0.5 rounded-full">
                   <i class="fas fa-check-circle text-xs mr-1"></i>
@@ -903,10 +1124,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
         </div>
-        
-        
-          View Profile
-        
+
+        <label class="inline-flex items-center gap-2 text-sm text-neutral-700 cursor-pointer">
+          <input type="checkbox" class="compare-checkbox h-4 w-4 rounded border-neutral-300 text-primary focus:ring-primary" data-lender-id="${lender.id}" data-lender-name="${lender.name}">
+          <span>Compare</span>
+        </label>
       `;
       
       return card;
