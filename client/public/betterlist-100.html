@@ -247,6 +247,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </form>
           </div>
           <p id="top-email-thank-you" class="hidden mt-4 text-white font-medium">Thanks! Your guide is on its way.</p>
+          <button id="export-leads-btn" type="button" class="hidden mt-3 inline-flex items-center px-3 py-2 text-sm font-semibold rounded-lg bg-white text-blue-700 hover:bg-blue-50 transition-colors">
+            Export Leads CSV
+          </button>
         </div>
       </div>
     </section>
@@ -568,17 +571,68 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('mobile-lender-list').innerHTML = '<div class="p-6 text-center text-neutral-700">Loading lender data...</div>';
 
       const EMAIL_STORAGE_KEY = 'bcsTop10LenderGuideEmail';
+      const LEAD_QUEUE_KEY = 'bcsLeadQueue';
       const BANNER_DISMISSED_KEY = 'bcsTop10LenderGuideBannerDismissed';
 
       const topEmailForm = document.getElementById('top-email-form');
       const topEmailInput = document.getElementById('top-email-input');
       const topThankYou = document.getElementById('top-email-thank-you');
+      const exportLeadsBtn = document.getElementById('export-leads-btn');
 
       const mobileEmailBanner = document.getElementById('mobile-email-banner');
       const mobileEmailForm = document.getElementById('mobile-email-form');
       const mobileEmailInput = document.getElementById('mobile-email-input');
       const mobileThankYou = document.getElementById('mobile-email-thank-you');
       const mobileDismissBtn = document.getElementById('mobile-email-dismiss');
+
+      function normalizeEmail(email) {
+        return String(email || '').trim().toLowerCase();
+      }
+
+      function getQueuedLeads() {
+        try {
+          const raw = localStorage.getItem(LEAD_QUEUE_KEY);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function queueLead(lead) {
+        const queued = getQueuedLeads();
+        const targetEmail = normalizeEmail(lead.email);
+        const exists = queued.some((item) => normalizeEmail(item.email) === targetEmail);
+
+        if (!exists) {
+          queued.push(lead);
+          localStorage.setItem(LEAD_QUEUE_KEY, JSON.stringify(queued));
+        }
+      }
+
+      function escapeCsvCell(value) {
+        const stringValue = String(value ?? '');
+        return `"${stringValue.replace(/"/g, '""')}"`;
+      }
+
+      function downloadQueuedLeadsCsv() {
+        const queued = getQueuedLeads();
+        const rows = [
+          ['email', 'source', 'ts', 'page'],
+          ...queued.map((lead) => [lead.email, lead.source, lead.ts, lead.page])
+        ];
+
+        const csvContent = rows.map((row) => row.map(escapeCsvCell).join(',')).join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'bcs-leads-export.csv';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }
 
       function showCaptureSuccess(email) {
         if (topEmailForm) topEmailForm.classList.add('hidden');
@@ -591,9 +645,43 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileThankYou) mobileThankYou.classList.remove('hidden');
       }
 
-      function submitEmailCapture(email) {
-        localStorage.setItem(EMAIL_STORAGE_KEY, email);
-        showCaptureSuccess(email);
+      async function submitEmailCapture(email) {
+        const normalized = normalizeEmail(email);
+        const leadPayload = {
+          email: normalized,
+          source: 'top100',
+          ts: new Date().toISOString(),
+          page: window.location.pathname + window.location.search
+        };
+
+        localStorage.setItem(EMAIL_STORAGE_KEY, normalized);
+
+        // Set globally before this script runs, e.g. <script>window.BCS_LEAD_ENDPOINT = 'https://your-endpoint.example/leads';</script>
+        if (window.BCS_LEAD_ENDPOINT) {
+          try {
+            const response = await fetch(window.BCS_LEAD_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(leadPayload)
+            });
+
+            if (!response.ok) {
+              throw new Error(`Lead endpoint responded with ${response.status}`);
+            }
+          } catch (error) {
+            queueLead(leadPayload);
+          }
+        } else {
+          queueLead(leadPayload);
+        }
+
+        showCaptureSuccess(normalized);
+      }
+
+      const isAdminView = new URLSearchParams(window.location.search).get('admin') === '1';
+      if (isAdminView && exportLeadsBtn) {
+        exportLeadsBtn.classList.remove('hidden');
+        exportLeadsBtn.addEventListener('click', downloadQueuedLeadsCsv);
       }
 
       const savedEmail = localStorage.getItem(EMAIL_STORAGE_KEY);
@@ -606,24 +694,24 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       if (topEmailForm) {
-        topEmailForm.addEventListener('submit', function(e) {
+        topEmailForm.addEventListener('submit', async function(e) {
           e.preventDefault();
           if (!topEmailInput || !topEmailInput.checkValidity()) {
             topEmailInput?.reportValidity();
             return;
           }
-          submitEmailCapture(topEmailInput.value.trim());
+          await submitEmailCapture(topEmailInput.value.trim());
         });
       }
 
       if (mobileEmailForm) {
-        mobileEmailForm.addEventListener('submit', function(e) {
+        mobileEmailForm.addEventListener('submit', async function(e) {
           e.preventDefault();
           if (!mobileEmailInput || !mobileEmailInput.checkValidity()) {
             mobileEmailInput?.reportValidity();
             return;
           }
-          submitEmailCapture(mobileEmailInput.value.trim());
+          await submitEmailCapture(mobileEmailInput.value.trim());
         });
       }
 
