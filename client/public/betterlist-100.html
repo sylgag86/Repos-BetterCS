@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <!-- Mobile menu button (simplified for template) -->
         <div class="md:hidden">
-          <button type="button" class="text-neutral-500 hover:text-primary focus:outline-none">
+          <button id="mobile-menu-toggle" type="button" class="text-neutral-500 hover:text-primary focus:outline-none" aria-label="Toggle menu">
             <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
@@ -203,6 +203,16 @@ document.addEventListener('DOMContentLoaded', function() {
           <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors font-medium">Contact</a>
         </div>
       </nav>
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-3 text-sm font-medium">
+          <a href="/" class="text-neutral-700 hover:text-primary transition-colors">Home</a>
+          <a href="/personal-funding" class="text-neutral-700 hover:text-primary transition-colors">Personal Funding</a>
+          <a href="/business-funding" class="text-neutral-700 hover:text-primary transition-colors">Business Funding</a>
+          <a href="/bcs-top-100-reviews.html" class="text-neutral-700 hover:text-primary transition-colors">Reviews</a>
+          <a href="/resources/index.html" class="text-neutral-700 hover:text-primary transition-colors">Guides</a>
+          <a href="/contact" class="text-neutral-700 hover:text-primary transition-colors">Contact</a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -465,6 +475,18 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
 
   <!-- JavaScript for Lender Data -->
   <script>
